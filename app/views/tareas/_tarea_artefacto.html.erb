@@ -1,0 +1,113 @@
+<% content_for :modal do %>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("#new_tarea_artefacto").validate({
+                rules: {
+                    "palabra_clave": {
+                        required: true,
+                        minlength: 3
+                    }
+                },
+                messages: {
+                    "palabra_clave": {
+                        required: "<%= t('mandatory') %>",
+                        minlength: "<%= t('.minlenght') %>"
+                    }
+                }
+            });
+
+              $("#buscar_artefacto").click(function(){
+                  $("#artefactos_found").text("<%= t('buscando') %>");
+                  $("#assets_found").empty();
+                  $("#new_tarea_artefacto").validate();
+
+                  var texto =$("#palabra_clave").val();
+                  var url = "<%= request.protocol + request.host_with_port %>/artefactos/1/search_assets?palabra_clave="+texto;
+                  $.getJSON(url, function(json){
+
+                  var i = 0;
+                    $.each( json, function( key, item ) {
+                        // alert(item.file_name);
+                        var img = "<img width='100px' height='100px' src='"+ item.local_url_thumb +"' />";
+                        var input = "<input type='checkbox' id='artefactos[]' name='artefactos[]' value='"+ item.id +"' class='check_artefacto'/>";
+                        var label = "<label class='nombre_artefacto'>" + item.file_name + "</label>";
+                        var link = "<a href='<%= request.protocol + request.host_with_port %>/artefactos/"+item.id+"-"+item.folder_id+"' target='_blank'><%= t('.ver_detalle') %></a>";
+                        var hidden = "<input type='hidden' id='"+item.id+"' name='"+item.id+"' value='" + item.file_name + "' />";
+                        var div = "<div style='display: inline-block;'>" + img + input + label + '<br/>' + link + hidden + "</div>"
+                         $( "#assets_found").append(div);
+                        i++;
+                    });
+
+                    $("#artefactos_found").text(i + " assets found in repository");
+                  }
+              );
+            });
+        });
+    </script>
+
+    <%= form_for(@tarea_artefacto, :html=> {:multipart=>true}) do |f| %>
+
+        <input type="hidden" name="tarea_seleccionada" id="tarea_seleccionada" class="tarea_seleccionada" value="0" />
+
+        <div id="asociar_artefacto" class="modal hide fade asociaciones " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" xmlns="http://www.w3.org/1999/html">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3><%= t('.asociar_aretfacto')%></h3>
+          </div>
+
+          <div class="modal-body">
+            <div class="row-fluid">
+                   <fieldset>
+                     <div class="field">
+                       <label><%= t('.tipo_artefacto') %></label>
+                       <select id="tipo_artefacto" name="tipo_artefacto" >
+                         <option value=""><%= t('.cualquiera') %></option>
+                       <% TipoArtefacto.all.each do |tipo_artefacto| %>
+                         <option value="<%= tipo_artefacto.nombre %>"><%= tipo_artefacto.nombre %></option>
+                       <% end %>
+                       </select>
+
+                       <label><%= t('.palabra_clave') %></label>
+
+
+                       <input type="text" name="palabra_clave" id="palabra_clave" value="">
+                       <input type="button" name="buscar_artefacto" id="buscar_artefacto" value="<%= t('.buscar')%>"  class="btn find_artefacto">
+                     </div>
+
+                     <div class="field">
+                        <label id="artefactos_found" name="artefactos_found"></label>
+                     </div>
+                     <div class="field">
+                        <div id="assets_found"></div>
+                     </div>
+                   </fieldset>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="actions"  align=right >
+              <input id="asociar_proceso" class="btn primary"  name="commit" type="submit" value="<%= t('.btnAsociar')%>" />
+              <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar') %></button>
+            </div>
+            <br/>
+            <br/>
+            <% @actividades.each do |actividad| %>
+                <div id="sugerencias_artefactos<%= actividad.id %>" class="sugerencias">
+                  <% actividad.actividad_tipoartefacto.each do |act_tipoartefacto| %>
+                      <div class="whatsneeded">
+                          <div class="thingstatus">
+                              <img src="/images/ready.png">
+                            </div>
+                            <div class="title"> <%= act_tipoartefacto.tipo_artefacto.nombre %> <%= t('.sugeridos') %> </div>
+                            <div class="clear"></div>
+                          </div>
+                  <% end %>
+                </div>
+            <% end %>
+
+          </div>
+        </div>
+    <% end %>
+<% end %>

@@ -1,0 +1,131 @@
+
+<table id="act_tiporecursosmatTabla" class="table table-bordered table-striped tablesorter" >
+  <thead>
+  <tr>
+    <th></th>
+    <th><%= t('nombre')%> </th>
+    <% if @actividad.proceso_id %>
+    <th><%= t('unidades')%> </th>
+    <th><%= t('cantidad')%> </th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+  <% @actividad_tiporecursos_material.each do |act_tiporecurso| %>
+      <tr id="<%= act_tiporecurso.id %>">
+        <td width="20px">
+          <input type="checkbox"/>
+        </td>
+        <td> <%= act_tiporecurso.tipo_recurso.nombre %></td>
+        <% if @actividad.proceso_id %>
+        <td>
+          <% case act_tiporecurso.tipo_recurso.unit %>
+          <% when 1 %>
+              <%= t('hora_hombre')%>
+          <% when 2 %>
+              <%= t('costo_uso')%>
+          <% end %>
+        </td>
+        <td>
+          <%= act_tiporecurso.cantidad %>
+        </td>
+         <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<% content_for :modal do %>
+<div id="tipo_recursosmat" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+  <%= form_for(@actividad_tiporecurso, :html => {:id => "new_actividad_tiporecurso_material"}) do |f| %>
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3><%= t('seleccione')%> <%= t('tipo_recurso') %></h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="row-fluid">
+          <label><%= t('seleccione')%></label>
+          <!--input type="text" id="tiporec_name" name="tiporec_name"/-->
+          <select id="tiporecmat_name" name="tiporecmat_name">
+            <% @tipo_recursos_material.each do |tipo_recurso| %>
+                <option value="<%= tipo_recurso.nombre %>"><%= tipo_recurso.nombre %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="row-fluid">
+          <% if @actividad.proceso_id %>
+          <label><%= t('cantidad')%></label>
+          <input type="text" id="tiporecmat_qty" name="tiporecmat_qty" value="1" />
+          <% else %>
+          <input type="hidden" id="tiporecmat_qty" name="tiporecmat_qty" value="1" />
+          <% end %>
+          <input type="hidden" id="actividad_id" name="actividad_id" value="<%=@actividad.id %>" />
+        </div>
+      </div>
+      <div class="modal-footer">
+
+        <input type="submit" class="btn" id="select_resource" name="select_resource" value ="<%= t('btnCrear')%>"/>
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar')%></button>
+      </div>
+
+  <% end %>
+</div>
+
+    <% end %>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        $.validator.addMethod("material_usado", validar_material_usado, "");
+
+        $("#new_actividad_tiporecurso_material").validate({
+            rules: {
+                "tiporecmat_name": {
+                    required: true,
+                    material_usado: true
+                },
+                "tiporecmat_qty": {
+                    required: true,
+                    number: true
+                }
+            },
+            messages: {
+                "tiporecmat_name": {
+                    required: "<%= t('mandatory')%>",
+                    material_usado: "<%= t('has_asigned')%>"
+                },
+                "tiporecmat_qty": {
+                    required: "<%= t('mandatory')%>",
+                    number: "<%= t('has_asigned')%>"
+                }
+            }
+        });
+    });
+
+    var usado = false;
+    function validar_material_usado() {
+        var nombre = document.getElementById("tiporecmat_name").value;
+        var actividad = document.getElementById("actividad_id").value;
+
+        $.ajax({
+            type: "GET",
+            url: "<%= request.protocol + request.host_with_port %>/actividad_tiporecursos/existe/nombre",
+            data: "nombre=" + nombre + "&actividad_id=" + actividad,
+            async: false,
+            success:
+                    function(msg) {
+                        msg == "true" ? usado = false : usado = true
+                    }
+        });
+
+        return usado;
+    }
+</script>
+
+<% if @actividad.proceso.estado != "publicado" %>
+<a href="#tipo_recursosmat" role="button" class="btn" data-toggle="modal"><%= t('add') %></a>
+<a href="#del_tipo_recursosmat" role="button" class="btn" data-toggle="modal"><%= t('remove') %></a>
+<% end %>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/C:/Sites/CMS_Servidor/app/views/proyectos/index.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/config/database.yml</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/controllers/rols_controller.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/config/routes.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/models/proyecto.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/models/rol.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/models/tipo_archivo.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/rols/show.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/config/locales/es.yml</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/rols/_form.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/rols/edit.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/rols/index.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/db/migrate/20120903144214_create_rols.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/db/migrate/20120601162105_create_proyectos.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/db/migrate/20120601162043_create_tipo_productos.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/db/migrate/20120601161858_create_archivo_proyectos.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/db/migrate/20120601161629_create_depositos.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/models/archivo.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/layouts/application.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/config/locales/en.yml</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/proyectos/proy.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/depositos/index.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/rols/new.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/controllers/depositos_controller.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/test/fixtures/archivo_proyectos.yml</file>
+        <file>file:/C:/Sites/CMS_Servidor/ejemplocucumber.feature</file>
+        <file>file:/C:/Sites/CMS_Servidor/Gemfile</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/proyectos/_form.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/proyectos/_form1.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/controllers/application_controller.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/proyectos/edit.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/proyectos/new.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/organizacions/index.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/app/views/organizacions/_form.html.erb</file>
+        <file>file:/C:/Sites/CMS_Servidor/config/initializers/i18n.rb</file>
+        <file>file:/C:/Sites/CMS_Servidor/config/cucumber.yml</file>
+    </open-files>
+</project-private>

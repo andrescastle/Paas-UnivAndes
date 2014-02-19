@@ -1,0 +1,26 @@
+<html lang="en" class=" ext-strict">
+
+  <!--HEAD-->
+  <head>
+
+    <title>Proyecto David</title>
+
+    <%= render 'layouts/javascript_estilos' %>
+
+    <%= csrf_meta_tags %>
+
+  </head>
+  <!--BODY-->
+  <body id="ext-gen6" class=" ext-safari has_project_nav " data-spy="scroll" data-target=".subnav" data-offset="50">
+  <%= javascript_include_tag :'wz_tooltip' %>
+    <div class="contents  " id="ext-gen33">
+
+
+      <p id="notice" style="color: blue"><%= @notice %></p>
+      <%= yield %>
+
+    </div>
+  <%= yield :modal %>
+  </body>
+
+</html>

@@ -1,0 +1,86 @@
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        $(".import_dropbox").click(function(){
+            var id = this.id;
+            id = id.replace("import_button", "");
+            $("#dropbox_id").val(id);
+            $("#dropbox_search").text("");
+            $("#dropbox_progress").hide();
+            $("#dropbox_progress2").hide();
+            $( "#dropbox_found").empty();
+        });
+
+        $("#importar_dropbox").click(function(){
+            $("#dropbox_progress2").show();
+        });
+
+        $("#buscar_dropbox").click(function(){
+            $("#dropbox_search").text("<%= t('buscando') %>");
+            $("#dropbox_progress").show();
+            $( "#dropbox_found").empty();
+
+            var id=$("#dropbox_id").val();
+            var palabra_clave = $("#dropbox_palabra").val();
+            var url = "<%= request.protocol + request.host_with_port %>/dropbox/"+id+"/use?palabra_clave="+palabra_clave;
+
+            $.getJSON(url, function(json){
+                var i = 0;
+                $.each( json, function( key, item ) {
+                    var img = "<img width='100px' height='100px' src='"+ item.url.substring(item.url.indexOf('_iconoes_') + 9, item.url.length) +"' />";
+                    var input = "<input type='checkbox' id='artefactos[]' name='artefactos[]' value='"+ item.url.substring(0, item.url.indexOf('_iconoes_')) +"' class='check_artefacto'/>";
+                    var label = "<label class='nombre_artefacto'>" + item.name + "</label>";
+                    var link = "<a href='#'></a>";
+                    var div = "<div style='display: inline-block;'>" + img + input + '<br/>' + label + link +  "</div>"
+                    $( "#dropbox_found").append(div);
+                    i++;
+                });
+
+                $("#dropbox_search").text(i + " <%= t('elements_founds') %>");
+                $("#dropbox_progress").hide();
+            });
+        });
+    });
+</script>
+
+<form id="dropbox_form" name="dropbox_form" method="get" action="<%= request.protocol + request.host_with_port %>/dropbox/import">
+
+<div id="import_dropbox" class="modal hide fade asociaciones" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3><%= t('.importar')%></h3>
+  </div>
+
+  <div class="modal-body">
+    <div class="row-fluid">
+      <div class="field">
+
+      </div>
+      <div class="field">
+
+        <input type="hidden" id="dropbox_id" name="dropbox_id" value="">
+        <label><%= t('.palabra_clave') %></label>
+        <input type="text" name="dropbox_palabra" id="dropbox_palabra" value="">
+        <input type="button" name="buscar_dropbox" id="buscar_dropbox" value="<%= t('buscar')%>"  class="btn find_artefacto">
+      </div>
+
+      <div class="field">
+        <div id="dropbox_found"></div>
+      </div>
+      <div class="field">
+        <label id="dropbox_search" name="dropbox_search"></label>
+        <img id="dropbox_progress" name="dropbox_progress" src="images/progressbar.gif" hidden="true" />
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="actions"  align="right">
+      <img id="dropbox_progress2" name="dropbox_progress2" src="images/progressbar.gif" hidden="true" />
+      <br/>
+      <input id="importar_dropbox" class="btn primary"  name="commit" type="submit" value=" <%= t('.importar')%>" />
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar') %></button>
+    </div>
+  </div>
+</div>
+</form>

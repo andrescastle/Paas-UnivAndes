@@ -1,0 +1,199 @@
+<%#
+# = Vista de una grilla de plantillas
+# Esta vista implementa la grilla de administración de plantillas
+%>
+
+<script type="text/javascript">
+  var nuevoModalId = "#nuevoplantilla";
+  var editarModalId = "#editarplantilla";
+  var eliminarModalId = "#eliminarplantilla";
+  var nameInputId = "plantilla_nombre";
+  var validateNameUrl = "<%= request.protocol + request.host_with_port %>/plantillas/existe/nombre";
+  var nuevoButtonId = "#new_plantilla";
+  var editarButtonId = "#editarplantilla";
+  var eliminarButtonId = "#eliminarplantilla";
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    // Paginación - ordenamiento
+    $("#plantillasTabla").tablesorter({ headers: { 0:{sorter: false}}})
+    .tablesorterPager({container: $("#pager"),positionFixed: false, size: 30});
+
+    // Callback de validacion de nombre repetido por ajax
+    $.validator.addMethod("nombre_unico", validar_nombre_unico, "");
+
+    // Validaciones de jquery
+    $("#new_plantilla").validate({
+      rules: {
+        "plantilla[nombre]": {
+          required: true,
+          nombre_unico: true
+        },
+        "plantilla[tipo_plantilla_id]": {
+          required: true
+        }
+
+      },
+      messages: {
+        "plantilla[nombre]": {
+          required: "<%= t('mandatory') %>",
+          nombre_unico: "<%= t('name_exist') %>"
+        },
+        "plantilla[tipo_plantilla_id]": {
+          required: "<%= t('mandatory') %>"
+        }
+      }
+    });
+  });
+</script>
+
+
+<% @titulo = t('.title_pag') %>
+<%= render "shared/encabezado_crud" %>
+
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+    <%
+    @filtroTexto = t('filtro')
+    @verListaTexto = t('viewList')
+    @verIconosTexto = t('viewSharp')
+
+    @nuevoBotonId = "nuevo_plantilla"
+    @nuevoBotonTexto = t('add')
+    @nuevoPath = plantillas_path
+    @nuevoModal = "nuevoplantilla"
+
+    @editarBotonId = "editar_plantilla"
+    @editarBotonTexto = t('edit')
+    @editarPath = "#"
+    @editarModal = "editarplantilla"
+
+    @eliminarBotonId = "eliminar_plantilla"
+    @eliminarBotonTexto = t('delete')
+    @eliminarPath = "#"
+    @eliminarModal = "eliminarplantilla"
+    @eliminarConfirm = "Está seguro de querer eliminar la plantilla?"
+  %>
+
+    <%= render "shared/menu_crud" %>
+
+    <!-- Formas de visualización en tabla o thumbnail,...-->
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 250px; top: 30px; ">
+      <%
+         if(@plantillas.count == 0)
+      %>
+          <div class="addnew">
+            <%= t('no_created')%>.<br /><br />
+            <a data-toggle="modal" role="button" class="btn" href="#nuevoplantilla">
+              <%= image_tag "/images/add.png" %><br /><br />
+              <%= t('add_new')%>.
+            </a>
+          </div>
+      <%
+         else
+      %>
+      <table id="plantillasTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th><%= t('nombre')%> </th>
+            <th><%= t('tipo_plantilla')%> </th>
+            <th><%= t('descr')%> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @plantillas.each do |plantilla| %>
+            <tr id="<%= plantilla.id %>">
+              <td style="vertical-align:middle"><input type="checkbox" /></td>
+             <td>
+               <% if FileTest.exist?(Dir.pwd + "/public/images/plantillas/" + plantilla.id.to_s() + "_original.img") %>
+                   <%= image_tag "/images/plantillas/" + plantilla.id.to_s() + '_original.img', :size => "75x75" %>
+               <% else %>
+                   <%= image_tag "/images/noimage.jpg", :size => "75x75" %>
+               <% end %>
+             </td>
+              <td  style="vertical-align:middle">
+                <%= link_to plantilla.nombre, plantilla_path(plantilla) %>
+              </td>
+              <td style="vertical-align:middle"> <%= plantilla.tipo_plantilla.nombre %></td>
+              <td style="vertical-align:middle"> <%= plantilla.descripcion %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+   <% end %>
+    </div>
+
+    <%= render "shared/filtro_crud" %>
+
+    <%
+    @pagTexto = @plantillas.count.to_s() + " " + t('listade')
+    @porPagTexto = t('pag')
+  %>
+
+    <%= render "shared/footer_crud" %>
+  </div>
+
+</div>
+
+<!-- Formularios de edicion -->
+<% content_for :modal do %>
+  <div id="nuevoplantilla" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3><%= t('add')%> <%= t('plantilla')%></h3>
+    </div>
+
+    <div class="modal-body">
+      <div class="row-fluid">
+        <%= form_for(@plantilla, :html=> {:multipart=>true}) do |f| %>
+
+        <fieldset>
+            <!-- Datos del proyecto
+             ================================================== -->
+            <div id="rol" >
+
+              <div class="field">
+                <%= f.label :nombre,  "*" + t('nombre')%><br />
+                <%= f.text_field :nombre, :maxlength => 250 %>
+              </div>
+              <div class="field">
+                <%= f.label :tipo_plantilla,  "*" + t('tipo_plantilla') %><br />
+                <%= f.select :tipo_plantilla_id, TipoPlantilla.all.map{|p| [p.nombre, p.id]} %>
+              </div>
+              <div class="field">
+                <%= f.label :descripcion, t('descr') %><br />
+                <%= f.text_area :descripcion, :size => "30x10", :maxlength => 250 %>
+              </div>
+              <div class="field">
+                <%= f.label :descripcion, t('imagen')%><br />
+                <%= f.file_field :imagen %>
+              </div>
+            </div>
+          </fieldset>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="actions"  align=right >
+
+          <input id="crear_plantilla" class="btn primary"  name="commit" type="submit" value="<%= t('btnCrear')%>" />
+          <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar')%></button>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+<%end%>
+
+
+

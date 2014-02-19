@@ -1,0 +1,257 @@
+
+
+h5 { margin-top: 5px; }
+
+.controls > span { display: inline-block; margin: 10px; }
+.size1 input { font-size: 8pt; }
+.size2 input { font-size: 10pt; }
+.size3 input { font-size: 14pt; }
+.right input { width: 3em; }
+.left input { width: 3em; }
+.vertical input { width: 1.5em; }
+.horizontal input { width: 2em; }
+
+
+.c-input > div {
+    margin: 2px;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 8pt;
+}
+
+#topbottom input {
+    width: 10px;
+    font-size: 10pt;
+}
+
+#alpha input {
+    width: 30px;
+    font-size: 14pt;
+}
+
+.helpbox {
+    position: absolute;
+    z-index: 1000;
+}
+
+/* Styles for modifying spinner layout without overriding widget */
+
+.c-topbottom .ui-spinner-input {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.c-topbottom .ui-spinner-button {
+    height: 10px;
+    left: 0px;
+    width: 100%;
+}
+
+.c-topbottom a.ui-spinner-button {
+    border: none;
+}
+
+.c-topbottom .ui-spinner .ui-icon {
+    margin-left: -7px;
+    top: 5px;
+    left: 50%;
+}
+
+/* Styles for modifying spinner layout for overridden widget alphaspinner */
+
+.ui-spinner-alpha .ui-spinner-input {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.ui-spinner-alpha .ui-spinner-button {
+    height: 10px;
+    left: 0px;
+    width: 100%;
+}
+
+.ui-spinner-alpha a.ui-spinner-button {
+    border: none;
+}
+
+.ui-spinner-alpha .ui-icon {
+    margin-left: -7px;
+    top: 5px;
+    left: 50%;
+}
+
+#dhtmlgoodies_dragDropContainer{	/* Main container for this script */
+    width: 100%;
+}
+
+#dhtmlgoodies_dragDropContainer .thetaskcontainer{	/* Main container for this script */
+    background-color: #aeb6b9;
+}
+
+#dhtmlgoodies_dragDropContainer ul{	/* General rules for all <ul> */
+    margin-top:0px;
+    margin-left:0px;
+    margin-bottom:0px;
+    padding:0px;
+}
+
+#dhtmlgoodies_dragDropContainer li,#dragContent li,li#indicateDestination{	/* Movable items, i.e. <LI> */
+    background-color: #f3f3d1; border-top:solid 1px #ffffff; border-bottom: solid 1px #d8d8b0; font-size: 13px; padding: 3px;
+}
+
+#dhtmlgoodies_dragDropContainer .onetask{border: none; padding-left: 20px;}
+#dhtmlgoodies_dragDropContainer .onetask div{border: none;}
+#dhtmlgoodies_dragDropContainer .onetask:hover{background-color: #f0f0c6;}
+#dhtmlgoodies_dragDropContainer .onetask .title{float:left; margin: 0 5px;}
+#dhtmlgoodies_dragDropContainer .onetask .title span{color:#aaaaaa; font-size: 11px; margin-left: 5px;}
+#dhtmlgoodies_dragDropContainer .onetask .process{float:right; margin: 0 5px; text-align: right;}
+#dhtmlgoodies_dragDropContainer .onetask .process img{float:right; margin-left: 5px;}
+#dhtmlgoodies_dragDropContainer .onetask .processname{float:right; font-style: italic; color: #006633; font-size: 11px;  }
+#dhtmlgoodies_dragDropContainer .onetask .projectname{font-style: italic; color: #006633; font-size: 8px; text-transform: uppercase; }
+
+#col1 .onetask{ background-image: url(/images/gray.png); background-repeat: no-repeat; background-position: 3px 10px;}
+#col1 .lateme{ background-image: url(/images/red.png);}
+#col1 .lateother{ background-image: url(/images/orange.png);}
+#col1 .noaprobada{ background-image: url(/images/red_NoAprobada.png);}
+#col1 .horizontal {visibility: hidden; }
+#col2 .onetask{ background-image: url(/images/green.png); background-repeat: no-repeat; background-position: 3px 10px;}
+#col2 .lateme{ background-image: url(/images/red.png);}
+#col2 .lateother{ background-image: url(/images/orange.png);}
+#col2 .horizontal {visibility: visible; }
+#col2 .noaprobada{ background-image: url(/images/red_NoAprobada.png);}
+#col3 .onetask{ background-image: url(/images/green_red.png); background-repeat: no-repeat; background-position: 3px 10px;}
+#col3 .lateme{ background-image: url(/images/red_P.png);}
+#col3 .lateother{ background-image: url(/images/orange_P.png);}
+#col3 .horizontal {visibility: hidden; }
+#col4 .onetask{ background-image: url(/images/ready.png); background-repeat: no-repeat; background-position: 3px 10px;}
+#col4 .lateme{ background-image: url(/images/ready_red.png);}
+#col4 .lateother{ background-image: url(/images/ready_orange.png);}
+#col4 .horizontal {visibility: hidden; }
+
+li#indicateDestination{	/* Box indicating where content will be dropped - i.e. the one you use if you don't use arrow */
+    border:1px dotted #600;
+    background-color:#FFF;
+}
+
+#dhtmlgoodies_dragDropContainer ul li.correctAnswer{	/* Correctly moved item */
+
+}
+#dhtmlgoodies_dragDropContainer ul li.wrongAnswer{	/* Item moved to wrong box */
+
+}
+
+
+/* Start main container CSS */
+
+div#dhtmlgoodies_mainContainer{	/* Right column DIV */
+    width:100%;
+    float:left;
+}
+
+div#dhtmlgoodies_mainContainer .thetaskcontainer{
+    min-height: 445px;
+    max-height: 445px;
+    width: 30%;
+    float: left;
+    border: solid 3px #333333;
+    margin: 3px;
+    overflow: auto;
+}
+#dhtmlgoodies_mainContainer div{	/* Parent <div> of small boxes */
+    margin-left:0px;
+
+}
+#dhtmlgoodies_mainContainer div p{	/* Heading above small boxes */
+    background-color: #333333; color: #ffffff; font-size: 11px; text-transform: uppercase; font-weight: bold; padding: 2px; margin: 0;
+}
+#dhtmlgoodies_mainContainer ul{	/* Small box in right column ,i.e <ul> */
+    height:auto;
+
+}
+div#dhtmlgoodies_mainContainer  .mouseover{	/* Mouse over effect DIV box in right column */
+    background-color:#E2EBED;
+    border:1px solid #317082;
+    float: left;
+    border: solid 3px #333333;
+    margin: 3px;
+    width: 30%;
+    height: 445px;
+}
+
+#dragContent{	/* Drag container */
+    position:absolute;
+    width:30%;
+    height:auto;
+    display:none;
+    margin:0px;
+    padding:0px;
+    z-index:2000;
+}
+
+#dragDropIndicator{	/* DIV for the small arrow */
+    position:absolute;
+    width:7px;
+    height:10px;
+    display:none;
+    z-index:1000;
+    margin:0px;
+    padding:0px;
+}
+
+.ui-spinner-input {
+    margin: 2px 8px 2px 4px;
+    font-size: 10px;
+}
+
+.ui-spinner input {
+    font-size: 10px;
+}
+
+.legendgraphs {
+    color: rgb(204, 204, 204);
+    background-color: rgb(37, 37, 37);
+    padding: 10px;
+    float: left;
+    margin: 20px 0 5px 0;
+    width: 320px;
+}
+
+.legendgraphs .titulo {
+    text-align: center;
+    font-weight: bold;
+}
+
+.legendgraphs .labels {
+    float: left;
+    font-size: 12px;
+}
+
+.legendgraphs .icons {
+    width: 12px;
+    height: 12px;
+    float: left;
+    font-size: 12px;
+    float: left;
+    margin-right: 10px;
+}
+
+.legendbottom {
+    border: solid 2px rgb(37, 37, 37);
+    padding: 10px;
+    float: left;
+    min-width: 316px;
+}
+
+.agraph {
+    width: 338px;
+    height: 169px;
+}
+
+.agraphb {
+    width: 400px;
+    height: 400px;
+}

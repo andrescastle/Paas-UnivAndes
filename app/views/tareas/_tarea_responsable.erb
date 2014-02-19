@@ -1,0 +1,92 @@
+<script language="javascript" type="text/javascript">
+
+    $(document).ready(function() {
+
+        $("#set_responsable_tarea").click(function(){
+            var tarea_id =  $('#tarea_seleccionada').val();
+            var responsable_id = $('#responsable_id:checked').val();
+
+            var url = "<%= request.protocol + request.host_with_port %>/tareas/" + tarea_id + "/asignar_responsable?id_responsable=" + responsable_id;
+
+            window.location = url;
+
+        });
+    });
+
+</script>
+
+<% content_for :modal do %>
+
+    <div id="asociar_responsable" class="modal hide fade asociaciones " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+         xmlns="http://www.w3.org/1999/html">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3><%= t('.asociar_responsable')%></h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="row-fluid">
+          <div class="accordion" id="accordion_responsable">
+
+            <% @organizaciones.each do |organizacion| %>
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_responsable" href="#collapse-responsable<%= organizacion.id %>">
+                      <%= organizacion.nombre %>
+                    </a>
+                  </div>
+                  <div id="collapse-responsable<%= organizacion.id %>" class="accordion-body collapse">
+                    <%
+                       @hash = Hash.new
+                       Usuario.find_all_by_organizacion_id(organizacion.id).each do |usuario|
+                         @hash[usuario.tipo_recurso_id] = Array.new
+                       end
+
+                       Usuario.find_all_by_organizacion_id(organizacion.id).each do |usuario|
+                         @array = @hash[usuario.tipo_recurso_id]
+                         @array.push(usuario)
+                       end
+                    %>
+
+
+                    <div class="accordion-inner">
+                      <div class="tabbable tabs-left">
+                        <ul class="nav nav-tabs">
+                          <% @hash.keys.each do |tipo_recurso_id| %>
+                              <% if tipo_recurso_id != nil %>
+                              <li>
+                                <a href="#tipo_responsable<%= tipo_recurso_id %>_<%= organizacion.id %>" data-toggle="tab"><%= TipoRecurso.find(tipo_recurso_id).nombre %> </a>
+                              </li>
+                              <% end %>
+                          <% end %>
+                        </ul>
+                        <div class="tab-content">
+                          <% @hash.keys.each do |tipo_recurso_id| %>
+                              <div class="tab-pane in" id="tipo_responsable<%= tipo_recurso_id %>_<%= organizacion.id %>">
+                                <% @hash[tipo_recurso_id].each do |usuario| %>
+                                    <input type="radio" id="responsable_id" name="responsable_id" value="<%= usuario.id %>" />
+                                    <%= usuario.nombre %>
+                                <% end %>
+                              </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="actions"  align=right >
+          <input id="set_responsable_tarea" class="btn primary"  name="set_responsable_tarea" type="button" value="<%= t('.btnAsociar')%>" />
+          <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar') %></button>
+        </div>
+      </div>
+    </div>
+
+<% end %>

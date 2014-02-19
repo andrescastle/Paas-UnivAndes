@@ -1,0 +1,29 @@
+<html lang="en" class=" ext-strict">
+
+  <!--HEAD-->
+  <head>
+
+    <title>Proyecto David</title>
+
+    <%= render 'layouts/javascript_estilos' %>
+
+    <%= csrf_meta_tags %>
+
+
+  </head>
+
+  <!--BODY-->
+  <body id="ext-gen6" class=" ext-safari has_project_nav " data-spy="scroll" data-target=".subnav" data-offset="50">
+
+    <div class="contents  " id="ext-gen33">
+      <% if @message then %>
+          <div id="message" style="background-color: #003580; height: 40px; width: 100%; text-align: center; vertical-align: middle; color: #FFFFFF" ><%= @message %></div>
+      <% end  %>
+
+      <%= yield %>
+
+    </div>
+    <%= yield :modal %>
+  </body>
+
+</html>

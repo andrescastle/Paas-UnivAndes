@@ -1,0 +1,259 @@
+<script type="text/javascript">
+    var nuevoModalId = "#nuevoorganizacion";
+    var editarModalId = "#editarorganizacion";
+    var eliminarModalId = "#eliminarorganizacion";
+    var nameInputId = "organizacion_nombre";
+    var validateNameUrl = "<%= request.protocol + request.host_with_port %>/organizacions/existe/nombre";
+    var nitInputId = "organizacion_nit";
+    var validateNitUrl = "<%= request.protocol + request.host_with_port %>/organizacions/existe/nit";
+    var representanteInputId = "organizacion_representante";
+    var validateRepresentanteExisteUrl = "<%= request.protocol + request.host_with_port %>/organizacions/existe/representante";
+    var validateRepresentanteUnicoUrl = "<%= request.protocol + request.host_with_port %>/organizacions/unico/representante";
+    var nuevoButtonId = "#new_deposito";
+    var editarButtonId = "#editardeposito";
+    var eliminarButtonId = "#eliminardeposito";
+    var pwdInputId = "usuario[password]";
+    var pwdConfInputId = "usuario[password_confirm]";
+    var validatePasswordUrl = "<%= request.protocol + request.host_with_port %>/usuarios/password_iguales/pasword";
+
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#organizacionsTabla").tablesorter({ headers: { 0:{sorter: false}}})
+                .tablesorterPager({container: $("#pager"),positionFixed: false , size: 30});
+
+        $.validator.addMethod("nombre_unico", validar_nombre_unico, "");
+        $.validator.addMethod("nit_unico", validar_nit_unico, "");
+        $.validator.addMethod("representante_unico", validar_representante_unico, "");
+        $.validator.addMethod("password_iguales", validar_password_iguales, "");
+
+        $("#new_organizacion").validate({
+            rules: {
+                "organizacion[nombre]": {
+                    required: true,
+                    nombre_unico: true
+                },
+                "organizacion[nit]": {
+                    required: true,
+                    nit_unico: true
+                },
+                "usuario[nombre]": {
+                    required: true
+                },
+                "usuario[email]": {
+                    nombre_unico: true,
+                    required: true,
+                    email: true
+                },
+                "usuario[password]": {
+                    required: true,
+                    minlength: 8
+                },
+                "usuario[password_confirm]": {
+                    required: true,
+                    password_iguales: true,
+                    minlength: 8
+                },
+                "organizacion[descripcion]": {
+                    maxlenght: 250
+                }
+            },
+
+            messages: {
+                "organizacion[nombre]": {
+                    required: "<%= t('mandatory') %>",
+                    nombre_unico: "<%= t('name_exist') %>"
+                },
+                "organizacion[nit]": {
+                    required: "<%= t('mandatory') %>",
+                    nit_unico: "<%= t('.nit_existe') %>"
+                },
+                "usuario[nombre]": {
+                    required: "<%= t('mandatory') %>"
+                },
+                "usuario[email]": {
+                    required: "<%= t('mandatory') %>",
+                    email: "<%= t('email_invalid') %>",
+                    nombre_unico: "<%= t('.email_existe') %>"
+                },
+                "usuario[password]": {
+                    required: "<%= t('mandatory') %>",
+                    minlength: "<%= t('.min_lenght') %>"
+                },
+                "usuario[password_confirm]": {
+                    required: "<%= t('mandatory') %>",
+                    password_iguales: "<%= t('password_nomatch') %>",
+                    minlength: "<%= t('.min_lenght') %>"
+                },
+                "organizacion[descripcion]": {
+                    maxlenght:"<%= t('max_lenght') %>"
+                }
+            }
+        });
+
+
+    });
+
+</script>
+
+<% @titulo = t('.title_pag') %>
+<%= render "shared/encabezado_crud" %>
+
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scorganizacionl_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+    <%
+       @filtroTexto = t('filtro')
+       @verListaTexto = t('viewList')
+       @verIconosTexto = t('viewSharp')
+
+       @nuevoBotonId = "nuevo_organizacion"
+       @nuevoBotonTexto = t('add')
+       @nuevoPath = organizacions_path
+       @nuevoModal = "nuevoorganizacion"
+
+       @editarBotonId = "editar_organizacion"
+       @editarBotonTexto = t('edit')
+       @editarPath = "#"
+       @editarModal = "editartipodeposito"
+
+       @eliminarBotonId = "eliminar_organizacion"
+       @eliminarBotonTexto = t('delete')
+       @eliminarPath = "#"
+       @eliminarModal = "eliminartipodeposito"
+       @eliminarConfirm = "EstÃ¡ seguro de querer eliminar la deposito?"
+    %>
+
+    <%= render "shared/menu_crud" %>
+
+
+    <!-- Formas de visualizaciÃ³n en tabla o thumbnail,...-->
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scorganizacionl_container seltarget" style="left: 250px; top: 30px; ">
+      <%
+         if(@organizacions.count == 0)
+      %>
+          <div class="addnew">
+            <%= t('no_created')%>.<br /><br />
+            <a data-toggle="modal" role="button" class="btn" href="#nuevoorganizacion">
+              <%= image_tag "/images/add.png" %><br /><br />
+              <%= t('add_new')%>.
+            </a>
+          </div>
+      <%
+         else
+      %>
+      <table id="organizacionsTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+        <tr>
+          <th></th>
+          <th><%= t('nombre')%> </th>
+          <th><%= t('descripcion')%> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @organizacions.each do |organizacion| %>
+            <tr id="<%= organizacion.id %>">
+              <td width="20px"><input type="checkbox" /></td>
+              <td>
+                <%= link_to organizacion.nombre, "#" %></td>
+              <td> <%= organizacion.descripcion %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+     <% end %>
+    </div>
+
+    <%= render "shared/filtro_crud" %>
+
+
+    <%
+       @pagTexto = @organizacions.count.to_s() + " " + t('listade')
+       @porPagTexto = t('pag')
+    %>
+
+    <%= render "shared/footer_crud" %>
+  </div>
+
+</div>
+
+
+<% content_for :modal do %>
+    <div id="nuevoorganizacion" class="modal hide fade " organizacione="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3><%= t('add')%> <%= t('organizacion')%></h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="row-fluid">
+          <%= form_for(@organizacion, :html=> {:multipart=>true}) do |f| %>
+
+              <fieldset>
+                <!-- Datos del organizacion
+                 ================================================== -->
+
+                <div id="organizacions" >
+                  <div class="field">
+                    <%= f.label :nombre,  "*" + t('nombre')%>
+                    <%= f.text_field :nombre, :maxlength => 200 %>
+                  </div>
+                  <div class="field">
+                    <%= f.label :nit,  "*" + t('.nit')%>
+                    <%= f.text_field :nit, :maxlength => 50 %>
+                  </div>                  
+
+                  <div class="field">
+                    <label> <%=  "*" + t('.nombre_manager')%></label>
+                    <input type="text" id="usuario[nombre]" name="usuario[nombre]" maxlength="200">
+                  </div>
+                  <div class="field">
+                    <label> <%= t('apellidos')%></label>
+                    <input type="text" id="usuario[apellidos]" name="usuario[apellidos]" maxlength="200">
+                  </div>
+                  <div class="field">
+                    <label> <%=  "*" + t('.email_manager')%></label>
+                    <input type="text" id="usuario[email]" name="usuario[email]" maxlength="200">
+                  </div>
+                  <div class="field">
+                    <label> <%=  "*" + t('password')%></label>
+                    <input type="password" id="usuario[password]" name="usuario[password]" maxlength="20">
+                  </div>
+                  <div class="field">
+                    <label> <%=  "*" + t('password_confirm')%></label>
+                    <input type="password" id="usuario[password_confirm]" name="usuario[password_confirm]" maxlength="20">
+                  </div>
+
+                  <div class="field" onclick="">
+                  <%= f.label :tipo_organizacion, t('tipo_organizacion') %>
+                  <%= f.select :tipo_organizacion_id, TipoOrganizacion.all.map{|p| [p.name, p.id]} %>
+                </div>
+
+                  <div class="field">
+                    <%= f.label :descripcion, t('descripcion') %>
+                    <%= f.text_area :descripcion, :size => "30x10", :maxlength => 250 %>
+                  </div>
+                </div>
+              </fieldset>
+
+              </div>
+              </div>
+              <div class="modal-footer">
+                <div class="actions"  align=right >
+
+                  <input id="crear_organizacion" class="btn primary"  name="commit" type="submit" value=" <%= t('btnCrear')%>" />
+                  <button class="btn" data-dismiss="modal" aria-hidden="true" ><%= t('btnCancelar')%></button>
+                </div>
+              </div>
+          <% end %>
+
+          </div>
+<%end%>
+
+

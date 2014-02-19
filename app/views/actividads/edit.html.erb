@@ -1,0 +1,264 @@
+<%#
+# = Vista de edición de una actividad
+# Esta vista implementa el formulario de creación/edición de una actividad
+%>
+<script type="text/javascript">
+  var nameInputId = "actividad_nombre";
+  var validateNameUrl = "<%= request.protocol + request.host_with_port %>/actividads/existe/nombre";
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    
+    // Validaciones de jquery
+    $("#edit_actividad_<%= @actividad.id %>").validate({
+
+      rules: {
+        "actividad[nombre]": {
+          required: true
+        },
+        "actividad[modoejecucion]": {
+          required: true
+        }
+        <%if @actividad.proceso_id %>
+        ,
+        "actividad[duracion]": {
+            number: true
+        },
+        "actividad[horas_estimadas]": {
+            required: true
+        },
+        "actividad[num_instancias]": {
+            number: true
+        },
+        "actividad[tipocontrol]": {
+            required: true
+        },
+        "actividad[modo_revision]": {
+              required: true
+        }
+
+        <% end %>
+
+      },
+      messages: {
+        "actividad[nombre]": {
+          required: "<%= t('mandatory') %>"
+        },
+        "actividad[modoejecucion]": {
+          required: "<%= t('mandatory') %>"
+        }
+        <%if @actividad.proceso_id %>
+        ,
+        "actividad[duracion]": {
+            number: "<%= t('numeric_value') %>"
+        },
+        "actividad[horas_estimadas]": {
+            required: "<%= t('numeric_value') %>"
+        },
+        "actividad[num_instancias]": {
+            number: "<%= t('numeric_value') %>",
+            required: "<%= t('mandatory') %>"
+        },
+        "actividad[tipocontrol]": {
+           required: "<%= t('mandatory') %>"
+        },
+        "actividad[modo_revision]": {
+              required: "<%= t('mandatory') %>"
+        }
+
+        <% end %>
+      }
+    });
+
+});
+</script>
+
+<div class="" style="background: #F2F7FF; padding: 10px;" >
+  <div class="modal-header">
+
+    <h3><%= @actividad.nombre %></h3>
+  </div>
+
+  <div class="row-fluid">
+    <%= form_for(@actividad, :html=> {:multipart=>true}) do |f| %>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            if($("#actividad_modoejecucion").val() == "1")
+            {
+              $("#instancias").hide();
+            }
+
+          $("#actividad_modoejecucion").change(function(){
+            if($("#actividad_modoejecucion").val() == "1")
+                $("#instancias").hide();
+            else
+                $("#instancias").show();
+          });
+        });
+        </script>
+
+    <div class="actions"  align="right">
+      <input id="crear_actividad" class="btn primary"  name="commit" type="submit" value="Guardar" />
+    </div>
+
+      <fieldset>
+        <table>
+          <tr>
+            <td>
+              <% if @actividad.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@actividad.errors.count, "error") %> prohibited this actividad from being saved:</h2>
+
+                    <ul>
+                      <% @actividad.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+
+                <%= f.hidden_field :plantilla_id, :value => @actividad.plantilla_id  %>
+                <%= f.hidden_field :proceso_id, :value => @actividad.proceso_id  %>
+
+              <%if @actividad.proceso.estado != "publicado" %>
+
+                    <div class="field">
+                      <%= f.label :nombre, t('nombre') %>
+                      <%= f.text_field :nombre, :maxlength => 250 %>
+                    </div>
+                    <div class="field">
+                      <%= f.label :descripcion, t('descr') %><br/>
+                      <%= f.text_area :descripcion, :size => "20x3", :maxlength => 250 %>
+                    </div>
+                    <div class="field">
+                      <%= f.label :modoejecucion, t('.modoejecact') %>
+                      <%= f.select :modoejecucion, { t('seleccione') => nil, t('.simple') => 1, t('.secuence') => 2, t('.multiinstance') => 3 } %>
+                    </div>
+                    <% if @actividad.proceso_id %>
+                     <div id="instancias" name="instancias" class="field">
+                         <%= f.label :num_instancias, t('.num_instancias') %>
+                         <%= f.text_field :num_instancias  %>
+                     </div>
+                     <div class="field">
+                       <%= f.label :duracion, t('.duracionact') %>
+                       <%= f.text_field :duracion %> <%= t('.dias') %>
+                     </div>
+                     <div class="field">
+                       <%= f.label :horas_estimadas, t('.horasestact') %>
+                       <%= f.text_field :horas_estimadas %> <%= t('.horas') %>
+                     </div>
+                     <div class="field">
+                       <%= f.label :tipocontrol, t('.tipocontrol') %>
+                       <%= f.select :tipocontrol, { t('.controlfechas') => 'fechas', t('.controlhoras') => 'horas', t('.nocontrol') => 'ninguno' } %>
+                     </div>
+                      <div class="field">
+                        <%= f.label :modo_revision, t('.modo_aprobacion') %>
+                        <%= f.select :modo_revision, { t('.automatica') => 'auto', t('.simple') => 'simple', t('.reqrevisionpara') => 'para', t('.reqrevisionseq') => 'sequ' } %>
+                      </div>
+                      <% end %>
+                  <% else %>
+
+                      <div class="field">
+                        <b> <%= f.label :nombre, t('nombre') %></b>  <%= @actividad.nombre%>
+                      </div>
+                      <br/>
+                      <div class="field">
+                        <%= f.label :descripcion, t('descr') %>
+                        <p> <%= @actividad.descripcion%> </p>
+                      </div>
+                      <br/>
+                      <div class="field">
+                        <%= f.label :modoejecucion, t('.modoejecact') %>
+                          <% if @actividad.modoejecucion == 1 %><%= t('.simple') %>
+                          <% elsif @actividad.modoejecucion == 2 %> <%= t('.secuence') %>
+                          <% elsif @actividad.modoejecucion == 3 %> <%= t('.multiinstance') %>
+                          <% end %>
+                      </div>
+                      <br/>
+                      <% if @actividad.proceso_id %>
+                          <div id="instancias" name="instancias" class="field">
+                            <%= f.label :num_instancias, t('.num_instancias') %>
+                            <p> <%= @actividad.num_instancias %> </p>
+                          </div>
+                          <br/>
+                          <div class="field">
+                            <%= f.label :duracion, t('.duracionact') %>
+                            <p> <%= @actividad.duracion %> </p>
+                          </div>
+                          <br/>
+                          <div class="field">
+                            <%= f.label :horas_estimadas, t('.horasestact') %>
+                            <p> <%= @actividad.horas_estimadas %> </p>
+                          </div>
+                          <br/>
+                          <div class="field">
+                            <%= f.label :tipocontrol, t('.tipocontrol') %>
+                            <% if @actividad.tipocontrol == 'auto' %><%= t('.automatica') %>
+                            <% elsif @actividad.tipocontrol == 'fechas' %> <%= t('.fechas') %>
+                            <% elsif @actividad.tipocontrol == 'horas' %> <%= t('.horas') %>
+                            <% elsif @actividad.tipocontrol == 'ninguno' %> <%= t('.nocontrol') %>
+                            <% end %>
+                          </div>
+                          <br/>
+                          <div class="field">
+                            <%= f.label :modo_revision, t('.modo_aprobacion') %>
+                            <% if @actividad.modo_revision == 'auto' %><%= t('.automatica') %>
+                            <% elsif @actividad.modo_revision == 'simple' %> <%= t('.simple') %>
+                            <% elsif @actividad.modo_revision == 'para' %> <%= t('.reqrevisionpara') %>
+                            <% elsif @actividad.modo_revision == 'sequ' %> <%= t('.reqrevisionseq') %>
+                            <% end %>
+                          </div>
+
+                   <% end %>
+                <% end %>
+
+            </td>
+            <td>
+              <% if FileTest.exist?(Dir.pwd + "/public/images/actividades/" + @actividad.id.to_s() + "_original.img") %>
+                <%= image_tag "/images/actividades/" + @actividad.id.to_s() + '_original.img', :size => "150x150" %>
+              <% else %>
+                <%= image_tag "/images/noimage.jpg", :size => "150x150" %>
+              <% end %>
+
+              <p></p>
+              <div class="field">
+                <%= f.label :imagen, t('imagen') %><br />
+                <%= f.file_field :imagen %>
+              </div>
+
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+
+    <% end %>
+  </div>
+  <p></p>
+  <ul id="myTab" class="nav nav-tabs">
+    <li class="active"><a href="#resourcestab" data-toggle="tab"><%= t('.resourcetypes')%> </a></li>
+    <li><a href="#assetstab" data-toggle="tab"><%= t('.assets')%></a></li>
+    <li><a href="#rolestab" data-toggle="tab"><%= t('.roles')%></a></li>
+    <li><a href="#revision" data-toggle="tab"><%= t('.revision')%></a></li>
+  </ul>
+
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane  in active" id="resourcestab">
+    <%= render 'tiporecursos_material' %>
+    </div>
+    <div class="tab-pane " id="assetstab">
+     <%= render 'tipoartefactos' %>
+    </div>
+    <div class="tab-pane " id="rolestab">
+      <%= render 'tiporecursos_humano' %>
+    </div>
+    <div class="tab-pane " id="revision">
+      <%= render 'revision' %>
+    </div>
+  </div>
+</div>
+

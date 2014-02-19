@@ -1,0 +1,164 @@
+<script type="text/javascript">
+  var nuevoModalId = "#nuevotipo_plantilla";
+  var editarModalId = "#editartipo_plantilla";
+  var eliminarModalId = "#eliminartipo_plantilla";
+  var nameInputId = "tipo_plantilla_nombre";
+  var validateNameUrl = "<%= request.protocol + request.host_with_port %>/tipo_plantillas/existe/nombre";
+  var nuevoButtonId = "#new_plantilla";
+  var editarButtonId = "#editarplantilla";
+  var eliminarButtonId = "#eliminarplantilla";
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#tipo_plantillasTabla").tablesorter({ headers: { 0:{sorter: false}}})
+    .tablesorterPager({container: $("#pager"),positionFixed: false , size: 5});
+
+    $.validator.addMethod("nombre_unico", validar_nombre_unico, "");
+
+    $("#new_tipo_plantilla").validate({
+      rules: {
+        "tipo_plantilla[nombre]": {
+          required: true,
+          nombre_unico: true
+        }
+      },
+      messages: {
+        "tipo_plantilla[nombre]": {
+          required: "<%= t('mandatory') %>",
+          nombre_unico: "<%= t('name_exist') %>"
+        }
+      }
+    });
+  });
+
+</script>
+
+<% @titulo = t('.title_pag') %>
+<%= render "shared/encabezado_crud" %>
+
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+    <%
+    @filtroTexto = t('filtro')
+    @verListaTexto = t('viewList')
+    @verIconosTexto = t('viewSharp')
+
+    @nuevoBotonId = "nuevo_tipo_plantilla"
+    @nuevoBotonTexto = t('add')
+    @nuevoPath = tipo_plantillas_path
+    @nuevoModal = "nuevotipo_plantilla"
+
+    @editarBotonId = "editar_tipo_plantilla"
+    @editarBotonTexto = t('edit')
+    @editarPath = "#"
+    @editarModal = "editartipoplantilla"
+
+    @eliminarBotonId = "eliminar_tipo_plantilla"
+    @eliminarBotonTexto = t('delete')
+    @eliminarPath = "#"
+    @eliminarModal = "eliminartipoplantilla"
+    @eliminarConfirm = "Está seguro de querer eliminar la plantilla?"
+  %>
+
+    <%= render "shared/menu_crud" %>
+
+    
+    <!-- Formas de visualización en tabla o thumbnail,...-->
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 250px; top: 30px; ">
+      <%
+         if(@tipo_plantillas.count == 0)
+      %>
+          <div class="addnew">
+            <%= t('no_created')%>.<br /><br />
+            <a data-toggle="modal" role="button" class="btn" href="#nuevotipo_plantilla">
+              <%= image_tag "/images/add.png" %><br /><br />
+              <%= t('add_new')%>.
+            </a>
+          </div>
+      <%
+         else
+      %>
+      <table id="tipo_plantillasTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+          <tr>
+            <th></th>
+            <th><%= t('nombre')%> </th>
+             <th><%= t('descr')%> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tipo_plantillas.each do |tipo_plantilla| %>
+            <tr id="<%= tipo_plantilla.id %>">
+              <td width="20px"><input type="checkbox" /></td>
+              <td><%= link_to tipo_plantilla.nombre, "#" %></td>
+              <td><%= tipo_plantilla.descripcion %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+     <% end %>
+    </div>
+
+ <%= render "shared/filtro_crud" %>
+       
+
+  <%
+    @pagTexto = @tipo_plantillas.count.to_s() + " " + t('listade')
+    @porPagTexto = t('pag')
+  %>
+
+  <%= render "shared/footer_crud" %>
+  </div>
+
+</div>
+
+
+<% content_for :modal do %>
+  <div id="nuevotipo_plantilla" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3><%= t('add')%> <%= t('tipo_plantilla')%></h3>
+    </div>
+
+    <div class="modal-body">
+      <div class="row-fluid">
+        <%= form_for(@tipo_plantilla) do |f| %>
+          <fieldset>
+            <!-- Datos del proyecto
+             ================================================== -->
+            <div id="rol">
+
+              <div class="field">
+                <%= f.label :nombre, "*" + t('nombre'), :maxlength => 200 %><br />
+                <%= f.text_field :nombre %>
+              </div>
+              <div class="field">
+                <%= f.label :descripcion, t('descr') %><br />
+                <%= f.text_area :descripcion, :size => "30x10", :maxlength => 250 %>
+              </div>
+            </div>
+
+          </fieldset>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="actions"  align=right >
+
+          <input id="crear_tipo_plantilla"  class="btn primary"  name="commit" type="submit" value=" <%= t('btnCrear')%>" />
+          <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar')%></button>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+<%end%>
+

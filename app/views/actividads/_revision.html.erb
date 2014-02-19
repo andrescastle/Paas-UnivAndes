@@ -1,0 +1,162 @@
+
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <style>
+      #sortable { list-style-type: none; margin: 0; padding: 0; width: 95%; }
+      #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+      #sortable li span { position: absolute; margin-left: -1.3em; }
+  </style>
+  <script>
+      $(function() {
+          $( "#sortable" ).sortable({
+              update: function( event, ui ) {
+                  Dropped();
+              }
+          });
+          $( "#sortable" ).disableSelection();
+      });
+
+      function Dropped(event, ui){
+          $("#sortable").each(function(){
+              var datos = $(this).html();
+              var html = $.parseHTML( datos );
+              var turno = 1;
+
+              var datatosend = Array();
+
+              $.each( html, function( i, el ) {
+                  if(el.nodeName == 'LI') {
+                      datatosend.push(el.id+"_t_"+turno);
+                      turno++;
+                  }
+
+              });
+
+              var formdata = null;
+              formdata =
+              {
+                  "datos": datatosend
+              }
+
+              var url = '<%= request.protocol + request.host_with_port %>/actividads_turnos';
+              $.ajax({
+                  url: url,
+                  data: formdata,
+                  cache: false,
+                  contentType: 'multipart/form-data',
+                  processData: true,
+                  type: 'GET',
+                  success: function (data) {
+                      if (data == "true") {
+                          // what a great thing it reached here!
+                      }
+                      else alert("No se pudieron actualizar los ordenes de revisión");
+                  }
+              });
+
+
+          });
+          refresh();
+      }
+  </script>
+
+
+
+
+
+
+
+
+<table id="act_revisionTabla" class="table table-bordered table-striped tablesorter" >
+  <thead>
+  <tr>
+    <th>Selección del <strong><%= t('tipo_revisor')%></strong> (Si es secuencial, favor organizarlos)</th>
+  </tr>
+  </thead>
+  <tbody>
+
+      <tr>
+        <td>
+          <ul id="sortable">
+
+          <% @actividad_revisiones.each do |act_revision| %>
+
+              <li class="ui-state-default" id="id_<%= act_revision.id %>_tr_<%= act_revision.tipo_recurso_id %>"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><input type="checkbox"/> <%= act_revision.tipo_recurso.nombre %></li>
+
+          <% end %>
+          </ul>
+        </td>
+
+      </tr>
+
+  </tbody>
+</table>
+
+<% content_for :modal do %>
+    <div id="new_revision" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+      <%= form_for(@actividad_revision, :html => {:id => "new_actividad_revision"}) do |f| %>
+
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3><%= t('add')%> <%= t('revision') %></h3>
+          </div>
+
+          <div class="modal-body">
+            <!--div class="row-fluid">
+              <label><%= t('nombre')%></label>
+              <input type="text" id="revision_name" name="revision_name">
+            </div--->
+            <div class="row-fluid">
+              <label><%= t('.tipo_revisor')%></label>
+              <select id="tiporec_revision" name="tiporec_revision">
+                <% @tipo_recursos_humano.each do |tipo_recurso| %>
+                    <option value="<%= tipo_recurso.id %>"><%= tipo_recurso.nombre %></option>
+                <% end %>
+              </select>
+              <input type="hidden" id="actividad_id" name="actividad_id" value="<%=@actividad.id %>" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" class="btn" id="add_revision" name="add_revision" value ="<%= t('btnCrear')%>"/>
+            <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar')%></button>
+          </div>
+
+      <% end %>
+    </div>
+
+<% end %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+         $("#new_actividad_revision").validate({
+            rules: {
+                /*"revision_name": {
+                    required: true
+                },*/
+                "tiporec_revision": {
+                    required: true
+                }
+            },
+            messages: {
+                /*"revision_name": {
+                    required: "<%= t('mandatory') %>"
+                },*/
+                "tiporec_revision": {
+                    required: "<%= t('mandatory') %>"
+                }
+            }
+        });
+    });
+
+</script>
+
+<% if @actividad.proceso.estado != "publicado" %>
+<a href="#new_revision" role="button" class="btn" data-toggle="modal"><%= t('add') %></a>
+<a href="#del_revision" role="button" class="btn" data-toggle="modal"><%= t('remove') %></a>
+<% end %>

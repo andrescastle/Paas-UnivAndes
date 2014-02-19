@@ -1,0 +1,70 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#MySplitter1").splitter({
+            type: "v",
+            outline: true,
+            minLeft: 100, sizeLeft: 275, minRight: 100,
+            resizeToWidth: true,
+            cookie: "vsplitter",
+            accessKey: 'I'
+        });
+
+        $("#TopPane").splitter({
+            type: "v",
+            outline: true,
+            minLeft: 100, sizeLeft: 275, minRight: 100,
+            resizeToWidth: true,
+            cookie: "vsplitter",
+            accessKey: 'I'
+        });
+    });
+</script>
+
+<% @titulo = @proceso.nombre %>
+<%= render "shared/encabezado_crud" %>
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+
+    <%= render "shared/menu_plantillas" %>
+    <div id="layout_content" class="sgw_entity_query_mode seltarget" style="left: 0px; top: 30px; ">
+
+      <div id="MySplitter1">
+
+
+        <!--div id="TopPane"-->
+        <div id="LeftPane">
+          <%=  render 'arbol' %>
+        </div>
+
+        <div id="RightPane">
+          <!--div class="bs-docs-example"-->
+          <ul id="myTab" class="nav nav-tabs  " style="background: #E6E6E6 "  >
+            <li><a href="#diagrama" data-toggle="tab"><%= t('.diagrama')%> </a></li>
+            <li><a href="#detalle" data-toggle="tab"><%= t('.informacion')%></a></li>
+            <!--li><a href="#estadisticas" data-toggle="tab"><%= t('.estadisticas')%></a></li-->
+          </ul>
+          <div id="myTabContent" class="tab-content" >
+            <!--div class="tab-pane in active" id="estadisticas" >
+              <!--%=  render 'controlpanel' %>
+            </div-->
+            <div class="tab-pane " id="diagrama">
+              <%=  render 'visorproceso' %>
+            </div>
+            <div class="tab-pane " id="detalle" style="background: #F2F7FF " >
+              <iframe id="frame_actividad"  src="<%= request.protocol + request.host_with_port %>/blank.html" width="100%" height="1000px"  style="background: #F2F7FF " seamless></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <%= render "shared/footer" %>
+
+  </div>
+
+</div>

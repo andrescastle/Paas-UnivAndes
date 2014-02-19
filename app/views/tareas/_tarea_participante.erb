@@ -1,0 +1,142 @@
+<% content_for :modal do %>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            // Callback de validacion de nombre repetido por ajax
+            //$.validator.addMethod("actividad_unica", validar_nombre_unico, "");
+
+            // Validaciones de jquery
+            $("#new_tarea_participante").validate();
+                $(".participante_id_hrs").each(function(){
+                    $(this).rules("add", {
+                        required: true,
+                        number: true,
+                        messages: {
+                            required: "<%= t('mandatory') %>",
+                            number: "<%= t('numeric_value') %>"
+                        }
+                    });
+                });
+        });
+    </script>
+
+    <%= form_for(@tarea_participante, :html=> {:multipart=>true}) do |f| %>
+
+
+    <input type="hidden" name="tarea_seleccionada" id="tarea_seleccionada" class="tarea_seleccionada" value="0" />
+
+    <div id="asociar_participante" class="modal hide fade asociaciones " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+         xmlns="http://www.w3.org/1999/html">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3><%= t('tareas.tarea_responsable.asociar_responsable')%></h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="row-fluid">
+          <div class="accordion" id="accordion_participante">
+
+            <% @organizaciones.each do |organizacion| %>
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_participante" href="#collapse-participante<%= organizacion.id %>">
+                      <%= organizacion.nombre %>
+                    </a>
+                  </div>
+                  <div id="collapse-participante<%= organizacion.id %>" class="accordion-body collapse">
+                    <%
+                       @hash = Hash.new
+                       Usuario.find_all_by_organizacion_id(organizacion.id).each do |usuario|
+                         @hash[usuario.tipo_recurso_id] = Array.new
+                       end
+
+                       Usuario.find_all_by_organizacion_id(organizacion.id).each do |usuario|
+                         @array = @hash[usuario.tipo_recurso_id]
+                         @array.push(usuario)
+                       end;
+                    %>
+
+
+                    <div class="accordion-inner">
+                      <div class="tabbable tabs-left">
+                        <ul class="nav nav-tabs">
+                          <% @hash.keys.each do |tipo_recurso_id| %>
+                              <% if tipo_recurso_id != nil %>
+                              <li>
+                                <a href="#tipo_participante<%= tipo_recurso_id %>_<%= organizacion.id %>" data-toggle="tab"><%= TipoRecurso.find(tipo_recurso_id).nombre %> </a>
+                              </li>
+                              <% end %>
+                          <% end %>
+                        </ul>
+                        <div class="tab-content">
+                          <% @hash.keys.each do |tipo_recurso_id| %>
+                              <div class="tab-pane in" id="tipo_participante<%= tipo_recurso_id %>_<%= organizacion.id %>">
+                                <% @hash[tipo_recurso_id].each do |usuario| %>
+                                    <input type="radio" id="participante_id" name="participante_id" value="<%= usuario.id %>" class="participante_id" />
+                                    <%= usuario.nombre + " " + (usuario.apellidos != nil ? usuario.apellidos: "") %> &nbsp; <span><%= t('.dedicacion') %>:
+                                    <input  type="text" id="dedicacion_<%= usuario.id %>" name="dedicacion_<%= usuario.id %>" value="" class="participante_id_hrs"> <%= t('.horas') + "/" +  t('.dia')%></span>
+                                    <br />
+                                <% end %>
+
+                              </div>
+
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="actions"  align=right >
+          <input id="asociar_proceso" class="btn primary"  name="commit" type="submit" value="<%= t('.btnAsociar')%>" />
+          <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar') %></button>
+        </div>
+        <br/>
+        <br/>
+        <% @actividades.each do |actividad| %>
+            <div id="sugerencias_participantes<%= actividad.id %>" class="sugerencias">
+            <% if actividad.modo_revision == "para" || actividad.modo_revision == "sequ" then %>
+
+                  <% actividad.actividad_revision.each do |act_revision| %>
+                      <div id="revision_participantes<%= act_revision.id %>" class="revisiones">
+                          <div  class="whatsneeded">
+                            <div class="thingstatus">
+                              <img src="/images/ready.png">
+                            </div>
+                            <div class="title"> <%= act_revision.tipo_recurso.nombre %> 1 <%= t('.sugeridos') %> </div>
+                        <div class="clear"></div>
+                     </div>
+                    </div>
+                  <% end %>
+
+          <% else %>
+
+
+              <% actividad.actividad_tiporecurso.each do |act_tiporecurso| %>
+                  <% if act_tiporecurso.tipo_recurso.unit == 1 then %>
+                      <div class="whatsneeded">
+                        <div class="thingstatus">
+                          <img src="/images/ready.png">
+                        </div>
+                        <div class="title"> <%= act_tiporecurso.tipo_recurso.nombre %> <%= act_tiporecurso.cantidad %> <%= t('.sugeridos') %> </div>
+                        <div class="clear"></div>
+                      </div>
+                  <% end %>
+              <% end %>
+
+
+            <% end %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+    <% end %>
+<% end %>

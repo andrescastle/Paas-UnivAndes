@@ -1,0 +1,2 @@
+module ArtefactosHelper
+end

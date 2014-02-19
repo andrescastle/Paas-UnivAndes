@@ -1,0 +1,109 @@
+<%#
+# = Vista de un menu para un CRUD
+# Esta vista implementa un menu para un CRUD.
+%>
+
+<!-- Barra de herramientas= Filtrar, buscar, nuevo, eliminar,...-->
+<div class="entity_query_page_toolbar" style="left: 250px; top: 0px; " id="ext-gen64">
+
+  <div class="toolbar sgc_toolbar" style="" id="ext-gen50">
+    <div class="main" id="ext-gen418">
+      <div item_index="2" style="float: left;" class="toolbar_item  " sg_tip="" id="ext-gen518">
+        <div class="toolbar_icon toolbar_plus" >
+          <li><a data-controls-modal="view_List" value="0" data-backdrop="true" class=" active" href="#" rel="tooltip"  id="view_list" title='<%= @verListaTexto %> '><img runat="server" src="/images/files_text.png" width="24px" height="24px" /></a></li>
+
+        </div>
+      </div>
+      <div item_index="3" style="float: left" class="toolbar_item  " sg_tip="" id="ext-gen518">
+        <div class="toolbar_icon toolbar_plus">
+          <li><a data-controls-modal="view_List" value="1" data-backdrop="true" class=" " id="thumba_list" href="#" rel="tooltip" title='<%= @verIconosTexto %> '><img runat="server" src="/images/desktop.png" width="24px" height="24px"  /></a></li>
+        </div>
+      </div>
+      <!-- Barra de herramientas= CRUD...-->
+      <div item_index="4" style="float: left" class="toolbar_item  " sg_tip="" id="ext-gen532">
+        <div class="toolbar_divider"></div>
+      </div>
+      <div item_index="5" style="float: left" class="toolbar_item  " sg_tip="New Asset">
+
+        <div class="toolbar_icon toolbar_plus">
+           <!--role="button" class="btn" data-toggle="modal"         -->
+          <li><a data-toggle="modal" href="#<%= @nuevoModal %>" rel="tooltip" title='<%= @nuevoBotonTexto %>' id="<%= @nuevoBotonId %>"><img runat="server" src="/images/folder_documents.png"  width="24px" height="24px"/></a></li>
+        </div>
+      </div>
+      <!--% @tipo_recursos.each do |tipo_recurso| %-->
+      <!--% if tipo_recurso.id==1 %-->
+      <div item_index="6" style="float: left" class="toolbar_item toggle_on_selection " sg_tip="Delete Selected Assets" id="flotante">
+        <div class="toolbar_icon toolbar_trash_disabled ">
+          <li><a id="<%= @eliminarBotonId %>" disabled="disabled" data-controls-modal="<%= @eliminarModal %>"  data-backdrop="true" class="" rel="tooltip" title='<%= @eliminarBotonTexto %> '  ><img runat="server" src="/images/trash_full.png" width="24px" height="24px" /> </a></li>
+          <!--<li><a id="<%= @eliminarBotonId %>" disabled="disabled" data-controls-modal="<%= @eliminarModal %>"  data-backdrop="true" class="" href="<% @eliminarPath %>" rel="tooltip" title='<%= @eliminarBotonTexto %> ' data-confirm="<%=@eliminarConfirm%>" data-method="delete" rel="nofollow" ><img runat="server" src="/images/trash_full.png"  /> </a></li>-->
+        </div>
+      </div>
+
+      <div item_index="7" style="float: left" class="toolbar_item toggle_on_selection " sg_tip="Edit Selected Assets" id="flotante">
+        <div class="toolbar_icon toolbar_edit_sel_disabled">
+          <li><a id="<%= @editarBotonId %>" disabled="disabled" data-controls-modal="<%= @editarModal %>"  data-backdrop="true" class="" rel="tooltip" title='<%= @editarBotonTexto %>'><img runat="server" src="/images/folder_edit.png" width="24px" height="24px" /></a></li>
+          <!--<li><a id="<%= @editarBotonId %>" disabled="disabled" data-controls-modal="<%= @editarModal %>"  data-backdrop="true" class="" href="<%= @editarPath %> " rel="tooltip" title='<%= @editarBotonTexto %>'><img runat="server" src="/images/folder_edit.png"  /></a></li>-->
+        </div>
+      </div>
+      <!--% end %-->
+      <!--% end %-->
+
+      <div item_index="1" style="float: left" class="toolbar_item  " sg_tip="" id="ext-gen532">
+        <div class="toolbar_divider"></div>
+      </div>
+
+      <div item_index="8" style="float: left" class="toolbar_item  " sg_tip="More Actions">
+        <div class="toolbar_icon toolbar_gear_menu">
+          <li><a class="" disabled="disabled" href="#" rel="tooltip" title='<%= t('.config')%> ' ><img runat="server" src="/images/folder_app2.png" width="24px" height="24px" /></a></li>
+        </div>
+      </div>
+
+      <div item_index="9" style="float: left" class="toolbar_item  " sg_tip="">
+        <div class="toolbar_divider">
+        </div>
+      </div>
+
+<!--
+      <div item_index="10" style="float: left" class="toolbar_item " sg_tip="">
+        <div class="toolbar_icon toolbar_gear_menu">
+          <div class="btn-group pull-right">
+            <ul>
+              <a class="" disabled="disabled" style="  float: left;
+                 padding: 0 14px;
+                 line-height: 34px;
+                 text-decoration: none;
+                 border: 1px solid #ddd;
+                 border-left-width: 1;"data-toggle="dropdown" rel="tooltip" title='<%= t('.orderby')%> '><img runat="server" src="/images/mail.png" /> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a disabled="disabled" href="#"><%= t('.orderby1')%> </a></li>
+                <li><a disabled="disabled" href="#"><%= t('.orderby2')%> </a></li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div item_index="15" style="float: left" class="toolbar_item " sg_tip="">
+        <div class="toolbar_icon toolbar_gear_menu">
+          <div class="btn-group pull-right">
+            <ul>
+              <a class="" disabled="disabled" style="  float: left;
+                 padding: 0 14px;
+                 line-height: 34px;
+                 text-decoration: none;
+                 border: 1px solid #ddd;
+                 border-left-width: 1;"data-toggle="dropdown" rel="tooltip" title='<%= t('.groupby')%> '><img runat="server" src="/images/mail.png" /> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a disabled="disabled" href="#"><%= t('.groupby1')%> </a></li>
+                <li><a disabled="disabled" href="#"><%= t('.groupby2')%> </a></li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+             -->
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,92 @@
+<%= javascript_include_tag :'david-crud' %>
+
+<%= stylesheet_link_tag :'plantillas' %>
+
+<script type="text/javascript">
+  //  jQuery.noConflict();
+    $(document).ready(function () {
+        $("#MySplitter").splitter({
+            type: "h",
+            outline: true,
+            minLeft: 100,
+            sizeLeft: 111,
+            minRight: 100,
+            maxTop: 90,
+            resizeToWidth: true,
+            cookie: "hsplitter",
+            accessKey: 'P'
+        });
+
+
+
+
+    });
+
+
+
+</script>
+
+<%
+   @proyName = @proyecto.nombre
+%>
+
+
+<div id="MySplitter">
+
+  <div id="TopPane" style="height: 111px;" >
+
+    <div class="alert alert-info">
+      <p>
+        <b>Nombre:</b>
+        <%= @proyecto.nombre %>
+      </p>
+
+
+      <p>
+        <b>Fcreado:</b>
+        <%= @proyecto.fcreado %>
+      </p>
+
+      <p>
+        <b>Descripcion:</b>
+        <%= @proyecto.descripcion %>
+      </p>
+
+
+      <%= link_to 'Editar', edit_proyecto_path(@proyecto) %> |
+      <%= link_to 'Atrás', proyecto_path(@proyecto) %>
+
+
+    </div>
+  </div>
+
+  <div id="BottomPane">
+    <ul id="myTab" class="nav nav-tabs  " style="background: #E6E6E6 "  >
+      <li><a href="#procesos" data-toggle="tab"><%= t('.procesos')%></a></li>
+      <li><a href="#empresas" data-toggle="tab"><%= t('.empresas')%> </a></li>
+      <li class="active"><a href="#participantes" data-toggle="tab"><%= t('.participantes')%></a></li>
+      <li><a href="#recursos" data-toggle="tab"><%= t('.recursos')%></a></li>
+      <li><a href="#artefactos" data-toggle="tab"><%= t('.artefactos')%></a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content" >
+      <div class="tab-pane " id="procesos" >
+        <%=  render :template => 'procesos/index' %>
+      </div>
+      <div class="tab-pane " id="empresas">
+        <%=  render :template =>'proyecto_organizacions/index' %>
+      </div>
+      <div class="tab-pane in active" id="participantes" style="background: #F2F7FF " >
+        <%=  render :template =>'proyecto_usuarios/index' %>
+      </div>
+      <div class="tab-pane " id="recursos" style="background: #F2F7FF " >
+        <%=  render :template => 'proyecto_recursos/index' %>
+      </div>
+      <div class="tab-pane " id="artefactos" style="background: #F2F7FF " >
+        <iframe id="frame_artefactos"  src="<%= request.protocol + request.host_with_port %>/proyecto_artefactos?id=<%= @proyecto.id %>" width="100%" height="1000px"  style="background: #F2F7FF" seamless></iframe>
+      </div>
+  </div>
+
+</div>
+
+</div>
+

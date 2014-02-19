@@ -1,0 +1,32 @@
+<!--iframe src="http://192.168.211.130:8080/razuna/raz1/dam/" width="100%" height="1000px"  style="background: #F2F7FF" seamless></iframe-->
+<script type="text/javascript">
+
+    var sessionToken = "<%= request.protocol + request.host_with_port %>/artefactos/razuna/sessiontoken";
+    var session;
+    $.ajax({
+        type: "GET",
+        url: sessionToken,
+        data: {},
+        async: false,
+        success: function(data) {
+            session = data;
+        }
+    });    
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<div id="BottomPane">
+  <ul id="myTab" class="nav nav-tabs  " style="background: #E6E6E6; margin-bottom: 0px;"  >
+    <li id="tab_repositorio"><a href="#repositorio" data-toggle="tab" class="active"><%= t('.repositorio')%> </a></li>
+    <li id="tab_depositos"><a href="#importar" data-toggle="tab"><%= t('.importar')%> </a></li>
+  </ul>
+  <div id="myTabContent" class="tab-content" >
+    <div class="tab-pane in active" id="repositorio" >
+      <iframe src="<%= ENV['url_razuna']%>/index.cfm?fa=c.main&_v=<%= session%>" width="100%" height="1000px"  style="background: #F2F7FF" seamless></iframe>
+    </div>
+    <div class="tab-pane " id="importar">
+      <iframe src="<%= depositos_path %>" width="100%" height="1000px"  style="background: #F2F7FF" seamless></iframe>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,644 @@
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"></script>
+
+<script type="text/javascript" language="javascript">
+
+    var tarea;
+    var columna;
+    var horas;
+    var tarea_destino;
+
+    function updateHora() {
+        var formdata = null;
+        formdata =
+        {
+            "tarea": tarea,
+            "horas": horas
+        }
+
+        var url = '<%= request.protocol + request.host_with_port %>/tarea_participantes/1/updateHoras';
+        $.ajax({
+            url: url,
+            data: formdata,
+            cache: false,
+            contentType: 'multipart/form-data',
+            processData: true,
+            type: 'GET',
+            success: function (data) {
+                if (data == "true") {
+                    var horas_plan = $("#horas_plan" + tarea).val();
+                    var porciento = horas / horas_plan * 100;
+                    $(".avance_text" + tarea).text(porciento + "%")
+                    $(".avance_bar" + tarea).attr("style","width:" + porciento + "%;");
+                }
+                else alert("No se pudieron actualizar las horas");
+            }
+        });
+    }
+
+    function updatePrioridad() {
+
+    }
+
+    function validar_prioridad(proceso_id, prioridad)
+    {
+        var count = 0;
+        $('#allItems li').each(function(){
+
+            if ($(this).attr('proceso') == proceso_id && $(this).attr('prioridad') < prioridad)
+            {
+                count++;
+            }
+        });
+
+        return count > 0;
+    }
+
+    function loadCompuertums(tarea_id) {
+        var formdata = null;
+        formdata =
+        {
+            "tarea_id": tarea_id
+        }
+
+        var url = '<%= request.protocol + request.host_with_port %>/compuerta_options';
+        $.ajax({
+            url: url,
+            data: formdata,
+            cache: false,
+            contentType: 'multipart/form-data',
+            processData: true,
+            type: 'GET',
+            success: function (data) {
+                arreglo = jQuery.parseJSON(data);
+                $("#compuerta_titulo").html(arreglo.nombre);
+                $("#compuerta_descripcion").html(arreglo.descripcion);
+                $("#compuertum_options").html('<input type="hidden" name="compuerta_id" value="'+arreglo.compuerta_id+'">');
+                $("#compuertum_options").append('<input type="hidden" name="compuerta_type" value="'+arreglo.type+'">');
+                $("#compuertum_options").append('<input type="hidden" name="tarea_desicion_id" value="'+tarea_id+'">');
+                var exclusiva = arreglo.type == 'compuerta_exclu';
+                var cant = 0;
+                $.each(arreglo.options, function( index, value ) {
+                    $("#compuertum_options").append('<input type="hidden" name="compuerta_ruta['+index+']" value="'+value.id+'">');
+                    if(value.type == "true" || value.type == "false") {
+                        $("#compuertum_options").append('<input type="hidden" name="compuerta_pre['+index+']" value="'+value.proceso_id+'">');
+                    }
+                    if(exclusiva) {
+                        $("#compuertum_options").append('<div style="display:inline-block">' +
+                                '<input type="radio" '+(value.type == "true" ? 'checked="checked" ' : '')
+                                +'id="elegida_'+index+'" name="elegida" value="'+value.id+'" style="width: 20px;"><label for="elegida_'+index+'" style="width:auto">'+value.title+'</label></div><br>');
+                    } else {
+                        $("#compuertum_options").append('<div style="display:inline-block">' +
+                                '<input type="checkbox" '+(value.type == "true" ? 'checked="checked" ' : '')
+                                +'id="ruta_'+index+'" name="ruta['+index+']" value="'+value.id+'" style="width: 20px;"><label for="ruta_'+index+'" style="width:auto">'+value.title+'</label></div><br>');
+                    }
+                    cant ++;
+                });
+                $("#compuertum_options").append('<input type="hidden" name="cantidad" value="'+cant+'">');
+
+
+                //console.log(arreglo);
+            }
+        });
+    }
+
+    function ver_prioridad()
+    {
+        $('#allItems li').each(function(){
+            if(validar_prioridad( $(this).attr('proceso'), $(this).attr('prioridad')) == true)
+                $(this).attr('style','background-color:#cccccc;');
+            else
+                $(this).attr('style','background-color:#f3f3d1;');
+        });
+    }
+
+    function updateEstado() {
+        var formdata = null;
+        formdata =
+        {
+            "tarea": tarea,
+            "columna": columna
+        }
+
+        var url = '<%= request.protocol + request.host_with_port %>/tarea_participantes/1/updateEstado';
+        $.ajax({
+            url: url,
+            data: formdata,
+            cache: false,
+            contentType: 'multipart/form-data',
+            processData: true,
+            type: 'GET',
+            success: function (data) {
+                if(data == 'youcant') {
+                    alert('Primero se debe tomar una decisión');
+                    window.location.href = '/tarea_participantes';
+                } else {
+                    var columna = data.split(':')[0];
+                    var horas_acum = data.split(':')[1];
+                    var horas_exec = data.split(':')[2];
+                    var avance = data.split(':')[3];
+                    var revision = data.split(':')[4];
+                    var horas_plan = $("#horas_plan" + tarea).val();
+                    var porciento = horas_exec / horas_plan * 100;
+
+                    if (columna == "1") {
+                        $(".horas_avance" + tarea).hide();
+                        $(".horas_acum" + tarea).text("<%= t('layouts.WS_usuarios.horas_acum') %> : " + horas_acum);
+                        $(".horas_exec" + tarea).val(horas_exec);
+                        $(".avance_text" + tarea).text(avance + "%");
+                        $(".avance_bar" + tarea).attr("style","width:0%;");
+                        $(".link-revision" + tarea).hide();
+                        $(".link-decision" + tarea).hide();
+                        $(".aprobacion_text" + tarea).text('<%= t('.requiere_aprobacion') %>');
+                    }
+                    else if (columna == "2") {
+                        $(".horas_avance" + tarea).show();
+                        $(".horas_acum" + tarea).text("<%= t('layouts.WS_usuarios.horas_acum') %> : " + horas_acum);
+                        $(".horas_exec" + tarea).val(horas_exec);
+                        $(".avance_text" + tarea).text(avance + "%");
+                        $(".avance_bar" + tarea).attr("style","width:" + porciento + "%;");
+                        $(".link-revision" + tarea).show();
+                        $(".link-decision" + tarea).show();
+                        $(".aprobacion_text" + tarea).text('<%= t('.requiere_aprobacion') %>');
+                    }
+                    else if (columna == "3") {
+                        $(".horas_avance" + tarea).hide();
+                        $(".horas_acum" + tarea).text("<%= t('layouts.WS_usuarios.horas_acum') %> : " + horas_acum);
+                        $(".horas_exec" + tarea).val(horas_exec);
+                        $(".avance_text" + tarea).text(avance + "%");
+                        $(".avance_bar" + tarea).attr("style","width:100%;");
+                        $(".link-revision" + tarea).hide();
+                        $(".link-decision" + tarea).hide();
+                        $(".aprobacion_text" + tarea).text('<%= t('.esperando_aprobacion') %>');
+                    }
+                    else if (columna == "4") {
+                        $(".horas_avance" + tarea).hide();
+                        $(".horas_acum" + tarea).text("<%= t('layouts.WS_usuarios.horas_acum') %> : " + horas_acum);
+                        $(".horas_exec" + tarea).val(horas_exec);
+                        $(".avance_text" + tarea).text(avance + "%");
+                        $(".avance_bar" + tarea).attr("style","width:100%;");
+                        $(".link-revision" + tarea).hide();
+                        $(".link-decision" + tarea).hide();
+                        $(".aprobacion_text" + tarea).text('<%= t('.aprobada') %>');
+                    }
+
+                    if (revision == "true") {
+                        $('#node'+tarea).appendTo('#box3');
+                    }
+                    //else alert("No se pudo actualizar el estado");
+                }
+
+            }
+        });
+    }
+
+
+    jQuery(document).ready(function () {
+        jQuery.noConflict();
+        // disable();
+
+        var spinner = $(".horas_exec").spinner();
+        $(".horas_exec").spinner('option', 'min', 0);
+        $(".horas_exec").spinner('option', 'max', 100);
+
+
+        $("*[class^='horas_exec']").change(function () {
+            // check input ($(this).val()) for validity here
+            tarea = $(this).attr('id').replace("tarea_horasexec","");
+            horas = $(this).val();
+            //alert(tarea+" "+horas);
+            updateHora();
+        });
+
+
+        $('#col1 input').spinner({min: 0, stop: function (event, ui) {
+            $(this).change();
+        }})
+                .parent()
+                .find('.ui-spinner-up').addClass('ui-corner-tl').end()
+                .find('.ui-spinner-down').addClass('ui-corner-bl');
+
+        $('#col2 input').spinner({min: 0, stop: function (event, ui) {
+            $(this).change();
+        }})
+                .parent()
+                .find('.ui-spinner-up').addClass('ui-corner-tl').end()
+                .find('.ui-spinner-down').addClass('ui-corner-bl');
+
+        $('#col3 input').spinner({min: 0, stop: function (event, ui) {
+            $(this).change();
+        }})
+                .parent()
+                .find('.ui-spinner-up').addClass('ui-corner-tl').end()
+                .find('.ui-spinner-down').addClass('ui-corner-bl');
+
+        $('#col4 input').spinner({min: 0, stop: function (event, ui) {
+            $(this).change();
+        }}).parent()
+                .find('.ui-spinner-up').addClass('ui-corner-tl').end()
+                .find('.ui-spinner-down').addClass('ui-corner-bl');
+
+        $("*[class^='link-revision']").click(function(){
+            var id = this.name.replace('tarea_revision','');
+            $('#tarea_revision_tarea_id').val(id);
+        });
+
+        $("*[class^='link-decision']").click(function(){
+            var id = this.name.replace('tarea_decision','');
+            $('#tarea_decision_tarea_id').val(id);
+            loadCompuertums(id);
+        });
+
+        <% @tareas.each do |tarea| %>
+        $("#nombre_tarea<%= tarea.id %>").balloon({
+            contents: $('#detalle_tarea<%= tarea.id %>').clone(),
+            position: "bottom right"
+        });
+        <% if tarea.columna != 2 %>
+            $(".link-revision" + <%= tarea.id %>).hide();
+        <% end %>
+        <% if tarea.columna != 2 %>
+            $(".link-decision" + <%= tarea.id %>).hide();
+        <% end %>
+
+        <% end %>
+
+        ver_prioridad();
+    });
+</script>
+
+
+<div class="contents sgw_new_grid proyectoverview" id="ext-gen33" style="padding: 10px;" xmlns="http://www.w3.org/1999/html">
+<div id="dhtmlgoodies_dragDropContainer">
+
+<!--div id="dhtmlgoodies_listOfItems">
+
+</div-->
+<div id="dhtmlgoodies_mainContainer">
+
+<div class="thetaskcontainer" id="col1">
+  <p><%= t('layouts.WS_usuarios.iniciar') %></p>
+  <ul id="allItems">
+    <!-- Tareas por iniciar -->
+    <% @tareasP.each do |tareaP| %>
+        <% tarea=tareaP.tarea %>
+        <% if tarea.columna==1 && tarea.activada %>
+            <li id="node<%= tarea.id %>" prioridad="<%= tareaP.prioridad %>" proceso="<%= tarea.proceso_id %>" groupId="box<%= tarea.id %>">
+              <% if tarea.estado==1 %>
+                  <div class="onetask">
+              <% end %>
+              <% if tarea.estado==2 %>
+                  <div class="onetask">
+              <% end %>
+              <% if tarea.estado==3 %>
+                  <div class="onetask lateother ">
+              <% end %>
+              <% if tarea.estado==4 %>
+                  <div class="onetask lateme">
+              <% end %>
+              <% if tarea.estado==14 %>
+                  <div class="onetask noaprobada">
+              <% end %>
+              <div class="c-input title <%= tarea.es_aprobacion ? 'es_aprobacion' : (tarea.es_desicion ? 'es_decision' : '') %>" id="topbottom">
+                <a href="#" class="nombre_tarea" id="nombre_tarea<%= tarea.id %>"><%= tarea.nombre %></a><br/>
+                <% if tarea.actividad == nil then %>
+                    <span> <%= t('layouts.WS_usuarios.inicio') %>:<%= tarea.fecha_inicio %> - <%= t('layouts.WS_usuarios.fin') %>:<%= tarea.fecha_fin %> </span>
+                <% elsif tarea.actividad.tipocontrol == "fechas" then %>
+                    <span> <%= t('layouts.WS_usuarios.inicio') %>:<%= tarea.fecha_inicio %> - <%= t('layouts.WS_usuarios.fin') %>:<%= tarea.fecha_fin %> </span>
+                <% elsif tarea.actividad.tipocontrol == "horas" %>
+                    <span><%= t('layouts.WS_usuarios.horas')%> : <%= tarea.horas_planeadas %></span>
+                <% else %>
+                    <span> <%= t('layouts.WS_usuarios.nocontrol') %>  </span>
+                <% end %>
+                <br>
+
+                <span class="horas_acum<%= tarea.id %>"><%= t('layouts.WS_usuarios.horas_acum') %> : <%= tarea.horas_acumuladas != nil ? tarea.horas_acumuladas : 0 %></span>
+                <input type="hidden" id="horas_plan<%= tarea.id %>" value="<%= tarea.horas_planeadas %>" />
+                <div class="horas_avance<%= tarea.id %>" style="display: none;">
+                  <span><%= t('layouts.WS_usuarios.horas_worked') %>:</span>
+                  <input class="horas_exec<%= tarea.id %>" name="tarea_horasexec<%= tarea.id %>" id="tarea_horasexec<%= tarea.id %>" value="<%= tarea.horas_ejecutadas %>"/>
+                </div>
+
+                <div class="taskprogcont">
+                  <div class="taskprogbar">
+                    <div class="taskprogressbar">
+                      <div class="avance_bar<%= tarea.id %>" style="width: <%= tarea.avance != nil ? tarea.avance : 0 %>%;"></div>
+                    </div>
+                    &nbsp;<span class="avance_text<%= tarea.id %>"> <%= tarea.avance != nil ? tarea.avance : 0 %>%</span>
+                    &nbsp;
+                    <% if tarea.es_aprobacion then %>
+                        <a id="tarea_revision<%= tarea.id %>" name="tarea_revision<%= tarea.id %>" href="#tarea_revision" data-toggle="modal" class="link-revision<%= tarea.id %>"><%= t(".aprobacion")%></a>
+                    <% end %>
+                    <% if tarea.es_desicion then %>
+                        <a id="tarea_decision<%= tarea.id %>" name="tarea_decision<%= tarea.id %>" href="#tarea_decision" data-toggle="modal" class="link-decision<%= tarea.id %>"><%= t(".decision")%></a>
+                    <% end %>
+                    <% if tarea.actividad != nil && tarea.actividad.modo_revision != nil && tarea.actividad.modo_revision != "auto" && !tarea.es_aprobacion then %>
+                        <span id="tarea_aprobacion<%= tarea.id %>" name="tarea_aprobacion<%= tarea.id %>" href="#" class="aprobacion_text<%= tarea.id %>"><%= t(".requiere_aprobacion")%></span>
+                    <% end %>
+
+                  </div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+              <div class="process">
+                <img src="/images/proyectos/<%= tarea.proceso.proyecto.id %>_original.img" style="width: 32px; height: 32px; ">
+                <img src="/images/procesos/<%= tarea.proceso.id %>_original.img" style="width: 32px; height: 32px; ">
+
+                <div class="fleft">
+                  <div class="processname"><%= tarea.proceso.nombre %></div>
+                  <div class="projectname"><%= tarea.proceso.proyecto.nombre %></div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+            </li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
+<!-- ONE <UL> for each "room" -->
+<div class="thetaskcontainer" id="col2">
+  <p><%= t('layouts.WS_usuarios.proceso') %></p>
+  <ul id="box1">
+    <!-- Tareas en progreso -->
+    <% @tareas.each do |tarea| %>
+        <% if tarea.columna==2 && tarea.activada %>
+            <li id="node<%= tarea.id %>" groupId="box<%= tarea.id %>">
+              <% if tarea.estado==5 %>
+                  <div class="onetask">
+              <% end %>
+              <% if tarea.estado==6 %>
+                  <div class="onetask lateother ">
+              <% end %>
+              <% if tarea.estado==7 %>
+                  <div class="onetask lateme">
+              <% end %>
+              <% if tarea.estado==14 %>
+                  <div class="onetask noaprobada">
+              <% end %>
+              <div class="c-input title <%= tarea.es_aprobacion ? 'es_aprobacion' : (tarea.es_desicion ? 'es_decision' : '') %>" id="topbottom" style="width: 271px">
+                <a href="#" class="nombre_tarea" id="nombre_tarea<%= tarea.id %>"><%= tarea.nombre %></a><br/>
+                <% if tarea.actividad == nil then %>
+                    <span> <%= t('layouts.WS_usuarios.inicio') %>:<%= tarea.fecha_inicio %> - <%= t('layouts.WS_usuarios.fin') %>:<%= tarea.fecha_fin %> </span>
+                <% elsif tarea.actividad.tipocontrol == "fechas" then %>
+                    <span > <%= t('layouts.WS_usuarios.inicio') %>:<%= tarea.fecha_inicio %> - <%= t('layouts.WS_usuarios.fin') %>:<%= tarea.fecha_fin %> </span>
+                <% elsif tarea.actividad.tipocontrol == "horas" %>
+                    <span><%= t('layouts.WS_usuarios.horas') %> : <%= tarea.horas_planeadas %></span>
+                <% else %>
+                <% end %>
+                <br>
+
+                <span class="horas_acum<%= tarea.id %>"><%= t('layouts.WS_usuarios.horas_acum') %> : <%= tarea.horas_acumuladas != nil ? tarea.horas_acumuladas : 0 %></span>
+                <input type="hidden" id="horas_plan<%= tarea.id %>" value="<%= tarea.horas_planeadas %>" />
+                <div class="horas_avance<%= tarea.id %>">
+                  <span  ><%= t('layouts.WS_usuarios.horas_worked') %>:</span>
+                  <input class="horas_exec<%= tarea.id %>" name="tarea_horasexec<%= tarea.id %>" id="tarea_horasexec<%= tarea.id %>" value="<%= tarea.horas_ejecutadas %>"/>
+                </div>
+
+                <div class="taskprogcont">
+                  <div class="taskprogbar">
+                    <div class="taskprogressbar">
+                      <div class="avance_bar<%= tarea.id %>" style="width: <%= (tarea.horas_ejecutadas.to_f / tarea.horas_planeadas.to_f) * 100 %>%;"></div>
+                    </div>
+                    &nbsp;<span class="avance_text<%= tarea.id %>"> <%= (tarea.horas_ejecutadas.to_f / tarea.horas_planeadas.to_f) * 100 %>%</span>
+                    &nbsp;
+                    <% if tarea.es_aprobacion then %>
+                        <a id="tarea_revision<%= tarea.id %>" name="tarea_revision<%= tarea.id %>" href="#tarea_revision" data-toggle="modal" class="link-revision<%= tarea.id %>" ><%= t(".aprobacion")%></a>
+                    <% end %>
+                    <% if tarea.es_desicion then %>
+                        <a id="tarea_decision<%= tarea.id %>" name="tarea_decision<%= tarea.id %>" href="#tarea_decision" data-toggle="modal" class="link-decision<%= tarea.id %>"><%= t(".decision")%></a>
+                    <% end %>
+                    <% if tarea.actividad != nil &&  tarea.actividad.modo_revision != nil && tarea.actividad.modo_revision != "auto" && !tarea.es_aprobacion then %>
+                        <span id="tarea_aprobacion<%= tarea.id %>" name="tarea_aprobacion<%= tarea.id %>" href="#" class="aprobacion_text<%= tarea.id %>"><%= t(".requiere_aprobacion")%></span>
+                    <% end %>
+                  </div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+              <div class="process">
+                <img src="/images/proyectos/<%= tarea.proceso.proyecto.id %>_original.img" style="width: 32px; height: 32px; ">
+                <img src="/images/procesos/<%= tarea.proceso.id %>_original.img" style="width: 32px; height: 32px; ">
+
+                <div class="fleft">
+                  <div class="processname"><%= tarea.proceso.nombre %></div>
+                  <div class="projectname"><%= tarea.proceso.proyecto.nombre %></div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+            </li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="thetaskcontainer" id="col3">
+  <p><%= t('layouts.WS_usuarios.terminadas') %></p>
+  <ul id="box2">
+    <!-- Tareas terminadas -->
+    <% @tareas.each do |tarea| %>
+        <% if tarea.columna==3 && tarea.activada %>
+            <li id="node<%= tarea.id %>" groupId="box<%= tarea.id %>">
+              <% if tarea.estado==11 %>
+                  <div class="onetask">
+              <% end %>
+              <% if tarea.estado==12 %>
+                  <div class="onetask lateother ">
+              <% end %>
+              <% if tarea.estado==13 %>
+                  <div class="onetask lateme">
+              <% end %>
+              <div class="title <%= tarea.es_aprobacion ? 'es_aprobacion' : (tarea.es_desicion ? 'es_decision' : '') %>">
+                <a href="#" class="nombre_tarea" id="nombre_tarea<%= tarea.id %>"><%= tarea.nombre %></a><br/>
+                <% if tarea.actividad == nil then %>
+                    <span> <%= t('layouts.WS_usuarios.inicio') %>:<%= tarea.fecha_inicio %> - <%= t('layouts.WS_usuarios.fin') %>:<%= tarea.fecha_fin %> </span>
+                <% elsif tarea.actividad.tipocontrol == "fechas" then %>
+                    <span > <%= t('layouts.WS_usuarios.inicio') %>:<%= tarea.fecha_inicio %> - <%= t('layouts.WS_usuarios.fin') %>:<%= tarea.fecha_fin %> </span>
+                <% elsif tarea.actividad.tipocontrol == "horas" %>
+                    <span ><%= t('layouts.WS_usuarios.horas') %> : <%= tarea.horas_planeadas %></span><br>
+                <% else %>
+                    <span ><%= t('layouts.WS_usuarios.nocontrol') %></span>
+                <% end %>
+                <br>
+
+                <span class="horas_acum<%= tarea.id %>"><%= t('layouts.WS_usuarios.horas_acum') %> : <%= tarea.horas_acumuladas != nil ? tarea.horas_acumuladas : 0 %></span>
+                <input type="hidden" id="horas_plan<%= tarea.id %>" value="<%= tarea.horas_planeadas %>" />
+                <div class="horas_avance<%= tarea.id %>" style="display: none;">
+                  <span  ><%= t('layouts.WS_usuarios.horas_worked') %>:</span>
+                  <input class="horas_exec<%= tarea.id %>" name="tarea_horasexec<%= tarea.id %>" id="tarea_horasexec<%= tarea.id %>" value="<%= tarea.horas_ejecutadas %>"/>
+                </div>
+
+                <div class="taskprogcont">
+                  <div class="taskprogbar">
+                    <div class="taskprogressbar">
+                      <div class="avance_bar<%= tarea.id %>" style="width: <%= tarea.avance != nil ? tarea.avance : 0 %>%;"></div>
+                    </div>
+                    &nbsp;<span class="avance_text<%= tarea.id %>"> <%= tarea.avance != nil ? tarea.avance : 0 %>%</span>
+                    &nbsp;
+                    <% if tarea.es_aprobacion then %>
+                        <a id="tarea_revision<%= tarea.id %>" name="tarea_revision<%= tarea.id %>" href="#tarea_revision" data-toggle="modal" class="link-revision<%= tarea.id %>" ><%= t(".aprobacion")%></a>
+                    <% end %>
+                    <% if tarea.es_desicion then %>
+                        <a id="tarea_decision<%= tarea.id %>" name="tarea_decision<%= tarea.id %>" href="#tarea_decision" data-toggle="modal" class="link-decision<%= tarea.id %>"><%= t(".decision")%></a>
+                    <% end %>
+                    <% if tarea.actividad != nil && tarea.actividad.modo_revision != nil && tarea.actividad.modo_revision != "auto" && !tarea.es_aprobacion then %>
+                        <span id="tarea_aprobacion<%= tarea.id %>" name="tarea_aprobacion<%= tarea.id %>" href="#" class="aprobacion_text<%= tarea.id %>"><%= t(".esperando_aprobacion")%></span>
+                    <% end %>
+                  </div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+              <div class="process">
+                <img src="/images/proyectos/<%= tarea.proceso.proyecto.id %>_original.img" style="width: 32px; height: 32px; ">
+                <img src="/images/procesos/<%= tarea.proceso.id %>_original.img" style="width: 32px; height: 32px; ">
+
+                <div class="fleft">
+                  <div class="processname"><%= tarea.proceso.nombre %></div>
+                  <div class="projectname"><%= tarea.proceso.proyecto.nombre %></div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+            </li>
+        <% end %>
+    <% end %>
+
+  </ul>
+</div>
+
+<div class="thetaskcontainer" id="col4">
+  <p><%= t('layouts.WS_usuarios.aprobadas') %></p>
+  <ul id="box3">
+    <!-- Tareas aprobadas -->
+    <% @tareas.each do |tarea| %>
+        <% if tarea.columna==4 && tarea.activada %>
+            <li id="node<%= tarea.id %>" groupId="box<%= tarea.id %>">
+              <% if tarea.estado==8 %>
+                  <div class="onetask">
+              <% end %>
+              <% if tarea.estado==9 %>
+                  <div class="onetask lateother ">
+              <% end %>
+              <% if tarea.estado==10 %>
+                  <div class="onetask lateme">
+              <% end %>
+              <div class="title">
+                <a href="#" class="nombre_tarea" id="nombre_tarea<%= tarea.id %>"><%= tarea.nombre %></a><br/>
+                <% if tarea.actividad == nil then %>
+                    <span> <%= t('layouts.WS_usuarios.inicio') %>:<%= tarea.fecha_inicio %> - <%= t('layouts.WS_usuarios.fin') %>:<%= tarea.fecha_fin %> </span>
+                <% elsif tarea.actividad.tipocontrol == "fechas" then %>
+                    <span > <%= t('layouts.WS_usuarios.inicio') %>:<%= tarea.fecha_inicio %> - <%= t('layouts.WS_usuarios.fin') %>:<%= tarea.fecha_fin %> </span>
+                <% elsif tarea.actividad.tipocontrol == "horas" %>
+                    <span ><%= t('layouts.WS_usuarios.horas') %> : <%= tarea.horas_planeadas %> </span><br>
+                <% else %>
+                    <span ><%= t('layouts.WS_usuarios.nocontrol') %></span>
+                <% end %>
+                <br>
+
+                <span class="horas_acum<%= tarea.id %>"><%= t('layouts.WS_usuarios.horas_acum') %> : <%= tarea.horas_acumuladas != nil ? tarea.horas_acumuladas : 0 %></span>
+                <input type="hidden" id="horas_plan<%= tarea.id %>" value="<%= tarea.horas_planeadas %>" />
+                <div class="horas_avance<%= tarea.id %>" style="display: none;">
+                  <span  ><%= t('layouts.WS_usuarios.horas_worked') %>:</span>
+                  <input class="horas_exec<%= tarea.id %>" name="tarea_horasexec<%= tarea.id %>" id="tarea_horasexec<%= tarea.id %>" value="<%= tarea.horas_ejecutadas %>"/>
+                </div>
+
+                <div class="taskprogcont">
+                  <div class="taskprogbar">
+                    <div class="taskprogressbar">
+                      <div class="avance_bar<%= tarea.id %>" style="width: <%= tarea.avance != nil ? tarea.avance : 0 %>%;"></div>
+                    </div>
+                    &nbsp;<span class="avance_text<%= tarea.id %>"> <%= tarea.avance != nil ? tarea.avance : 0 %>%</span>
+                    &nbsp;
+                    <% if tarea.es_aprobacion then %>
+                        <a id="tarea_revision<%= tarea.id %>" name="tarea_revision<%= tarea.id %>" href="#tarea_revision" data-toggle="modal" class="link-revision<%= tarea.id %>" ><%= t(".aprobacion")%></a>
+                    <% end %>
+                    <% if tarea.es_desicion then %>
+                        <a id="tarea_decision<%= tarea.id %>" name="tarea_decision<%= tarea.id %>" href="#tarea_decision" data-toggle="modal" class="link-decision<%= tarea.id %>"><%= t(".decision")%></a>
+                    <% end %>
+                    <% if tarea.actividad != nil && tarea.actividad.modo_revision != nil && tarea.actividad.modo_revision != "auto" && !tarea.es_aprobacion then %>
+                        <span id="tarea_aprobacion<%= tarea.id %>" name="tarea_aprobacion<%= tarea.id %>" href="#" class="aprobacion_text<%= tarea.id %>"><%= t(".aprobada")%></span>
+                    <% end %>
+
+                  </div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+              <div class="process">
+                <img src="/images/proyectos/<%= tarea.proceso.proyecto.id %>_original.img" style="width: 32px; height: 32px; ">
+                <img src="/images/procesos/<%= tarea.proceso.id %>_original.img" style="width: 32px; height: 32px; ">
+
+                <div class="fleft">
+                  <div class="processname"><%= tarea.proceso.nombre %></div>
+                  <div class="projectname"><%= tarea.proceso.proyecto.nombre %></div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+            </li>
+        <% end %>
+    <% end %>
+
+  </ul>
+</div>
+
+<div class="thetaskcontainer" id="col5">
+  <p><%= t('reportes') %></p>
+  <div style="margin-left: 10px;">   <%= render('reportes') %> </div>
+</div>
+
+
+</div>
+</div>
+
+<ul id="dragContent"></ul>
+<div id="dragDropIndicator"><img src="/images/insert.gif"></div>
+<div id="saveContent"></div>
+
+<%= render('revision') %>
+<%= render('decision') %>
+
+<div id="detalles" style="display: none">
+  <% @tareas.each do |tarea| %>
+      <div id="detalle_tarea<%= tarea.id %>">
+        <b><%= tarea.nombre %></b><br>
+        <p><%= tarea.descripcion %> </p><br>
+
+      <% if tarea.actividad != nil then %>
+        <% if FileTest.exist?(Dir.pwd + "/public/images/actividades/" + tarea.actividad.id.to_s() + "_original.img") then %>
+            <img src="/images/actividades/<%= tarea.actividad.id.to_s()%>_original.img" width="150px" height="150px">
+        <% else %>
+            <img src="/images/noimage.jpg" width="150px" height="150px">
+        <% end %>
+        <br>
+
+        <% _tipoartefactos = ActividadTipoartefacto.find_all_by_actividad_id(tarea.actividad.id) %>
+
+        <b> <%= t('tarea_participantes.revision.entradas') %> </b>
+        <ul>
+          <% _tipoartefactos.each do |act_tipoartefacto| %>
+
+              <% if(act_tipoartefacto.modo == "In" || act_tipoartefacto.modo == "In/Out") %>
+                  <li> <%= act_tipoartefacto.tipo_artefacto.nombre %> </li>
+              <% end %>
+          <% end %>
+        </ul>
+
+        <b> <%= t('tarea_participantes.revision.salidas') %> </b>
+        <ul>
+          <% _tipoartefactos.each do |act_tipoartefacto| %>
+
+              <% if(act_tipoartefacto.modo == "Out" || act_tipoartefacto.modo == "In/Out") %>
+                  <li> <%= act_tipoartefacto.tipo_artefacto.nombre %> </li>
+              <% end %>
+          <% end %>
+        </ul>
+      <% end %>
+      </div>
+  <% end %>
+</div>
+
+</div>
+

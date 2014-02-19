@@ -1,0 +1,86 @@
+<!-- Filtros,...-->
+<script type="text/javascript">
+  $(document).ready(function(){
+      mostrardiv1();
+  });
+
+</script>
+
+<div class="sgc_filter_panel" style="width: 247px;  top: 0px; height: 1px; " id="menu_Buscar" filter_panel_type="main">
+  <!--Botón filtrar y búsqueda -->
+  <div class="text_filter" id="ext-gen455">
+    <div class="filter_button" id="quick_filter_button_4">
+      <div class="sgc_quick_filter_button">
+        <div class="toolbar_icon toolbar_plus">
+          <li><a data-controls-modal="filtrartipo_recurso"  data-backdrop="true" class="" onclick="mostrardiv1()" rel="tooltip" title='<%= t('.filtro')%> '><img runat="server" src="/images/find.png" width="24" height="24"  /></a></li>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter_input sgc_quick_filter visible" id="menu_filtro1"  >
+      <div item_index="9" style="float: left" class="toolbar_item  " sg_tip="">
+        <div class="toolbar_divider">
+        </div>
+      </div>
+      <form class="navbar-search pull-center" action="">
+        <input type="text" class="search-query span2" placeholder='' />
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="sgc_filter_panel" style="width: 247px;   top: 32px; " id="menu_filtro" filter_panel_type="main">
+<!--
+  <div class="scroll_area " style="width: 247px;   top: 0px; " >
+
+    <div class="draggable filter_wrapper" field="sg_asset_type"  >
+      <div class="sgc_filter open">
+        <div class="header" field_path="sg_asset_type" >
+          <span class="field_name"><%= t('.filtro1')%></span>
+        </div>
+        <div class="body">
+          <div class="checkbox_row" sg_checkbox_label="sg_asset_type__0__4">
+            <div class="sg_checkbox checkbox_cleared " checkbox_state="unchecked" id="sg_asset_type__0__4" field_path="sg_asset_type" value_index="0">
+              <input type="checkbox" name="1" value="ON" onclick=doIt(1,this,this.form) />
+            </div>
+            <div class="graph">
+              <div class="bar" style="width: 100%">&nbsp;</div>
+            </div>
+            <div class="value "><%= t('.filtro1_1')%></div>
+            <div class="count ">22</div>
+
+          </div>
+          <div class="checkbox_row" sg_checkbox_label="sg_asset_type__1__4">
+            <div class="sg_checkbox checkbox_cleared " checkbox_state="unchecked" id="sg_asset_type__1__4" field_path="sg_asset_type" value_index="1">
+              <input type="checkbox" name="1" value="ON" onclick=doIt(1,this,this.form) />
+            </div>
+            <div class="graph">
+              <div class="bar" style="width: 70%">&nbsp;</div>
+            </div>
+            <div class="value "><%= t('.filtro1_2')%></div>
+            <div class="count ">15</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="draggable saved_filters" id="ext-gen424">
+      <div class="sgc_saved_filters open">
+        <div class="header" field_path="_saved_filters_">
+          <div class="tip arrow_open_dark"></div>
+          <span class="field_name"><%= t('.filtro2')%></span>
+          <div class="gear gear_menu_nobg"></div>
+          <div class="grouping_row_icon drag"></div>
+          <div class="toolbar_plus">
+          </div>
+        </div>
+        <div class="saved_filters">
+          <div class="no_filters">No custom filters yet.</div>
+        </div>
+      </div>
+    </div>
+  </div
+
+  <div class="filter_panel_drag_proxy" id="quick_filter_drag_proxy4">
+  </div-->
+</div>

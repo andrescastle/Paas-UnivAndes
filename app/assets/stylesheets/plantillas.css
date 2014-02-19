@@ -1,0 +1,117 @@
+/* 
+    Document   : plantillas
+    Created on : 03-oct-2012, 16:16:53
+    Author     : Administrador
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+
+/*
+ * Splitter container. Set this to the desired width and height
+ * of the combined left and right panes. In this example, the
+ * height is fixed and the width is the full width of the body,
+ * less the margin on the splitter itself.
+ */
+#MySplitter {
+	height: 100%;
+	margin: 0em 0em;
+	border: 4px solid #626262;
+	/* No padding allowed */
+}
+#MySplitter1 {
+	height: 100%;
+        width:  100%;
+	margin: 0em 0em;
+	border: 4px solid #626262;
+	/* No padding allowed */
+}
+/*
+ * Left-side element of the splitter. Use pixel units for the
+ * min-width and max-width; the splitter plugin parses them to
+ * determine the splitter movement limits. Set the width to
+ * the desired initial width of the element; the plugin changes
+ * the width of this element dynamically.
+ */
+#LeftPane {
+	background: #EDF1F3;
+	overflow: auto;
+       
+	/* No margin or border allowed */
+}
+
+#BottomPane {
+    top: 90px;
+
+    /* No margin or border allowed */
+}
+
+
+/*
+ * Right-side element of the splitter.
+ */
+#RightPane {
+	background: #F2F7FF;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+	overflow: auto;
+	/* No margin or border allowed */
+}
+
+#myTabContent {
+    position: absolute;
+    top: 35px;
+    bottom: 0;
+    width: 100%;
+    overflow-y: auto;
+    border-top: 4px solid #2E2E2E;
+}
+/*
+ * Splitter bar style; the .active class is added when the
+ * mouse is over the splitter or the splitter is focused
+ * via the keyboard taborder or an accessKey.
+ */
+#MySplitter .vsplitbar {
+	width: 6px;
+	background: #626262 url(http://methvin.com/splitter/img/vgrabber.gif) no-repeat center;
+}
+#MySplitter .vsplitbar.active {
+	background: #DEDEDE url(http://methvin.com/splitter/img/vgrabber.gif) no-repeat center;
+	opacity: 0.7;
+}
+
+#MySplitter .hsplitbar {
+	height: 6px;
+	background: #626262 url(http://methvin.com/splitter/img/hgrabber.gif) no-repeat center;
+	/* No margin, border, or padding allowed */
+}
+#MySplitter .hsplitbar.active, #MySplitter .hsplitbar:hover {
+	background:#DEDEDE url(http://methvin.com/splitter/img/hgrabber.gif) no-repeat center;
+}
+
+
+#MySplitter1 .vsplitbar {
+	width: 6px;
+	background: #626262 url(http://methvin.com/splitter/img/vgrabber.gif) no-repeat center;
+}
+#MySplitter1 .vsplitbar.active {
+	background: #DEDEDE url(http://methvin.com/splitter/img/vgrabber.gif) no-repeat center;
+	opacity: 0.7;
+}
+
+#MySplitter1 .hsplitbar {
+	height: 6px;
+	background: #626262 url(http://methvin.com/splitter/img/hgrabber.gif) no-repeat center;
+	/* No margin, border, or padding allowed */
+}
+#MySplitter1 .hsplitbar.active, #MySplitter .hsplitbar:hover {
+	background:#DEDEDE url(http://methvin.com/splitter/img/hgrabber.gif) no-repeat center;
+}

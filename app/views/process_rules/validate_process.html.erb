@@ -1,0 +1,44 @@
+<div id="sgw_4_body" class="body  sgw_entity_query_entity_query_page">
+  <div class="contents" id="ext-gen77" >
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 10px; top: 10px; right: 10px; ">
+      <!--input type="button" name="btn_validar" id="btn_validar" value="Validar proceso" class="botonesproceso" />
+      <input type="button" name="btn_publicar" id="btn_publicar" value="Publicar proceso" class="botonesproceso" /-->
+      <% lista_errores = ProcesoValidacion.find_all_by_proceso_id(params[:proceso_id]) %>
+
+      <style>
+        a.progpilas{width: auto; text-align: left; color: rgb(139, 0, 0); background-color: #cdcdcd; padding: 3px 7px; display: block; margin: 7px 10px;}
+        a.progpilas span{color:#fff; padding: 3px; font-size: 11px;}
+        a.progerror{color: rgb(139, 0, 0);}
+        .progerror span{background-color: rgb(139, 0, 0);}
+        a.progwarning{color: rgb(184, 134, 11);}
+        .progwarning span{background-color: rgb(184, 134, 11);}
+      </style>
+
+      <table style="width: 200px; display:inline-block; margin-left:43px"">
+        <tr>
+        <td style="background-color: rgb(139, 0, 0);width: 15px;"></td><td>&nbsp;Errores</td>
+        <td style="background-color: rgb(184, 134, 11);width: 15px;"></td><td>&nbsp;Advertencias</td>
+        </tr>
+      </table>
+      <a href="#" style="color:#fff; font-style: italic; font-size: 14px;"><%=lista_errores.length%> items por revisar: </a>
+      <br/>
+      <% index = 1 %>
+      <% lista_errores.each do |error_validacion| %>
+       <% if error_validacion.tipo == "error" %>
+        <a id="btn_error" class="progpilas progerror">
+          <%= index %>. <%= error_validacion.error_message.html_safe %>
+        </a>
+       <% else %>
+        <a id="btn_error" class="progpilas progwarning">
+          <%= index %>. <%= error_validacion.error_message.html_safe %>
+        </a>
+       <% end %>
+
+       <% index = index + 1 %>
+
+      <% end %>
+
+    </div>
+
+  </div>
+</div>

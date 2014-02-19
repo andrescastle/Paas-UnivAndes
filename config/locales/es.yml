@@ -1,0 +1,443 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  sinItems:  "Arrastre aqui las tareas en orden de importancia para ser desarrolladas"
+  priorizacion: "Priorizacion"
+  proceso:  "Procesos"
+  participantes: "Participantes"
+# validaciones comunes
+  mandatory:        "Este campo es requerido"
+  numeric_value:    "Este campo es un valor numérico"
+  name_exist:       "Ya existe un registro con el mismo nombre"
+  has_asigned:      "El elemento seleccionado ya fue asignado"
+  email_invalid:    "Dirección de correo no válida"
+  email_exist:      "El email ya se encuentra registrado"
+  password_nomatch: "Las contraseñas no coinciden"
+  max_lenght:       "El texto es demasiado largo"
+
+# mensajes
+  datos_guardados:  "Los datos se han guardado con éxito"
+
+# crud
+  add:            "Añadir"
+  edit:           "Editar"
+  delete:         "Eliminar"
+  remove:         "Remove"
+  listade:        "En lista"
+  pag:            "por página"
+  viewSharp:      "Ver íconos"
+  viewList:       "Ver listado"
+  btnCrear:       "Aceptar"
+  btnCancelar:    "Cancelar"
+  no_created:     "Todavía no has creado ninguno"
+  add_new:        "Haz click para crear uno nuevo"
+
+# modelo
+  rol:              "Rol"
+  tipo_recurso:     "Tipo de recurso"
+  tipo_artefacto:   "Tipo de artefacto"
+  tipo_deposito:    "Tipo de depósito"
+  tipo_plantilla:   "Tipo de plantilla"
+  tipo_organizacion: "Tipo de organización"
+  organizacion:     "Organización"
+  recurso:          "Recurso"
+  plantilla:        "Plantilla"
+  proyecto:         "Proyecto"
+  proceso:          "Proceso"
+  artefacto:        "Artefacto"
+  usuario:          "Usuario"
+  deposito:         "Deposito"
+  revision:         "Revisión"
+
+
+# palabras comunes
+  nombre:           "Nombre"
+  descr:            "Descripción"
+  costo_estimado:   "Costo estimado"
+  unidad_costo:     "Unidad de costo"
+  seleccione:       "Seleccione"
+  humano:           "Humano"
+  material:         "Material"
+  descripcion:      "Descripción"
+  unidades:         "Unidades"
+  imagen:           "Imagen"
+  login:            "Iniciar sesión"
+  password:         "Contraseña"
+  password_confirm: "Validar contraseña"
+  hora_hombre:      "Hora/Hombre"
+  costo_uso:        "Costo/Uso"
+  cantidad:         "Cantidad"
+  modo:             "Modo"
+  select:           "Seleccione"
+  email:            "Email"
+  nombres:          "Nombres"
+  apellidos:        "Apellidos"
+  admin:            "Administrador"
+  manager:          "Director"
+  worker:           "Trabajador"
+  change_workspace:   "Cambiar modo"
+  admin_workspace:    "Modo Administrador"
+  manager_workspace:  "Modo Director"
+  worker_workspace:   "Modo Trabajador"
+  buscar:             "Buscar"
+  buscando:           "Buscando..."
+  elements_founds:    "Elementos encontrandos"
+  si:               "Si"
+  no:               "No"
+
+# reportes
+  principal:        "Principal"
+  desarrollo:       "Planeacion"
+  entregables:      "Entregables"
+  status:           "Estado avance"
+  burndown:         "Burndown"
+  recursoHumano:    "Recursos Humanos"
+  recursoMaterial:  "Recursos Materiales"
+  recursosM:        "Asignacion de recursos"
+  inicio:           "Inicio del Proyecto"
+  tareasG:          "Tareas"
+  titulo:           "PLANEACION DEL PROCESO"
+  comentario:       "Los valores de esfuerzo estan calculados en dias/hombre"
+  tituloG:          "Asignacion de recursos"
+  nombre:           "Nombre"
+
+# configuracion
+  rols:
+    index:
+      title_pag: "Roles del Sistema"
+
+  tipo_recursos:
+    index:
+      title_pag: "Tipo de recursos"
+
+  tipo_artefactos:
+    index:
+      title_pag: "Tipos de artefactos"
+
+  tipo_depositos:
+    index:
+      title_pag: "Tipos de depósitos"
+
+  tipo_plantillas:
+    index:
+      title_pag: "Tipos de plantilla"
+
+  tipo_organizacions:
+    index:
+      title_pag: "Tipos de empresa"
+
+  plantillas:
+    index:
+      title_pag: "Crear plantilla"
+
+  recursos:
+    index:
+      title_pag: "Recursos"
+
+  organizacions:
+      index:
+        title_pag: "Empresas"
+        nit: "NIT"
+        email_manager:  "Email administrador"
+        nit_existe:     "Ya existe un organizacion con este nit"
+        email_existe:   "El correo del administrador seleccionado ya esta registrado"
+        min_lenght:     "Mínimo 8 carácteres"
+        nombre_manager: "Nombre administrador"
+
+  usuarios:
+      index:
+        nivel_acceso: "Rol"
+        title_pag:    "Usuario"
+        min_lenght:    "Minimo 8 caractéres"
+
+# proyectos
+  proyectos:
+    index:
+      title_pag:      "Administrar proyectos"
+      fecha_inicio:   "Fecha Inicio"
+      fecha_fin:      "Fecha Fin"
+    configuracion:
+      procesos:       "Procesos"
+      empresas:       "Empresas"
+      participantes:  "Participantes"
+      recursos:       "Recursos"
+      artefactos:     "Artefactos"
+
+  proyecto_organizacions:
+    index:
+      title_pag:            "Organizaciones proyecto"
+      seleccionar_tipo:     "Seleccione un tipo de organización"
+      select_organizacion:  "Seleccione las organizaciónes a vincular"
+      list_organizacion:    "Organizaciones disponibles"
+      vincu_oganizacion:    "Organizaciones seleccionadas"
+      no_seleccion:         "Al menos debe seleccionar una organización para vincular"
+
+  proyecto_recursos:
+      index:
+        title_pag: "Recursos proyecto"
+
+  proyecto_artefactos:
+      index:
+        title_pag: "Artefactos proyecto"
+
+  proyecto_usuarios:
+      index:
+        title_pag: "Participantes proyecto"
+
+
+# procesos
+  procesos:
+    index:
+      title_pag: "Procesos proyecto"
+    show:
+      disenho:      "Diseño"
+      planeacion:   "Planeación"
+      ejecucion:    "Ejecución"
+      programacion: "Programación"
+      seguimiento:  "Seguimiento"
+    disenho:
+      estadisticas: "Estadísticas"
+      diagrama:     "Diagrama"
+      informacion:  "Información"
+
+    arbol:
+      filtro:             "Buscar"
+      limpiar:            "Limpiar"
+      nuevo:              "Nuevo"
+      actividad_exist:    "Actividad existente"
+      new_actividad:      "Actividad"
+      actividad:          "Actividad"
+      actSimple:          "Actividad Simple"
+      actMultiSeq:        "Actividad MultiInstancia Sequencial"
+      actMultiPara:       "Actividad MultiInstancia Paralela"
+      actSimpleRev:       "Actividad Simple con Aprobación"
+      actMultiSeqRev:     "Actividad MultiInstancia Sequencial con Aprobación"
+      actMultiParaRev:    "Actividad MultiInstancia Paralela con Aprobación"
+      compuerta:          "Compuerta"
+      compuerta_inclu:    "Compuerta Inclusiva"
+      compuerta_exclu:    "Compuerta Exclusiva"
+      compuerta_para:     "Compuerta Paralela"
+      evento_inicio:      "Evento de Inicio"
+      evento_fin:         "Evento de Fin"
+      evento_intermedio:  "Evento Intermedio"
+      ruta:               "Ruta"
+      rename:             "Renombrar"
+      remove:             "Eliminar"
+      cut:                "Cortar"
+      copy:               "Copiar"
+      paste:              "Pegar"
+      editar:             "Editar"
+      asociar:            "Asociar tipo de recurso"
+
+    controlpanel:
+      nombre:           "Nombre"
+      autor:            "Autor"
+      fcreacion:        "Fecha de creación"
+      fmodificacion:    "Fecha de modificación"
+      descripcion:      "Descripción"
+      numactividads:    "Número de actividades"
+      numcompuertus:    "Número de compuertas"
+      numevents:        "Número de eventos"
+      numsubprocess:    "Número de subprocesos"
+      durationest:      "Duración estimada"
+      costest:          "Costo estimado"
+      numresources:     "Numero de recursos"
+      selectopcion:     "Selecione un gráfico"
+      costvstime:       "Costo sobre tiempo"
+      workvstime:       "Trabajo sobre tiempo"
+      resourcevscost:   "Costo por recurso"
+      resourcevswork:   "Trabajo por recurso"
+
+# actividades
+  actividads:
+    edit:
+      duracionact:      "Duración estimada"
+      horasestact:      "Horas estimadas"
+      modoejecact:      "Modo de ejecución"
+      resourcetypes:    "Tipos de recursos"
+      simple:           "Simple"
+      secuence:         "Secuencial"
+      multiinstance:    "Paralela"
+      assets:           "Tipos de artefactos"
+      roles:            "Tipos de participantes"
+      horas:            "horas"
+      dias:             "días"
+      semanas:          "semanas"
+      num_instancias:   "Número de instancias"
+      tipocontrol:      "Tipo de control"
+      controlfechas:    "Controlar por fechas"
+      controlhoras:     "Controlar por horas"
+      nocontrol:        "No controlar"
+      modo_aprobacion:  "Modo de aprobación"
+      automatica:       "Automática"
+      reqrevisionpara:  "Requiere revisiones en paralelo"
+      reqrevisionseq:   "Requiere revisiones en secuencia"
+      estado:           "Estado"
+      responsable:      "Responsable"
+      actividad_saved:  "Actividad guardada con éxito"
+      revision:         "Revisiones"
+
+    tiporecursos_material:
+
+    tiporecursos_humano:
+
+    tipoartefactos:
+      digit_tipoart:      "Seleccione un tipo de artefacto"
+      digit_tipoartmodo:  "Seleccione un modo"
+      modoTipoArt:        "Modo"
+      modo_in:            "Entrada"
+      modo_out:           "Salida"
+      modo_inout:         "Entrada/Salida"
+
+# tareas
+  tareas:
+    index:
+      actividad:            "Actividad"
+      descripcion:          "Descripciòn"
+      duracion:             "Duraciòn"
+      horas_planeadas:      "Horas planeadas"
+      fecha_inicio:         "Fecha inicio"
+      fecha_fin:            "Fecha fin"
+      hito:                 "Hito"
+      prioridad:            "Prioridad"
+      estado:               "Estado"
+      responsable:          "Responsable"
+      aprobacion:           "Aprobación"
+      recursos:             "Recursos"
+      participantes:        "Participantes"
+      revisores:            "Revisores"
+      artefactos:           "Artefactos"
+    tarea_responsable:
+      btnAsociar:           "Asociar"
+      asociar_responsable:  "Asociar Responsable"
+    tarea_recurso:
+      btnAsociar:           "Asociar"
+      asociar_recurso:      "Asociar Recurso"
+      unidades:             "Unidades"
+    tarea_participante:
+      btnAsociar:           "Asociar"
+      asociar_participante: "Asociar Participante"
+      dedicacion:           "Dedicación"
+      horas:                "horas"
+      dia:                  "día"
+    tarea_artefacto:
+      btnAsociar:           "Asociar"
+      asociar_aretfacto:    "Asociar Aretfacto"
+      buscar:               "Buscar"
+      ver_detalle:          "Ver detalle"
+      minlenght:            "digíte mínimo 3 carácteres"
+
+  tarea_participantes:
+    index:
+      aprobacion:         "Aprobación"
+      esperando_aprobacion: "Esperando aprobación"
+      requiere_aprobacion:  "Requiere aprobación"
+      aprobada:             "Aprobada"
+    revision:
+      revisar_tarea:      "Detallar Tarea"
+      aprobar:            "Aprobar"
+      comentario:         "Comentarios"
+      entradas:           "Entradas"
+      salidas:            "Salidas"
+
+
+
+
+  depositos:
+    index:
+      title_pag:    "Depósitos"
+      cuenta:       "Cuenta"
+      import_from_basecamp: "Importar desde basecamp"
+      import_from_dropbox: "Importar desde dropbox"
+    basecamp:
+      importar:       "Importar"
+      palabra_clave:  "Texto"
+    dropbox:
+      importar:       "Importar"
+      palabra_clave:  "Texto"
+
+# layouts
+  layouts:
+    WS_usuarios:
+      home:        "Proyecto DAVID"
+      menu3_0:     "Proyectos"
+      overview:    "Resumen"
+      about:       "Acerca de.."
+      contact:     "Contacto"
+      iniciar:     "Tareas por iniciar"
+      proceso:     "Tareas en proceso"
+      terminadas:  "Tareas Terminadas"
+      aprobadas:   "Tareas Cerradas"
+      horas:       "Horas planeadas"
+      horas_worked: "Horas trabajadas"
+      horas_acum:   "Horas acumuladas"
+      signed_in_as: "Iniciada sesión como"
+      sign_out:     "Cerrar sesión"
+      register:     "Registrarse"
+      inicio:       "Inicio"
+      fin:          "Fin"
+      avance:       "Porcentaje de avance"
+      nocontrol:    "No requiere seguimiento"
+      tarde:        "Esta tarea esta retrazada"
+      diaspara:     "Dias para terminar"
+    application:
+      home:         "Proyecto DAVID"
+      menu3_0:      "Proyectos"
+      menu3_1:      "Recursos"
+      menu3_2:      "Plantillas"
+      menu3_3:      "Artefactos"
+      config:       "Configuración"
+      config_0:     "Depositos"
+      config_1:     "Roles"
+      config_2:     "Empresas"
+      config_3:     "Tipos de recursos"
+      config_4:     "Tipos de plantillas"
+      config_5:     "Tipos de artefactos"
+      config_6:     "Usuarios"
+      config_7:     "Tipos de depósitos"
+      config_8:     "Tipos de empresa"
+      about:        "Acerca de.."
+      contact:      "Contacto"
+      signed_in_as: "Iniciada sesión como"
+      sign_out:     "Cerrar sesión"
+      register:     "Registrarse"
+
+    proyectos1:
+      home:         "Proyecto DAVID"
+      menu3_0:      "Proyectos"
+      menu3_1:      "Recursos"
+      menu3_2:      "Plantillas"
+      menu3_3:      "Artefactos"
+      config:       "Configuración"
+      config_7:     "Tipos de depósitos"
+      config_0:     "Depositos"
+      config_1:     "Roles"
+      config_2:     "Empresas"
+      config_3:     "Tipos de recursos"
+      config_4:     "Tipos de plantillas"
+      config_5:     "Tipos de artefactos"
+      config_6:     "Usuarios"
+      config_8:     "Tipos de empresa"
+      about:        "Acerca de.."
+      contact:      "Contacto"
+      overview:     "Resumen"
+      priorizar:    "Priorizar tareas"
+      setting:      "Configuración"
+      signed_in_as: "Iniciada sesión como"
+      sign_out:     "Cerrar sesión"
+
+# shared
+  shared:
+    menu_crud:
+      config:       "Configurar"
+
+    filtro_crud:
+      filtro:       "Filtro"
+      filtro1:      "Filtro 1"
+      filtro1_1:    "Filtro 1 - 1"
+      filtro1_2:    "Filtro 1 - 2"
+      filtro2:      "Filtro 2"
+
+
+

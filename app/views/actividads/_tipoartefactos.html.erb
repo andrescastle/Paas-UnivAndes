@@ -1,0 +1,124 @@
+<table id="act_tipoartefactosTabla" class="table table-bordered table-striped tablesorter" >
+  <thead>
+  <tr>
+    <th></th>
+    <th><%= t('nombre')%> </th>
+    <th><%= t('modo')%> </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @actividad_tipoartefactos.each do |act_tipoartefacto| %>
+      <tr id="<%= act_tipoartefacto.id %>">
+        <td width="20px">
+          <input type="checkbox"/>
+        </td>
+        <td><%= act_tipoartefacto.tipo_artefacto.nombre %></td>
+        <td>
+          <% case act_tipoartefacto.modo %>
+          <% when "In" %>
+              <%= t('.modo_in')%>
+          <% when "Out" %>
+              <%= t('.modo_out')%>
+          <% when "InOut" %>
+            <%= t('.modo_inout')%>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<% content_for :modal do %>
+<div id="tipo_artefactos" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+  <%= form_for(@actividad_tipoartefacto) do |f| %>
+
+      <div class="modal-header">
+        <h3><%= t('seleccione')%> <%= t('artefacto') %></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row-fluid">
+          <label><%= t('.digit_tipoart')%></label>
+          <!--input type="text" id="tiporec_name" name="tiporec_name"/-->
+          <select id="tipoart_name" name="tipoart_name">
+            <% @tipo_artefactos.each do |tipo_artefacto| %>
+                <option value="<%= tipo_artefacto.nombre %>"><%= tipo_artefacto.nombre %></option>
+            <% end %>
+          </select>
+         </div>
+        <div class="row-fluid">
+          <label><%= t('.digit_tipoartmodo')%></label>
+          <select id="tipoart_modo" name="tipoart_modo">
+            <option value="In"><%= t('.modo_in')%> </option>
+            <option value="Out"><%= t('.modo_out')%></option>
+            <option value="In/Out"><%= t('.modo_in_out')%></option>
+          </select>
+          <input type="hidden" id="actividad_id" name="actividad_id" value="<%=@actividad.id %>" />
+        </div>
+      </div>
+      <div class="modal-footer">
+
+      <input type="submit" class="btn" id="select_asset" name="select_asset" value ="<%= t('btnCrear')%>"/>
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar')%></button>
+      </div>
+
+  <% end %>
+</div>
+<% end %>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $.validator.addMethod("artefacto_usado", validar_artefacto_usado, "");
+
+        $("#new_actividad_tipoartefacto").validate({
+            rules: {
+                "tipoart_name": {
+                    required: true,
+                    artefacto_usado: true
+                },
+                "tipoart_modo": {
+                    required: true
+                }
+            },
+            messages: {
+                "tipoart_name": {
+                    required: "<%= t('mandatory') %>",
+                    artefacto_usado: "<%= t('has_asigned') %>"
+                },
+                "tipoart_modo": {
+                    required: "<%= t('mandatory') %>"
+                }
+            }
+        });
+    });
+
+    var usado = false;
+    function validar_artefacto_usado() {
+        var nombre = document.getElementById("tipoart_name").value;
+        var actividad = document.getElementById("actividad_id").value;
+
+        $.ajax({
+            type: "GET",
+            url: "<%= request.protocol + request.host_with_port %>/actividad_tipoartefactos/existe/nombre",
+            data: "nombre=" + nombre + "&actividad_id=" + actividad,
+            async: false,
+            success:
+                    function(msg) {
+                        msg == "true" ? usado = false : usado = true
+                    }
+        });
+
+        return usado;
+    }
+
+</script>
+
+<% if @actividad.proceso.estado != "publicado" %>
+<a href="#tipo_artefactos" role="button" class="btn" data-toggle="modal"><%= t('add') %></a>
+<a href="#del_tipo_artefactos" role="button" class="btn" data-toggle="modal"><%= t('remove') %></a>
+<% end %>

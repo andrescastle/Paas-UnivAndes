@@ -1,0 +1,187 @@
+<script src="../assets/flotr2/flotr2.min.js" type="text/javascript"></script>
+<div class="divDemoBody">
+  <div id="nuevaactividad"  >
+    <div class="modal-header" >
+      <table>
+        <tr>
+          <td><b><%= t('.nombre')%></b></td>
+          <td><%= @plantilla.nombre %></td>
+          <td rowspan="6">
+
+            <% if FileTest.exist?(Dir.pwd + "/public/images/plantillas/" + @plantilla.id.to_s() + "_original.img") %>
+              <%= image_tag "/images/plantillas/" + @plantilla.id.to_s() + '_original.img', :size => "150x150" %>
+            <% else %>
+              <%= image_tag "/images/noimage.jpg", :size => "150x150" %>
+            <% end %>
+
+          </td>
+        </tr>
+        <tr>
+          <td><b><%=  t('.autor')%></b></td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td><b><%=  t('.fcreacion')%></b></td>
+          <td><%= @plantilla.created_at %></td>
+        </tr>
+        <tr>
+          <td><b><%= t('.fmodificacion')%></b></td>
+          <td><%= @plantilla.updated_at %></td>
+        </tr>
+        <tr>
+          <td><b><%=  t('.descripcion')%></b></td>
+          <td><%= @plantilla.descripcion %></td>
+        </tr>
+      </table>
+
+    </div>
+
+    <p></p>
+    <div class="row-fluid">
+          <div class="span1"></div>
+          <div class="span10">
+
+            <div class="row-fluid">
+             
+              <div class="span12"  style="margin-left: auto; margin-right: auto;">
+                <div class="alert alert-info" alingn="center" style=" text-align: center; background-color:  #000  " >
+                  <table border="1px" cellpadding="5px" cellspacing="5px" style="vertical-align:middle; color: #cccccc">
+              <tr>
+                <td><%=  t('.numactividads')%></td><td style=" text-align: center" ><%= @numactividades %></td>
+              </tr>
+              <tr>
+                <td><%=  t('.numcompuertus')%></td><td style=" text-align: center"><%= @numcompuertas %></td>
+              </tr>
+              <tr>
+                <td><%=  t('.numevents')%></td><td style=" text-align: center">0</td>
+              </tr>
+              <tr>
+                <td><%=  t('.numsubprocess')%></td><td style=" text-align: center">0</td>
+              </tr>
+              <tr>
+                <td><%=  t('.durationest')%></td><td style=" text-align: center"><%= @duracionest %></td>
+              </tr>
+              <tr>
+                <td><%=  t('.costest')%></td><td style=" text-align: center"><%= @costoest %></td>
+              </tr>
+              <tr>
+                <td>  <%=  t('.numresources')%></td><td style=" text-align: center"><%= @numrecursos %></td>
+              </tr>
+            </table>
+                </div>
+               </div>
+               
+             </div>
+           </div>
+         <div class="span1"></div>
+        </div>
+
+
+       <div class="row-fluid">
+          <div class="span1"></div>
+          <div class="span5">
+
+            <div class="row-fluid">
+             
+              <div class="span12"  style="margin-left: auto; margin-right: auto;">
+                <div class="alert alert-info" alingn="center" style=" text-align: center; background-color:  #000  " >
+                   <span><%= t('.costvstime')%></span>
+                    <br/><br/>
+                     <div id="graph_cost" style="width: 300px;height: 250px;  "></div>
+                </div>
+               </div>
+               
+             </div>
+           </div>
+         <div class="span5">
+
+            <div class="row-fluid">
+              
+              <div class="span12">
+                <div class="alert alert-success" alingn="center" style=" text-align: center; background-color:  #000  " >
+                  <span><%= t('.workvstime')%></span>
+                    <br/><br/>
+                    <div id="graph_work" style="width: 300px;height: 250px;"></div>
+                </div>
+               </div>
+               
+             </div>
+           </div>
+          <div class="span1"></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span1"></div>
+          <div class="span5">
+ 
+            <div class="row-fluid">
+              <div class="span12">
+                <div class="alert alert-error" alingn="center" style=" text-align: center; background-color:  #000  " >
+                   <span><%= t('.resourcevscost')%></span>
+                    <br/><br/>
+                    <div id="graph_rescost" style="width: 300px;height: 250px;"></div>
+                </div>
+               </div>
+              </div>
+           </div>
+          <div class="span5">
+
+            <div class="row-fluid">
+             <div class="span12">
+                <div class="alert" alingn="center" style=" text-align: center; background-color:  #000  " >
+                   <span><%= t('.resourcevswork')%></span>
+                    <br/><br/>
+                    <div id="graph_reswork" style="width: 300px;height: 250px;"></div>
+                </div>
+               </div>
+             </div>
+           </div>
+          <div class="span1"></div>
+        </div>
+  </div>
+
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    var costtime = document.getElementById("graph_cost");
+    var worktime = document.getElementById("graph_work");
+    var rescost = document.getElementById("graph_rescost");
+    var reswork = document.getElementById("graph_reswork");
+
+    var worktimedata = [<%=@workvstime %>];
+    var costtimedata = [<%=@costvstime %>];
+
+    // A couple flotr configuration options:
+    var plot_options = {
+      xaxis: { minorTickFreq: 4 },
+      grid: { minorVerticalLines: true }
+    };
+
+    var bars_options =  {
+      bars : {
+        show : true,
+        horizontal : false,
+        shadowSize : 0,
+        barWidth : 1
+      },
+      mouse : {
+        track : true,
+        relative : true
+      },
+      yaxis : {
+        min : 0,
+        autoscaleMargin : 1
+      }
+    };
+    // Draw the graph:
+    Flotr.draw(costtime,[ costtimedata ],  plot_options );
+    Flotr.draw(worktime,[ worktimedata ],  plot_options );
+    Flotr.draw(rescost,[ costtimedata ],  bars_options );
+    Flotr.draw(reswork,[ costtimedata ],  bars_options );
+
+  });
+
+ 
+
+</script>
+

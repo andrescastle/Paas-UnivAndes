@@ -1,0 +1,25 @@
+<h1>Listing estado_tareas</h1>
+
+<table>
+  <tr>
+    <th>Tareas</th>
+    <th>Estado actividads</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @estado_tareas.each do |estado_tarea| %>
+  <tr>
+    <td><%= estado_tarea.tareas %></td>
+    <td><%= estado_tarea.estado_actividads %></td>
+    <td><%= link_to 'Show', estado_tarea %></td>
+    <td><%= link_to 'Edit', edit_estado_tarea_path(estado_tarea) %></td>
+    <td><%= link_to 'Destroy', estado_tarea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Estado tarea', new_estado_tarea_path %>

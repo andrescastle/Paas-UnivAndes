@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project: 
+  worker: 
+  assigned_at: 2012-05-31
+
+two:
+  project: 
+  worker: 
+  assigned_at: 2012-05-31

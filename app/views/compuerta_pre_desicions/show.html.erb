@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Compuerta:</b>
+  <%= @compuerta_pre_desicion.compuerta_id %>
+</p>
+
+<p>
+  <b>Ruta:</b>
+  <%= @compuerta_pre_desicion.ruta_id %>
+</p>
+
+<p>
+  <b>Elegida:</b>
+  <%= @compuerta_pre_desicion.elegida %>
+</p>
+
+<p>
+  <b>Tarea desicion:</b>
+  <%= @compuerta_pre_desicion.tarea_desicion_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_compuerta_pre_desicion_path(@compuerta_pre_desicion) %> |
+<%= link_to 'Back', compuerta_pre_desicions_path %>

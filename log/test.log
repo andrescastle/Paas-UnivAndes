@@ -1,0 +1,1879 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRol Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM `rols` WHERE `rols`.`nombre` = BINARY '2' LIMIT 1[0m
+  [1m[35mSQL (17.0ms)[0m  INSERT INTO `rols` (`created_at`, `descripcion`, `nombre`, `updated_at`) VALUES ('2012-09-05 14:46:37', '1', '2', '2012-09-05 14:46:37')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (52.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRol Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM `rols` WHERE `rols`.`nombre` = BINARY '1' LIMIT 1[0m
+  [1m[35mSQL (9.0ms)[0m  INSERT INTO `rols` (`created_at`, `descripcion`, `nombre`, `updated_at`) VALUES ('2012-09-05 14:46:37', '2', '1', '2012-09-05 14:46:37')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (30.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRol Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM `rols` WHERE `rols`.`nombre` = BINARY '2' LIMIT 1[0m
+  [1m[35mSQL (26.0ms)[0m  INSERT INTO `rols` (`created_at`, `descripcion`, `nombre`, `updated_at`) VALUES ('2012-09-05 14:49:25', '1', '2', '2012-09-05 14:49:25')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (75.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRol Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM `rols` WHERE `rols`.`nombre` = BINARY '1' LIMIT 1[0m
+  [1m[35mSQL (17.0ms)[0m  INSERT INTO `rols` (`created_at`, `descripcion`, `nombre`, `updated_at`) VALUES ('2012-09-05 14:49:25', '2', '1', '2012-09-05 14:49:25')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (74.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (45.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (15.0ms)[0m  ROLLBACK
+  [1m[36m (10.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.0ms)[0m  ROLLBACK
+  [1m[36m (10.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.0ms)[0m  ROLLBACK
+  [1m[36m (5.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (10.0ms)[0m  ROLLBACK
+  [1m[36m (5.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (10.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/recursos" for 127.0.0.1 at 2012-09-12 09:51:30 -0500
+Processing by RecursosController#index as HTML
+  [1m[35mRecurso Load (25.0ms)[0m  SELECT `recursos`.* FROM `recursos` 
+  [1m[36mTipoRecurso Load (19.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` [0m
+  [1m[35mOrganizacion Load (33.0ms)[0m  SELECT `organizacions`.* FROM `organizacions` 
+  [1m[36mTipoRecurso Load (3.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` 
+  Rendered recursos/index.html.erb within layouts/application (285.0ms)
+Completed 200 OK in 1207ms (Views: 446.0ms | ActiveRecord: 445.0ms)
+  [1m[36m (59.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (5.0ms)[0m  BEGIN
+
+
+Started GET "/recursos" for 127.0.0.1 at 2012-09-12 09:51:32 -0500
+Processing by RecursosController#index as HTML
+  [1m[36mRecurso Load (5.0ms)[0m  [1mSELECT `recursos`.* FROM `recursos` [0m
+  [1m[35mTipoRecurso Load (0.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` 
+  [1m[36mOrganizacion Load (0.0ms)[0m  [1mSELECT `organizacions`.* FROM `organizacions` [0m
+  [1m[35mTipoRecurso Load (5.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` [0m
+  Rendered recursos/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 40ms (Views: 25.0ms | ActiveRecord: 10.0ms)
+  [1m[35m (0.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (4.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  ROLLBACK
+  [1m[36m (6.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (7.0ms)[0m  ROLLBACK
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (9.0ms)[0m  ROLLBACK
+  [1m[36m (3.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (9.0ms)[0m  ROLLBACK
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  ROLLBACK
+  [1m[36m (3.0ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/recursos" for 127.0.0.1 at 2012-09-12 09:57:27 -0500
+Processing by RecursosController#index as HTML
+  [1m[35mRecurso Load (6.0ms)[0m  SELECT `recursos`.* FROM `recursos` 
+  [1m[36mTipoRecurso Load (29.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` [0m
+  [1m[35mOrganizacion Load (9.0ms)[0m  SELECT `organizacions`.* FROM `organizacions` 
+  [1m[36mTipoRecurso Load (7.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` 
+  Rendered recursos/index.html.erb within layouts/application (249.0ms)
+Completed 200 OK in 871ms (Views: 441.1ms | ActiveRecord: 142.0ms)
+  [1m[36m (14.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (11.0ms)[0m  BEGIN
+
+
+Started GET "/recursos" for 127.0.0.1 at 2012-09-12 09:57:29 -0500
+Processing by RecursosController#index as HTML
+  [1m[36mRecurso Load (29.0ms)[0m  [1mSELECT `recursos`.* FROM `recursos` [0m
+  [1m[35mTipoRecurso Load (5.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` 
+  [1m[36mOrganizacion Load (14.0ms)[0m  [1mSELECT `organizacions`.* FROM `organizacions` [0m
+  [1m[35mTipoRecurso Load (9.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` [0m
+  Rendered recursos/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 81ms (Views: 23.0ms | ActiveRecord: 57.0ms)
+  [1m[35m (7.0ms)[0m  ROLLBACK
+  [1m[36m (3.0ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/recursos" for 127.0.0.1 at 2012-09-12 09:57:29 -0500
+Processing by RecursosController#index as HTML
+  [1m[35mRecurso Load (8.0ms)[0m  SELECT `recursos`.* FROM `recursos` 
+  [1m[36mTipoRecurso Load (5.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` [0m
+  [1m[35mOrganizacion Load (12.0ms)[0m  SELECT `organizacions`.* FROM `organizacions` 
+  [1m[36mTipoRecurso Load (14.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` 
+  Rendered recursos/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 63ms (Views: 22.0ms | ActiveRecord: 39.0ms)
+  [1m[36m (4.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (6.0ms)[0m  BEGIN
+
+
+Started GET "/recursos" for 127.0.0.1 at 2012-09-12 09:57:29 -0500
+Processing by RecursosController#index as HTML
+  [1m[36mRecurso Load (6.0ms)[0m  [1mSELECT `recursos`.* FROM `recursos` [0m
+  [1m[35mTipoRecurso Load (10.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` 
+  [1m[36mOrganizacion Load (6.0ms)[0m  [1mSELECT `organizacions`.* FROM `organizacions` [0m
+  [1m[35mTipoRecurso Load (7.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` [0m
+  Rendered recursos/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 55ms (Views: 24.0ms | ActiveRecord: 29.0ms)
+  [1m[35m (6.0ms)[0m  ROLLBACK
+  [1m[36m (3.0ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/recursos" for 127.0.0.1 at 2012-09-12 09:57:29 -0500
+Processing by RecursosController#index as HTML
+  [1m[35mRecurso Load (15.0ms)[0m  SELECT `recursos`.* FROM `recursos` 
+  [1m[36mTipoRecurso Load (7.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` [0m
+  [1m[35mOrganizacion Load (4.0ms)[0m  SELECT `organizacions`.* FROM `organizacions` 
+  [1m[36mTipoRecurso Load (5.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` 
+  Rendered recursos/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 56ms (Views: 21.0ms | ActiveRecord: 31.0ms)
+  [1m[36m (3.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (3.0ms)[0m  BEGIN
+
+
+Started GET "/recursos" for 127.0.0.1 at 2012-09-12 09:57:29 -0500
+Processing by RecursosController#index as HTML
+  [1m[36mRecurso Load (7.0ms)[0m  [1mSELECT `recursos`.* FROM `recursos` [0m
+  [1m[35mTipoRecurso Load (9.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` 
+  [1m[36mOrganizacion Load (5.0ms)[0m  [1mSELECT `organizacions`.* FROM `organizacions` [0m
+  [1m[35mTipoRecurso Load (10.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` [0m
+  Rendered recursos/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 56ms (Views: 23.0ms | ActiveRecord: 31.0ms)
+  [1m[35m (2.0ms)[0m  ROLLBACK
+  [1m[36m (8.0ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/recursos" for 127.0.0.1 at 2012-09-12 09:57:29 -0500
+Processing by RecursosController#index as HTML
+  [1m[35mRecurso Load (16.0ms)[0m  SELECT `recursos`.* FROM `recursos` 
+  [1m[36mTipoRecurso Load (5.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` [0m
+  [1m[35mOrganizacion Load (6.0ms)[0m  SELECT `organizacions`.* FROM `organizacions` 
+  [1m[36mTipoRecurso Load (2.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tipo_recursos`.* FROM `tipo_recursos` 
+  Rendered recursos/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 57ms (Views: 26.0ms | ActiveRecord: 29.0ms)
+  [1m[36m (7.0ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2013-02-28 11:41:36 -0500
+Processing by UsuariosController#index as HTML
+  [1m[35mUsuario Load (2.1ms)[0m  SELECT `usuarios`.* FROM `usuarios` 
+  Rendered shared/_encabezado_crud.erb (0.6ms)
+  Rendered shared/_menu_crud.erb (2.2ms)
+  Rendered shared/_filtro_crud.erb (1.5ms)
+  Rendered shared/_footer_crud.erb (0.6ms)
+  [1m[36mTipoRecurso Load (2.1ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`unit` = 1[0m
+  Rendered usuarios/index.html.erb within layouts/application (292.0ms)
+Compiled jquery-ui-1.9.1.custom.css  (0ms)  (pid 2031)
+Compiled jquery-1.8.2.js  (6ms)  (pid 2031)
+Compiled jquery-ui-1.9.1.custom.min.js  (0ms)  (pid 2031)
+Compiled jquery.jstree.js  (3ms)  (pid 2031)
+Completed 200 OK in 2859ms (Views: 2717.6ms | ActiveRecord: 35.7ms)
+
+
+Started GET "/usuarios?locale=es" for 127.0.0.1 at 2013-02-28 11:41:40 -0500
+Processing by UsuariosController#index as HTML
+  Parameters: {"locale"=>"es"}
+  [1m[35mUsuario Load (4.3ms)[0m  SELECT `usuarios`.* FROM `usuarios` 
+  Rendered shared/_encabezado_crud.erb (0.1ms)
+  Rendered shared/_menu_crud.erb (0.7ms)
+  Rendered shared/_filtro_crud.erb (0.4ms)
+  Rendered shared/_footer_crud.erb (0.1ms)
+  [1m[36mTipoRecurso Load (2.2ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`unit` = 1[0m
+  Rendered usuarios/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 29ms (Views: 21.0ms | ActiveRecord: 6.5ms)
+  [1m[35m (1.7ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2013-02-28 11:41:40 -0500
+Processing by UsuariosController#index as HTML
+  [1m[35mUsuario Load (2.1ms)[0m  SELECT `usuarios`.* FROM `usuarios` 
+  Rendered shared/_encabezado_crud.erb (0.0ms)
+  Rendered shared/_menu_crud.erb (0.7ms)
+  Rendered shared/_filtro_crud.erb (0.4ms)
+  Rendered shared/_footer_crud.erb (0.1ms)
+  [1m[36mTipoRecurso Load (2.0ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`unit` = 1[0m
+  Rendered usuarios/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 27ms (Views: 21.9ms | ActiveRecord: 4.2ms)
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (32.8ms)[0m  [1mINSERT INTO `usuarios` (`created_at`, `imagen`, `login`, `nombre`, `organizacion_id`, `tipo_recurso_id`, `updated_at`) VALUES ('2013-02-28 16:41:40', NULL, 'juan743', 'Juan', NULL, NULL, '2013-02-28 16:41:40')[0m
+[paperclip] Saving attachments.
+  [1m[35m (2.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `usuarios` (`created_at`, `imagen`, `login`, `nombre`, `organizacion_id`, `tipo_recurso_id`, `updated_at`) VALUES ('2013-02-28 16:41:40', NULL, 'leidy35', 'Leidy', NULL, NULL, '2013-02-28 16:41:40')
+[paperclip] Saving attachments.
+  [1m[36m (6.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2013-02-28 11:41:40 -0500
+Processing by UsuariosController#index as HTML
+  [1m[35mUsuario Load (2.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` 
+  Rendered shared/_encabezado_crud.erb (0.0ms)
+  Rendered shared/_menu_crud.erb (0.7ms)
+  Rendered shared/_filtro_crud.erb (0.4ms)
+  Rendered shared/_footer_crud.erb (0.1ms)
+  [1m[36mTipoRecurso Load (2.4ms)[0m  [1mSELECT `tipo_recursos`.* FROM `tipo_recursos` WHERE `tipo_recursos`.`unit` = 1[0m
+  Rendered usuarios/index.html.erb within layouts/application (38.2ms)
+Completed 200 OK in 57ms (Views: 50.2ms | ActiveRecord: 5.0ms)
+  [1m[35m (5.7ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.6ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (32.1ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-02-28 16:48:41', NULL, 'proceso_1', NULL, 1, '2013-02-28 16:48:41')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (7.2ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (55.9ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-02-28 16:56:36', NULL, 'proceso_1', NULL, 1, '2013-02-28 16:56:36')[0m
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (28.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.4ms)[0m  BEGIN
+  [1m[36m (2.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (2.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (2.1ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (2.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (2.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.7ms)[0m  ROLLBACK
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  ROLLBACK
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.1ms)[0m  ROLLBACK
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.3ms)[0m  ROLLBACK
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  ROLLBACK
+  [1m[36m (2.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.2ms)[0m  ROLLBACK
+  [1m[36m (2.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.9ms)[0m  ROLLBACK
+  [1m[36m (2.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.7ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.2ms)[0m  ROLLBACK
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.6ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.9ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.4ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.2ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.4ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (4.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.3ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.2ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (2.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (2.2ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (2.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (2.2ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (3.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (2.2ms)[0m  ROLLBACK
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.5ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (2.2ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.7ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.3ms)[0m  ROLLBACK
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  ROLLBACK
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+  [1m[36m (2.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (2.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  ROLLBACK
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.4ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+  [1m[36m (3.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (2.5ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (4.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (2.3ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.5ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (30.4ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:23:08', 'hola', 1, 1, NULL, 'hola', NULL, 1, '2013-03-01 20:23:08')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.4ms)[0m  BEGIN
+  [1m[36m (1.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.1ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:23:08', 'hola', 1, 1, NULL, 'hola', NULL, 1, '2013-03-01 20:23:08')
+[paperclip] Saving attachments.
+  [1m[36m (9.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (16.7ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (31.7ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-01 20:27:08', NULL, 'proceso_1', NULL, 1, '2013-03-01 20:27:08')[0m
+  [1m[35m (4.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:27:09', 'actividad_1', 1, 1, NULL, 'actividad_1', NULL, 1, '2013-03-01 20:27:09')
+[paperclip] Saving attachments.
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (6.7ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (22.5ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:29:16', 1, 1, 1, NULL, 1, 1, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:29:16')[0m
+  [1m[35m (2.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-01 20:29:17', NULL, 'proceso_1', NULL, 1, '2013-03-01 20:29:17')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:29:17', 'actividad_1', 1, 1, 1, 'actividad_1', NULL, 1, '2013-03-01 20:29:17')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mMyJsTree Load (3.8ms)[0m  [1mSELECT `my_js_trees`.* FROM `my_js_trees` WHERE `my_js_trees`.`id` = 1 LIMIT 1[0m
+  [1m[35m (1.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:29:17', 'actividad_1', 1, 1, 1, 'actividad_1', NULL, 1, '2013-03-01 20:29:17')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (7.0ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.1ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:51:14', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:51:14')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:51:14', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:51:14')
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:51:14', '', 1, 1, 2, 'actividad_2', 1, NULL, '2013-03-01 20:51:14')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (22.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.5ms)[0m  BEGIN
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:51:14', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:51:14')
+  [1m[36m (2.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.8ms)[0m  ROLLBACK
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:51:14', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:51:14')[0m
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:51:14', 'esta es la actividad 4', 1, 0, 4, 'actividad_4', 1, NULL, '2013-03-01 20:51:14')
+[paperclip] Saving attachments.
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (31.8ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:51:14', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:51:14')[0m
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (37.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36m (2.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:51:15', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:51:15')
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:51:15', 'esta es la actividad 4', 1, 1, 6, 'actividad_1', 1, NULL, '2013-03-01 20:51:15')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (13.8ms)[0m  BEGIN
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:51:15', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:51:15')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:51:15', 'esta es la actividad 4', 1, 1, 7, 'actividad_4', 1, NULL, '2013-03-01 20:51:15')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (15.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.9ms)[0m  BEGIN
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:51:15', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:51:15')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (16.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:52:15', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:52:15')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (7.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:52:15', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:52:15')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:52:15', '', 1, 1, 2, 'actividad_2', 1, 1, '2013-03-01 20:52:15')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.5ms)[0m  BEGIN
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:52:15', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:52:15')
+  [1m[36m (1.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (82.7ms)[0m  ROLLBACK
+  [1m[36m (2.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:52:15', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:52:15')[0m
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:52:15', 'esta es la actividad 4', 1, 0, 4, 'actividad_4', 1, 1, '2013-03-01 20:52:15')
+[paperclip] Saving attachments.
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.8ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:52:15', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:52:15')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (4.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:52:15', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:52:15')
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:52:15', 'esta es la actividad 4', 1, 1, 6, 'actividad_1', 1, 1, '2013-03-01 20:52:15')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (7.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:52:15', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:52:15')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:52:15', 'esta es la actividad 4', 1, 1, 7, 'actividad_4', 1, 1, '2013-03-01 20:52:15')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:52:15', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:52:15')
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.9ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.3ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:08', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:08')[0m
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:08', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:08')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:53:08', '', 1, 1, 2, 'actividad_2', NULL, 1, '2013-03-01 20:53:08')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (5.6ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:08', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:08')
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.4ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:08', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:08')[0m
+  [1m[35m (1.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:53:08', 'esta es la actividad 4', 1, 0, 4, 'actividad_4', NULL, 1, '2013-03-01 20:53:08')
+[paperclip] Saving attachments.
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.1ms)[0m  ROLLBACK
+  [1m[36m (1.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:08', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:08')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (3.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  BEGIN
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:08', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:08')
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:53:08', 'esta es la actividad 4', 1, 1, 6, 'actividad_1', NULL, 1, '2013-03-01 20:53:08')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  BEGIN
+  [1m[36m (2.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:08', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:08')
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:53:08', 'esta es la actividad 4', 1, 1, 7, 'actividad_4', NULL, 1, '2013-03-01 20:53:08')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (1.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:08', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:08')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.4ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (5.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (31.3ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:58', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:58')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:58', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:58')
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:53:58', 'hola', 1, 1, 2, 'hola', NULL, 1, '2013-03-01 20:53:58')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:58', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:58')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.8ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:58', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:58')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:53:58', 'hola', 1, 1, 4, 'hola', NULL, 1, '2013-03-01 20:53:58')
+[paperclip] Saving attachments.
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (34.6ms)[0m  ROLLBACK
+  [1m[36m (1.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:58', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:58')[0m
+  [1m[35m (1.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:53:58', 'hola', 1, 1, 5, 'hola', NULL, 1, '2013-03-01 20:53:58')
+[paperclip] Saving attachments.
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.7ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:58', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:58')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:53:58', 'hola', 1, 1, 6, 'hola', NULL, 1, '2013-03-01 20:53:58')
+[paperclip] Saving attachments.
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (13.2ms)[0m  ROLLBACK
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:58', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:58')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:53:58', 'hola', 1, 1, 7, 'hola', NULL, 1, '2013-03-01 20:53:58')
+[paperclip] Saving attachments.
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.6ms)[0m  ROLLBACK
+  [1m[36m (16.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.1ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:53:58', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:53:58')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (17.0ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:54:31', 1, 1, 1, NULL, 1, 1, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:54:31')[0m
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-01 20:54:31', NULL, 'proceso_1', NULL, 1, '2013-03-01 20:54:31')
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:54:31', 'actividad_1', 1, 1, 1, 'actividad_1', NULL, 1, '2013-03-01 20:54:31')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mMyJsTree Load (2.6ms)[0m  [1mSELECT `my_js_trees`.* FROM `my_js_trees` WHERE `my_js_trees`.`id` = 1 LIMIT 1[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:54:31', 'actividad_1', 1, 1, 1, 'actividad_1', NULL, 1, '2013-03-01 20:54:31')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.1ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:55:32', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:55:32')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:55:32', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:55:32')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:55:32', 'hola', 1, 1, 2, 'hola', NULL, 1, '2013-03-01 20:55:32')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  BEGIN
+  [1m[36m (2.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:55:32', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:55:32')
+  [1m[36m (1.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.7ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:55:32', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:55:32')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:55:32', 'hola', 1, 1, 4, 'hola', NULL, 1, '2013-03-01 20:55:32')
+[paperclip] Saving attachments.
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.2ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:55:33', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:55:33')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:55:33', 'hola', 1, 1, 5, 'hola', NULL, 1, '2013-03-01 20:55:33')
+[paperclip] Saving attachments.
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.1ms)[0m  ROLLBACK
+  [1m[36m (1.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:55:33', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:55:33')[0m
+  [1m[35m (1.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:55:33', 'hola', 1, 1, 6, 'hola', NULL, 1, '2013-03-01 20:55:33')
+[paperclip] Saving attachments.
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.1ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:55:33', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:55:33')[0m
+  [1m[35m (1.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:55:33', 'hola', 1, 1, 7, 'hola', NULL, 1, '2013-03-01 20:55:33')
+[paperclip] Saving attachments.
+  [1m[36m (1.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.5ms)[0m  ROLLBACK
+  [1m[36m (6.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:55:33', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:55:33')[0m
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.2ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:56:29', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:56:29')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (22.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:56:29', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:56:29')
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.9ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:56:29', 'hola', 1, 1, 2, 'hola', NULL, 1, '2013-03-01 20:56:29')[0m
+[paperclip] Saving attachments.
+  [1m[35m (2.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (25.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:56:29', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:56:29')
+  [1m[36m (2.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.8ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:56:29', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:56:29')[0m
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:56:29', 'hola', 1, 1, 4, 'hola', NULL, 1, '2013-03-01 20:56:29')
+[paperclip] Saving attachments.
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (25.5ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:56:29', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:56:29')[0m
+  [1m[35m (1.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:56:29', 'hola', 1, 1, 5, 'hola', NULL, 1, '2013-03-01 20:56:29')
+[paperclip] Saving attachments.
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.5ms)[0m  ROLLBACK
+  [1m[36m (2.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:56:29', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:56:29')[0m
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:56:29', 'hola', 1, 1, 6, 'hola', NULL, 1, '2013-03-01 20:56:29')
+[paperclip] Saving attachments.
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (27.6ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:56:29', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:56:29')[0m
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:56:29', 'hola', 1, 1, 7, 'hola', NULL, 1, '2013-03-01 20:56:29')
+[paperclip] Saving attachments.
+  [1m[36m (1.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.3ms)[0m  ROLLBACK
+  [1m[36m (1.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:56:29', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:56:29')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (27.2ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (22.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:57:22', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:57:22')[0m
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.1ms)[0m  BEGIN
+  [1m[36m (1.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:57:22', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:57:22')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.5ms)[0m  ROLLBACK
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:57:22', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:57:22')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (17.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:57:22', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:57:22')
+  [1m[36m (1.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (12.2ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:57:22', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:57:22')[0m
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:57:22', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:57:22')
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (30.8ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:57:22', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:57:22')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:57:22', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:57:22')
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.9ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (30.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:59:16', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:59:16')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:59:17', '', 1, 1, 1, 'actividad_2', 1, NULL, '2013-03-01 20:59:17')
+[paperclip] Saving attachments.
+  [1m[36m (2.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (250.9ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:59:17', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:59:17')[0m
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (20.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (1.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:59:17', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:59:17')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:59:17', 'esta es la actividad 4', 1, 0, 3, 'actividad_4', 1, NULL, '2013-03-01 20:59:17')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (1.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:59:17', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:59:17')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (3.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (4.9ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (11.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:59:17', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:59:17')[0m
+  [1m[35m (19.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (18.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:59:17', 'esta es la actividad 4', 1, 1, 5, 'actividad_1', 1, NULL, '2013-03-01 20:59:17')
+[paperclip] Saving attachments.
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.2ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:59:17', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:59:17')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (10.3ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 20:59:17', 'esta es la actividad 4', 1, 1, 6, 'actividad_4', 1, NULL, '2013-03-01 20:59:17')
+[paperclip] Saving attachments.
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.1ms)[0m  ROLLBACK
+  [1m[36m (8.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 20:59:17', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 20:59:17')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.1ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (72.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (6.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (16.7ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:08:33', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:08:33')[0m
+  [1m[35m (3.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (8.3ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:08:34', '', 1, 1, 1, 'actividad_2', 1, NULL, '2013-03-01 22:08:34')
+[paperclip] Saving attachments.
+  [1m[36m (3.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (32.4ms)[0m  ROLLBACK
+  [1m[36m (9.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:08:34', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:08:34')[0m
+  [1m[35m (6.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (31.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (3.4ms)[0m  BEGIN
+  [1m[36m (6.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:08:34', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:08:34')
+  [1m[36m (3.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (17.3ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:08:34', 'esta es la actividad 4', 1, 0, 3, 'actividad_4', 1, NULL, '2013-03-01 22:08:34')[0m
+[paperclip] Saving attachments.
+  [1m[35m (18.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (7.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.8ms)[0m  BEGIN
+  [1m[36m (23.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:08:34', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:08:34')
+  [1m[36m (5.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (14.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (10.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (11.0ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:08:34', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:08:34')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (12.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (5.6ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:08:34', 'esta es la actividad 4', 1, 1, 5, 'actividad_1', 1, NULL, '2013-03-01 22:08:34')
+[paperclip] Saving attachments.
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (28.1ms)[0m  ROLLBACK
+  [1m[36m (3.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (8.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:08:34', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:08:34')[0m
+  [1m[35m (4.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (8.3ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:08:34', 'esta es la actividad 4', 1, 1, 6, 'actividad_4', 1, NULL, '2013-03-01 22:08:34')
+[paperclip] Saving attachments.
+  [1m[36m (9.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (24.4ms)[0m  ROLLBACK
+  [1m[36m (2.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (24.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (12.7ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:08:34', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:08:34')[0m
+  [1m[35m (4.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (10.9ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (3.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (34.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:12:55', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:12:55')[0m
+  [1m[35m (2.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:12:55', '', 1, 1, 1, 'actividad_2', 1, NULL, '2013-03-01 22:12:55')
+[paperclip] Saving attachments.
+  [1m[36m (1.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (32.6ms)[0m  ROLLBACK
+  [1m[36m (6.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (11.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:12:55', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:12:55')[0m
+  [1m[35m (2.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (10.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:12:55', 'esta es la actividad 4', 1, 0, 2, 'actividad_4', 1, NULL, '2013-03-01 22:12:55')
+[paperclip] Saving attachments.
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (21.0ms)[0m  ROLLBACK
+  [1m[36m (3.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (20.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:12:55', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:12:55')[0m
+  [1m[35m (4.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (6.7ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (3.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  BEGIN
+  [1m[36m (3.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:12:55', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:12:55')
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (30.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.2ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:12:55', 'esta es la actividad 4', 1, 1, 4, 'actividad_1', 1, NULL, '2013-03-01 22:12:55')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (13.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (23.5ms)[0m  BEGIN
+  [1m[36m (7.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:12:55', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:12:55')
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (17.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.4ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:12:55', 'esta es la actividad 4', 1, 1, 5, 'actividad_4', 1, NULL, '2013-03-01 22:12:55')[0m
+[paperclip] Saving attachments.
+  [1m[35m (4.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.8ms)[0m  BEGIN
+  [1m[36m (7.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.5ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:12:55', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:12:55')
+  [1m[36m (4.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (26.7ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (3.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (15.4ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:14:56', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:14:56')[0m
+  [1m[35m (21.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (6.6ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:14:56', '', 1, 1, 1, 'actividad_2', 1, NULL, '2013-03-01 22:14:56')
+[paperclip] Saving attachments.
+  [1m[36m (1.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (31.1ms)[0m  ROLLBACK
+  [1m[36m (3.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (46.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:14:56', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:14:56')[0m
+  [1m[35m (6.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (3.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (4.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.6ms)[0m  BEGIN
+  [1m[36m (3.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:14:56', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:14:56')
+  [1m[36m (1.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:14:56', 'esta es la actividad 4', 1, 1, 3, 'actividad_1', 1, NULL, '2013-03-01 22:14:56')[0m
+[paperclip] Saving attachments.
+  [1m[35m (47.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (9.7ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (14.0ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:14:56', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:14:56')
+  [1m[36m (6.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.6ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:14:56', 'esta es la actividad 4', 1, 1, 4, 'actividad_4', 1, NULL, '2013-03-01 22:14:56')[0m
+[paperclip] Saving attachments.
+  [1m[35m (2.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.5ms)[0m  BEGIN
+  [1m[36m (11.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.5ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:14:56', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:14:56')
+  [1m[36m (5.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (21.9ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (4.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.6ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:27:14', 1, 1, 1, NULL, 1, 1, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:27:14')[0m
+  [1m[35m (2.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (62.9ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-01 22:27:14', NULL, 'proceso_1', NULL, 1, '2013-03-01 22:27:14')
+  [1m[36m (7.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (44.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.8ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:27:14', 'actividad_1', 1, 1, 1, 'actividad_1', NULL, 1, '2013-03-01 22:27:14')[0m
+[paperclip] Saving attachments.
+  [1m[35m (5.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mMyJsTree Load (94.3ms)[0m  [1mSELECT `my_js_trees`.* FROM `my_js_trees` WHERE `my_js_trees`.`id` = 1 LIMIT 1[0m
+  [1m[35m (23.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:27:14', 'actividad_1', 1, 1, 1, 'actividad_1', NULL, 1, '2013-03-01 22:27:14')[0m
+[paperclip] Saving attachments.
+  [1m[35m (4.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1856.7ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (6.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (11.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (31.6ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:28:30', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:28:30')[0m
+  [1m[35m (9.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (5.7ms)[0m  BEGIN
+  [1m[36m (6.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (9.1ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:28:30', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:28:30')
+  [1m[36m (3.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (10.9ms)[0m  ROLLBACK
+  [1m[36m (3.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (20.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (44.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:28:30', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:28:30')[0m
+  [1m[35m (7.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (7.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (7.4ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (8.5ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:28:30', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:28:30')
+  [1m[36m (12.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.8ms)[0m  ROLLBACK
+  [1m[36m (7.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (14.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:28:30', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:28:30')[0m
+  [1m[35m (12.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.5ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (5.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (21.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:30:16', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:30:16')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (6.1ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-01 22:30:16', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-01 22:30:16')
+  [1m[36m (3.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (20.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.7ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:30:16', '', 1, 1, 1, 'actividad_2', 1, 1, '2013-03-01 22:30:16')[0m
+[paperclip] Saving attachments.
+  [1m[35m (18.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (84.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (18.6ms)[0m  BEGIN
+  [1m[36m (11.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:30:16', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:30:16')
+  [1m[36m (9.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (9.2ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-01 22:30:16', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-01 22:30:16')[0m
+  [1m[35m (3.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (9.5ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (7.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (4.4ms)[0m  BEGIN
+  [1m[36m (10.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:30:16', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:30:16')
+  [1m[36m (2.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.2ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-01 22:30:16', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-01 22:30:16')[0m
+  [1m[35m (4.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:30:16', 'esta es la actividad 4', 1, 1, 3, 'actividad_1', 1, 3, '2013-03-01 22:30:16')
+[paperclip] Saving attachments.
+  [1m[36m (10.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.2ms)[0m  ROLLBACK
+  [1m[36m (4.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (10.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (38.7ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:30:16', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:30:16')[0m
+  [1m[35m (11.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (7.7ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-01 22:30:16', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-01 22:30:16')
+  [1m[36m (3.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `modoejecucion`, `my_js_tree_id`, `nombre`, `plantilla_id`, `proceso_id`, `updated_at`) VALUES ('2013-03-01 22:30:16', 'esta es la actividad 4', 1, 1, 4, 'actividad_4', 1, 4, '2013-03-01 22:30:16')[0m
+[paperclip] Saving attachments.
+  [1m[35m (36.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (26.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (6.9ms)[0m  BEGIN
+  [1m[36m (5.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (6.4ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-01 22:30:16', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-01 22:30:16')
+  [1m[36m (4.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-01 22:30:16', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-01 22:30:16')[0m
+  [1m[35m (8.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (21.8ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.6ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.8ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.0ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.5ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.9ms)[0m  ROLLBACK
+  [1m[36m (3.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.4ms)[0m  ROLLBACK
+  [1m[36m (2.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.2ms)[0m  ROLLBACK
+  [1m[36m (2.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.8ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 16:38:41', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 16:38:41')[0m
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 16:38:41', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 16:38:41')
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (10.8ms)[0m  ROLLBACK
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 16:38:41', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 16:38:41')[0m
+  [1m[35m (2.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 16:38:41', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 16:38:41')
+  [1m[36m (2.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.2ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 16:40:35', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 16:40:35')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 16:40:35', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 16:40:35')
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (29.9ms)[0m  ROLLBACK
+  [1m[36m (4.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 16:40:35', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 16:40:35')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 16:40:35', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 16:40:35')
+  [1m[36m (2.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (42.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (3.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.7ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:00:22', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:00:22')[0m
+  [1m[35m (6.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:00:22', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:00:22')
+  [1m[36m (2.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:00:22', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-12 17:00:22')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (7.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36m (2.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (5.9ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:00:22', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:00:22')
+  [1m[36m (2.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (20.0ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:00:22', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:00:22')[0m
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.2ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:00:22', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-12 17:00:22')
+[paperclip] Saving attachments.
+  [1m[36m (2.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.4ms)[0m  ROLLBACK
+  [1m[36m (2.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.8ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:00:22', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:00:22')[0m
+  [1m[35m (2.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:00:22', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:00:22')
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:00:22', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-12 17:00:22')[0m
+[paperclip] Saving attachments.
+  [1m[35m (3.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.6ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (3.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.8ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:02:26', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:02:26')[0m
+  [1m[35m (2.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.5ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:02:26', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:02:26')
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:02:26', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-12 17:02:26')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (14.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (3.2ms)[0m  BEGIN
+  [1m[36m (3.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:02:26', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:02:26')
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:02:26', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:02:26')[0m
+  [1m[35m (1.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:02:26', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-12 17:02:26')
+[paperclip] Saving attachments.
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (20.0ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.3ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:02:26', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:02:26')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:02:26', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:02:26')
+  [1m[36m (3.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:02:26', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-12 17:02:26')[0m
+[paperclip] Saving attachments.
+  [1m[35m (3.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (27.6ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:03:16', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:03:16')[0m
+  [1m[35m (1.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.0ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:03:16', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:03:16')
+  [1m[36m (2.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:03:16', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-12 17:03:16')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36m (2.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:03:16', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:03:16')
+  [1m[36m (2.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:03:16', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:03:16')[0m
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:03:16', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-12 17:03:16')
+[paperclip] Saving attachments.
+  [1m[36m (3.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.8ms)[0m  ROLLBACK
+  [1m[36m (4.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:03:16', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:03:16')[0m
+  [1m[35m (2.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:03:16', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:03:16')
+  [1m[36m (2.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.7ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:03:16', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-12 17:03:16')[0m
+[paperclip] Saving attachments.
+  [1m[35m (2.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.4ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (2.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:03:57', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:03:57')[0m
+  [1m[35m (3.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:03:57', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:03:57')
+  [1m[36m (4.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:03:57', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-12 17:03:57')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  BEGIN
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:03:57', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:03:57')
+  [1m[36m (1.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:03:57', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:03:57')[0m
+  [1m[35m (2.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:03:57', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-12 17:03:57')
+[paperclip] Saving attachments.
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.9ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:03:57', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:03:57')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:03:57', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:03:57')
+  [1m[36m (2.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:03:57', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-12 17:03:57')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.0ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.7ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:05:59', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:05:59')[0m
+  [1m[35m (3.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:05:59', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:05:59')
+  [1m[36m (3.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:05:59', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-12 17:05:59')[0m
+[paperclip] Saving attachments.
+  [1m[35m (2.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (7.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36m (1.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:05:59', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:05:59')
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:05:59', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:05:59')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:05:59', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-12 17:05:59')
+[paperclip] Saving attachments.
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.9ms)[0m  ROLLBACK
+  [1m[36m (3.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:05:59', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:05:59')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:05:59', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:05:59')
+  [1m[36m (3.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.1ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:05:59', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-12 17:05:59')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.6ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (4.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.8ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:06:40', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:06:40')[0m
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:06:40', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:06:40')
+  [1m[36m (3.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:06:40', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-12 17:06:40')[0m
+[paperclip] Saving attachments.
+  [1m[35m (2.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (7.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:06:40', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:06:40')
+  [1m[36m (3.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:06:40', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:06:40')[0m
+  [1m[35m (2.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.1ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:06:40', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-12 17:06:40')
+[paperclip] Saving attachments.
+  [1m[36m (2.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.5ms)[0m  ROLLBACK
+  [1m[36m (3.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:06:40', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:06:40')[0m
+  [1m[35m (4.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:06:40', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:06:40')
+  [1m[36m (3.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:06:40', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-12 17:06:40')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.3ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (3.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:07:50', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:07:50')[0m
+  [1m[35m (1.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:07:50', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:07:50')
+  [1m[36m (3.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:07:50', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-12 17:07:50')[0m
+[paperclip] Saving attachments.
+  [1m[35m (3.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (33.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (3.7ms)[0m  BEGIN
+  [1m[36m (3.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:07:50', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:07:50')
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:07:50', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:07:50')[0m
+  [1m[35m (2.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.2ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:07:50', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-12 17:07:50')
+[paperclip] Saving attachments.
+  [1m[36m (7.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (18.1ms)[0m  ROLLBACK
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 17:07:50', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 17:07:50')[0m
+  [1m[35m (4.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.9ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 17:07:50', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 17:07:50')
+  [1m[36m (1.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 17:07:50', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-12 17:07:50')[0m
+[paperclip] Saving attachments.
+  [1m[35m (3.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (4.7ms)[0m  UPDATE `actividads` SET `nombre` = 'Brainstorming', `updated_at` = '2013-03-12 17:07:50' WHERE `actividads`.`id` = 3
+[paperclip] Saving attachments.
+  [1m[36m (4.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (14.2ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (67.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:42:23', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:42:23')[0m
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:42:24', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:42:24')
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:42:24', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-12 20:42:24')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:42:24', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:42:24')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:42:24', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:42:24')[0m
+  [1m[35m (1.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:42:24', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-12 20:42:24')
+[paperclip] Saving attachments.
+  [1m[36m (2.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (26.7ms)[0m  ROLLBACK
+  [1m[36m (2.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:42:24', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:42:24')[0m
+  [1m[35m (2.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:42:24', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:42:24')
+  [1m[36m (1.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:42:24', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-12 20:42:24')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.5ms)[0m  BEGIN
+  [1m[36m (1.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:42:24', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:42:24')
+  [1m[36m (6.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:42:24', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:42:24')[0m
+  [1m[35m (2.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:42:24', 'esta es una descripcion', 1, NULL, 1, 4, 'Realizar lluvia de ideas', NULL, 1, 4, NULL, NULL, '2013-03-12 20:42:24')
+[paperclip] Saving attachments.
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (12.0ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (50.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:43:47', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:43:47')[0m
+  [1m[35m (3.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:43:48', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:43:48')
+  [1m[36m (2.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:43:48', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-12 20:43:48')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (4.8ms)[0m  BEGIN
+  [1m[36m (4.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (9.8ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:43:48', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:43:48')
+  [1m[36m (3.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:43:48', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:43:48')[0m
+  [1m[35m (2.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.6ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:43:48', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-12 20:43:48')
+[paperclip] Saving attachments.
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (6.6ms)[0m  ROLLBACK
+  [1m[36m (5.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:43:48', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:43:48')[0m
+  [1m[35m (3.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (8.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:43:48', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:43:48')
+  [1m[36m (2.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.4ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:43:48', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-12 20:43:48')[0m
+[paperclip] Saving attachments.
+  [1m[35m (3.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (5.0ms)[0m  UPDATE `actividads` SET `nombre` = 'Brainstorming', `updated_at` = '2013-03-12 20:43:48' WHERE `actividads`.`id` = 3
+[paperclip] Saving attachments.
+  [1m[36m (2.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.2ms)[0m  ROLLBACK
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:43:48', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:43:48')[0m
+  [1m[35m (2.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:43:48', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:43:48')
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.1ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:43:48', 'esta es una descripcion', 1, NULL, 1, 4, 'Realizar lluvia de ideas', NULL, 1, 4, NULL, NULL, '2013-03-12 20:43:48')[0m
+[paperclip] Saving attachments.
+  [1m[35m (2.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO `usuarios` (`created_at`, `imagen`, `login`, `nombre`, `organizacion_id`, `tipo_recurso_id`, `updated_at`) VALUES ('2013-03-12 20:43:48', NULL, 'usuario123', 'Juan', NULL, NULL, '2013-03-12 20:43:48')
+[paperclip] Saving attachments.
+  [1m[36m (1.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.9ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (7.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (8.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:44:56', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:44:56')[0m
+  [1m[35m (2.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:44:56', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:44:56')
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:44:56', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-12 20:44:56')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.8ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:44:56', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:44:56')
+  [1m[36m (2.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (8.4ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:44:56', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:44:56')[0m
+  [1m[35m (2.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:44:56', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-12 20:44:56')
+[paperclip] Saving attachments.
+  [1m[36m (2.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.4ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.3ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:44:56', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:44:56')[0m
+  [1m[35m (11.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:44:56', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:44:56')
+  [1m[36m (5.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:44:56', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-12 20:44:56')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  UPDATE `actividads` SET `nombre` = 'Brainstorming', `updated_at` = '2013-03-12 20:44:56' WHERE `actividads`.`id` = 3
+[paperclip] Saving attachments.
+  [1m[36m (3.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.5ms)[0m  ROLLBACK
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:44:57', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:44:57')[0m
+  [1m[35m (6.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:44:57', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:44:57')
+  [1m[36m (1.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:44:57', 'esta es una descripcion', 1, NULL, 1, 4, 'Realizar lluvia de ideas', NULL, 1, 4, NULL, NULL, '2013-03-12 20:44:57')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO `usuarios` (`created_at`, `imagen`, `login`, `nombre`, `organizacion_id`, `tipo_recurso_id`, `updated_at`) VALUES ('2013-03-12 20:44:57', NULL, 'usuario123', 'Juan', NULL, NULL, '2013-03-12 20:44:57')
+[paperclip] Saving attachments.
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (6.5ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (8.3ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:46:31', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:46:31')[0m
+  [1m[35m (2.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.4ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:46:31', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:46:31')
+  [1m[36m (2.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:46:31', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-12 20:46:31')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (6.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (3.6ms)[0m  BEGIN
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:46:31', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:46:31')
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:46:31', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:46:31')[0m
+  [1m[35m (3.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:46:31', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-12 20:46:31')
+[paperclip] Saving attachments.
+  [1m[36m (3.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.8ms)[0m  ROLLBACK
+  [1m[36m (8.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:46:31', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:46:31')[0m
+  [1m[35m (5.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:46:31', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:46:31')
+  [1m[36m (3.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:46:31', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-12 20:46:31')[0m
+[paperclip] Saving attachments.
+  [1m[35m (4.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (2.9ms)[0m  UPDATE `actividads` SET `nombre` = 'Brainstorming', `updated_at` = '2013-03-12 20:46:31' WHERE `actividads`.`id` = 3
+[paperclip] Saving attachments.
+  [1m[36m (1.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.7ms)[0m  ROLLBACK
+  [1m[36m (2.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-12 20:46:31', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-12 20:46:31')[0m
+  [1m[35m (3.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-12 20:46:31', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-12 20:46:31')
+  [1m[36m (3.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-12 20:46:31', 'esta es una descripcion', 1, NULL, 1, 4, 'Realizar lluvia de ideas', NULL, 1, 4, NULL, NULL, '2013-03-12 20:46:31')[0m
+[paperclip] Saving attachments.
+  [1m[35m (4.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO `usuarios` (`created_at`, `imagen`, `login`, `nombre`, `organizacion_id`, `tipo_recurso_id`, `updated_at`) VALUES ('2013-03-12 20:46:31', NULL, 'usuario123', 'Juan', NULL, NULL, '2013-03-12 20:46:31')
+[paperclip] Saving attachments.
+  [1m[36m (2.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (2.3ms)[0m  [1mUPDATE `actividads` SET `responsable_id` = 1, `updated_at` = '2013-03-12 20:46:31' WHERE `actividads`.`id` = 4[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.0ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (4.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-13 15:35:35', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-13 15:35:35')[0m
+  [1m[35m (2.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-13 15:35:35', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-13 15:35:35')
+  [1m[36m (2.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-13 15:35:35', 'esta es una descripcion', 1, NULL, 1, 1, 'Realizar lluvia de ideas', NULL, 1, 1, NULL, NULL, '2013-03-13 15:35:35')[0m
+[paperclip] Saving attachments.
+  [1m[35m (1.9ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (88.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (2.2ms)[0m  BEGIN
+  [1m[36m (4.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-13 15:35:35', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-13 15:35:35')
+  [1m[36m (3.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-13 15:35:35', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-13 15:35:35')[0m
+  [1m[35m (1.8ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-13 15:35:35', 'esta es una descripcion', 1, NULL, 1, 2, 'Realizar lluvia de ideas', NULL, 1, 2, NULL, NULL, '2013-03-13 15:35:35')
+[paperclip] Saving attachments.
+  [1m[36m (1.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (28.0ms)[0m  ROLLBACK
+  [1m[36m (2.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-13 15:35:35', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-13 15:35:35')[0m
+  [1m[35m (5.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-13 15:35:35', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-13 15:35:35')
+  [1m[36m (1.9ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-13 15:35:35', 'esta es una descripcion', 1, NULL, 1, 3, 'Realizar lluvia de ideas', NULL, 1, 3, NULL, NULL, '2013-03-13 15:35:35')[0m
+[paperclip] Saving attachments.
+  [1m[35m (2.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (2.2ms)[0m  UPDATE `actividads` SET `nombre` = 'Brainstorming', `updated_at` = '2013-03-13 15:35:35' WHERE `actividads`.`id` = 3
+[paperclip] Saving attachments.
+  [1m[36m (1.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (6.3ms)[0m  ROLLBACK
+  [1m[36m (2.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO `my_js_trees` (`created_at`, `left`, `level`, `parent_id`, `plantilla_id`, `position`, `proceso_id`, `right`, `title`, `type`, `updated_at`) VALUES ('2013-03-13 15:35:35', 1, 1, 1, NULL, 1, NULL, 1, 'este es mi arbol de pruebas', 1, '2013-03-13 15:35:35')[0m
+  [1m[35m (5.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `procesos` (`created_at`, `descripcion`, `nombre`, `proyecto_id`, `tipo_plantilla_id`, `updated_at`) VALUES ('2013-03-13 15:35:35', NULL, 'este es mi proceso de pruebas', NULL, 1, '2013-03-13 15:35:35')
+  [1m[36m (66.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO `actividads` (`created_at`, `descripcion`, `duracion`, `estado`, `modoejecucion`, `my_js_tree_id`, `nombre`, `num_instancias`, `plantilla_id`, `proceso_id`, `responsable_id`, `unidad_tiempo`, `updated_at`) VALUES ('2013-03-13 15:35:36', 'esta es una descripcion', 1, NULL, 1, 4, 'Realizar lluvia de ideas', NULL, 1, 4, NULL, NULL, '2013-03-13 15:35:36')[0m
+[paperclip] Saving attachments.
+  [1m[35m (2.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO `usuarios` (`created_at`, `imagen`, `login`, `nombre`, `organizacion_id`, `tipo_recurso_id`, `updated_at`) VALUES ('2013-03-13 15:35:36', NULL, 'usuario123', 'Juan', NULL, NULL, '2013-03-13 15:35:36')
+[paperclip] Saving attachments.
+  [1m[36m (2.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (2.5ms)[0m  [1mUPDATE `actividads` SET `responsable_id` = 1, `updated_at` = '2013-03-13 15:35:36' WHERE `actividads`.`id` = 4[0m
+[paperclip] Saving attachments.
+  [1m[35m (2.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (32.6ms)[0m  [1mROLLBACK[0m

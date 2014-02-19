@@ -1,0 +1,29 @@
+<h1>Listing compuerta_pre_desicions</h1>
+
+<table>
+  <tr>
+    <th>Compuerta</th>
+    <th>Ruta</th>
+    <th>Elegida</th>
+    <th>Tarea desicion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @compuerta_pre_desicions.each do |compuerta_pre_desicion| %>
+  <tr>
+    <td><%= compuerta_pre_desicion.compuerta_id %></td>
+    <td><%= compuerta_pre_desicion.ruta_id %></td>
+    <td><%= compuerta_pre_desicion.elegida %></td>
+    <td><%= compuerta_pre_desicion.tarea_desicion_id %></td>
+    <td><%= link_to 'Show', compuerta_pre_desicion %></td>
+    <td><%= link_to 'Edit', edit_compuerta_pre_desicion_path(compuerta_pre_desicion) %></td>
+    <td><%= link_to 'Destroy', compuerta_pre_desicion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Compuerta pre desicion', new_compuerta_pre_desicion_path %>

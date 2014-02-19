@@ -1,0 +1,42 @@
+<% content_for :modal do %>
+
+    <%= form_for(@tarea_revision, :html=> {:multipart=>true}) do |f| %>
+
+        <input type="hidden" name="tarea_revision[tarea_id]" id="tarea_revision_tarea_id" value="0" />
+        <input type="hidden" name="tarea_revision[usuario_id]" id="tarea_revision_usuario_id" value="<%= current_user.id %>" />
+
+        <div id="tarea_revision" class="modal hide fade asociaciones " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" xmlns="http://www.w3.org/1999/html">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3><%= t('.revisar_tarea')%></h3>
+          </div>
+
+          <div class="modal-body">
+            <div class="row-fluid">
+              <fieldset>
+                <div class="field">
+                  <%= f.label :aprobado, t('.aprobar') %>
+                    <label style="width:auto"><%= t('no') %></label><input type="radio" id="tarea_revision_aprobado" name="tarea_revision[aprobado]" value="0" style="width: 20px;">
+                    <label style="width:auto"><%= t('si') %></label><input type="radio" id="tarea_revision_aprobado" name="tarea_revision[aprobado]" value="1" style="width: 20px;">
+                </div>
+
+                <div class="field">
+                  <%= f.label :comentario, t('.comentario') %>
+                  <%= f.text_area :comentario, :size => "20x5", :maxlength => 250 %>
+
+                </div>
+                <div class="field">
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="actions"  align=right >
+              <input id="boton_aprobacion" class="btn primary"  name="commit" type="submit" value="<%= t('btnCrear')%>" />
+              <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar') %></button>
+            </div>
+          </div>
+        </div>
+    <% end %>
+<% end %>

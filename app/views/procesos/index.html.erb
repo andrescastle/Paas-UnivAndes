@@ -1,0 +1,209 @@
+
+<script src="http://www.prodiven.com/jcombo/jquery.jCombo.js"></script>
+
+<script type="text/javascript">
+    var nuevoModalId = "#nuevoproceso";
+    var editarModalId = "#editarproceso";
+    var eliminarModalId = "#eliminarproceso";
+    var nameInputId = "proceso_nombre";
+    var validateNameUrl = "<%= request.protocol + request.host_with_port %>/procesos/existe/nombre";
+    var nuevoButtonId = "#new_proceso";
+    var editarButtonId = "#editarproceso";
+    var eliminarButtonId = "#eliminarproceso";
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Paginación - ordenamiento
+        $("#procesosTabla").tablesorter({ headers: { 0:{sorter: false}}})
+                .tablesorterPager({container: $("#pager"),positionFixed: false, size: 30});
+
+        // Callback de validacion de nombre repetido por ajax
+        $.validator.addMethod("nombre_unico", validar_nombre_unico, "");
+
+        // Validaciones de jquery
+        $("#new_proceso").validate({
+            rules: {
+                "proceso[nombre]": {
+                    required: true,
+                    nombre_unico: true
+                }
+
+            },
+            messages: {
+                "proceso[nombre]": {
+                    required: "<%= t('mandatory') %>",
+                    nombre_unico: "<%= t('name_exist') %>"
+                }
+            }
+        });
+    });
+</script>
+
+
+<% @titulo = t('.title_pag') %>
+<%= render "shared/encabezado_crud" %>
+
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+    <%
+       @filtroTexto = t('filtro')
+       @verListaTexto = t('viewList')
+       @verIconosTexto = t('viewSharp')
+
+       @nuevoBotonId = "nuevo_proceso"
+       @nuevoBotonTexto = t('add')
+       @nuevoPath = procesos_path
+       @nuevoModal = "nuevoproceso"
+
+       @editarBotonId = "editar_proceso"
+       @editarBotonTexto = t('edit')
+       @editarPath = "#"
+       @editarModal = "editarproceso"
+
+       @eliminarBotonId = "eliminar_proceso"
+       @eliminarBotonTexto = t('delete')
+       @eliminarPath = "#"
+       @eliminarModal = "eliminarproceso"
+       @eliminarConfirm = "Está seguro de querer eliminar la proceso?"
+    %>
+
+    <%= render "shared/menu_crud" %>
+
+    <!-- Formas de visualización en tabla o thumbnail,...-->
+
+
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 250px; top: 30px; ">
+      <%
+         if(@procesos.count == 0)
+      %>
+          <div class="addnew">
+            <%= t('no_created') %><br /><br />
+             <a data-toggle="modal" role="button" class="btn" href="#nuevoproceso">
+            <%= image_tag "/images/add.png" %><br /><br />
+            <%= t('add_new') %>
+          </a>
+          </div>
+      <%
+        else
+      %>
+      <table id="procesosTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th><%= t('nombre')%> </th>
+          <th><%= t('descr')%> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @procesos.each do |proceso| %>
+            <tr id="<%= proceso.id %>">
+              <td style="vertical-align:middle"><input type="checkbox" name="'<%= proceso.id %>'" value="ON" onclick=doIt(1,this,this.form) /></td>
+
+              <td style="vertical-align:middle">
+                <% if FileTest.exist?(Dir.pwd + "/public/images/procesos/" + proceso.id.to_s() + "_original.img") %>
+                    <%= image_tag "/images/procesos/" + proceso.id.to_s() + '_original.img', :size => "75x75" %>
+                <% else %>
+                    <%= image_tag "/images/noimage.jpg", :size => "75x75" %>
+                <% end %>
+                </td>
+              <td style="vertical-align:middle">
+                <%= link_to proceso.nombre, proceso %>
+
+              </td>
+              <td style="vertical-align:middle"> <%= proceso.descripcion %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%
+         end;
+      %>
+
+    </div>
+
+
+    <%= render "shared/filtro_crud" %>
+
+    <%
+       @pagTexto = @procesos.count.to_s() + " " + t('listade')
+       @porPagTexto = t('pag')
+    %>
+
+    <%= render "shared/footer_crud" %>
+  </div>
+
+</div>
+
+<!-- Formularios de edicion -->
+<% content_for :modal do %>
+  <div id="nuevoproceso" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3><%= t('add')%> <%= t('proceso')%></h3>
+    </div>
+
+    <%= form_for(@proceso, :html=> {:multipart=>true}) do |f| %>
+    <div class="modal-body">
+
+      <div class="row-fluid">
+
+         <script type="text/javascript">
+
+            $(document).ready(function() {
+
+                $("#proceso_tipo_plantilla").jCombo("../../procesos/getTipoPlantilla/all", { initial_text: "Seleccione..." });
+                $("#plantilla").jCombo("../../procesos/getdata/", { parent: "#proceso_tipo_plantilla", initial_text: "Seleccione..." });
+
+            });
+
+        </script>
+
+        <fieldset>
+              <div  id="procesos1" >
+                <div class="field">
+                  <%= f.label :nombre ,  "*" + t('nombre') %>
+                  <%= f.text_field :nombre %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :tipo_plantilla , t('tipo_plantilla')%>
+                  <select id="proceso_tipo_plantilla" name="proceso_tipo_plantilla" >
+                    <option>Espere un momento...</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                    <%= f.label :plantilla , t('plantilla')%>
+                    <select id="plantilla" name="plantilla"></select>
+                </div>
+
+                <div class="field">
+                  <%= f.label :descripcion, t('descr') %>
+                  <%= f.text_area :descripcion, :size => "30x10" %>
+                </div>
+
+                <input type="hidden" id="proyecto_id" name="proyecto_id" value="<%= @proyecto.id  %>"/>
+              </div>
+            </fieldset>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+    <div class="actions"  align=right >
+
+      <input id="crear_proceso" class="btn primary"  name="commit" type="submit" value="<%= t('btnCrear')%>" />
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar')%></button>
+    </div>
+    </div>
+    <% end %>
+
+  </div>
+<%end%>

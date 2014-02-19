@@ -1,0 +1,29 @@
+<h1>Listing tarea_artefactos</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Tarea</th>
+    <th>Artefacto</th>
+    <th>Modo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tarea_artefactos.each do |tarea_artefacto| %>
+  <tr>
+    <td><%= tarea_artefacto.id %></td>
+    <td><%= tarea_artefacto.tarea_id %></td>
+    <td><%= tarea_artefacto.artefacto_id %></td>
+    <td><%= tarea_artefacto.modo %></td>
+    <td><%= link_to 'Show', tarea_artefacto %></td>
+    <td><%= link_to 'Edit', edit_tarea_artefacto_path(tarea_artefacto) %></td>
+    <td><%= link_to 'Destroy', tarea_artefacto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tarea artefacto', new_tarea_artefacto_path %>

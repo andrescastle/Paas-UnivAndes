@@ -1,0 +1,73 @@
+<script type="text/javascript">
+
+    $(document).ready(function() {
+       $("#buscar").click(function() {
+
+       });
+    });
+
+</script>
+
+
+<div class="row-fluid">
+    <fieldset>
+      <div class="field">
+        <label><%= t('.palabra_clave')%></label>
+        <input id="palabra_clave" name="palabra_clave" type="text" value="">
+      </div>
+      <div class="field">
+        <select name="proyectos" id="proyectos">
+          <% @projects.each do |project| %>
+            <option value="<%= project["id"] %>"><%= project["name"] %> </option>
+          <% end %>
+        </select>
+        <input id="buscar" name="buscar" type="submit" value="<%=t('.buscar')%>" class="btn">
+      </div>
+    </fieldset>
+</div>
+
+
+<% if @tipo_dep==1 %>
+    <ul class="thumbnails">
+      <% @files.each do  |file|    %>
+          <li class="span4" >
+            <a href="<%= file["url"] %>" class="thumbnail">
+              <input type='checkbox' id='artefactos[]' name='artefactos[]' class='check_artefacto pull-right '/>
+              <!--% if FileTest.exist?(atachments['url']) %-->
+              <img src="<%= file["url"] %>" alt=""  style="width: 300px; height: 180px;" >
+              <!--% else %>
+                  <!%= image_tag "/images/noimage.jpg", :size => "75x75" %>
+              <!% end %-->
+
+              <h5 class="centered"><%= file['name'] %></h5>
+              <!--p><!%=    file["url"]  %></p-->
+            </a>
+
+          </li>
+      <% end%>
+    </ul>
+ <% end %>
+<% if @tipo_dep==2 %>
+    <ul class="thumbnails">
+      <% @json.each do |atachments| %>
+          <li class="span4" >
+            <a href="<%= atachments['url'] %>" class="thumbnail">
+              <input type='checkbox' id='artefactos[]' name='artefactos[]' class='check_artefacto pull-right '/>
+              <!--% if FileTest.exist?(atachments['url']) %-->
+              <img src="<%= atachments['url'] %>" alt=""  style="width: 300px; height: 180px;" >
+              <!--% else %>
+                  <!%= image_tag "/images/noimage.jpg", :size => "75x75" %>
+              <!% end %-->
+
+              <h5 class="centered"><%= atachments['name'] %></h5>
+              <p><%= atachments['content_type'] %></p>
+            </a>
+
+          </li>
+      <% end%>
+    </ul>
+
+<% end %>
+
+
+

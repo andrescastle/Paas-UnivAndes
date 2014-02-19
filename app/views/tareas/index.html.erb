@@ -1,0 +1,368 @@
+<script>
+    $(document).ready(function() {
+
+
+
+
+        $("#procesosTabla").tablesorter({ headers: { 0:{sorter: false}}})
+                .tablesorterPager({container: $("#pager"),positionFixed: false, size: 30});
+
+        $('.edit_texto').editable(function(value, settings) {
+            var campo = this.id.replace('edit_', '').split('-')[0];
+            var tarea_id = this.id.replace('edit_', '').split('-')[1];
+
+            $.ajax({
+                url: "<%= request.protocol + request.host_with_port %>/tareas/" + tarea_id + "/actualizar_tarea",
+                type: "GET",
+                data: { campo: campo, id_tarea: tarea_id, valor: value },
+                success: function(data) {
+                   if(data != "true")
+                     alert("Ha ocurrido un error actualizando el campo solicitado");
+                }
+            });
+
+            return(value);
+        }, {  submit : 'OK' });
+
+        $('.edit_fecha').editable(function(value, settings) {
+            var campo = this.id.replace('edit_', '').split('-')[0];
+            var tarea_id = this.id.replace('edit_', '').split('-')[1];
+
+            $.ajax({
+                url: "<%= request.protocol + request.host_with_port %>/tareas/" + tarea_id + "/actualizar_tarea",
+                type: "GET",
+                data: { campo: campo, id_tarea: tarea_id, valor: value },
+                success: function(data) {
+                    if(data != "true")
+                        alert("Ha ocurrido un error actualizando el campo solicitado");
+                }
+            });
+
+            return(value);
+        }, {
+            submit : 'OK',
+            type  : 'datepicker'
+        });
+
+        $('.edit_textolargo').editable(function(value, settings) {
+            var campo = this.id.replace('edit_', '').split('-')[0];
+            var tarea_id = this.id.replace('edit_', '').split('-')[1];
+
+            $.ajax({
+                url: "<%= request.protocol + request.host_with_port %>/tareas/" + tarea_id + "/actualizar_tarea",
+                type: "GET",
+                data: { campo: campo, id_tarea: tarea_id, valor: value },
+                success: function(data) {
+                    if(data != "true")
+                        alert("Ha ocurrido un error actualizando el campo solicitado");
+                }
+            });
+
+            return(value);
+        }, {
+            submit : 'OK',
+            type   : 'textarea',
+            height : '150px',
+            widtht : '300px'
+        });
+
+        $('.edit_checkbox').change(function(){
+            var campo = this.id.replace('edit_', '').split('-')[0];
+            var tarea_id = this.id.replace('edit_', '').split('-')[1];
+            alert($(this).attr('checked'));
+            var value = $(this).attr("checked");
+
+            $.ajax({
+                url: "<%= request.protocol + request.host_with_port %>/tareas/" + tarea_id + "/actualizar_tarea",
+                type: "GET",
+                data: { campo: campo, id_tarea: tarea_id, valor: value },
+                success: function(data) {
+                    if(data != "true")
+                        alert("Ha ocurrido un error actualizando el campo solicitado");
+                }
+            });
+        });
+
+        $(".aprobacion").change(function(){
+            var info = this.id.replace("tarea_aprobacion","");
+            info = info.split("_");
+            //alert(id);
+            //alert($(this).val());
+            actualizar_responsable(info[0], $(this).val(),info[1]);
+        });
+
+
+
+        $(".link-responsable").click(function(){
+            var tarea_id = this.name.replace('tarea','');
+            $('.tarea_seleccionada').val(tarea_id);
+            $('.sugerencias').hide();
+        });
+
+        $(".link-recursos").click(function(){
+            var tarea_id = this.name.replace('tarea','');
+            $('.tarea_seleccionada').val(tarea_id);
+            $('.sugerencias').hide();
+            $('.select_qty_recurso').val(0);
+            var actividad_id = $('#actividad_tarea'+tarea_id).val();
+            $('#sugerencias_recursos' + actividad_id).show();
+        });
+
+        $(".link-participantes").click(function(){
+            var tarea_id = this.name.replace('tarea','');
+            $('.tarea_seleccionada').val(tarea_id);
+            $('.sugerencias').hide();
+            $('.revisiones').hide();
+            $('.participante_id').attr("checked", false);
+            $('.participante_id_hrs').val(0);
+            var actividad_id = $('#actividad_tarea'+tarea_id).val();
+            $('#sugerencias_participantes' + actividad_id).show();
+           });
+
+        $(".link-artefactos").click(function(){
+            var tarea_id = this.name.replace('tarea','');
+            $('.tarea_seleccionada').val(tarea_id);
+            $('.sugerencias').hide();
+            $('#assets_found').empty();
+            $('#palabra_clave').val('');
+            var actividad_id = $('#actividad_tarea'+tarea_id).val();
+            $('#sugerencias_artefactos' + actividad_id).show();
+        });
+
+    });
+
+
+
+    function actualizar_responsable(tarea,  revisor, turno) {
+
+        if(confirm('Sera creada una nueva tarea para la persona seleccionada')) {
+            //console.log('test');
+            var formdata = null;
+            formdata =
+            {
+                "tarea": tarea,
+                "revisor": revisor,
+                "turno": turno
+            }
+
+            var url = '<%= request.protocol + request.host_with_port %>/actividad_revisor';
+            console.log($("#tarea_aprobacion"+tarea+"_"+(parseInt(turno)+1)));
+            $.ajax({
+                url: url,
+                data: formdata,
+                cache: false,
+                contentType: 'multipart/form-data',
+                processData: true,
+                type: 'GET',
+                success: function (data) {
+                    if (data == "true") {
+                        //$("#tarea_aprobacion"+tarea+"_"+(turno+1)).removeAttr( "disabled" );
+                        // listo!
+                    }
+                    else alert("No se pudo actualizar revisor");
+                }
+            });
+        }
+        //alert(actividad+'-'+revisor);
+        /*  */
+    }
+
+</script>
+
+<div id="sgw_4_body" class="body  sgw_entity_query_entity_query_page">
+  <div class="contents" id="ext-gen77" >
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 10px; top: 10px; right: 10px; ">
+      <%
+         if(@tareas.count == 0)
+      %>
+          <div class="addnew">
+            No hay tareas asociados a este proceso.<br /><br />
+            <a data-controls-modal="<%= @nuevoModal %>"  data-backdrop="true" class="" href="<%= @nuevoPath %>" rel="tooltip" title='<%= @nuevoBotonTexto %>' id="<%= @nuevoBotonId %>">
+              <%= image_tag "/images/add.png" %><br /><br />
+              Haz clic aquí para agregar uno nuevo.
+            </a>
+          </div>
+      <%
+         else
+      %>
+          <table id="procesosTabla" class="table table-bordered table-striped tablesorter" >
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th><%= t('.actividad')%></th>
+              <th><%= t('.descripcion')%></th>
+              <th><%= t('.duracion')%></th>
+              <th><%= t('.horas_planeadas')%></th>
+              <th><%= t('.fecha_inicio') %></th>
+              <th><%= t('.fecha_fin') %></th>
+              <th><%= t('.hito')%></th>
+              <!--th><%= t('.estado')%></th-->
+              <th><%= t('.recursos')%></th>
+              <th><%= t('.responsable')%></th>
+              <th><%= t('.artefactos')%></th>
+              <th><%= t('.aprobacion') %></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @tareas.each do |tarea| %>
+                <tr id="<%= tarea.id %>">
+                  <td><input type="checkbox" name="'<%= tarea.id %>'" value="ON" /></td>
+                  <td>
+                    <% if tarea.actividad_id != nil && FileTest.exist?(Dir.pwd + "/public/images/actividades/" + tarea.actividad.id.to_s() + "_original.img") %>
+                        <%= image_tag "/images/actividades/" + tarea.actividad.id.to_s() + '_original.img', :size => "50x50" %>
+                    <% else %>
+                        <%= image_tag "/images/noimage.jpg", :size => "50x50" %>
+                    <% end %>
+                  </td>
+                  <td> <div class="edit_texto" id="edit_nombre-<%= tarea.id%>" name="edit_nombre-<%= tarea.id%>"><%= tarea.nombre %></div></td>
+                  <td> <div class="edit_textolargo" id="edit_descripcion-<%= tarea.id%>" name="edit_descripcion-<%= tarea.id%>"><%= tarea.descripcion %></div></td>
+                  <td> <div class="edit_texto" id="edit_duracion-<%= tarea.id%>" name="edit_duracion-<%= tarea.id%>"><%= tarea.duracion %></div><%= t(".dias") %></td>
+                  <td> <div class="edit_texto" id="edit_horas_planeadas-<%= tarea.id%>" name="edit_horas_planeadas-<%= tarea.id%>"><%= tarea.horas_planeadas %> </div><%= t(".horas_dia") %></td>
+                  <td> <div class="edit_fecha" id="edit_fecha_inicio-<%= tarea.id%>" name="edit_fecha_inicio-<%= tarea.id%>"><%= tarea.fecha_inicio %> </div></td>
+                  <td> <div class="edit_fecha" id="edit_fecha_fin-<%= tarea.id%>" name="edit_fecha_fin-<%= tarea.id%>"><%= tarea.fecha_fin %> </div></td>
+                  <td> <div><input class="edit_checkbox" id="edit_hito-<%= tarea.id%>" name="edit_hito-<%= tarea.id%>" type="checkbox" <%= (tarea.hito == true ? "checked" : "") %> /> </div></td>
+                  <!--td> <div class="edit_select" id="edit_estado-<%= tarea.id%>" name="edit_estado-<%= tarea.id%>"><%= tarea.estado %> </div></td-->
+                  <td style="vertical-align:middle">
+                    <% $recursos = TareaRecurso.find_all_by_tarea_id(tarea.id) %>
+                    <% if $recursos.count() > 0 then %>
+                    <a name="tarea<%= tarea.id %>" href="#asociar_recursos" data-toggle="modal" class="link-recursos">
+                      <% $recursos.each do |tarea_recurso| %>
+                          <%= tarea_recurso.unidades %> <%= tarea_recurso.recurso.nombre %> <br/>
+                      <% end %>
+                    </a>
+                    <% else %>
+                    <a name="tarea<%= tarea.id %>" href="#asociar_recursos" data-toggle="modal" class="link-recursos"><%= t(".recursos")%></a>
+                    <% end %>
+                  </td>
+                  <td style="vertical-align:middle">
+                  <% $participantes = TareaParticipante.find_all_by_tarea_id(tarea.id) %>
+                  <% if $participantes.count() > 0 then %>
+                    <a name="tarea<%= tarea.id %>" href="#asociar_participante" data-toggle="modal" class="link-participantes">
+                      <% $participantes.each do |tarea_responsable| %>
+                        <%= tarea_responsable.usuario.nombre + " " + (tarea_responsable.usuario.apellidos != nil ? tarea_responsable.usuario.apellidos: "") %> <%= tarea_responsable.dedicacion %> <%= t('.horas') %> <br/>
+                      <% end %>
+                    </a>
+                  <% else %>
+                    <a name="tarea<%= tarea.id %>" href="#asociar_participante" data-toggle="modal" class="link-participantes"><%= t(".participantes")%></a>
+                  <% end %>
+                 </td>
+                  <td style="vertical-align:middle">
+                  <% $artefactos = TareaArtefacto.find_all_by_tarea_id(tarea.id) %>
+                  <% if $artefactos.count() > 0 then %>
+                      <a name="tarea<%= tarea.id %>" href="#asociar_artefacto" data-toggle="modal" class="link-artefactos">
+                        <% $artefactos.each do |tarea_artefacto| %>
+                            <%= tarea_artefacto.artefacto.nombre %> <br/>
+                        <% end %>
+                      </a>
+                  <% else %>
+                  <a name="tarea<%= tarea.id %>" href="#asociar_artefacto" data-toggle="modal" class="link-artefactos"><%= t(".artefactos")%></a>
+                  <% end %>
+                  </td>
+                  <td>
+                   <% if !tarea.es_aprobacion then %>
+                    <!-- aca codigo de aprobaciones -->
+                    <%
+                       disablenext = true
+                       counter = 0
+                       #$participantes =
+                       latarea = Tarea.find(tarea.id)
+                       $actividads = ActividadRevision.find_all_by_actividad_id(latarea.actividad_id, :order => "turno ASC")
+                       $cantidad_aprobadores = $actividads.count
+
+                       $actividads.each do |unaactividad|
+                       tarearev = TareaRevision.find_by_tarea_id_and_turno(tarea.id, unaactividad.turno)
+
+                       laactividad = Actividad.find(latarea.actividad_id)
+
+                    %>
+
+                        <%= TipoRecurso.find(unaactividad.tipo_recurso_id).nombre %> : <br>
+                        <select id="tarea_aprobacion<%= tarea.id %>_<%= unaactividad.turno %>" class="aprobacion" <%= laactividad.modo_revision == "sequ" && counter != 0 && disablenext ? "disabled" : "" %>>
+                          <% if !tarearev %>
+                          <option value="0">Seleccionar...</option>
+                          <% end %>
+                        <%
+
+                       @organizaciones.each do |organizacion| %>
+                        <optgroup label="<%= organizacion.nombre %>">
+                        <%
+                           Usuario.find_all_by_organizacion_id(organizacion.id).each do |usuario|
+                             if(unaactividad.tipo_recurso_id == usuario.tipo_recurso_id)
+                             %>
+                                  <option value="<%= usuario.id %>"<%
+                                     if(tarearev && unaactividad.turno== tarearev.turno && usuario.id == tarearev.usuario_id) %> selected="selected"
+                                     <% end
+                                  %>><%= usuario.nombre + " " + (usuario.apellidos != nil ? usuario.apellidos: "") %></option>
+                             <%
+                             end
+                           end
+
+
+                        %>
+                        </optgroup>
+                       <%
+                          end
+                          #$contarsel = $contarsel + 1
+                          %>
+                        </select> <br>
+
+                       <%
+                             disablenext = true
+                             if tarearev
+                               disablenext = false
+                             end
+                             counter = counter +1
+
+                       end
+                       %>
+
+                   <% end %>
+                  </td>
+                  <td>
+                    <% if tarea.actividad_id != nil %>
+                        <input type="hidden" id="actividad_tarea<%= tarea.id %>" name="actividad_tarea<%= tarea.id %>" value="<%= tarea.actividad.id %>" />
+                    <% end %>
+                    <% if tarea.compuerta_id != nil %>
+                        <input type="hidden" id="compuerta_tarea<%= tarea.id %>" name="compuerta_tarea<%= tarea.id %>" value="<%= tarea.compuerta_id %>" />
+                    <% end %>
+                 </td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+
+          <input type="hidden" name="tarea_seleccionada" id="tarea_seleccionada" class="tarea_seleccionada" value="0" />
+
+      <%
+         end;
+      %>
+
+    </div>
+
+    <%
+       @pagTexto = @tareas.count.to_s + " " + t('listade')
+       @porPagTexto = t('pag')
+    %>
+
+    <%= render "shared/footer_crud" %>
+  </div>
+</div>
+
+<div class="divDemoBody">
+  <%= render "tarea_recurso" %>
+</div>
+
+<div class="divDemoBody">
+  <%= render "tarea_participante" %>
+</div>
+
+<div class="divDemoBody">
+  <%= render "tarea_responsable" %>
+</div>
+
+<div class="divDemoBody">
+  <%= render "tarea_artefacto" %>
+</div>
+

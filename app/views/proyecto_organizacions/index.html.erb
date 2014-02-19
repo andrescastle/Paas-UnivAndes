@@ -1,0 +1,252 @@
+<script src="http://www.prodiven.com/jcombo/jquery.jCombo.js"></script>
+
+<script type="text/javascript">
+    var nuevoModalId = "#nuevoorganizacion";
+    var editarModalId = "#editarorganizacion";
+    var eliminarModalId = "#eliminarorganizacion";
+    var nameInputId = "organizacion_nombre";
+    var validateNameUrl = "<%= request.protocol + request.host_with_port %>/organizacions/existe/nombre";
+    var nuevoButtonId = "#new_organizacion";
+    var editarButtonId = "#editarorganizacion";
+    var eliminarButtonId = "#eliminarorganizacion";
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Paginación - ordenamiento
+        $("#organizacionsTabla").tablesorter({ headers: { 0:{sorter: false}}})
+                   .tablesorterPager({container: $("#pager"),positionFixed: false, size: 30});
+
+        // Validaciones de jquery
+        $("#new_proyecto_organizacion").validate({
+            rules: {
+                "selected_organizacion[]": {
+                    required: true
+                }
+            },
+            messages: {
+                "selected_organizacion[]": {
+                    required: "<%= t('.no_seleccion') %>"
+                }
+            }
+        });
+    });
+</script>
+
+
+<% @titulo = t('.title_pag') %>
+<%= render "shared/encabezado_crud" %>
+
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+    <%
+       @filtroTexto = t('filtro')
+       @verListaTexto = t('viewList')
+       @verIconosTexto = t('viewSharp')
+
+       @nuevoBotonId = "nuevo_organizacion"
+       @nuevoBotonTexto = t('add')
+       @nuevoPath = organizacions_path
+       @nuevoModal = "nuevoorganizacion"
+
+       @editarBotonId = "editar_organizacion"
+       @editarBotonTexto = t('edit')
+       @editarPath = "#"
+       @editarModal = "editarorganizacion"
+
+       @eliminarBotonId = "eliminar_organizacion"
+       @eliminarBotonTexto = t('delete')
+       @eliminarPath = "#"
+       @eliminarModal = "eliminarorganizacion"
+       @eliminarConfirm = "Está seguro de querer eliminar la organizacion?"
+    %>
+
+    <%= render "shared/menu_crud" %>
+
+    <!-- Formas de visualización en tabla o thumbnail,...-->
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 250px; top: 30px; ">
+      <%
+         if(@proyecto_organizacions.count == 0)
+      %>
+          <div class="addnew">
+            <%= t('no_created')%>.<br /><br />
+            <a data-toggle="modal" role="button" class="btn" href="#nuevoorganizacion">
+              <%= image_tag "/images/add.png" %><br /><br />
+            <%= t('add_new')%>
+            </a>
+          </div>
+      <%
+         else
+      %>
+
+      <table id="organizacionsTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+        <tr>
+          <th></th>
+          <th><%= t('nombre')%> </th>
+          <th><%= t('descr')%> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @proyecto_organizacions.each do |organizacion| %>
+            <tr id="<%= organizacion.id %>">
+              <td style="vertical-align:middle"><input type="checkbox" name="'<%= organizacion.id %>'" value="ON" onclick=doIt(1,this,this.form) /></td>
+
+              <td style="vertical-align:middle">
+                <%= link_to organizacion.organizacion.nombre, organizacion %>
+              </td>
+              <td style="vertical-align:middle"><%= organizacion.organizacion.descripcion %></td>
+              </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+
+    <%= render "shared/filtro_crud" %>
+
+    <%
+       @pagTexto = @proyecto_organizacions.count.to_s() + " " + t('listade')
+       @porPagTexto = t('pag')
+    %>
+
+    <%= render "shared/footer_crud" %>
+  </div>
+
+</div>
+
+<!-- Formularios de edicion -->
+<% content_for :modal do %>
+  <div id="nuevoorganizacion" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3><%= t('add')%> <%= t('organizacion')%></h3>
+    </div>
+
+    <div class="modal-body">
+      <div class="">
+        <%= form_for(@proyecto_organizacion, :html=> {:multipart=>false}) do |f| %>
+
+            <script type="text/javascript">
+                $(document).ready(function() {
+
+                    $("#tipo_organizacion_id").jCombo("../../proyecto_organizacions/get_tipo_organizacions/all");
+                    $("#list_organizacion").jCombo("../../proyecto_organizacions/get_organizacions/", { parent: "#tipo_organizacion_id" });
+
+                    $("#add_organizacion").unbind('click');
+                    $("#add_organizacion").click(function() {
+                        var items = $("#list_organizacion option:selected");
+                        for(var i=0; i < items.length; i++)
+                        {
+                            var item_name = items[i].text;
+                            var item_value = items[i].value;
+                            if(items[i].value != '__jcombo__' && $("#selected_organizacion option[value="+item_value+"]").length == 0)
+                            {
+                                $("#selected_organizacion").append(new Option(item_name, item_value));
+                                items[i].remove();
+                            }
+                        }
+                      });
+
+                    $("#rem_organizacion").unbind('click');
+                    $("#rem_organizacion").click(function() {
+                        var items = $("#selected_organizacion option:selected");
+                        for(var i=0; i < items.length; i++)
+                        {
+                            var item_name = items[i].text;
+                            var item_value = items[i].value;
+                            if(items[i].value != '__jcombo__')
+                            {
+                                if($("#list_organizacion option[value="+item_value+"]").length > 0)
+                                {
+                                    $("#list_organizacion option[value="+item_value+"]")[0].remove();
+                                }
+
+                                $("#list_organizacion").append(new Option(item_name, item_value));
+                                items[i].remove();
+                            }
+                        }
+                    });
+
+//                    $("#crear_organizacion").unbind('click');
+                    $("#crear_organizacion").click(function() {
+                        var items = $("#selected_organizacion option");
+
+                        for(var i=0; i < items.length; i++)
+                        {
+                            items[i].selected = true;
+                        }
+                    });
+                });
+            </script>
+
+            <fieldset>
+
+
+              <div  id="organizacions1">
+                <div class="field">
+                <span class="nicelabel"><%= t('.seleccionar_tipo') %> </span>
+                <br/>
+                <br/>
+                <select id="tipo_organizacion_id" name="tipo_organizacion_id">
+                </select>
+
+                <br/>
+
+                </div>
+                <div class="field">
+                <br/>
+                <span class="nicelabel"><%= t('.select_organizacion')  %></span>
+                <br/>
+                  <br/>
+                 <table>
+                   <tr>
+                     <th><%= t('.list_organizacion')%></th>
+                     <th>&nbsp;&nbsp;</th>
+                     <th><%=  "*" + t('.vincu_oganizacion')%></th>
+                   </tr>
+                   <tr>
+                     <td style="width:200px">
+                        <select id="list_organizacion" name="list_organizacion" multiple="true" size="10">
+                        </select>
+                     </td>
+                     <td>
+                       <input type="hidden" id="proyecto_id" name="proyecto_id" value="<%= @proyecto.id %>">
+                       <input type="button" id="add_organizacion" name="add_organizacion" value=">>" class="" size="2" /><br/>
+                       <input type="button" id="rem_organizacion" name="rem_organizacion" value="<<" class="" size="2" /><br/>
+                     <td>
+                       <select id="selected_organizacion" name="selected_organizacion[]" multiple="true" size="10">
+                         <% ProyectoOrganizacion.find_all_by_proyecto_id(@proyecto.id).each do |proyecto_organizacion| %>
+                            <option value="<%= proyecto_organizacion.organizacion.id %>"><%= proyecto_organizacion.organizacion.nombre %> </option>
+                         <% end %>
+
+                       </select>
+                   </tr>
+
+                 </table>
+                  </div>
+
+
+
+            </div>
+            </fieldset>
+
+            <div class="modal-footer">
+              <div class="actions"  align=right >
+
+                <input id="crear_organizacion" class="btn primary"  name="commit" type="submit" value="<%= t('btnCrear')%>" />
+                <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar')%></button>
+              </div>
+            </div>
+        <% end %>
+
+        </div>
+    </div>
+</div>
+<%end%>

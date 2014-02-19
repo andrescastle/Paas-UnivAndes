@@ -1,0 +1,44 @@
+<%= form_for(@organizacion) do |f| %>
+  <% if @organizacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@organizacion.errors.count, "error") %> prohibited this organizacion from being saved:</h2>
+
+      <ul>
+      <% @organizacion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td>&nbsp;</td></tr>	
+  </table>
+	<table class="form-signin">
+	      <tr>
+	          <td><h1 class="form-signin-heading">New Company</h1></td>
+	      </tr>
+	      <tr>
+	          <td> <%= f.text_field :nombre, :placeholder => 'Nombre empresa' %></td>
+	      </tr>
+	      <tr>
+	          <td> <%= f.text_field :descripcion, :placeholder => 'Descripción'%></td>
+	      </tr>
+      <tr>
+        <td> <%= f.text_field :representante, :placeholder => 'Id representante'%></td>
+      </tr>
+      <tr>
+        <td> <%= f.text_field :nit, :placeholder => 'NIT'%></td>
+      </tr>
+      <tr>
+        <td> <%= f.text_field :direccion, :placeholder => 'Dirección'%></td>
+      </tr>
+
+	      <tr><td>&nbsp;</td></tr>
+	      <tr><td><%= f.submit "Send"%> </tr></td>
+	      <tr><td><%= link_to 'Atras', root_path%> </tr></td>
+		</td></tr>
+	</table>
+<% end %>
+
+

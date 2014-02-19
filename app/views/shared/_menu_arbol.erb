@@ -1,0 +1,101 @@
+    <!-- Barra de herramientas= Filtrar, buscar, nuevo, eliminar,...-->
+    <div class="entity_query_page_toolbar" style="left: 180px; top: 0px; " id="ext-gen64">
+
+      <div class="toolbar sgc_toolbar" style="" id="ext-gen50">
+        <div class="mmenu" id="ext-gen418">
+
+
+      <div item_index="40" style="float: left" class="toolbar_item  " sg_tip="More Actions">
+        <div class="toolbar_icon toolbar_gear_menu">
+          <li><a id="search" value="search" data-controls-modal="filtrartipo_recurso"  data-backdrop="true" class="" onclick=mostrardiv1() rel="tooltip" title='<%=@filtro%> '><img runat="server" src="/images/find.png" width="24" height="24" /></a></li>
+        </div>
+      </div>
+       <div item_index="41" style="float: left" class="toolbar_item  " sg_tip="More Actions">
+        <div class="toolbar_icon toolbar_gear_menu">
+       <!--   <li><a id="clear_search" value="clear" data-controls-modal="filtrartipo_recurso"  data-backdrop="true" class="" onclick=mostrardiv1() rel="tooltip" title='<%= @limpiar%> '><img runat="server" src="/images/Icon-cleanup.png"  /></a></li>-->
+        </div>
+      </div>
+       <div item_index="30" style="float: left" class="toolbar_item  " sg_tip="" id="ext-gen532">
+        <div class="toolbar_divider"></div>
+      </div>
+
+
+      <!--div item_index="1" style="float: left" class="toolbar_item  " sg_tip="More Actions">
+        <div class="toolbar_icon toolbar_gear_menu">
+          <div class="btn-group pull-right">
+            <ul>
+              <a class="" style="  float: left;
+                 padding: 0 14px;
+                 line-height: 34px;
+                 text-decoration: none;
+                 border: 1px solid #ddd;
+                 border-left-width: 1;"data-toggle="dropdown" rel="tooltip" title='<%= @nuevo %> '><img runat="server" src="/images/mail.png"  /> <span class="caret"></span></a>
+              <ul class="dropdown-menu pull-left">
+                <li class="dropdown-submenu">
+                  <a tabindex="-1" href="#"><%= @actividadtexto %> </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="crear" tabindex="-1" id="add_tarea_simple" value="add tarea_simple" href="#" rel="tooltip" title='<%= @actSimple%> ' ><img runat="server" src="/images/Tarea_simple_icono.png"  /><%= @actSimple%></a></li>
+                    <li><a class="crear" tabindex="-1" id="add_tarea_multi_seq" value="add tarea_multi_seq" href="#" rel="tooltip" title='<%= @actMultiSeq %>' ><img runat="server" src="/images/Tarea_multi_seq_icono1.png"  /><%= @actMultiSeq %></a></li>
+                    <li><a class="crear" tabindex="-1" id="add_tarea_multi_para" value="add tarea_multi_para" href="#" rel="tooltip" title='<%= @actMultiPara %>' ><img runat="server" src="/images/Tarea_multi_para_icono1.png"  /><%= @actMultiPara %></a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a tabindex="-1" href="#"><%= @compuertatexto %></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="crear" tabindex="-1" id="add_compuerta_inclu" value="add compuerta_inclu" href="#" rel="tooltip" title='<%= @compuerta_inclu%>' ><img runat="server" src="/images/compuerta_inclu_icono.png"  /><%= @compuerta_inclu%></a></li>
+                    <li><a class="crear" tabindex="-1" id="add_compuerta_exclu" value="add compuerta_exclu" href="#" rel="tooltip" title='<%= @compuerta_exclu%>' ><img runat="server" src="/images/compuerta_icono.png"  /><%= @compuerta_exclu%></a></li>
+                    <li><a class="crear" tabindex="-1" id="add_compuerta_para" value="add compuerta_para" href="#" rel="tooltip" title='<%= @compuerta_para%>' ><img runat="server" src="/images/compuerta_para_icono.png"  /><%= @compuerta_para%></a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </ul>
+          </div><!-- /btn-group -->
+
+          
+
+         <!-- 
+       --> <!--/div>
+      </div>
+      <!-- Barra de herramientas= CRUD...
+      <div item_index="3" style="float: left" class="toolbar_item  " sg_tip="" id="ext-gen532">
+        <div class="toolbar_divider"></div>
+      </div>
+      <div item_index="4" style="float: left" class="toolbar_item  " sg_tip="More Actions">
+        <div class="toolbar_icon toolbar_gear_menu">
+          <li><a id="rename" value="rename" class="btn dropdown-toggle" href="#" rel="tooltip" title='<%= @rename%> ' ><img runat="server" src="/images/files_edit.png"  /></a></li>
+        </div>
+      </div>
+      <div item_index="5" style="float: left" class="toolbar_item  " sg_tip="More Actions">
+        <div class="toolbar_icon toolbar_gear_menu">
+          <li><a id="remove" value="remove" class="btn dropdown-toggle" href="#" rel="tooltip" title='<%= @remove%> ' ><img runat="server" src="/images/trash.png"  /></a></li>
+        </div>
+      </div>
+
+      <div item_index="6" style="float: left" class="toolbar_item  " sg_tip="" id="ext-gen532">
+        <div class="toolbar_divider"></div>
+      </div>
+
+      <div item_index="7" style="float: left" class="toolbar_item  " sg_tip="More Actions">
+        <div class="toolbar_icon toolbar_gear_menu">
+          <li><a id="cut" value="cut" class="btn dropdown-toggle" href="#" rel="tooltip" title='<%= @cut%> ' ><img runat="server" src="/images/tijeras.png"  /></a></li>
+        </div>
+      </div>
+
+       <div item_index="8" style="float: left" class="toolbar_item  " sg_tip="More Actions">
+        <div class="toolbar_icon toolbar_gear_menu">
+          <li><a id="copy" value="copy" class="btn dropdown-toggle" href="#" rel="tooltip" title='<%= @copy%> ' ><img runat="server" src="/images/copiar1.png"  /></a></li>
+        </div>
+      </div>
+
+      <div item_index="9" style="float: left" class="toolbar_item  " sg_tip="More Actions">
+        <div class="toolbar_icon toolbar_gear_menu">
+          <li><a id="paste" value="paste" class="btn dropdown-toggle" href="#" rel="tooltip" title='<%= @paste %> ' ><img runat="server" src="/images/pegar1.png"  /></a></li>
+        </div>
+      </div>
+-->
+
+        </div>
+      </div>
+
+    </div>

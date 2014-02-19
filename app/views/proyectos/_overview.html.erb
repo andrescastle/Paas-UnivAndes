@@ -1,0 +1,589 @@
+
+
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"></script>
+
+<div class="contents sgw_new_grid proyectoverview" id="ext-gen33" style="" xmlns="http://www.w3.org/1999/html">
+
+  <link rel="stylesheet" href="/assets/demo.css">
+
+  <script>
+    proceso0 ="proceso1";
+    proceso1 ="proceso2";
+    proceso2 ="proceso3";
+    nombres0 = "Pr # 1";
+    nombres1 = "Pr # 2";
+    nombres2 = "Pr # 3";
+
+    datos = "dato";
+    <%
+    @procesos.each_with_index do |proceso, indice|
+
+    %>
+    nombres<%= indice %> = "Pr # <%= indice+1  %>";
+    proceso<%= indice %> = "<%= proceso.nombre  %>";
+    costoestim<%= indice %> = "<%= @costoxproceso_estim[indice]  %>";
+    costoreal<%= indice %> = "<%= @costoxproceso_real[indice]  %>";
+
+    <%
+        end
+    %>
+
+    <%
+    @horasxproceso.each_with_index do |horas, indice|
+
+    %>
+    horas<%= indice %> = <%= horas  %>;
+    <%
+        end
+    %>
+  </script>
+
+
+
+
+<body>
+<!--div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+  <div class="contents" id="ext-gen77" >
+    <div id="layout_principal1" class=" sgw_new_grid " style="left: 10%; top: 30px;"-->
+
+<div class="alert alert-info">
+  <div class="oneitem">
+    <span class="thelabel">Proyecto</span><br>
+    <span style="font-size:40px"><%= @proyecto.nombre %></span>
+    <p>
+      <%= link_to 'Editar', edit_proyecto_path(@proyecto) %> |
+      <%= link_to 'Atrás', proyectos_path %>
+    </p>
+  </div>
+
+  <div class="oneitem">
+    <p><b>Creado el:</b>
+    <%= @proyecto.fcreado %>
+    </p>
+    <p><b>Descripcion:</b>
+    <%= @proyecto.descripcion %>
+    </p>
+  </div>
+
+
+
+
+  <div class="clear"></div>
+</div>
+
+<!-- %= link_to configu_path(@proyecto.id), :id => "logo" do %  % end % -->
+<div class="proyitem fleft">
+  <%= link_to image_tag("/images/procesos.png", :border => 0, :class => "imagenicon fleft" ), configu_path(@proyecto.id) , :title => "Procesos" %>
+    <div class="fleft itemdata">
+      <h2><%= link_to "Procesos", configu_path(@proyecto.id) %></h2>
+      <%= link_to @num_procesos.to_s() + " procesos asociados al proyecto", configu_path(@proyecto.id) %>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="proyitem fleft">
+  <%= link_to image_tag("/images/participantes.png", :border => 0, :class => "imagenicon fleft" ), configupart_path(@proyecto.id) , :title => "Participantes" %>
+  <div class="fleft itemdata">
+    <h2><%= link_to "Participantes", configupart_path(@proyecto.id) %></h2>
+    <%= link_to @num_usuarios.to_s() + " participantes asociados al proyecto", configupart_path(@proyecto.id) %>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div class="proyitem">
+  <%= link_to image_tag("/images/empresas.png", :border => 0, :class => "imagenicon fleft" ), configuempr_path(@proyecto.id) , :title => "Empresas" %>
+  <div class="fleft itemdata">
+    <h2><%= link_to "Empresas", configuempr_path(@proyecto.id) %></h2>
+    <%= link_to @num_organizaciones.to_s() + " empresas asociados al proyecto", configuempr_path(@proyecto.id) %>
+  </div>
+  <div class="clear"></div>
+</div>
+
+
+<style>
+  .agraphbox{width: 342px; display: inline-block;}
+  .legendgraphs{color:rgb(204, 204, 204); background-color: rgb(37, 37, 37); padding: 10px; float: left; margin: 20px 0 5px 0; width: 320px;}
+  .legendgraphs .titulo{text-align: center; font-weight: bold;}
+  .legendgraphs .labels{float:left; font-size: 12px; }
+  .legendgraphs .icons{width: 12px; height: 12px; float:left; font-size: 12px; float: left; margin-right: 10px;}
+  .legendbottom{border: solid 2px rgb(37, 37, 37); padding: 10px; float: left; width: 320px;}
+  .legendbottomcont{width:316px; overflow: scroll; border: solid 2px rgb(37, 37, 37); padding: 10px; float: left; overflow-y:hidden; }
+  .legendbottombig{width: 1300px;}
+
+    .agraph{width:340px;height:170px;}
+  .agraphb{width:400px;height:400px;}
+
+    .dijitTooltip {
+        position: absolute;
+        z-index: 2000;
+        display: block;
+
+        left: 0;
+        top: -10000px;
+        overflow: visible;
+    }
+    .dijitTooltipContainer {
+        border: solid black 2px;
+        background: #b8b5b5;
+        color: black;
+        font-size: small;
+        padding: 2px;
+    }
+    .dijitTooltipFocusNode {
+        padding: 2px 2px 2px 2px;
+    }
+    .dijitTooltipConnector {
+        position: absolute;
+    }
+    .dj_a11y .dijitTooltipConnector {
+        display: none;
+    }
+    .dijitTooltipData {
+        display:none;
+    }
+</style>
+
+
+<script type="text/javascript">
+    // x and y coordinates used for easy understanding of where they should display
+    // Data represents website visits over a week period
+    chartData0 = [
+        { x: 1, y: 19021 },
+        { x: 1, y: 12837 },
+        { x: 1, y: 12378 },
+        { x: 1, y: 21882 },
+        { x: 1, y: 17654 },
+        { x: 1, y: 15833 },
+        { x: 1, y: 16122 }
+    ];
+
+
+</script>
+
+
+<script>
+    require([
+        // Require the basic chart class
+        "dojox/charting/Chart",
+
+        // Require the theme of our choosing
+        "dojox/charting/themes/Electric",
+
+        // Charting plugins:
+
+        //  We want to plot a Pie chart
+        "dojox/charting/plot2d/Pie",
+
+        // Retrieve the Legend, Tooltip, and MoveSlice classes
+        "dojox/charting/action2d/Tooltip",
+        "dojox/charting/action2d/MoveSlice",
+
+        //  We want to use Markers
+        "dojox/charting/plot2d/Markers",
+
+        //  We'll use default x/y axes
+        "dojox/charting/axis2d/Default",
+
+        "dojox/charting/widget/Legend",
+
+        // Wait until the DOM is ready
+        "dojo/domReady!"
+    ], function(Chart, theme, Pie, Tooltip, MoveSlice, Legend) {
+
+        // Define the data
+        var chartData = [
+        <%
+        @nombres_estado.each_with_index do |unnombre, indice|
+
+        %>{y:<%= @cantidades_estado[indice] %>, legend:"<%= unnombre %>"},
+          <%
+            end
+        %>];
+        var chartinfo = [
+                <%
+                @nombres_estado.each_with_index do |unnombre, indice|
+
+                %>"<%= unnombre %>:<br>" +
+                        "<%= @textos_estado[indice] %>",
+            <%
+                end
+            %>
+        ];
+
+        // Create the chart within it's "holding" node
+        var chart = new Chart("chartNode");
+
+        // Set the theme
+        chart.setTheme(theme);
+
+        // Add the only/default plot
+        chart.addPlot("default", {
+            type: Pie,
+            markers: true,
+            radius:70
+        });
+
+        // Add axes
+        chart.addAxis("x");
+        chart.addAxis("y", { min: 5000, max: 30000, vertical: true, fixLower: "major", fixUpper: "major" });
+
+        // Add the series of data
+        chart.addSeries("Tasks completion",chartData);
+
+
+
+        // Create the tooltip
+        var tip = new Tooltip(chart,"default",{
+            text: function() {
+                indicetip = arguments[0].index;
+                return chartinfo[indicetip];
+            }
+        });
+
+        // Create the slice mover
+        var mag = new MoveSlice(chart,"default");
+
+        // Render the chart!
+        chart.render();
+
+        var legend = new dojox.charting.widget.Legend({chart: chart, horizontal: true}, "legend");
+    });
+</script>
+
+<script>
+    require([
+        // Require the basic chart class
+        "dojox/charting/Chart",
+
+        // Require the theme of our choosing
+        "dojox/charting/themes/Electric",
+
+        // Charting plugins:
+
+        //  We want to plot a Pie chart
+        "dojox/charting/plot2d/ClusteredColumns",
+
+        "dojox/charting/plot2d/Markers",
+
+        //  We'll use default x/y axes
+        "dojox/charting/axis2d/Default",
+
+        "dojox/charting/widget/Legend",
+
+        // Wait until the DOM is ready
+        "dojo/domReady!"
+    ], function(Chart, theme, ClusteredColumns, Legend) {
+
+        /*
+         var items = [10, 40, 30];
+         addSeries("default", dojo.map(values, function(item){
+         return {y: item, text: item + "%"};
+         });
+         */
+        proceso0 ="proceso1";
+        proceso1 ="proceso2";
+        proceso2 ="proceso3";
+        nombres0 = "Pr # 1";
+        nombres1 = "Pr # 2";
+        nombres2 = "Pr # 3";
+
+        // Create the chart within it's "holding" node
+        var chart = new Chart("chartNode2");
+
+        // Set the theme
+        chart.setTheme(theme);
+
+        chart.addPlot("default", {
+            type: ClusteredColumns,
+            markers: true,
+            gap: 35
+        });
+
+        // Add the only/default plot
+        chart.addAxis("x", {
+            fixLower: "minor",
+            fixUpper: "minor",
+            natural: true,
+            labels: [<%
+    @procesos.each_with_index do |proceso, indice|
+
+    %>{value: <%= indice+1 %>, text: nombres<%= indice %>}, <%
+            end
+        %>]
+        }).addAxis("y", {
+                    vertical: true,
+                    fixLower: "major",
+                    fixUpper: "major",
+                    includeZero: true
+                });
+        chart.addSeries("Estimado", [<%
+    @procesos.each_with_index do |proceso, indice|
+
+    %><%= @costoxproceso_estim[indice] %>, <%
+            end
+        %>]);
+        chart.addSeries("Real", [<%
+    @procesos.each_with_index do |proceso, indice|
+
+    %><%= @costoxproceso_real[indice] %>, <%
+            end
+        %>]);
+
+
+
+        // Render the chart!
+        chart.render();
+
+        var legend = new dojox.charting.widget.Legend({chart: chart, horizontal: true}, "legend2");
+
+
+
+    });
+</script>
+
+
+<div class="agraphbox">
+    <div class="legendgraphs">
+      <div class="titulo">
+        ESTADO DE ACTIVIDADES TOTAL
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div id="chartNode" class="agraph"></div>
+    <div class="legendbottomcont">
+        <div class="legendbottombig">
+          <div id="legend"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="agraphbox">
+    <div class="legendgraphs">
+      <div class="titulo">
+        COSTO POR PROCESO (en pesos $)
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div id="chartNode2" class="agraph"></div>
+    <div class="legendbottom" style="width:316px">
+      <div id="legend2"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="agraphboxes" style="width: <%= (@procesos.count * 340) + 10 %>px; padding:0 5px 5px 5px; margin-top: 10px; background-color: #888; ">
+    <div class="legendgraphs" style="width: <%= @procesos.count * 332 %>px">
+      <div class="titulo">
+        ESTADO DE ACTIVIDADES POR PROCESO
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="legendbottom" style="width:<%= @procesos.count * 330 %>px">
+      <div id="legend3"></div>
+    </div>
+    <div class="clear"></div>
+
+
+<%
+   @procesos.each_with_index do |proceso, indice|
+
+%>
+<div class="agraphbox">
+    <div class="legendgraphs">
+      <div class="titulo">
+        Proceso: <%= proceso.nombre  %>
+      </div>
+    </div>
+    <div class="clear"></div>
+<script>
+    require([
+        // Require the basic chart class
+        "dojox/charting/Chart",
+
+        // Require the theme of our choosing
+        "dojox/charting/themes/Electric",
+
+        // Charting plugins:
+
+        //  We want to plot a Pie chart
+        "dojox/charting/plot2d/StackedColumns",
+
+        "dojox/charting/plot2d/Markers",
+
+        //  We'll use default x/y axes
+        "dojox/charting/axis2d/Default",
+
+        "dojox/charting/widget/Legend",
+
+        // Wait until the DOM is ready
+        "dojo/domReady!"
+    ], function(Chart, theme, StackedColumns, Legend) {
+
+
+        // Create the chart within it's "holding" node
+        var chart = new Chart("chartNode3<%= indice %>");
+
+        // Set the theme
+        chart.setTheme(theme);
+
+        chart.addPlot("default", {
+            type: StackedColumns,
+            markers: true,
+            gap: 45
+        });
+
+        // Add the only/default plot
+        chart.addAxis("x", {
+            fixLower: "minor",
+            fixUpper: "minor",
+            natural: true,
+            labels: [{value: 1, text: "planeado"}, {value: 2, text: "real"}]
+        }).addAxis("y", {
+                    vertical: true,
+                    fixLower: "major",
+                    fixUpper: "major",
+                    includeZero: true
+                });
+        chart.addSeries("Por iniciar", [<%= @cant_proceso_poriniciar_plan[indice] %>, <%= @cant_proceso_poriniciar_real[indice] %>]);
+        chart.addSeries("En progreso", [<%= @cant_proceso_enprogreso_plan[indice] %>, <%= @cant_proceso_enprogreso_real[indice] %>]);
+        chart.addSeries("Terminadas", [<%= @cant_proceso_terminadas_plan[indice] %>, <%= @cant_proceso_terminadas_real[indice] %>]);
+
+        // Render the chart!
+        chart.render();
+
+        <%
+            if indice == 0
+        %>
+        var legend = new dojox.charting.widget.Legend({chart: chart, horizontal: true}, "legend3");
+        <%
+            end
+        %>
+
+    });
+</script>
+    <div id="chartNode3<%= indice %>" class="agraph"></div>
+    <div class="clear"></div>
+</div>
+<%
+   end
+%>
+
+
+
+
+
+
+
+
+<!--div class="agraphbox">
+  <div class="legendgraphs">
+    <div class="titulo">
+      cant. tareas terminadas x fecha (real vs esperado)
+
+    </div>
+  </div>
+  <div class="clear"></div>
+  <script>
+      require([
+          // Require the basic chart class
+          "dojox/charting/Chart",
+
+          // Require the theme of our choosing
+          "dojox/charting/themes/Electric",
+
+          // Charting plugins:
+
+          //  We want to plot a Pie chart
+          "dojox/charting/plot2d/Lines",
+
+          "dojox/charting/plot2d/Markers",
+
+          //  We'll use default x/y axes
+          "dojox/charting/axis2d/Default",
+
+          "dojox/charting/widget/Legend",
+
+          // Wait until the DOM is ready
+          "dojo/domReady!"
+      ], function(Chart, theme, Lines, Legend) {
+
+
+          // Define the data
+          var chartData = [0,<%= @total_tareas/20 %>,<%= @total_tareas/10 %>,<%= @total_tareas/8 %>,<%= @total_tareas/3 %>,<%= @total_tareas %>];
+          var chartData2 = [1,<%= @total_tareas/10 %>,<%= @total_tareas/8 %>,<%= @total_tareas/4 %>,<%= @total_tareas*8/10 %>,<%= @total_tareas %>];
+
+          // Create the chart within it's "holding" node
+          var chart = new Chart("lineas");
+
+          // Set the theme
+          chart.setTheme(theme);
+
+          chart.addPlot("default", {
+              type: Lines,
+              markers: true,
+              gap: 0
+          });
+
+          // Add axes
+          chart.addAxis("x", {
+              fixLower: "minor",
+              fixUpper: "minor",
+              natural: true,
+              labels: [
+                  {value: 1, text: "<%= @fecha_final_inicials %>"},
+                  {value: 2, text: ""},
+                  {value: 3, text: ""},
+                  {value: 4, text: ""},
+                  {value: 5, text: ""},
+                  {value: 6, text: "<%= @fecha_final_de_todos %>"}
+              ]});
+          chart.addAxis("y", { min: 0, max: <%= @total_tareas %>, vertical: true, fixLower: "major", fixUpper: "major" });
+
+          // Add the series of data
+          chart.addSeries("real",chartData);
+          chart.addSeries("esperado",chartData2);
+          // Render the chart!
+          chart.render();
+
+          var legend = new dojox.charting.widget.Legend({chart: chart, horizontal: true}, "legendfechas");
+
+      });
+  </script>
+  <div id="lineas" class="agraph"></div>
+  <div class="legendbottom" style="width:316px">
+    <div id="legendfechas"></div>
+  </div>
+  <div class="clear"></div>
+
+</div-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<!--/div-->
+<!--/div>
+</div-->
+</body>
+</html>
+</div>
+
+

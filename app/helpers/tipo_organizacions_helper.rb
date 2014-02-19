@@ -1,0 +1,2 @@
+module TipoOrganizacionsHelper
+end

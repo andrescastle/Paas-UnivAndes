@@ -1,0 +1,243 @@
+<%#
+# = Vista de una grilla de usuarios
+# Esta vista implementa la grilla de administración de usuarios
+%>
+
+<script type="text/javascript">
+    var nuevoModalId = "#nuevousuario";
+    var editarModalId = "#editarusuario";
+    var eliminarModalId = "#eliminarusuario";
+    var nameInputId = "<usuario_email>";
+    var pwdInputId = "usuario_password";
+    var pwdConfInputId = "usuario_password_confirm";
+    var validateNameUrl = "<%= request.protocol + request.host_with_port %>/usuarios/existe/login";
+    var validatePasswordUrl = "<%= request.protocol + request.host_with_port %>/usuarios/password_iguales/pasword";
+    var nuevoButtonId = "#new_usuario";
+    var editarButtonId = "#editarusuario";
+    var eliminarButtonId = "#eliminarusuario";
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+         // Paginación - ordenamiento
+        $("#usuariosTabla").tablesorter({ headers: { 0:{sorter: false}}})
+                .tablesorterPager({container: $("#pager"),positionFixed: false, size: 30});
+
+        // Callback de validacion de nombre repetido por ajax
+        $.validator.addMethod("nombre_unico", validar_nombre_unico, "");
+
+        $.validator.addMethod("password_iguales", validar_password_iguales, "");
+
+
+        // Validaciones de jquery
+        $("#new_usuario").validate({
+            rules: {
+                "usuario[nombre]": {
+                    required: true
+                },
+                "usuario[email]": {
+                    nombre_unico: true,
+                    required: true,
+                    email: true
+                },
+                "usuario[password]": {
+                    required: true,
+                    minlength: 8
+                },
+                "usuario[password_confirm]": {
+                    required: true,
+                    password_iguales: true,
+                    minlength: 8
+                }
+            },
+
+            messages: {
+                "usuario[nombre]": {
+                    required: "<%= t('mandatory')%>"
+                },
+                "usuario[email]": {
+                    required: "<%= t('mandatory')%>",
+                    email: "<%= t('email_invalid')%>",
+                    nombre_unico: "<%= t('email_exist')%>"
+                },
+                "usuario[password]": {
+                    required: "<%= t('mandatory')%>",
+                    minlength: "<%= t('.min_lenght') %>"
+                },
+                "usuario[password_confirm]": {
+                    required: "<%= t('mandatory')%>",
+                    password_iguales: "<%= t('password_nomatch')%>",
+                    minlength: "<%= t('.min_lenght') %>"
+                }
+            }
+        });
+        //$("#usuario_roles").multiselect();
+
+    });
+</script>
+
+
+<% @titulo = t('.title_pag') %>
+<%= render "shared/encabezado_crud" %>
+
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+    <%
+       @filtroTexto = t('filtro')
+       @verListaTexto = t('viewList')
+       @verIconosTexto = t('viewSharp')
+
+       @nuevoBotonId = "nuevo_usuario"
+       @nuevoBotonTexto = t('add')
+       @nuevoPath = usuarios_path
+       @nuevoModal = "nuevousuario"
+
+       @editarBotonId = "editar_usuario"
+       @editarBotonTexto = t('edit')
+       @editarPath = "#"
+       @editarModal = "editarusuario"
+
+       @eliminarBotonId = "eliminar_usuario"
+       @eliminarBotonTexto = t('delete')
+       @eliminarPath = "#"
+       @eliminarModal = "eliminarusuario"
+       @eliminarConfirm = "Está seguro de querer eliminar el usuario?"
+    %>
+
+    <%= render "shared/menu_crud" %>
+
+    <!-- Formas de visualización en tabla o thumbnail,...-->
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 250px; top: 30px; ">
+
+      <table id="usuariosTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+        <tr>
+          <th></th>
+          <th><%= t('nombre')%></th>
+          <th><%= t('tipo_recurso')%></th>
+          <th><%= t('email')%> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @usuarios.each do |usuario| %>
+            <tr id="<%= usuario.id %>">
+              <td style="vertical-align:middle"><input type="checkbox" /></td>
+
+              <td style="vertical-align:middle">
+                <% if FileTest.exist?(Dir.pwd + "/public/images/usuarios/" + usuario.id.to_s() + "_original.img") %>
+                    <%= image_tag "/images/usuarios/" + usuario.id.to_s() + '_original.img', :size => "75x75" %>
+                <% else %>
+                    <%= image_tag "/images/noimage.jpg", :size => "75x75" %>
+                <% end %>
+                <%= link_to usuario.nombre + " " + (usuario.apellidos != nil ? usuario.apellidos: ""), "#" %>
+
+              </td>
+              <td style="vertical-align:middle"><%= usuario.tipo_recurso != nil ? usuario.tipo_recurso.nombre : t('admin') %></td>
+              <td style="vertical-align:middle"> <%= usuario.email %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+
+    <%= render "shared/filtro_crud" %>
+
+    <%
+       @pagTexto = @usuarios.count.to_s() + " " + t('listade')
+       @porPagTexto = t('pag')
+    %>
+
+    <%= render "shared/footer_crud" %>
+  </div>
+
+</div>
+
+<!-- Formularios de edicion -->
+<% content_for :modal do %>
+  <div id="nuevousuario" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3><%= t('add')%> <%= t('usuario')%></h3>
+    </div>
+
+    <div class="modal-body">
+      <div class="row-fluid">
+        <%= form_for(@usuario, :html=> {:multipart=>true}) do |f| %>
+
+            <fieldset>
+              <!-- Datos del usuario
+             ================================================== -->
+              <div id="rol" >
+
+                <div class="field">
+                  <%= f.label :nombre, "*" + t('nombres')%>
+                  <%= f.text_field :nombre, :maxlength => 250 %>
+                </div>
+                <div class="field">
+                  <%= f.label :apellidos, t('apellidos')%>
+                  <%= f.text_field :apellidos, :maxlength => 250 %>
+                </div>
+                <div class="field">
+                  <%= f.label :email,"*" + t('email')%>
+                  <%= f.text_field :email, :maxlength => 250 %>
+                </div>
+                <div class="field">
+                  <%= f.label :password, "*" + t('password')%>
+                  <%= f.password_field :password, :maxlength => 50 %>
+                </div>
+		        <div class="field"> <!-- Confirmar -->
+                  <%= f.label :password_confirm,"*" + t('password_confirm')%>
+                  <%= f.password_field :password_confirm, :maxlength => 50 %>
+                </div>
+                <div class="field" onclick="">
+                  <%= f.label :tipo_recurso, 'Rol' %>
+                  <%= f.select :tipo_recurso_id, TipoRecurso.find_all_by_unit(1).map{|p| [p.nombre, p.id]} %>
+                  <% # f.select :tipo_recurso_id, TipoRecurso.find_all_by_unit(1).map{|p| [p.nombre, p.id]},{},{ :multiple => true, :size => 5 } #así debe ser %>
+
+                </div>
+                <div class="field">
+                  <%= f.label :role , t('.nivel_acceso') %>
+                </div>
+                <div class="field">
+                  <p>
+                  <input type="checkbox" id="roles[]" name="roles[]" value="1"> <%= t('admin') %> </input>
+                  </p>
+                  <p>
+                  <input type="checkbox" id="roles[]" name="roles[]" value="2"> <%= t('manager') %> </input>
+                  </p>
+                  <p>
+                  <input type="checkbox" id="roles[]" name="roles[]" value="3"> <%= t('worker') %> </input>
+                  </p>
+                </div>
+                <div class="field">
+                  <%= f.label :imagen, t('imagen') %>
+                  <%= f.file_field :imagen %>
+                </div>
+
+
+              </div>
+            </fieldset>
+
+            </div>
+            </div>
+            <div class="modal-footer">
+              <div class="actions"  align=right >
+
+                <input id="crear_usuario" class="btn primary"  name="commit" type="submit" value="<%= t('btnCrear')%>" />
+                <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar')%></button>
+              </div>
+            </div>
+        <% end %>
+
+        </div>
+
+<%end%>
+

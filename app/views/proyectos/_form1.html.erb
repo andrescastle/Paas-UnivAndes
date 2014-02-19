@@ -1,0 +1,293 @@
+ 
+
+ <% proyecto = Proyecto.find(params[:id]) %>
+         <div class="page-header">
+
+         <h1><%= proyecto.nombre %> <small> <%= proyecto.descripcion %></small></h1>
+         <div class="btn-toolbar " style="margin-top: 18px; ">
+         <div class="btn-group pull-right ">
+
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Opciones <span class="caret"></span></button>
+            <ul class="dropdown-menu" >
+              <%= link_to 'Editar información de proyecto', edit_proyecto_path(proyecto) %>
+              <%= link_to 'Eliminar proyecto', proyecto, confirm: 'Esta seguro de eliminar el proyecto?', method: :delete %>
+            </ul>
+          </div><!-- /btn-group -->
+
+           <div class="btn-group pull-right ">
+
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Asociar <span class="caret"></span></button>
+            <ul class="dropdown-menu" >
+              <%= link_to 'Archivo', nuevoArchivo_path(proyecto) %>
+              <%= link_to 'Depósito', nuevoDeposito_path(proyecto) %>
+            </ul>
+          </div><!-- /btn-group -->
+          </div>
+
+        <p class="lead"><%= proyecto.tipo_producto.nombre %></p>
+
+         <div class="accordion" id="accordion3" style="cursor:move;">
+
+          <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#depositos<%= proyecto.id %>">
+                  <td>Depósitos asociados</td>
+                </a>
+              </div>
+              <div id="depositos<%= proyecto.id %>" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+               <% proyecto.depositos.each do |deposito| %>
+                   <li><%= deposito.nombre %></li>
+
+                <% end %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+         </div>
+          <!-- Menus
+          ================================================== -->
+<!--              <div class="jumbotron subhead" id="overview">
+                  <div class="subnav" >
+                      <ul class="nav nav-pills">
+
+                              <li><a href="#documentos">Documentos</a></li>
+
+                              <li><a href="#imagenes">Imágenes</a></li>
+
+                              <li><a href="#videos">Videos</a></li>
+
+                              <li><a href="#audios">Audios</a></li>
+
+                              <li><a href="#otros">Otros</a></li>
+
+                              <form class="navbar-search pull-right" action="">
+                                <input type="text" class="search-query span12" placeholder="Search"></input>
+                              </form>
+
+                        </ul>
+                     </div>
+                 </div>-->
+                 <!--Documentos
+                 ================================================== -->
+                 <div class="row-fluid">
+                   <div class="span12" style="cursor:move;"  id="archivos" >
+                    <div id="flotante" style="display:none;">
+                       <div class="btn-group ">
+                         <% proyecto.archivos.each do |archivo| %>
+                           <% if archivo.id==@var %>
+                              <button class="btn btn-warning" style="height: 25px; width: 100px" onclick="location.href='<%  archivo %>'" > Ver </button>
+                              <button class="btn btn-success" style="height: 25px; width: 100px" onclick="location.href='<%=  edit_archivo_path(archivo)%>'" > Editar </button>
+                              <button class="btn btn-info" style="height: 25px; width: 100px" onclick="location.href='/es/archivos/1'" data-confirm="Está seguro de querer eliminr el depósito?" data-method="delete" rel="nofollow" > Eliminar </button>
+
+                           <% end %>
+                         <% end %>
+                       </div><!-- /btn-group -->
+                    </div>
+                </div>
+
+                <section id="documentos">
+                                          
+                          <div class="span12">
+                          <table class="table table-bordered table-striped" >
+                            <tr>
+                              <th></th>
+                              <th>Nombre</th>
+                              <th>Tipo de archivo</th>
+                              <th>Fecha de creación</th>
+                              <th>Descripción</th>
+                              <th>Depósito del proyecto</th>
+                              
+                            </tr>
+
+                          <% proyecto.archivos.each do |archivo| %>
+                            <tr id="<%= proyecto.id %>Archivo<%= archivo.id %>">
+                              <td><input type="checkbox" name="'<%= archivo.id %>'" value="ON" onclick=doIt(1,this,this.form) /></td>
+                              <td><%= archivo.nombre %></td>
+                              <td><%= archivo.tipo_archivo.nombre %></td>
+                              <td><%= archivo.fcreado %></td>
+                              <td><%= archivo.descripcion %></td>
+                              <td><%= archivo.deposito.nombre %></td>
+                           
+                            </tr>
+                          <% end %>
+                          </table>
+                          </div>
+                     </section>
+                     </div>
+
+
+                       <!--Imagenes
+              ================================================== -->
+
+         <!--       <section id="imagenes">
+
+                            <div class="page-header">
+
+                              <h1><small>Imagenes</small></h1>
+
+                            </div>
+
+                            <div class="row">
+
+                                    <div class="span1">
+
+                                    </div>
+
+                                    <div class="span2">HOLA
+
+                                    </div>
+
+                                    <div class="span9">
+
+                                             <!--Carrusel
+                     ================================================== -->
+
+   <!--                                          <div id="myCarousel" class="carousel slide">
+
+                                                    <div class="carousel-inner">
+
+                                                            <div class="item active">
+
+                                                              <img src="img/Desert.jpg" alt=""></img>
+
+                                                                    <div class="carousel-caption">
+
+                                                                            <h4>El desierto</h4>
+
+                                                                            <p>Primera ejemplo de imagen. El desierto</p>
+
+                                                                    </div>
+
+                                                            </div>
+
+                                                            <div class="item">
+
+                                                              <img src="img/Penguins.jpg" alt=""></img>
+
+                                                                    <div class="carousel-caption">
+
+                                                                            <h4>El Pinguino</h4>
+
+                                                                            <p>Segundo ejemplo de imagen. El pinguino</p>
+
+                                                                    </div>
+
+                                                            </div>
+
+                                                            <div class="item">
+
+                                                              <img src="img/Koala.jpg" alt=""></img>
+
+                                                                    <div class="carousel-caption">
+
+                                                                      <h4>El Koala</h4>
+
+                                                                      <p>Tercer ejemplo de imagen. El koala</p>
+
+                                                                    </div>
+
+                                                            </div>
+
+                                                    </div>
+
+                                                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+
+                                                    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+
+                                            </div>
+
+                                            <p><br></br></p>
+
+                                    </div>
+
+                            </div>
+
+
+                    </section>
+
+                    <!--Videos
+        ================================================== -->
+
+  <!--                   <section id="videos">
+
+                            <div class="page-header">
+
+                              <h1><small>Videos</small></h1>
+
+                            </div>
+
+                            <div class="row">
+
+                                    <div class="span1">
+
+                                    </div>
+
+                                    <div class="span2">HOLA
+
+                                    </div>
+
+                                    <div class="span9">
+                                    </div>
+
+                             </div>
+
+                    </section>
+
+                <!--Audios
+        ================================================== -->
+
+ <!--                    <section id="audios">
+
+                            <div class="page-header">
+
+                              <h1><small>Audios</small></h1>
+
+                            </div>
+
+
+                            <div class="row">
+
+                                    <div class="span1">
+
+                                    </div>
+
+                                    <div class="span2">HOLA
+
+                                    </div>
+
+                                    <div class="span9">
+                                    </div>
+
+                             </div>
+
+                    </section>
+
+                 <!--Otros
+          ================================================== -->
+ <!--                    <section id="otros">
+
+                            <div class="page-header">
+
+                              <h1><small>Otros</small></h1>
+
+                            </div>
+
+                            <div class="row">
+
+                                    <div class="span1">
+
+                                    </div>
+
+                                    <div class="span2">HOLA
+
+                                    </div>
+
+                                    <div class="span9">
+                                    </div>
+
+                            </div>
+               </section>
+      <p><br></br><br></br><br></br></p>-->

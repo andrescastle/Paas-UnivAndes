@@ -1,0 +1,65 @@
+<%= javascript_include_tag :'david-crud' %>
+
+<%= stylesheet_link_tag :'plantillas' %>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#MySplitter").splitter({
+            type: "h",
+            outline: true,
+            minLeft: 100,
+            sizeLeft: 275,
+            maxTop: 150,
+            minRight: 100,
+            resizeToWidth: true,
+            cookie: "hsplitter",
+            accessKey: 'P'
+        });
+    });
+
+</script>
+
+
+<div id="MySplitter">
+
+  <div id="TopPane1" style="position: absolute; z-index: 1; top: 0px; height: 141px; -webkit-user-select: text;">
+          <%= render "summary" %>
+  </div>
+
+  <div id="BottomPane">
+    <ul id="myTab" class="nav nav-tabs  " style="background: #E6E6E6 "  >
+      <li class="active"><a href="#disenho" data-toggle="tab"><%= t('.disenho')%></a></li>
+      <li><a href="#programacion" data-toggle="tab"><%= t('.programacion')%> </a></li>
+      <li><a href="#planeacion" data-toggle="tab"><%= t('.planeacion')%> </a></li>
+      <li><a id="btn_validar" href="#summary_validate" data-toggle="tab"><%= t('.Validar')%> </a></li>
+      <li><a id="btn_publicar" href="#summary_publish" data-toggle="tab"><%= t('.Publicar')%> </a></li>
+      <li><a href="#aprobaciones" data-toggle="tab"><%= t('.aprobaciones')%> </a></li>
+      <li><a href="#ejecucion" data-toggle="tab"><%= t('.seguimiento')%></a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content" >
+      <div class="tab-pane in active" id="disenho" >
+        <%=  render 'disenho' %>
+      </div>
+      <div class="tab-pane " id="programacion">
+        <iframe id="frame_programar"  src="<%= request.protocol + request.host_with_port %>/tareas?proceso_id=<%= @proceso.id %>" width="100%" height="1000px"  style="background: #F2F7FF " seamless></iframe>
+      </div>
+      <div class="tab-pane " id="planeacion">
+        <%=  render 'planear' %>
+      </div>
+      <div class="tab-pane " id="summary_validate">
+        <iframe id="frame_summary_validate" width="100%" height="1000px"  style="background: #F2F7FF "  src="<%= request.protocol + request.host_with_port %>/process_rules/validate_process?proceso_id=<%= @proceso.id %>&publicar=false" seamless></iframe>
+      </div>
+      <div class="tab-pane " id="summary_publish">
+        <iframe id="frame_summary_publish" width="100%" height="1000px"  style="background: #F2F7FF "  src="<%= request.protocol + request.host_with_port %>/process_rules/validate_process?proceso_id=<%= @proceso.id %>&publicar=false" seamless></iframe>
+      </div>
+      <div class="tab-pane " id="aprobaciones">
+        <iframe id="frame_revisiones"  src="<%= request.protocol + request.host_with_port %>/procesos/<%= @proceso.id %>/aprobaciones" width="100%" height="1000px"  style="background: #F2F7FF " seamless></iframe>
+      </div>
+      <div class="tab-pane " id="ejecucion" style="background: #F2F7FF " >
+        <iframe id="Freportes" width="100%" height="1000px"  style="background: #F2F7FF "  src="<%= Reportes_path((@proceso.id))%>" seamless></iframe>
+      </div>
+    </div>
+
+  </div>
+
+</div>

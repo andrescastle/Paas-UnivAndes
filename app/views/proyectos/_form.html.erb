@@ -1,0 +1,76 @@
+<div class="row-fluid">
+ <%= form_for(@proyecto) do |f| %>
+  <% if @proyecto.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+      <h2>Hay <%= pluralize(@proyecto.errors.count, "error") %>. No se puede crear el proyecto:</h2>
+
+      <ul>
+      <% @proyecto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+        <!-- Datos del proyecto
+         ================================================== -->
+        <div class="span3" style="cursor:move;"  id="proyectos" >
+         
+            <div class="field">
+              <strong><%= f.label :nombre %></strong>
+              <%= f.text_field :nombre %>
+            </div>
+            <br />
+            <div class="field">
+              <%= f.label :tipo_producto %>
+              <%= f.select :tipo_producto_id, TipoProducto.all.map{|p| [p.nombre, p.id]} %>
+            </div>
+            <br />
+            <div class="field">
+              <%= f.label :descripcion %>
+              <%= f.text_area :descripcion, :size => "30x10" %>
+
+            </div>
+          </div>
+        <div class="span1" id="espacio" ></div>
+        <div class="span8" style="cursor:move;"  id="depositos" >
+          <form>
+              <TABLE BORDER=0>
+                <tr>
+                      <th>Depósitos</th>
+                      <th></th>
+                      <th>Depósitos del proyecto</th>
+
+                </tr>
+                <TR>
+                    <TD>
+                    <SELECT NAME="list11" MULTIPLE SIZE=10 onDblClick="moveSelectedOptions(this.form['list11'],this.form['list21'],false)">
+                            <% @depositos.each do |deposito| %>
+                              <option value="<%= deposito.id %>"><%= deposito.nombre %> (<%= deposito.tipo_deposito.nombre %>)</option>
+                            <%end%>
+
+                    </SELECT>
+                    </TD>
+                    <TD VALIGN=MIDDLE ALIGN=CENTER>
+                            <A HREF="#" onClick="moveSelectedOptions(document.forms[0]['list11'],document.forms[0]['list21'],false);return false;">&gt;&gt;</A><BR><BR>
+                            <A HREF="#" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;">All &gt;&gt;</A><BR><BR>
+                            <A HREF="#" onClick="moveSelectedOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;">&lt;&lt;</A><BR><BR>
+                            <A HREF="#" onClick="moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;">All &lt;&lt;</A>
+                    </TD>
+                    <TD>
+                    <SELECT NAME="list21" MULTIPLE SIZE=10 onDblClick="moveSelectedOptions(this.form['list21'],this.form['list11'],false)">
+
+                    </SELECT>
+                    </TD>
+            </TR>
+            </TABLE>
+
+          </form>
+
+       <br></br>
+       <div class="actions"  align=left >
+            <%= f.submit t('.submit')  %>
+       </div>
+     </div>
+   <% end %>
+</div>
+          

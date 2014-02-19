@@ -1,0 +1,59 @@
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#btn_programar").click(function(){
+            $("#frame_programar").attr("src","<%= request.protocol + request.host_with_port %>/tareas?proceso_id=<%= @proceso.id %>&locale=<%= params[:locale]%>");
+        });
+
+        $("#btn_reportar").click(function(){
+            $("#Freportes").attr("src","<%= Reportes_path(@proceso.id)%>");
+        });
+
+        $("#btn_proceso").click(function(){
+            document.location.href="<%= request.protocol + request.host_with_port %>/procesos/<%= @proceso.id %>?locale=es";
+        });
+
+        $("#btn_validar").click(function(){
+            $("#frame_summary_validate").attr("src","<%= request.protocol + request.host_with_port %>/process_rules/validate_process?proceso_id=<%= @proceso.id %>&publicar=false&locale=es");
+        });
+
+        $("#btn_publicar").click(function(){
+            $("#frame_summary_publish").attr("src","<%= request.protocol + request.host_with_port %>/process_rules/publicar_proceso?proceso_id=<%= @proceso.id %>&publicar=true&locale=es");
+        });
+
+        $("#btn_xpdl").click(function(){
+            $("#frame_summary_publish").attr("src","<%= request.protocol + request.host_with_port %>/procesos/<%= @proceso.id %>/xpdl?locale=es");
+        });
+    });
+
+</script>
+
+
+  <center>
+    <h3> <%= @proceso.nombre %>   </h3>
+    <span class="title_annotation"></span>
+  </center>
+
+
+    <!--div class="btn-group pull-right " >
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><img runat="server" src="/images/Actualizar.png" width="24px" height="24px" /></button>
+      <ul class="dropdown-menu">
+        <li style="z-index: -1000;"><a href="#" name="btn_proceso" id="btn_proceso">Actualizar proceso</a></li>
+        <li style="z-index: -1000;"><a href="#" name="btn_programar" id="btn_programar">Actualizar programación</a></li>
+        <li style="z-index: -1000;"><a href="#"  name="btn_planear" id="btn_planear">Generar planeación</a></li>
+        <li style="z-index: -1000;"><a href="#" name="btn_reportar" id="btn_reportar">Actualizar reportes</a></li>
+      </ul>
+    </div-->
+  <p>
+    <%= @proceso.descripcion %>
+  </p>
+<br/>
+<div style="text-align: center;">
+  <input type="button" name="btn_proceso" id="btn_proceso" value="Árbol" class="botonactualizar" />
+  <input type="button" name="btn_programar" id="btn_programar" value="Programación" class="botonactualizar" />
+  <input type="button" name="btn_reportar" id="btn_reportar" value="Reportes" class="botonactualizar" />
+  <input type="button" name="btn_planear" id="btn_planear" value="Generar planeación" />
+  <input type="button" name="btn_planear" id="btn_xpdl" value="Generar XPDL" />
+
+
+</div>

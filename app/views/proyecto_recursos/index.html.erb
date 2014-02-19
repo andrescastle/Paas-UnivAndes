@@ -1,0 +1,147 @@
+<%#
+# = Vista de una grilla de proyecto_recursos
+# Esta vista implementa la grilla de administración de proyecto_recursos
+%>
+
+<script type="text/javascript">
+    var nuevoModalId = "#nuevoproyecto_recurso";
+    var editarModalId = "#editarproyecto_recurso";
+    var eliminarModalId = "#eliminarproyecto_recurso";
+    var nameInputId = "proyecto_recurso_nombre";
+    var validateNameUrl = "<%= request.protocol + request.host_with_port %>/proyecto_recursos/existe/nombre";
+    var nuevoButtonId = "#new_tipo_proyecto_recurso";
+    var editarButtonId = "#editarproyecto_recurso";
+    var eliminarButtonId = "#eliminarproyecto_recurso";
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Paginación - ordenamiento
+        $("#proyecto_recursosTabla").tablesorter({ headers: { 0:{sorter: false}}})
+                .tablesorterPager({container: $("#pager"),positionFixed: false, size: 30});
+
+        // Callback de validacion de nombre repetido por ajax
+        $.validator.addMethod("nombre_unico", validar_nombre_unico, "");
+
+
+    });
+
+</script>
+
+<% @titulo = t('.title_pag') %>
+<%= render "shared/encabezado_crud" %>
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+    <%
+       @filtroTexto = t('filtro')
+       @verListaTexto = t('viewList')
+       @verIconosTexto = t('viewSharp')
+
+       @nuevoBotonId = "nuevo_proyecto_recurso"
+       @nuevoBotonTexto = t('add')
+       @nuevoPath = proyecto_recursos_path
+       @nuevoModal = "nuevoproyecto_recurso"
+
+       @editarBotonId = "editar_proyecto_recurso"
+       @editarBotonTexto = t('edit')
+       @editarPath = "#"
+       @editarModal = "editarproyecto_recurso"
+
+       @eliminarBotonId = "eliminar_proyecto_recurso"
+       @eliminarBotonTexto = t('delete')
+       @eliminarPath = "#"
+       @eliminarModal = "eliminarproyecto_recurso"
+       @eliminarConfirm = "Está seguro de querer eliminar el tipo_recurso?"
+    %>
+
+    <%= render "shared/menu_crud" %>
+
+
+    <!-- Formas de visualización en tabla o thumbnail,...-->
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 250px; top: 30px; ">
+
+      <%
+         if(@proyecto_recursos.count == 0)
+      %>
+          <div class="addnew">
+            <%= t('no_created') %><br /><br />
+              <a data-toggle="modal" role="button" class="btn" href="#nuevorecurso">
+              <%= image_tag "/images/add.png" %><br /><br />
+              <%= t('add_new') %>
+            </a>
+          </div>
+      <%
+         else
+      %>
+
+
+      <table id="proyecto_recursosTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+        <tr>
+          <th></th>
+          <th><%= t('nombre')%> </th>
+          <th><%= t('tipo_recurso')%> </th>
+          <th><%= t('unidades')%> </th>
+          <th><%= t('descr')%> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @proyecto_recursos.each do |recurso| %>
+            <tr id="<%= recurso.id %>">
+              <td><input type="checkbox" /></td>
+              <td><img runat="server" src=""  /> <%= link_to recurso.recurso.nombre, "" %></td>
+              <td> <%= recurso.recurso.tipo_recurso.nombre %></td>
+              <td> <%= recurso.recurso.unidades %></td>
+              <td> <%= recurso.recurso.descripcion %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    <% end %>
+      <!--div class="whatsneededcontainer">
+        <div class="whatsneeded">
+          <div class="thingstatus">
+            <img src="/images/ready.png">
+          </div>
+          <div class="title">3 computadores se requieren y están completos
+          </div>
+          <div class="process">
+            <div class="processname">Proceso: Desarrollo creativo del videojuego</div>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="whatsneeded">
+          <div class="thingstatus">
+            <img src="/images/orange.png">
+          </div>
+          <div class="title">2 licencias se requieren y hay 1
+          </div>
+          <div class="process">
+            <div class="processname">Proceso: El segundo proceso</div>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+      </div-->
+    </div>
+
+    <%= render "shared/filtro_crud" %>
+
+    <%
+       @pagTexto = @proyecto_recursos.count.to_s() + " " + t('listade')
+       @porPagTexto = t('pag')
+    %>
+
+    <%= render "shared/footer_crud" %>
+
+  </div>
+
+</div>

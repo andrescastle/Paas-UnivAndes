@@ -1,0 +1,219 @@
+<%= stylesheet_link_tag    :'tarea_participantes', :media => "all" %>
+<%= stylesheet_link_tag    :'tareas', :media => "print" %>
+
+<script type="text/javascript" language="javascript">
+
+    function updateEstado() {
+
+    }
+
+    function validar_prioridad(proceso_id, prioridad)
+    {
+        var count = 0;
+        $('#allItems li').each(function(){
+
+            if ($(this).attr('proceso') == proceso_id && $(this).attr('prioridad') < prioridad)
+            {
+                count++;
+            }
+        });
+
+        return count > 0;
+    }
+
+    function ver_prioridad()
+    {
+        $('#allItems li').each(function(){
+            if(validar_prioridad( $(this).attr('proceso'), $(this).attr('prioridad')) == true)
+                $(this).attr('style','background-color:#cccccc;');
+            else
+                $(this).attr('style','background-color:#f3f3d1;');
+        });
+    }
+
+    function updatePrioridad() {
+
+        var stareas = "-1";
+        $('#allItems li').each(function(){
+           var tarea_id = $(this).attr("id").replace("node","");
+           stareas += ":" + tarea_id;
+        });
+
+        $.ajax({
+            type: "GET",
+            url: "<%= request.protocol + request.host_with_port %>/proyectos/<%=@proyecto.id%>/actualizarPriorizacion",
+            data: "tareas=" + stareas + "&usu=<%= @usuario.id %>",
+            async: false,
+            success: function(msg) { }
+        });
+    }
+
+    jQuery(document).ready(function () {
+
+       ver_prioridad();
+    });
+
+
+</script>
+
+
+<div class="contents sgw_new_grid proyectoverview" id="ext-gen33" style="padding: 10px;" xmlns="http://www.w3.org/1999/html">
+<div id="dhtmlgoodies_dragDropContainer">
+
+<!--div id="dhtmlgoodies_listOfItems">
+
+</div-->
+<div id="dhtmlgoodies_mainContainer">
+
+<div class="thetaskcontainer" id="col1">
+  <p><%= t('layouts.WS_usuarios.iniciar') %></p>
+  <ul id="allItems">
+    <% @tareaP.each do |tareaP| %>
+        <% tarea=tareaP.tarea %>
+
+        <% if tarea.columna==1 %>
+            <li id="node<%= tarea.id %>" prioridad="<%= tareaP.prioridad %>" proceso="<%= tarea.proceso_id %>" groupId="box<%= tarea.id %>">
+              <% if tarea.estado==1 %>
+                  <div class="onetask">
+              <% end %>
+              <% if tarea.estado==2 %>
+                  <div class="onetask">
+              <% end %>
+              <% if tarea.estado==3 %>
+                  <div class="onetask lateother ">
+              <% end %>
+              <% if tarea.estado==4 %>
+                  <div class="onetask lateme">
+              <% end %>
+              <% if tarea.estado==14 %>
+                  <div class="onetask noaprobada">
+              <% end %>
+              <div class="c-input title" id="topbottom">
+                <%= tarea.nombre %><br/>
+                <% if tarea.actividad.tipocontrol == "fechas" then %>
+                    <span> <%= t('layouts.WS_usuarios.inicio') %>:<%= tarea.fecha_inicio %> - <%= t('layouts.WS_usuarios.fin') %>:<%= tarea.fecha_fin %> </span>
+                    &nbsp;
+                    <span><%=  tarea.fecha_inicio < Date.today ? t('layouts.WS_usuarios.tarde') : t('layouts.WS_usuarios.diaspara') + ":" + (tarea.fecha_fin - tarea.fecha_inicio).to_s %></span>
+                <% elsif tarea.actividad.tipocontrol == "horas" %>
+                    <span><%= t('layouts.WS_usuarios.horas')%> : <%= tarea.horas_planeadas %></span>
+                <% else %>
+                    <span> <%= t('layouts.WS_usuarios.nocontrol') %>  </span>
+                <% end %>
+                <br>
+
+                <span class="horas_acum<%= tarea.id %>"><%= t('layouts.WS_usuarios.horas_acum') %> : <%= tarea.horas_acumuladas != nil ? tarea.horas_acumuladas : 0 %></span>
+                <input type="hidden" id="horas_plan<%= tarea.id %>" value="<%= tarea.horas_planeadas %>" />
+                <div class="horas_avance<%= tarea.id %>" style="display: none;">
+                  <span><%= t('layouts.WS_usuarios.horas_worked') %>:</span>
+                  <input class="horas_exec<%= tarea.id %>" name="tarea_horasexec<%= tarea.id %>" id="tarea_horasexec<%= tarea.id %>" value="<%= tarea.horas_ejecutadas %>"/>
+                </div>
+
+                <div class="taskprogcont">
+                  <div class="taskprogbar">
+                    <div class="taskprogressbar">
+                      <div class="avance_bar<%= tarea.id %>" style="width: <%= tarea.avance != nil ? tarea.avance : 0 %>%;"></div>
+                    </div>
+                    &nbsp;<span class="avance_text<%= tarea.id %>"> <%= tarea.avance != nil ? tarea.avance : 0 %>%</span>
+                    &nbsp;
+                    <% if tarea.es_aprobacion then %>
+                        <a id="tarea_revision<%= tarea.id %>" name="tarea_revision<%= tarea.id %>" href="#tarea_revision" data-toggle="modal" class="link-revision<%= tarea.id %>" style="display: none;"><%= t(".aprobacion")%></a>
+                    <% end %>
+
+                  </div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+              <div class="process">
+                <img src="/images/proyectos/<%= tarea.proceso.proyecto.id %>_original.img" style="width: 32px; height: 32px; ">
+                <img src="/images/procesos/<%= tarea.proceso.id %>_original.img" style="width: 32px; height: 32px; ">
+
+                <div class="fleft">
+                  <div class="processname"><%= tarea.proceso.nombre %></div>
+                  <div class="projectname"><%= tarea.proceso.proyecto.nombre %></div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+              </div>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
+<!-- ONE <UL> for each "room" -->
+<div class="thetaskcontainer" id="col2">
+  <p><%= t('layouts.WS_usuarios.proceso') %></p>
+  <ul id="box1">
+    <% @tareas.each do |tarea| %>
+        <% if tarea.columna==2 %>
+            <li id="node<%= tarea.id %>" groupId="box<%= tarea.id %>">
+              <% if tarea.estado==5 %>
+                  <div class="onetask">
+              <% end %>
+              <% if tarea.estado==6 %>
+                  <div class="onetask lateother ">
+              <% end %>
+              <% if tarea.estado==7 %>
+                  <div class="onetask lateme">
+              <% end %>
+              <% if tarea.estado==14 %>
+                  <div class="onetask noaprobada">
+              <% end %>
+              <div class="c-input title" id="topbottom" style="width: 271px">
+                <%= tarea.nombre %>
+                <% if tarea.actividad.tipocontrol == "fechas" then %>
+                    <span > <%= t('layouts.WS_usuarios.inicio') %>:<%= tarea.fecha_inicio %> - <%= t('layouts.WS_usuarios.fin') %>:<%= tarea.fecha_fin %> </span>
+                    &nbsp;
+                    <span ><%=  tarea.fecha_inicio < Date.today ? t('layouts.WS_usuarios.tarde') : t('layouts.WS_usuarios.diaspara') + ":" + (tarea.fecha_fin - tarea.fecha_inicio).to_s %></span>
+                <% elsif tarea.actividad.tipocontrol == "horas" %>
+                    <span><%= t('layouts.WS_usuarios.horas') %> : <%= tarea.horas_planeadas %></span>
+                <% else %>
+                <% end %>
+                <br>
+
+                <span class="horas_acum<%= tarea.id %>"><%= t('layouts.WS_usuarios.horas_acum') %> : <%= tarea.horas_acumuladas != nil ? tarea.horas_acumuladas : 0 %></span>
+                <input type="hidden" id="horas_plan<%= tarea.id %>" value="<%= tarea.horas_planeadas %>" />
+                <div class="horas_avance<%= tarea.id %>">
+                  <span  ><%= t('layouts.WS_usuarios.horas_worked') %>:</span>
+                  <span class="horas_exec<%= tarea.id %>" name="tarea_horasexec<%= tarea.id %>" id="tarea_horasexec<%= tarea.id %>"><%= tarea.horas_ejecutadas %></span>
+                </div>
+
+                <div class="taskprogcont">
+                  <div class="taskprogbar">
+                    <div class="taskprogressbar">
+                      <div class="avance_bar<%= tarea.id %>" style="width: <%= (tarea.horas_ejecutadas.to_f / tarea.horas_planeadas.to_f) * 100 %>%;"></div>
+                    </div>
+                    &nbsp;<span class="avance_text<%= tarea.id %>"> <%= (tarea.horas_ejecutadas.to_f / tarea.horas_planeadas.to_f) * 100 %>%</span>
+                    &nbsp;
+                    <% if tarea.es_aprobacion then %>
+                        <a id="tarea_revision<%= tarea.id %>" name="tarea_revision<%= tarea.id %>" href="#tarea_revision" data-toggle="modal" class="link-revision<%= tarea.id %>" style="display: none;"><%= t(".aprobacion")%></a>
+                    <% end %>
+                  </div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+              <div class="process">
+                <img src="/images/proyectos/<%= tarea.proceso.proyecto.id %>_original.img" style="width: 32px; height: 32px; ">
+                <img src="/images/procesos/<%= tarea.proceso.id %>_original.img" style="width: 32px; height: 32px; ">
+
+                <div class="fleft">
+                  <div class="processname"><%= tarea.proceso.nombre %></div>
+                  <div class="projectname"><%= tarea.proceso.proyecto.nombre %></div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+              </div>
+
+        <% end %>
+    <% end %>
+  </ul>
+</div>
+
+</div>
+</div>
+
+<ul id="dragContent"></ul>
+<div id="dragDropIndicator"><img src="/images/insert.gif"></div>
+<div id="saveContent"></div>

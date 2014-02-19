@@ -1,0 +1,112 @@
+<% content_for :modal do %>
+
+    <%= form_for(@tarea_recurso, :html=> {:multipart=>true}) do |f| %>
+    <input type="hidden" name="tarea_seleccionada" id="tarea_seleccionada" class="tarea_seleccionada" value="0" />
+
+    <div id="asociar_recursos" class="modal hide fade asociaciones " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+         xmlns="http://www.w3.org/1999/html">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3><%= t('.asociar_recurso')%></h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="row-fluid">
+          <div class="accordion" id="accordion_recursos">
+            <% @organizaciones.each do |organizacion| %>
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_recursos" href="#collapse-recursos<%= organizacion.id %>">
+                      <%= organizacion.nombre %>
+                    </a>
+                  </div>
+                  <div id="collapse-recursos<%= organizacion.id %>" class="accordion-body collapse">
+                    <%
+                       @hash = Hash.new
+                       Recurso.find_all_by_organizacion_id(organizacion.id).each do |recurso|
+                         @hash[recurso.tipo_recurso_id] = Array.new
+                       end
+
+                       Recurso.find_all_by_organizacion_id(organizacion.id).each do |recurso|
+                         @array = @hash[recurso.tipo_recurso_id]
+                         @array.push(recurso)
+                       end
+                    %>
+
+
+                    <div class="accordion-inner">
+                      <div class="tabbable tabs-left">
+                        <ul class="nav nav-tabs">
+                          <% @hash.keys.each do |tipo_recurso_id| %>
+                              <li>
+                                <a href="#tipo_recurso<%= tipo_recurso_id %>_<%= organizacion.id %>" data-toggle="tab"><%= TipoRecurso.find(tipo_recurso_id).nombre %> </a>
+                              </li>
+                          <% end %>
+                        </ul>
+                        <div class="tab-content">
+                          <% @hash.keys.each do |tipo_recurso_id| %>
+                              <div class="tab-pane in" id="tipo_recurso<%= tipo_recurso_id %>_<%= organizacion.id %>">
+                                <% @hash[tipo_recurso_id].each do |recurso| %>
+
+                                    <input type="hidden" id="recurso[]" name="recurso[]" value="<%= recurso.id %>">
+
+                                    <div>
+
+                                    <%= recurso.nombre %> &nbsp; <span><%= t('.unidades') %>:</span>
+
+                                    <select id="qty_recurso_<%= recurso.id %>" name="qty_recurso_<%= recurso.id %>" class="select_qty_recurso">
+                                    <option value="0" selected="true"><%= t('no_asignar') %></option>
+                                    <% @i = 0
+                                       while @i < recurso.unidades
+                                        @i += 1
+                                    %>
+                                        <option value="<%= @i %>"><%= @i %></option>
+                                    <% end %>
+                                    </select>
+
+                                    </div>
+                                    <div class="clear"></div>
+                                <% end %>
+                              </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="actions"  align=right >
+
+          <input id="asociar_proceso" class="btn primary"  name="commit" type="submit" value="<%= t('.btnAsociar')%>" />
+          <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar') %></button>
+
+        </div>
+        <br/>
+        <br/>
+
+        <% @actividades.each do |actividad| %>
+            <div id="sugerencias_recursos<%= actividad.id %>" class="sugerencias">
+              <% actividad.actividad_tiporecurso.each do |act_tiporecurso| %>
+                  <% if act_tiporecurso.tipo_recurso.unit == 2 then %>
+                      <div class="whatsneeded">
+                        <div class="thingstatus">
+                          <img src="/images/ready.png">
+                        </div>
+                        <div class="title"> <%= act_tiporecurso.tipo_recurso.nombre %> <%= act_tiporecurso.cantidad %> <%= t('.sugeridos') %> </div>
+                        <div class="clear"></div>
+                      </div>
+                  <% end %>
+              <% end %>
+            </div>
+        <% end %>
+
+        </div>
+    </div>
+
+    <% end %>
+ <% end %>

@@ -1,0 +1,80 @@
+<div class="legendgraphs">
+  <div class="titulo">
+    ESTADO DE MIS ACTIVIDADES
+  </div>
+</div>
+<div class="clear"></div>
+<div class="legendbottom" style="width:316px">
+  <div id="legend3"></div>
+</div>
+<div class="clear"></div>
+
+
+<script type="text/javascript">
+
+    require([
+        // Require the basic chart class
+        "dojox/charting/Chart",
+
+        // Require the theme of our choosing
+        "dojox/charting/themes/Electric",
+
+        // Charting plugins:
+
+        //  We want to plot a Pie chart
+        "dojox/charting/plot2d/StackedColumns",
+
+        "dojox/charting/plot2d/Markers",
+
+        //  We'll use default x/y axes
+        "dojox/charting/axis2d/Default",
+
+        "dojox/charting/widget/Legend",
+
+        // Wait until the DOM is ready
+        "dojo/domReady!"
+    ], function (Chart, theme, StackedColumns, Legend) {
+
+
+        // Create the chart within it's "holding" node
+        var chart = new Chart("chartNode3");
+
+        // Set the theme
+        chart.setTheme(theme);
+
+        chart.addPlot("default", {
+            type: StackedColumns,
+            markers: true,
+            gap: 45
+        });
+
+        // Add the only/default plot
+        chart.addAxis("x", {
+            fixLower: "minor",
+            fixUpper: "minor",
+            natural: true,
+            labels: [
+                {value: 1, text: "planeado"},
+                {value: 2, text: "real"}
+            ]
+        }).addAxis("y", {
+                    vertical: true,
+                    fixLower: "major",
+                    fixUpper: "major",
+                    includeZero: true
+                });
+        chart.addSeries("Por iniciar", [<%= @cant_proceso_poriniciar_plan %>, <%= @cant_proceso_poriniciar_real %>]);
+        chart.addSeries("En progreso", [<%= @cant_proceso_enprogreso_plan %>, <%= @cant_proceso_enprogreso_real %>]);
+        chart.addSeries("Terminadas", [<%= @cant_proceso_terminadas_plan %>, <%= @cant_proceso_terminadas_real %>]);
+
+        // Render the chart!
+        chart.render();
+
+
+        var legend = new dojox.charting.widget.Legend({chart: chart, horizontal: true}, "legend3");
+
+    });
+</script>
+
+<div id="chartNode3" class="agraph"></div>
+<div class="clear"></div>

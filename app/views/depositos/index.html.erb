@@ -1,0 +1,291 @@
+<%#
+# = Vista de una grilla de depositos
+# Esta vista implementa la grilla de administración de depositos
+%>
+
+<script type="text/javascript">
+  var tablaId = "#depositosTabla";
+  var nuevoModalId = "#nuevodeposito";
+  var editarModalId = "#editardeposito";
+  var eliminarModalId = "#eliminardeposito";
+  var nameInputId = "deposito_nombre";
+  var usuarioInputId = "deposito_usuario";
+  var contrasenaInputId = "deposito_contrasena";
+  var cuentaInputId = "deposito_cuenta";
+  var tipoInputId = "deposito_cuenta";
+  var tipodepositoInputId = "deposito_tipo_deposito";
+  var tipoDepositoInputId ;
+  var validateNameUrl = "<%= request.protocol + request.host_with_port %>/depositos/existe/nombre";
+  var validateCuentaUrl = "<%= request.protocol + request.host_with_port %>/basecamp/comprobar";
+  var validateCuentaUrl1 = "<%= request.protocol + request.host_with_port %>/dropbox/comprobar";
+  var nuevoButtonId = "#new_deposito";
+  var editarButtonId = "#editardeposito";
+  var eliminarButtonId = "#eliminardeposito";
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<!--script type="text/javascript" src="https://www.dropbox.com/static/api/1/dropins.js" id="dropboxjs" data-app-key="yaaroz4h5gkv3b8"></script-->
+<script type="text/javascript">
+    function disable()
+    {
+        var TFcuenta = $( "deposito_cuenta").getAttribute("disabled");
+        if(TFcuenta=="disabled")
+            $( "deposito_cuenta").attr("disabled", "enabled");
+        else
+            $( "deposito_cuenta").attr("disabled", "disabled");
+    }
+
+  $(document).ready(function() {
+
+    // Paginación - ordenamiento
+    $("#depositosTabla").tablesorter({ headers: { 0:{sorter: false}}})
+    .tablesorterPager({container: $("#pager"),positionFixed: false, size: 30});
+
+    // Callback de validacion de nombre repetido por ajax
+    $.validator.addMethod("nombre_unico", validar_nombre_unico, "");
+    $.validator.addMethod("cuenta_existe", validar_cuenta_existe, "");
+      // Validaciones de jquery
+    $("#new_deposito").validate({
+      rules: {
+        "deposito[nombre]": {
+          required: true,
+          nombre_unico: true
+
+        },
+          "deposito[contrasena]": {
+              required: true
+          },
+          "deposito[cuenta]": {
+              required: true
+
+          },
+          "tipo_deposito": {
+              required: true
+          },
+          "deposito[usuario]": {
+              required: true
+          }
+      },
+      messages: {
+        "deposito[nombre]": {
+          required: "<%= t('mandatory') %>",
+          nombre_unico: "<%= t('name_exist') %>"
+        },
+       "deposito[contrasena]": {
+             required: "<%= t('mandatory') %>"
+        },
+          "deposito[cuenta]": {
+              required: "<%= t('mandatory') %>"
+
+          } ,
+          "tipo_deposito": {
+              required: "<%= t('mandatory') %>"
+
+          } ,
+          "deposito[usuario]": {
+              required: "<%= t('mandatory') %>"
+          }
+      }
+    });
+
+      $("#crear_deposito").click(function(){
+          $("#new_deposito").validate();
+          $("#deposito_nombre").rules("add", {
+              cuenta_existe: true,
+              messages: {
+                  cuenta_existe: "<%= t('name_exist') %>"
+              }
+          });
+          if($("#tipo_deposito").val()=="3"  )  {
+              var nombre = $("#deposito_nombre").val();
+              var descripcion = $("deposito_descripcion").val();
+              window.top.location.href= validateCuentaUrl1 + "?deposito_nombre="+encodeURI(nombre)+"&deposito_descripcion="+encodeURI(descripcion);
+
+              return;
+          }
+
+      });
+
+    $("#tipo_deposito").jCombo("<%= request.protocol + request.host_with_port %>/depositos/get_tipo_depositos/all");
+
+    $("#tipo_deposito").change( function () {
+        var str = "";
+            if($(this).val()=="2")
+                $( "#deposito_cuenta").removeAttr('disabled');
+            else
+                $( "#deposito_cuenta").attr("disabled", "disabled");
+    });
+
+  });
+</script>
+
+
+<% @titulo = t('.title_pag') %>
+<%= render "shared/encabezado_crud" %>
+
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+    <%
+    @filtroTexto = t('filtro')
+    @verListaTexto = t('viewList')
+    @verIconosTexto = t('viewSharp')
+
+    @nuevoBotonId = "nuevo_deposito"
+    @nuevoBotonTexto = t('add')
+    @nuevoPath = depositos_path
+    @nuevoModal = "nuevodeposito"
+
+    @editarBotonId = "editar_deposito"
+    @editarBotonTexto = t('edit')
+    @editarPath = "#"
+    @editarModal = "editardeposito"
+
+    @eliminarBotonId = "eliminar_deposito"
+    @eliminarBotonTexto = t('delete')
+    @eliminarPath = "#"
+    @eliminarModal = "eliminardeposito"
+    @eliminarConfirm = "Está seguro de querer eliminar la deposito?"
+  %>
+
+    <%= render "shared/menu_crud" %>
+
+    <!-- Formas de visualización en tabla o thumbnail,...-->
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 250px; top: 30px; ">
+      <%
+         if(@depositos.count == 0)
+      %>
+          <div class="addnew">
+            <%= t('no_created')%>.<br /><br />
+            <a data-toggle="modal" role="button" class="btn" href="#nuevodeposito">
+              <%= image_tag "/images/add.png" %><br /><br />
+              <%= t('add_new')%>.
+            </a>
+          </div>
+      <%
+         else
+      %>
+      <table id="depositosTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+          <tr>
+            <th></th>
+            <th><%= t('nombre')%> </th>
+            <th><%= t('.cuenta')%> </th>
+            <th><%= t('descr')%> </th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @depositos.each do |deposito| %>
+            <tr id="<%= deposito.id %>">
+              <td style="vertical-align:middle"><input type="checkbox" /></td>
+
+              <td>                
+                <% if FileTest.exist?(Dir.pwd + "/public/images/" + deposito.tipo_deposito.logo.to_s() ) %>
+                  <%= image_tag "/images/" + deposito.tipo_deposito.logo.to_s(), :size => "75x75" %>
+                <% else %>
+                  <%= image_tag "/images/noimage.jpg", :size => "75x75" %>
+                <% end %>
+
+               <%= link_to deposito.nombre, "#" %>
+              </td>
+              <td style="vertical-align:middle"> <%= deposito.cuenta %></td>
+              <td style="vertical-align:middle"> <%= deposito.descripcion %></td>
+              <td style="vertical-align:middle">
+                <% if deposito.tipo_deposito.id==2 %>
+                    <input type="button" id="import_button<%= deposito.id %>" name="import_button<%= deposito.id %>" class="import_basecamp" href="#import_basecamp" data-toggle="modal" value="<%= t('.import_from_basecamp') %>" /> </td>
+                <% elsif deposito.tipo_deposito.id==3%>
+                    <input type="button" id="import_button<%= deposito.id %>" name="import_button<%= deposito.id %>" class="import_dropbox" href="#import_dropbox" data-toggle="modal" value="<%= t('.import_from_dropbox')%>" /> </td>
+                <% else %>
+                <% end %>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%
+         end
+      %>
+    </div>
+
+    <%= render "shared/filtro_crud" %>
+
+  <%
+    @pagTexto = @depositos.count.to_s() + " " + t('listade')
+    @porPagTexto = t('.pag')
+  %>
+
+    <%= render "shared/footer_crud" %>
+  </div>
+</div>
+
+<!-- Formularios de edicion -->
+<% content_for :modal do %>
+  <div id="nuevodeposito" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3><%= t('add')%> <%= t('deposito') %></h3>
+    </div>
+
+    <div class="modal-body">
+      <div class="row-fluid">
+        <%= form_for(@deposito, :html=> {:multipart=>true}) do |f| %>
+
+        <fieldset>
+            <!-- Datos del deposito
+             ================================================== -->
+
+            <div id="depositos" >
+              <div class="field">
+                <%= f.label :tipo_deposito, t('tipo_deposito')%>
+                <select id="tipo_deposito" name="tipo_deposito"></select>
+              </div>
+
+              <div class="field">
+                <%= f.label :nombre, t('nombre')%>
+                <%= f.text_field :nombre %>
+              </div>
+              <div class="field">
+                <%= f.label :cuenta, t('.cuenta') %>
+                <%= f.text_field :cuenta, :value=>"https://basecamp.com/", :disabled => true %>
+              </div>
+              <div class="field">
+                <%= f.label :usuario, t('login')%>
+                <%= f.text_field :usuario %>
+              </div>
+              <div class="field">
+                <%= f.label :contrasena, t('password')%>
+                <%= f.password_field :contrasena %>
+              </div>
+              <div class="field">
+                <%= f.label :descripcion, t('descr') %>
+                <%= f.text_area :descripcion, :size => "30x10" %>
+              </div>
+            </div>
+          </fieldset>
+
+        </div>
+      </div>
+    <div class="modal-footer">
+        <div class="actions"  align="right">
+          <input id="crear_deposito" class="btn primary"  name="commit" type="submit" value=" <%= t('btnCrear')%>" />
+          <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar') %></button>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+<%end%>
+
+
+<% content_for :modal do %>
+ <%= render 'basecamp' %>
+<% end %>
+
+<% content_for :modal do %>
+    <%= render 'dropbox' %>
+<% end %>

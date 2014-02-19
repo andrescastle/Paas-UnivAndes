@@ -1,0 +1,70 @@
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Paginación - ordenamiento
+        $("#artefactosTabla").tablesorter({ headers: { 0:{sorter: false}}})
+                .tablesorterPager({container: $("#pager"),positionFixed: false, size: 30});
+
+    });
+</script>
+
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+    <%= render "shared/menu_crud" %>
+
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 250px; top: 30px; ">
+    <%
+      if(@assets_proyecto.count == 0)
+    %>
+        <div class="addnew">
+            <%= t('no_created') %><br /><br />
+            <a data-toggle="modal" role="button" class="btn" href="#nuevorecurso">
+            <%= image_tag "/images/add.png" %><br /><br />
+            <%= t('add_new') %>
+            </a>
+        </div>
+      <% else %>
+      <table id="artefactosTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+           _i = -1
+           @assets_proyecto.each do |artefacto|
+             _i += 1
+        %>
+            <% if(_i % 4 == 0) then %> <tr> <% end %>
+            <td style="vertical-align:middle">
+              <img src="<%= artefacto[1][:local_url_thumb] %>" width="100px" height="100px" />
+              <br/>
+              <a href="<%= request.protocol + request.host_with_port %>/artefactos/<%= artefacto[1][:id] %>-<%= artefacto[1][:folder_id] %>" target="_blank"><%= artefacto[1][:file_name] %></a>
+            </td>
+            <% if(_i % 4 == 3) then %> </tr> <% end %>
+
+        <% end %>
+        </tbody>
+      </table>
+
+      <% end %>
+    </div>
+
+    <%= render "shared/filtro_crud" %>
+
+    <%
+       @pagTexto = @assets_proyecto.count.to_s() + " " + t('listade')
+       @porPagTexto = t('pag')
+    %>
+
+    <%= render "shared/footer_crud" %>
+
+  </div>
+</div>

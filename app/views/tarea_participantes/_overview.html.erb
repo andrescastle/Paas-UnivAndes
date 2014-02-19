@@ -1,0 +1,131 @@
+<div class="contents sgw_new_grid proyectoverview" id="ext-gen33" style="" xmlns="http://www.w3.org/1999/html">
+
+  <link rel="stylesheet" href="/assets/demo.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js" data-dojo-config="async: true, gfxRenderer: 'svg,silverlight,vml,canvas'"></script>
+  <script src="/assets/src.js"></script>
+<body>
+<!--div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+  <div class="contents" id="ext-gen77" >
+    <div id="layout_principal1" class=" sgw_new_grid " style="left: 10%; top: 30px;"-->
+
+<div class="alert alert-info">
+  <div class="oneitem">
+    <span class="thelabel">Proyecto</span><br>
+    <span style="font-size:40px"><%= @proyecto.nombre %></span>
+    <p>
+      <%= link_to 'Editar', edit_proyecto_path(@proyecto) %> |
+      <%= link_to 'Atrás', proyectos_path %>
+    </p>
+  </div>
+
+  <div class="oneitem">
+    <p><b>Creado el:</b>
+    <%= @proyecto.fcreado %>
+    </p>
+    <p><b>Descripcion:</b>
+    <%= @proyecto.descripcion %>
+    </p>
+  </div>
+
+
+
+
+  <div class="clear"></div>
+</div>
+
+<div class="themepicker">
+Seleccionar tema: <select id="themeChooser">
+    <optgroup label="Gradients">
+      <option value="Julie">Julie</option>
+      <option value="ThreeD">ThreeD</option>
+      <option value="Chris">Chris</option>
+      <option value="Tom">Tom</option>
+      <option value="Claro">Claro</option>
+      <option value="PrimaryColors">PrimaryColors</option>
+      <option value="Electric" selected="selected">Electric</option>
+      <option value="Charged">Charged</option>
+      <option value="Renkoo">Renkoo</option>
+    </optgroup>
+    <optgroup label="Classic">
+      <option value="Adobebricks">Adobebricks</option>
+      <option value="Algae">Algae</option>
+      <option value="Bahamation">Bahamation</option>
+      <option value="BlueDusk">BlueDusk</option>
+      <option value="CubanShirts">CubanShirts</option>
+      <option value="Desert">Desert</option>
+      <option value="Distinctive">Distinctive</option>
+      <option value="Dollar">Dollar</option>
+      <option value="Grasshopper">Grasshopper</option>
+      <option value="Grasslands">Grasslands</option>
+      <option value="GreySkies">GreySkies</option>
+      <option value="Harmony">Harmony</option>
+      <option value="IndigoNation">IndigoNation</option>
+      <option value="Ireland">Ireland</option>
+      <option value="MiamiNice">MiamiNice</option>
+      <option value="Midwest">Midwest</option>
+      <option value="Minty">Minty</option>
+      <option value="PurpleRain">PurpleRain</option>
+      <option value="RoyalPurples">RoyalPurples</option>
+      <option value="SageToLime">SageToLime</option>
+      <option value="Shrooms">Shrooms</option>
+      <option value="Tufte">Tufte</option>
+      <option value="WatersEdge">WatersEdge</option>
+      <option value="Wetland">Wetland</option>
+    </optgroup>
+    <optgroup label="PlotKit">
+      <option value="PlotKit.blue">PlotKit.blue</option>
+      <option value="PlotKit.cyan">PlotKit.cyan</option>
+      <option value="PlotKit.green">PlotKit.green</option>
+      <option value="PlotKit.orange">PlotKit.orange</option>
+      <option value="PlotKit.purple">PlotKit.purple</option>
+      <option value="PlotKit.red">PlotKit.red</option>
+    </optgroup>
+  </select>
+  &nbsp;&nbsp;&nbsp;
+  <input id="pageStyleChooser" type="checkbox" checked="checked" value="">
+</div>
+<div class="proyitem fleft">
+    <img src="/images/procesos.png" class="imagenicon fleft">
+    <div class="fleft itemdata">
+      <h2>Procesos</h2>
+      <%= @num_procesos %> procesos asociados al proyecto
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="proyitem fleft">
+  <img src="/images/participantes.png" class="imagenicon fleft">
+  <div class="fleft itemdata">
+    <h2>Participantes</h2>
+    <%= @num_usuarios %> participantes asociados al proyecto
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div class="proyitem">
+  <img src="/images/empresas.png" class="imagenicon fleft">
+  <div class="fleft itemdata">
+    <h2>Empresas</h2>
+    <%= @num_organizaciones %> empresas asociadas al proyecto
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="chartContainer" class="allstats">
+  <div class="chart" id="bars"></div>
+  <div class="chart" id="lines"></div>
+  <div class="chart" id="pieFan"></div>
+  <div class="chart" id="bubbles"></div>
+  <div class="chart" id="area"></div>
+  <div class="chart" id="pieLin"></div>
+  <div class="chart" id="columns"></div>
+  <div class="chart" id="candle"></div>
+  <div class="chart" id="ohlc"></div>
+  <div class="chart" id="scatter"></div>
+</div>
+<!--/div-->
+<!--/div>
+</div-->
+</body>
+</html>
+</div>
+
+

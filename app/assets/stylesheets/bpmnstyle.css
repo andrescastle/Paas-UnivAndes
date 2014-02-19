@@ -1,0 +1,45 @@
+/*.navbar .navbar-inner {
+  background-color: #45ADA8;
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+}*/
+
+/* http://kuler.adobe.com/#themeID/2014762
+
+E5F6FF
+D1DACC
+937BAB
+696B5D
+3D534D
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Lucida Sans,Lucida Grande,Arial;
+    font-size: 13px;
+    background: white;
+    color: #333;
+}
+
+#float{
+    background: #eef;
+    width:5%;
+    height:100px;
+    position:fixed;
+    box-shadow: 2px 2px 3px #BBB;
+    border-radius: 3px;
+    top:50px;
+    left:0;
+}
+
+#diagram {
+    border-top: 1px #DDD solid;
+    min-width: 400px;
+    min-height: 300px;
+    box-shadow: 2px 2px 3px #BBB;
+}
+
+*/
+

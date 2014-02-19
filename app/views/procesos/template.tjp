@@ -1,0 +1,544 @@
+
+        project acso "El vendedor de periodicos" 2013-12-01 - 2013-12-30 {
+          timezone "America/Bogota"
+          timeformat "%Y-%m-%d %H:%M:%S %z"
+          numberformat "-" "" "," "." 1
+          currencyformat "("  ")" "," "." 0
+          now 2014-02-05-09:00
+          currency "COP"
+
+          alertlevels green "Correcto" "#2AA46C",
+          blue "Advertencia" "#457CC4",
+          yellow "Medio" "#F1D821",
+          orange "Alto" "#F99836",
+          red "Severo" "#E43745"
+
+          scenario plan "Plan" {
+              scenario delayed "Delayed"
+              projection
+            }
+            extend resource {
+              text Phone "Phone"
+            }
+          }
+
+          rate 0.0
+          flags equipo
+          flags persona
+          flags material
+          flags cosas
+
+        account cost "Project Cost" { 
+       account tipo_recH36 "Diseñador grafico"
+       account tipo_recH37 "Artista plástico"
+       account tipo_recH38 "Programador de Software"
+       account tipo_recH39 "Director de arte"
+       account tipo_recH40 "Director de proyecto"
+       account tipo_recH41 "Animador"
+       account tipo_recM42 "Estación de trabajo"
+       account tipo_recM43 "Equipo de computo"
+       account tipo_recM44 "Licencia de software"
+       account tipo_recM45 "Telecomunicaciones"
+       account tipo_recH46 "Guionista"
+       account tipo_recM47 "Papeleria"
+       account tipo_recH48 "Líder Técnico"
+       account tipo_recH49 "Dibujante"
+       account tipo_recM51 "Material de dibujo"
+       account tipo_recH52 "Productor"
+       account tipo_recM53 "Material de oficina"
+       account tipo_recM54 "Equipos electrónicos"
+ }
+
+        account rev "Payments"
+        balance cost rev
+
+        resource boss "Administrador de ColAnimation" {
+          email "35"
+          Phone "35"
+          rate 0.0
+        }
+
+        resource undefined "No Definido" {
+          email "No Definido"
+          Phone "No Definido"
+          rate 0
+        }
+resource tipo_recH36 "Diseñador grafico" {
+resource recH41 "Cesar Manuel" {
+                   email "cchaparro@colanimation.com"
+                   Phone "Cesar Manuel"
+                   rate 0
+                   flags persona }
+resource recH47 "Fernanda Manuela" {
+                   email "fparis@colgames.com"
+                   Phone "Fernanda Manuela"
+                   rate 0
+                   flags persona }
+ flags equipo }
+resource tipo_recH37 "Artista plástico" {
+ flags equipo }
+resource tipo_recH38 "Programador de Software" {
+resource recH48 "Fabio Alberti" {
+                   email "fcomesana@colgames.com"
+                   Phone "Fabio Alberti"
+                   rate 0
+                   flags persona }
+ flags equipo }
+resource tipo_recH39 "Director de arte" {
+resource recH43 "Leonel Esteban" {
+                   email "lruiz@colanimation.com"
+                   Phone "Leonel Esteban"
+                   rate 0
+                   flags persona }
+resource recH55 "Oscar Javier" {
+                   email "osalazar@colgames.com"
+                   Phone "Oscar Javier"
+                   rate 0
+                   flags persona }
+ flags equipo }
+resource tipo_recH40 "Director de proyecto" {
+resource recH45 "Rafael Roque" {
+                   email "rromano@colanimation.com"
+                   Phone "Rafael Roque"
+                   rate 0
+                   flags persona }
+resource recH46 "Dario Luis" {
+                   email "dgonzales@colgames.com"
+                   Phone "Dario Luis"
+                   rate 0
+                   flags persona }
+ flags equipo }
+resource tipo_recH41 "Animador" {
+resource recH42 "Paola Andrea" {
+                   email "pmolina@colanimation.com"
+                   Phone "Paola Andrea"
+                   rate 0
+                   flags persona }
+ flags equipo }
+resource tipo_recH46 "Guionista" {
+resource recH40 "Luis Andres" {
+                   email "lgomez@colanimation.com"
+                   Phone "Luis Andres"
+                   rate 0
+                   flags persona }
+resource recH56 "Roberto Manuel" {
+                   email "rdorado@colgames.com"
+                   Phone "Roberto Manuel"
+                   rate 0
+                   flags persona }
+ flags equipo }
+resource tipo_recH48 "Líder Técnico" {
+ flags equipo }
+resource tipo_recH49 "Dibujante" {
+resource recH39 "Milena Alexandra" {
+                   email "mdiaz@colanimation.com"
+                   Phone "Milena Alexandra"
+                   rate 0
+                   flags persona }
+resource recH54 "Laura Maria" {
+                   email "lpoveda@colgames.com"
+                   Phone "Laura Maria"
+                   rate 0
+                   flags persona }
+ flags equipo }
+resource tipo_recH52 "Productor" {
+resource recH38 "Fernando Andres" {
+                   email "fsoto@colanimation.com"
+                   Phone "Fernando Andres"
+                   rate 0
+                   flags persona }
+ flags equipo }
+resource tipo_recM42 "Estación de trabajo" {
+resource recM21 "Estación de trabajo " {
+               #unidades "10"
+               rate 40000
+               flags cosas }
+resource recM28 "Oficina reuniones" {
+               #unidades "1"
+               rate 40000
+               flags cosas }
+ flags material }
+resource tipo_recM43 "Equipo de computo" {
+resource recM22 "Portátil Lenovo" {
+               #unidades "10"
+               rate 20000
+               flags cosas }
+resource recM25 "Computador Dell Desktop" {
+               #unidades "10"
+               rate 30000
+               flags cosas }
+ flags material }
+resource tipo_recM44 "Licencia de software" {
+resource recM23 "Licencia Adobe Creative " {
+               #unidades "1"
+               rate 2000000
+               flags cosas }
+ flags material }
+resource tipo_recM45 "Telecomunicaciones" {
+ flags material }
+resource tipo_recM47 "Papeleria" {
+resource recM27 "Dotación de papel" {
+               #unidades "100"
+               rate 10000
+               flags cosas }
+ flags material }
+resource tipo_recM51 "Material de dibujo" {
+ flags material }
+resource tipo_recM53 "Material de oficina" {
+ flags material }
+resource tipo_recM54 "Equipos electrónicos" {
+ flags material }
+task AcSo "Desarrollo creativo " {
+                    responsible boss
+                    
+   task tarea60 "Propuesta" {
+                      priority 1
+                      effort 4h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH40,recM21,recM28
+depends !deliveries.start
+}
+   task tarea61 "Generar lluvia de ideas" {
+                      priority 1
+                      effort 6h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH46,recM21,recM27
+depends !tarea60
+}
+   task tarea62 "Definir alcance" {
+                      priority 1
+                      effort 8h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH55
+depends !tarea61
+}
+   task tarea63 "Asignar tareas" {
+                      priority 1
+                      effort 6h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH43
+depends !tarea62
+}
+   task tarea64 "Elaborar script" {
+                      priority 1
+                      effort 6h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH40
+depends !tarea69
+}
+   task tarea65 "Revisar script" {
+                      priority 1
+                      effort 7h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH56
+depends !tarea69
+}
+   task tarea66 "Elaborar concepto de arte" {
+                      priority 1
+                      effort 8h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH43
+depends !tarea63
+}
+   task tarea67 "Elaborar animatic 2D" {
+                      priority 1
+                      effort 6h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH54
+depends !tarea69
+}
+   task tarea69 "Validar desarrollo creativo" {
+                      priority 1
+                      effort 6h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH55
+depends !tarea66
+}
+   task tarea70 "Revisar desarrollo creativo" {
+                      priority 1
+                      effort 8h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH43
+depends !tarea69
+}
+   task tarea71 "Validar desarrollo creativo" {
+                      priority 1
+                      effort 8h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH43
+depends !tarea70
+}
+   task tarea93 "Existe script?" {
+                      priority 1
+                      effort 8h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH41
+depends !tarea69
+}
+   task tarea94 "Elaboración" {
+                      priority 1
+                      effort 6h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+   allocate undefined
+depends !tarea69
+}
+   task tarea97 "Aprobado" {
+                      priority 1
+                      effort 4h
+                      complete 0
+       journalentry  2014-02-05-09:00 "Tarea esta atrazada" {
+              alert red }
+allocate recH48
+depends !tarea69
+}
+task deliveries "Milestones" {
+
+          purge chargeset
+          chargeset rev
+
+          task start "Inicio del Proyecto" {
+            start ${projectstart}
+            charge 0.0 onstart
+          }
+        }
+     }
+
+      navigator navbar {
+        hidereport @none
+      }
+
+      macro TaskTip [
+        tooltip istask() -8<-
+        '''Start: ''' <-query attribute='start'->
+        '''End: ''' <-query attribute='end'->
+        ----
+        '''Resources:'''
+        <-query attribute='resources'->
+        ----
+        '''Precursors: '''
+        <-query attribute='precursors'->
+        ----
+        '''Followers: '''
+        <-query attribute='followers'->
+        ->8-
+      ]
+
+      textreport frame "" {
+        header -8<-
+        <[navigator id="navbar"]>
+        ->8-
+        footer "----"
+        textreport index "Overview" {
+        formats html
+        title "Principal"
+        center '<[report id="overview"]>'
+        }
+
+        textreport development "Development" {
+          formats html
+          title "Planeacion"
+          center '<[report id="development"]>'
+          }
+
+        textreport "Deliveries" {
+          formats html
+          title "Estado avance"
+          center -8<-
+          <[report id="status.completed"]>
+          ----
+          <[report id="status.ongoing"]>
+          ----
+          <[report id="status.future"]>
+          ->8-
+        }
+
+        textreport  "Burndown" {
+          formats html
+          title "Burndown"
+          width 800
+          sorttasks id.up
+          tracereport "BurndownChart" {
+          columns
+            effort { title 'Planeado' },
+            effort { title 'Ejecutado' }
+            hidetask plan.id != "AcSo"
+          }
+          purge formats
+        }
+
+
+        textreport "ResourceGraph" {
+          formats html
+          title "Asignacion de recursos"
+          center '<[report id="resourceGraph"]>'
+        }
+
+        textreport "ContactList" {
+          formats html
+          title "Recursos Humanos"
+          center '<[report id="contactList"]>'
+        }
+
+        textreport "resourcesM" {
+          formats html
+          title "Recursos Materiales"
+          center '<[report id="resourcesM"]>'
+        }
+      }
+
+      # A traditional Gantt chart with a project overview.
+      taskreport overview "" {
+        header -8<-
+        === PLANEACION DEL PROCESO ===
+        ->8-
+        columns bsi { title 'WBS'  },
+        name { title 'Nombre' },
+        start { title 'Fecha inicio' },
+        end { title 'Fecha fin' },
+        effort { title 'Esfuerzo' },
+        chart { ${TaskTip}  scale day width 500 }
+        timeformat '%d %Y-%m-%d'
+        loadunit days
+        hideresource @all
+        balance cost rev
+        caption 'Los valores de esfuerzo estan calculados en dias/hombre'
+
+        }
+
+        # Macro to set the background color of a cell according to the alert
+        # level of the task.
+        macro AlertColor [
+          cellcolor plan.alert = 0 '#00D000' # green
+          cellcolor plan.alert = 1 '#D0D000' # yellow
+          cellcolor plan.alert = 2 '#D00000' # red
+        ]
+
+        taskreport status "" {
+          columns bsi { width 50 title 'WBS' },
+          name { width 150 title 'Nombre' },
+          start { width 100 title 'Fecha Inicio' },
+          end { width 100 title 'Fecha Fin' },
+          effort { width 100 title 'Esfuerzo' },
+          alert { title '' tooltip plan.journal != '' "<-query attribute='journal'->" width 15 },
+          status { title 'Estado' width 150 }
+          timeformat "%d %Y-%m-%d"
+          scenarios delayed
+          taskreport completed "" {
+          headline "Tareas completadas"
+          hidetask ~(delayed.end <= ${now})
+          }
+
+          taskreport ongoing "" {
+            headline "Tareas en curso"
+            hidetask ~((delayed.start <= ${now}) & (delayed.end > ${now}))
+          }
+
+          taskreport future "" {
+            headline "Tareas por realizar"
+            hidetask ~(delayed.start > ${now})
+          }
+        }
+
+        # A list of tasks showing the resources assigned to each task.
+        taskreport development "" {
+          scenarios delayed
+          headline "Asignacion de recursos"
+          columns
+          bsi { title 'WBS' },
+          name { title "Nombre" },
+          start { title "Fecha inicio" },
+          end { title "Fecha fin" },
+          effort { title "Trabajo" },
+          duration { title "Duracion" },
+          chart { ${TaskTip} scale day width 500 }
+          timeformat "%Y-%m-%d"
+          hideresource ~(isleaf() & isleaf_())
+          sortresources name.up
+        }
+
+        # A list of all tasks with the percentage completed for each task
+        taskreport deliveries "" {
+          headline "Entregables del proceso"
+          columns bsi { title "WBS" },
+          name { title "Nombre" },
+          start { title "Fecha inicio" },
+          end { title "Fecha fin" },
+          note { title "Nota" width 150 },
+          complete { title "Avance" },
+          chart { ${TaskTip} }
+          taskroot AcSo.deliveries
+          hideresource @all
+          scenarios plan, delayed
+        }
+
+        # A list of all employees with their contact details.
+        resourcereport contactList "" {
+          scenarios delayed
+          headline "Lista de contactos"
+          columns name { title "Nombre" },
+          email { celltext 1 "[mailto:<-email-> <-email->]" },
+          Phone { title "Telefono" },
+          managers { title "Jefe" },
+          chart { scale day }
+          hideresource  ~persona
+          sortresources name.up
+          hidetask @all
+        }
+
+        # A list of all employees with their contact details.
+        resourcereport resourcesM "" {
+          scenarios delayed
+          headline "Utilizacion de recursos"
+          columns name { title "Nombre" },
+          chart { scale day }
+          hideresource  ~cosas
+          sortresources name.up
+          hidetask @all
+        }
+
+        # A graph showing resource allocation. It identifies whether each
+        # resource is under- or over-allocated for.
+        resourcereport resourceGraph "" {
+          scenarios delayed
+          headline "Asignacion de recursos"
+          columns no,
+          name { title "Nombre" },
+          effort { title "Duracion" },
+          rate { title "Costo/dia" },
+          weekly { ${TaskTip} }
+          loadunit shortauto
+          # We only like to show leaf tasks for leaf resources.
+          hidetask ~(isleaf() & isleaf_())
+          sorttasks plan.start.up
+        }
+
+    export "MS-Project" {
+      formats mspxml
+      loadunit quarters
+    }

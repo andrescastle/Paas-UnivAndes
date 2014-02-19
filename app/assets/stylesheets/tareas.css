@@ -1,0 +1,10 @@
+div#dhtmlgoodies_listOfItems{
+    display:none;
+}
+img{
+    display:none;
+}
+#dhtmlgoodies_dragDropContainer{
+    border:0px;
+    width:100%;
+}

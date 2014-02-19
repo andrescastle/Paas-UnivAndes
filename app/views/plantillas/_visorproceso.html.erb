@@ -1,0 +1,38 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<script src="../assets/lib/raphael.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../assets/bpmnstyle.css" media="screen"></link>
+
+<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojo/dojo.js" data-dojo-config="async: true, parseOnLoad: true"></script>
+<script>
+  require({
+    baseUrl: "./",
+    packages: [
+      { name: "dojo", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojo" },
+      { name: "dojox", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojox" },
+      { name: "dijit", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dijit" },
+      { name: "bpmn", location: "/assets/bpmn", main: "core" }
+    ]
+  });
+</script>
+<script>
+  require(["bpmn/core", "bpmn/editor", "dojo/domReady!"], function(bpmn, editor) {
+    //editor.initDropZone("drop_zone");
+    bpmn.parse("../assets/bpmn/test.bpmn", function() {
+    bpmn.highlight(["UserTask_1"], {"color" : "red"});
+    }, {
+      diagramElement: "diagram",
+      clickFn : function (elem) {
+        alert(JSON.stringify(elem));
+      }
+    });
+  });
+</script>
+<!--div id="drop_zone">Drop BPMN 2.0 XML here</div-->
+<div id="wrapper">
+  <div id="diagram" style="width: 100%; height: 400px"></div>
+</div>
+

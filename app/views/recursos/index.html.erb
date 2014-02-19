@@ -1,0 +1,216 @@
+<%#
+# = Vista de una grilla de recursos
+# Esta vista implementa la grilla de administración de recursos
+%>
+
+<script type="text/javascript">
+  var nuevoModalId = "#nuevorecurso";
+  var editarModalId = "#editarrecurso";
+  var eliminarModalId = "#eliminarrecurso";
+  var nameInputId = "recurso_nombre";
+  var validateNameUrl = "<%= request.protocol + request.host_with_port %>/recursos/existe/nombre";
+  var nuevoButtonId = "#new_tipo_recurso";
+  var editarButtonId = "#editarrecurso";
+  var eliminarButtonId = "#eliminarrecurso";
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    // Paginación - ordenamiento
+    $("#recursosTabla").tablesorter({ headers: { 0:{sorter: false}}})
+    .tablesorterPager({container: $("#pager"),positionFixed: false, size: 30});
+
+    // Callback de validacion de nombre repetido por ajax
+    $.validator.addMethod("nombre_unico", validar_nombre_unico, "");
+
+    // Validaciones de jquery
+    $("#new_recurso").validate({
+      rules: {
+        "recurso[nombre]": {
+          required: true,
+          nombre_unico: true
+        },
+        "recurso[costo]": {
+          required: true,
+          number: true
+        },
+        "recurso[unidades]": {
+          required: true,
+          number: true
+        },
+        "recurso[tipo_recurso_id]": {
+          required: true
+        }
+
+      },
+      messages: {
+        "recurso[nombre]": {
+          required: "<%= t('mandatory') %>",
+          nombre_unico: "<%= t('name_exist') %>"
+        },
+        "recurso[costo]": {
+          required: "<%= t('mandatory') %>",
+          number: "<%= t('numeric_value') %>"
+        },
+        "recurso[unidades]": {
+          required: "<%= t('mandatory') %>",
+          number: "<%= t('numeric_value') %>"
+        },
+        "recurso[tipo_recurso_id]": {
+          required: "<%= t('mandatory') %>"
+        }
+      }
+    });
+  });
+
+</script>
+
+<% @titulo = t('.title_pag') %>
+<%= render "shared/encabezado_crud" %>
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+<%
+    @filtroTexto = t('filtro')
+    @verListaTexto = t('viewList')
+    @verIconosTexto = t('viewSharp')
+
+    @nuevoBotonId = "nuevo_recurso"
+    @nuevoBotonTexto = t('add')
+    @nuevoPath = recursos_path
+    @nuevoModal = "nuevorecurso"
+
+    @editarBotonId = "editar_recurso"
+    @editarBotonTexto = t('edit')
+    @editarPath = "#"
+    @editarModal = "editarrecurso"
+
+    @eliminarBotonId = "eliminar_recurso"
+    @eliminarBotonTexto = t('delete')
+    @eliminarPath = "#"
+    @eliminarModal = "eliminarrecurso"
+    @eliminarConfirm = "Está seguro de querer eliminar el tipo_recurso?"
+%>
+
+<%= render "shared/menu_crud" %>
+
+
+    <!-- Formas de visualización en tabla o thumbnail,...-->
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 250px; top: 30px; ">
+      <%
+         if(@recursos.count == 0)
+      %>
+          <div class="addnew">
+            <%= t('no_created')%>.<br /><br />
+            <a data-toggle="modal" role="button" class="btn" href="#nuevorecurso">
+              <%= image_tag "/images/add.png" %><br /><br />
+              <%= t('add_new')%>.
+            </a>
+          </div>
+      <%
+         else
+      %>
+      <table id="recursosTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+          <tr>
+            <th></th>
+            <th><%= t('nombre')%> </th>
+            <th><%= t('tipo_recurso')%> </th>
+            <th><%= t('costo_estimado') %> </th>
+            <th><%= t('unidades')%> </th>
+            <th><%= t('descr')%> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recursos.each do |recurso| %>
+            <tr id="<%= recurso.id %>">
+              <td><input type="checkbox" /></td>
+              <td> <%= link_to recurso.nombre, "#" %></td>
+              <td> <%= recurso.tipo_recurso.nombre %></td>
+              <td> <%= number_to_currency(recurso.costo, :unit => "$") %></td>
+              <td> <%= recurso.unidades %></td>
+              <td> <%= recurso.descripcion %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+     <% end %>
+    </div>
+
+ <%= render "shared/filtro_crud" %>
+
+  <%
+    @pagTexto = @recursos.count.to_s() + " " + t('listade')
+    @porPagTexto = t('pag')
+  %>
+
+  <%= render "shared/footer_crud" %>
+
+  </div>
+
+</div>
+
+
+<!-- Formularios de edicion -->
+<!--div class="divDemoBody"-->
+<% content_for :modal do %>
+
+
+
+<div id="nuevorecurso" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3><%= t('add')%> <%= t('recurso')%></h3>
+  </div>
+
+  <div class="modal-body">
+    <div class="row-fluid">
+      <%= form_for(@recurso) do |f| %>
+          <fieldset>
+            <!-- Datos del proyecto
+             ================================================== -->
+            <div id="rol">
+
+              <%= f.hidden_field :costo, :value => 0  %>
+              <div class="field">
+                <%= f.label :nombre,  "*" + t('nombre')%><br />
+                <%= f.text_field :nombre, :maxlength => 250 %>
+              </div>
+              <div class="field">
+                <%= f.label :tipo_recurso, t('tipo_recurso') %><br />
+                <%= f.select :tipo_recurso_id, TipoRecurso.find_all_by_unit(2).map{|p| [p.nombre, p.id]} %>
+              </div>
+              <div class="field">
+                <%= f.label :unidades,  "*" + t('unidades') %><br />
+                <%= f.text_field :unidades %>
+              </div>
+              <div class="field">
+                <%= f.label :costo,  "*" + t('costo_estimado') %><br />
+                <%= f.text_field :costo %>
+              </div>
+              <div class="field">
+                <%= f.label :descripcion, t('descr') %><br />
+                <%= f.text_area :descripcion, :size => "30x10", :maxlength => 250 %>
+              </div>
+            </div>
+
+          </fieldset>
+
+          </div>
+          </div>
+          <div class="modal-footer">
+            <div class="actions"  align=right >
+
+              <input id="crear_recurso" class="btn primary"  name="commit" type="submit" value="<%= t('btnCrear')%>" />
+              <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar')%></button>
+            </div>
+          </div>
+      <% end %>
+
+      </div>
+<% end %>

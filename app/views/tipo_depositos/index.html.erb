@@ -1,0 +1,155 @@
+<script type="text/javascript">
+    var nuevoModalId = "#nuevotipo_deposito";
+    var editarModalId = "#editartipo_deposito";
+    var eliminarModalId = "#eliminartipo_deposito";
+    var nameInputId = "tipo_deposito_nombre";
+    var validateNameUrl = "<%= request.protocol + request.host_with_port %>/tipo_depositos/existe/nombre";
+    var nuevoButtonId = "#new_deposito";
+    var editarButtonId = "#editardeposito";
+    var eliminarButtonId = "#eliminardeposito";
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#tipo_depositosTabla").tablesorter({ headers: { 0:{sorter: false}}})
+                .tablesorterPager({container: $("#pager"),positionFixed: false , size: 30});
+
+        $.validator.addMethod("nombre_unico", validar_nombre_unico, "");
+
+        $("#new_tipo_deposito").validate({
+            rules: {
+                "tipo_deposito[nombre]": {
+                    required: true,
+                    nombre_unico: true
+                }
+            },
+            messages: {
+                "tipo_deposito[nombre]": {
+                    required: "<%= t('mandatory') %>",
+                    nombre_unico: "<%= t('name_exist') %>"
+                }
+            }
+        });
+
+
+    });
+
+</script>
+
+<% @titulo = t('.title_pag') %>
+<%= render "shared/encabezado_crud" %>
+
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+    <%
+       @filtroTexto = t('filtro')
+       @verListaTexto = t('viewList')
+       @verIconosTexto = t('viewSharp')
+
+       @nuevoBotonId = "nuevo_tipo_deposito"
+       @nuevoBotonTexto = t('add')
+       @nuevoPath = tipo_depositos_path
+       @nuevoModal = "nuevotipo_deposito"
+
+       @editarBotonId = "editar_tipo_deposito"
+       @editarBotonTexto = t('edit')
+       @editarPath = "#"
+       @editarModal = "editartipodeposito"
+
+       @eliminarBotonId = "eliminar_tipo_deposito"
+       @eliminarBotonTexto = t('delete')
+       @eliminarPath = "#"
+       @eliminarModal = "eliminartipodeposito"
+       @eliminarConfirm = "EstÃ¡ seguro de querer eliminar la deposito?"
+    %>
+
+    <%= render "shared/menu_crud" %>
+
+
+    <!-- Formas de visualizaciÃ³n en tabla o thumbnail,...-->
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 250px; top: 30px; ">
+
+      <table id="tipo_depositosTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+        <tr>
+          <th></th>
+          <th><%= t('nombre')%> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @tipo_depositos.each do |tipo_deposito| %>
+            <tr id="<%= tipo_deposito.id %>">
+              <td width="20px"><input type="checkbox" /></td>
+              <td>
+                <% if FileTest.exist?(Dir.pwd + "/public/images/" + tipo_deposito.logo.to_s() ) %>
+                    <%= image_tag "/images/" + tipo_deposito.logo.to_s(), :size => "75x75" %>
+                <% else %>
+                    <%= image_tag "/images/noimage.jpg", :size => "75x75" %>
+                <% end %>
+                <%= link_to tipo_deposito.nombre, "#" %></td>
+
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+
+    <%= render "shared/filtro_crud" %>
+
+
+    <%
+       @pagTexto = @tipo_depositos.count.to_s() + " " + t('listade')
+       @porPagTexto = t('pag')
+    %>
+
+    <%= render "shared/footer_crud" %>
+  </div>
+
+</div>
+
+
+<% content_for :modal do %>
+  <div id="nuevotipo_deposito" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3><%= t('add')%> <%= t('tipo_deposito')%></h3>
+    </div>
+    <div class="modal-body">
+      <div class="row-fluid">
+        <%= form_for(@tipo_deposito) do |f| %>
+        <fieldset>
+          <!-- Datos del proyecto
+         ================================================== -->
+          <div id="rol">
+
+            <div class="field">
+              <%= f.label :nombre, "*" + t('nombre')%><br />
+              <%= f.text_field :nombre %>
+            </div>
+            <div class="field">
+              <%= f.label :descripcion, t('imagen') %>
+              <%= f.file_field :logo %>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+     </div>
+    <div class="modal-footer">
+      <div class="actions"  align=right >
+        <input id="crear_tipo_deposito"  class="btn primary"  name="commit" type="submit" value="<%= t('btnCrear')%>" />
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar')%></button>
+      </div>
+    </div>
+    <% end %>
+  </div>
+<%end%>
+
+
+

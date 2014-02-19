@@ -1,0 +1,29 @@
+<%#
+# = Vista de pie de página para un GRUD
+# Esta vista implementa un pie de pagina secillo para un CRUD con un paginador.
+%>
+<div class="footer sgc_footer" id="ext-gen54" style="height: 35px;" >
+
+  <center id="ext-gen677"><%= @pagTexto %></center>
+  <div class="paging_controls fixed">
+    <div id="pager" class="pager">
+      <form>
+        <span class="records_control">
+          <select class="pagesize" style=" width: 100px;">
+            <option selected="selected"  value="5">5 <%= @porPagTexto %></option>
+            <option value="10">10 <%= @porPagTexto %></option>
+            <option value="30">30 <%= @porPagTexto %></option>
+            <option  value="40">40 <%= @porPagTexto %></option>
+          </select>
+        </span>
+
+        <img runat="server" src="/images/first.png" class="first"/>
+        <img runat="server" src="/images/prev.png" class="prev"/>
+        <input type="text" class="pagedisplay" style=" height: 20px; width: 40px; text-align: center" />
+        <img runat="server" src="/images/next.png" class="next"/>
+        <img runat="server" src="/images/last.png" class="last"/>
+
+      </form>
+    </div>
+  </div>
+</div>

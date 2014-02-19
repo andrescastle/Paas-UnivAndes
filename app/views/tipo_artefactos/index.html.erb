@@ -1,0 +1,160 @@
+<script type="text/javascript">
+    var nuevoModalId = "#nuevotipo_artefacto";
+    var editarModalId = "#editartipo_artefacto";
+    var eliminarModalId = "#eliminartipo_artefacto";
+    var nameInputId = "tipo_artefacto_nombre";
+    var validateNameUrl = "<%= request.protocol + request.host_with_port %>/tipo_artefactos/existe/nombre";
+    var nuevoButtonId = "#new_artefacto";
+    var editarButtonId = "#editarartefacto";
+    var eliminarButtonId = "#eliminarartefacto";
+</script>
+
+<%= javascript_include_tag :'david-crud' %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#tipo_artefactosTabla").tablesorter({ headers: { 0:{sorter: false}}})
+                .tablesorterPager({container: $("#pager"),positionFixed: false , size: 30});
+
+        $.validator.addMethod("nombre_unico", validar_nombre_unico, "");
+
+        $("#new_tipo_artefacto").validate({
+            rules: {
+                "tipo_artefacto[nombre]": {
+                    required: true,
+                    nombre_unico: true
+                }
+            },
+            messages: {
+                "tipo_artefacto[nombre]": {
+                    required:  "<%= t('mandatory') %>",
+                    nombre_unico:  "<%= t('name_exist') %>"
+                }
+            }
+        });
+    });
+
+</script>
+
+<% @titulo = t('.title_pag') %>
+<%= render "shared/encabezado_crud" %>
+
+
+<!-- Menu y contenido-->
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page">
+
+  <div class="contents" id="ext-gen77" >
+
+    <%
+       @filtroTexto = t('filtro')
+       @verListaTexto = t('viewList')
+       @verIconosTexto = t('viewSharp')
+
+       @nuevoBotonId = "nuevo_tipo_artefacto"
+       @nuevoBotonTexto = t('add')
+       @nuevoPath = tipo_artefactos_path
+       @nuevoModal = "nuevotipo_artefacto"
+
+       @editarBotonId = "editar_tipo_artefacto"
+       @editarBotonTexto = t('edit')
+       @editarPath = "#"
+       @editarModal = "editartipoartefacto"
+
+       @eliminarBotonId = "eliminar_tipo_artefacto"
+       @eliminarBotonTexto = t('delete')
+       @eliminarPath = "#"
+       @eliminarModal = "eliminartipoartefacto"
+       @eliminarConfirm = "EstÃ¡ seguro de querer eliminar la artefacto?"
+    %>
+
+    <%= render "shared/menu_crud" %>
+
+
+    <!-- Formas de visualizaciÃ³n en tabla o thumbnail,...-->
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 250px; top: 30px; ">
+      <%
+         if(@tipo_artefactos.count == 0)
+      %>
+          <div class="addnew">
+            <%= t('no_created')%>.<br /><br />
+            <a data-toggle="modal" role="button" class="btn" href="#nuevotipo_artefacto">
+              <%= image_tag "/images/add.png" %><br /><br />
+              <%= t('add_new')%>.
+            </a>
+          </div>
+      <%
+         else
+      %>
+      <table id="tipo_artefactosTabla" class="table table-bordered table-striped tablesorter" >
+        <thead>
+        <tr>
+          <th></th>
+          <th><%= t('nombre')%> </th>
+          <th><%= t('descr')%> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @tipo_artefactos.each do |tipo_artefacto| %>
+            <tr id="<%= tipo_artefacto.id %>">
+              <td width="20px"><input type="checkbox" /></td>
+              <td><%= link_to tipo_artefacto.nombre, "#" %></td>
+              <td><%= tipo_artefacto.descripcion %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+
+    <%= render "shared/filtro_crud" %>
+
+
+    <%
+       @pagTexto = @tipo_artefactos.count.to_s() + " " + t('listade')
+       @porPagTexto = t('pag')
+    %>
+
+    <%= render "shared/footer_crud" %>
+  </div>
+
+</div>
+
+
+<% content_for :modal do %>
+  <div id="nuevotipo_artefacto" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3><%= t('add')%> <%= t('tipo_artefacto')%></h3>
+    </div>
+    <div class="modal-body">
+      <div class="row-fluid">
+        <%= form_for(@tipo_artefacto) do |f| %>
+        <fieldset>
+          <!-- Datos del proyecto
+         ================================================== -->
+          <div id="rols">
+
+            <div class="field">
+              <%= f.label :nombre,  "*" + t('nombre')%><br />
+              <%= f.text_field :nombre , :maxlength => 250 %>
+            </div>
+            <div class="field">
+              <%= f.label :descripcion, t('descr') %><br />
+              <%= f.text_area :descripcion, :size => "30x10", :maxlength => 250 %>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+     </div>
+    <div class="modal-footer">
+      <div class="actions"  align=right >
+        <input id="crear_tipo_artefacto"  class="btn primary"  name="commit" type="submit" value="<%= t('btnCrear')%>" />
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar')%></button>
+      </div>
+    </div>
+    <% end %>
+  </div>
+<%end%>
+
+
+

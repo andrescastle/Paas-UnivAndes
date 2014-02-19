@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tarea:</b>
+  <%= @tarea_aprobacion.tarea_id %>
+</p>
+
+<p>
+  <b>Aprobado:</b>
+  <%= @tarea_aprobacion.aprobado %>
+</p>
+
+<p>
+  <b>Comentario:</b>
+  <%= @tarea_aprobacion.comentario %>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @tarea_aprobacion.usuario_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_tarea_aprobacion_path(@tarea_aprobacion) %> |
+<%= link_to 'Back', tarea_aprobacions_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  tipo_producto: 
+  fcreado: 2012-06-01
+  descripcion: MyString
+
+two:
+  nombre: MyString
+  tipo_producto: 
+  fcreado: 2012-06-01
+  descripcion: MyString

@@ -1,0 +1,88 @@
+<script>
+    $(document).ready(function() {
+            $('#windowTitleDialo').bind('show', function () {
+                    document.getElementById ("xlInput").value = document.title;
+                    });
+            });
+    function closeDialog () {
+            $('#windowTitleDialog').modal('hide');
+            };
+    function okClicked () {
+            document.title = document.getElementById ("xlInput").value;
+            closeDialog ();
+            };
+
+    $("#proceso_tipo_plantilla").jCombo("../../procesos/getTipoPlantilla/all");
+
+    $("#plantilla").jCombo("../../procesos/getdata/", { parent: "#proceso_tipo_plantilla" });
+
+ </script>
+
+
+<% content_for :modal do %>
+   <div id="editarProyecto" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+          <a href="#" class="close">&times;</a>
+          <h3>Editar información de proyecto.</h3>
+      </div>
+
+      <div class="modal-body">
+         <div class="row-fluid">
+           <%= form_for(@proyecto, :html=> {:multipart=>true}) do |f| %>
+            <% if @proyecto.errors.any? %>
+              <div id="error_explanation" class="alert alert-error">
+                <h2>Hay <%= pluralize(@proyecto.errors.count, "error") %>. No se puede crear el proyecto:</h2>
+
+                <ul>
+                <% @proyecto.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+                  <!-- Datos del proyecto
+                   ================================================== -->
+                  <div class="span2"  id="proyectos" ></div>
+                  <div class="span8"  id="proyectos" >
+
+                      <div class="field">
+                        <strong><%= f.label :nombre %></strong>
+                        <%= f.text_field :nombre %>
+                      </div>
+                      <br />
+                      <div class="field">
+                        <%= f.label :descripcion %>
+                        <%= f.text_area :descripcion, :size => "30x10" %>
+                      </div>
+
+         <input type="hidden" name="new_file[path]" value="<%= @current_url %>" />
+         <label for="new_file_data">Seleccione un ícono para el proyecto:</label>
+         <input type="file" name="new_file[file]" id="new_file_data" />
+
+
+
+                     <!-- <div class="field">
+                        <p>Seleccione un ícono para el proyecto
+                         <%= f.file_field :logo %></p>
+                      </div>-->
+
+
+
+
+                  </div>
+                  <div class="span2"  id="proyectos" ></div>
+
+</div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="actions"  align=right >
+
+           <input  class="btn primary"  name="commit" type="submit" value="Editar" />
+           <a href="#" class="btn secondary" onclick="closeDialog ();">Cancelar</a>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+<%end%>

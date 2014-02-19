@@ -1,0 +1,29 @@
+<h1>Listing tarea_revisions</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Tarea</th>
+    <th>Usuario</th>
+    <th>Comentario</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tarea_revisions.each do |tarea_revision| %>
+  <tr>
+    <td><%= tarea_revision.id %></td>
+    <td><%= tarea_revision.tarea_id %></td>
+    <td><%= tarea_revision.usuario_id %></td>
+    <td><%= tarea_revision.comentario %></td>
+    <td><%= link_to 'Show', tarea_revision %></td>
+    <td><%= link_to 'Edit', edit_tarea_revision_path(tarea_revision) %></td>
+    <td><%= link_to 'Destroy', tarea_revision, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tarea revision', new_tarea_revision_path %>

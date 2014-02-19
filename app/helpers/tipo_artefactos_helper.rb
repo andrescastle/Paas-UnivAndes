@@ -1,0 +1,2 @@
+module TipoArtefactosHelper
+end

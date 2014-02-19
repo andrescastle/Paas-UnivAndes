@@ -1,0 +1,33 @@
+<%= form_for(@compuerta_pre_desicion) do |f| %>
+  <% if @compuerta_pre_desicion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@compuerta_pre_desicion.errors.count, "error") %> prohibited this compuerta_pre_desicion from being saved:</h2>
+
+      <ul>
+      <% @compuerta_pre_desicion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :compuerta_id %><br />
+    <%= f.number_field :compuerta_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ruta_id %><br />
+    <%= f.number_field :ruta_id %>
+  </div>
+  <div class="field">
+    <%= f.label :elegida %><br />
+    <%= f.check_box :elegida %>
+  </div>
+  <div class="field">
+    <%= f.label :tarea_desicion_id %><br />
+    <%= f.number_field :tarea_desicion_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

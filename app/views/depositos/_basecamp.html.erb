@@ -1,0 +1,92 @@
+<script type="text/javascript">
+
+  $(document).ready(function(){
+
+      $(".import_basecamp").click(function(){
+          var id = this.id;
+          id = id.replace("import_button", "");
+          $("#basecamp_id").val(id);
+          $("#basecamp_proyecto").jCombo("../../basecamp/"+id+"/get_proyectos");   // aqui llama la ruta del controlador
+          $("#basecamp_search").text("");
+          $("#basecamp_progress").hide();
+          $("#basecamp_progress2").hide();
+          $( "#basecamp_found").empty();
+      });
+
+      $("#importar_basecamp").click(function(){
+          $("#basecamp_progress2").show();
+      });
+
+      $("#buscar_basecamp").click(function(){
+          $("#basecamp_search").text("searching...");
+          $("#basecamp_progress").show();
+          $( "#basecamp_found").empty();
+
+          var id=$("#basecamp_id").val();
+          var id_proyecto = $("#basecamp_proyecto").val();
+          var palabra_clave = $("#basecamp_palabra").val();
+          var url = "<%= request.protocol + request.host_with_port %>/basecamp/"+id+"/use?palabra_clave="+palabra_clave+"&proyecto_id="+id_proyecto;
+
+          $.getJSON(url, function(json){
+              var i = 0;
+              $.each( json, function( key, item ) {
+                    var img = "<img width='100px' height='100px' src='"+ item.url.substring(item.url.indexOf('_iconoes_') + 9, item.url.length) +"' />";
+                    var input = "<input type='checkbox' id='artefactos[]' name='artefactos[]' value='"+ item.url.substring(0, item.url.indexOf('_iconoes_')) +"' class='check_artefacto'/>";
+                  var label = "<label class='nombre_artefacto'>" + item.name + "</label>";
+                  var link = "<a href='#'></a>";
+                  var div = "<div style='display: inline-block;'>" + img + input + '<br/>' + label + link +  "</div>"
+                  $( "#basecamp_found").append(div);
+                  i++;
+              });
+
+              $("#basecamp_search").text(i + " <%= t('elements_founds') %>");
+              $("#basecamp_progress").hide();
+          });
+      });
+  });
+</script>
+
+<form id="basecamp_form" name="basecamp_form" method="get" action="<%= request.protocol + request.host_with_port %>/basecamp/import">
+
+<div id="import_basecamp" class="modal hide fade asociaciones" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3><%= t('.importar')%></h3>
+  </div>
+
+  <div class="modal-body">
+    <div class="row-fluid">
+      <div class="field">
+        <label><%= t('.proyecto') %></label>
+        <select id="basecamp_proyecto" name="basecamp_proyecto" >
+          <option><%= t('.cargando') %>...</option>
+
+        </select>
+      </div>
+      <div class="field">
+        <input type="hidden" id="basecamp_id" name="basecamp_id" value="">
+        <label><%= t('.palabra_clave') %></label>
+        <input type="text" name="basecamp_palabra" id="basecamp_palabra" value="">
+        <input type="button" name="buscar_basecamp" id="buscar_basecamp" value="<%= t('buscar')%>"  class="btn find_artefacto">
+      </div>
+
+      <div class="field">
+        <div id="basecamp_found"></div>
+      </div>
+      <div class="field">
+        <label id="basecamp_search" name="basecamp_search"></label>
+        <img id="basecamp_progress" name="basecamp_progress" src="images/progressbar.gif" hidden="true" />
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="actions"  align="right">
+      <img id="basecamp_progress2" name="basecamp_progress2" src="images/progressbar.gif" hidden="true" />
+      <br/>
+      <input id="importar_basecamp" class="btn primary"  name="commit" type="submit" value=" <%= t('.importar')%>" />
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('btnCancelar') %></button>
+    </div>
+  </div>
+</div>
+
+</form>

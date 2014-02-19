@@ -1,0 +1,12 @@
+<%
+params = {}
+if(@id_plantilla)
+    params = get_children_for_root(@all_ous,@id_plantilla)
+else
+    params = get_children_for_root(@all_ous,@id_proceso)
+end
+%>
+<%=
+params.to_json.html_safe
+
+%>

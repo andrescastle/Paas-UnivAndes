@@ -1,0 +1,370 @@
+<% proyecto = Proyecto.find(params[:id]) %>
+
+<script>
+    $(document).ready(function() {
+             $("#archivosTabla").tablesorter({ headers: { 0:{sorter: false}}})
+              .tablesorterPager({container: $("#pager"),positionFixed: false, size: 5});
+
+            $('#editarArchivo').bind('show', function () {
+                    document.getElementById ("xlInput").value = document.title;
+                    });
+            });
+    function closeDialog () {
+            $('#editarArchivo').modal('hide');
+            $('#editarProyecto').modal('hide');
+            };
+    function okClicked () {
+            document.title = document.getElementById ("xlInput").value;
+
+            closeDialog ();
+            };
+
+
+            jQuery(function() {
+  ('div.btn-group[data-toggle-name=*]').each(function(){
+    var group   = $(this);
+    var form    = group.parents('form').eq(0);
+    var name    = group.attr('data-toggle-name');
+    var hidden  = $('input[name="' + name + '"]', form);
+    ('button', group).each(function(){
+      var button = $(this);
+      button.live('click', function(){
+          hidden.val($(this).val());
+      });
+      if(button.val() == hidden.val()) {
+        button.addClass('active');
+      }
+    });
+  });
+});
+ </script>
+
+
+
+
+
+<div class="page-header">
+<div class="row-fluid">
+
+  <!-- Inicio
+  ================================================== -->
+  <div class="span2" style="cursor:move;"  id="menu" >
+
+  </div> <!--Cierra Spand2-->
+
+  <!-- Barra de menús
+  ================================================== -->
+  <div class="span10"  id="proyectos" >
+
+     <div class="btn-toolbar">
+        <div class="tooltip-demo">
+        <div class="btn-group">
+          <div class="pagination">
+            <ul>
+                <li><a data-controls-modal="editarProyecto"  data-backdrop="true" class="" href="<%=  edit_proyecto_path(proyecto)%> " rel="tooltip" title='<%= t('.editProy')%> '><img runat="server" src="/images/folder_edit.png"  /></a></li>
+                <li><a data-controls-modal="eliminarProyecto"  data-backdrop="true" class="" href="<%  proy_path(proyecto) %>" rel="tooltip" title='<%= t('.deleteProy')%> ' data-confirm="Está seguro de querer eliminar el proyecto?" data-method="delete" rel="nofollow" ><img runat="server" src="/images/trash_full.png"  /> </a></li>
+            
+            </ul>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <div class="pagination">
+            <ul>
+                  <li><a data-controls-modal="nuevoArchivo"  data-backdrop="true" class="" href="<%=new_archivo_path %>" rel="tooltip" title='<%= t('.newArch')%> '><img runat="server" src="/images/files2.png"  /></a></li>
+            </ul>
+          </div>
+      </div>
+        <div class="btn-group " id="flotante"  style="display:none;">
+          <% proyecto.archivos.each do |archivo| %>
+             <% if archivo.id==1 %>
+          <div class="pagination">
+              <ul>
+                <!-- <li><a class="" href="<%  archivo_path(archivo) %>" rel="tooltip" title="Ver proyecto"><img src="images/folder_downloads.png"  /></a></li>-->
+                <li><a data-controls-modal="editarArchivo"  data-backdrop="true" class="" href="<%=  edit_archivo_path(archivo)%> " rel="tooltip" title='<%= t('.editArch')%> '><img runat="server" src="/images/files_edit.png"  /></a></li>
+                <li><a data-controls-modal="eliminarArchivo"  data-backdrop="true" class="" href="<%  archivo_path(archivo) %>" rel="tooltip" title='<%= t('.deleteArch')%> ' data-confirm="Está seguro de querer desasociar el archivo?" data-method="delete" rel="nofollow" ><img runat="server" src="/images/button_cancel.png"  /> </a></li>
+                </ul>
+            </div>
+             <% end %>
+           <% end %>
+         </div><!-- /btn-group -->
+
+         <div class="btn-group pull-right">
+           <div class="pagination">
+            <ul>
+                <li><a class="" href="#" rel="tooltip" title='<%= t('.config')%> ' ><img runat="server" src="/images/folder_app2.png"  /></a></li>
+            </ul>
+           </div>
+         </div>
+         <div class="btn-group pull-right">
+           <ul>
+            <a class="" style=" height: 36px; margin: 18px 0; float: left;
+                  padding: 0 14px;
+                  line-height: 34px;
+                  text-decoration: none;
+                  border: 1px solid #ddd;
+                  border-left-width: 1;"data-toggle="dropdown" rel="tooltip" title='<%= t('.orderby')%> '><img runat="server" src="/images/mail.png"  /> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            <li><a href="#"><%= t('.orderby1')%> </a></li>
+            <li><a href="#"><%= t('.orderby2')%> </a></li>
+            </ul>
+         </ul>
+        </div><!-- /btn-group -->
+
+         <div class="btn-group pull-right" data-toggle="buttons-radio" data-toggle-name="is_private">
+           <button class="" value="0"  style=" height: 36px; margin: 18px 0; float: left;
+                  padding: 0 14px;
+                  line-height: 34px;
+                  text-decoration: none;
+                  border: 1px solid #ddd;
+                  border-left-width: 1;" href="#" rel="tooltip" title='<%= t('.viewList')%> '><img runat="server" src="/images/files_text.png"  /></button>
+           <button class="" value="1"  style=" height: 36px; margin: 18px 0; float: left;
+                  padding: 0 14px;
+                  line-height: 34px;
+                  text-decoration: none;
+                  border: 1px solid #ddd;
+                  border-left-width: 1;" href="#" rel="tooltip" title='<%= t('.viewSharp')%> '><img runat="server" src="/images/desktop.png"  /></button>
+           
+
+        </div>
+        <input type="hidden" name="is_private" value="0" />
+        <div class="btn-group pull-right ">
+             <div class="pagination">
+              <div id="pager" class="pager">
+              <form>
+                        <img runat="server" src="/images/first.png" class="first"/>
+                        <img runat="server" src="/images/prev.png" class="prev"/>
+                        <input type="text" class="pagedisplay" style=" width: 40px;" />
+                        <img runat="server" src="/images/next.png" class="next"/>
+                        <img runat="server" src="/images/last.png" class="last"/>
+                        <select class="pagesize" style=" width: 50px;">
+                            <option selected="selected"  value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="3">30</option>
+                            <option  value="40">40</option>
+                       </select>
+
+                </form>
+               </div>
+            </div>
+           </div>
+<div id="flotante"  style="display:none;">
+  </div>
+         </div>
+</div>
+</div>
+  </div>
+  </div>
+
+<!-- Contenido
+================================================== -->
+<div class="row-fluid">
+
+<!-- Menús de filtros
+================================================== -->
+<div class="span2" id="menu" >
+  <form class="navbar-search pull-center" action="">
+    <input type="text" class="search-query span10" placeholder='<%= t('.search')%> '></input>
+  </form>
+  <br />
+   <br />
+    <br />
+  <ul class="nav nav-list">
+
+  <li class="nav-header">
+    <%= t('.typeArch')%>
+  </li>
+  <% @tipo_archivos.each do |tipo_archivo| %>
+   <li >
+      <input type="checkbox" name="'filtro'" value="ON"  />  <%= tipo_archivo.nombre %>
+   </li>
+  <% end %>
+</ul>
+
+</div> <!--Cierra Spand2-->
+
+<!-- Contenido
+================================================== -->
+<div class="span10" id="archivos" >
+  <h1><%= proyecto.nombre %> <small> <%= proyecto.descripcion %></small></h1><br />
+  <table id="archivosTabla" class="table table-bordered table-striped tablesorter" >
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= t('.nameArch')%></th>
+        <th><%= t('.descrArch')%></th>
+        <th><%= t('.dateArch')%></th>
+        <th><%= t('.depArch')%></th>
+
+      </tr>
+    </thead>
+    <tbody>
+    <% proyecto.archivos.each do |archivo| %>
+      <tr id="<%= proyecto.id %>Archivo<%= archivo.id %>">
+        <td><input type="checkbox" name="'<%= archivo.id %>'" value="ON" onclick=doIt(1,this,this.form) /></td>
+
+
+        <td><img runat="server" src= "/images/<%= archivo.tipo_archivo.logo %>"  /> <%= link_to archivo.nombre, archivo_path(archivo) %></td>
+       
+        <td><%= archivo.descripcion %></td>
+        <td><%= archivo.fcreado %></td>
+        <td><%= archivo.deposito.nombre %></td>
+
+      </tr>
+    <% end %>
+      </tbody>
+    </table>
+</div>
+<br /><br /><br /><br />
+<div class="divDemoBody">
+    <div id="nuevoArchivo" class="modal hide fade " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+          <a href="#" class="close">&times;</a>
+          <h3>Asociar nuevo archivo.</h3>
+      </div>
+
+      <div class="modal-body">
+         <div class="row-fluid">
+           <%= form_for(@archivo) do |f| %>
+            <% if @archivo.errors.any? %>
+              <div id="error_explanation" class="alert alert-error">
+                <h2>Hay <%= pluralize(@archivo.errors.count, "error") %>. No se puede crear el archivo:</h2>
+
+                <ul>
+                <% @archivo.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+                  <!-- Datos del proyecto
+                   ================================================== -->
+                  <div class="span12"  id="proyectos" >
+
+                      <div class="field">
+                        <strong><%= f.label :nombre %></strong>
+                        <%= f.text_field :nombre %>
+                      </div>
+                      <br />
+                      <div class="field">
+                        <%= f.label :descripcion %>
+                        <%= f.text_area :descripcion, :size => "30x10" %>
+                      </div>
+
+          </div>
+
+</div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="actions"  align=right >
+
+           <input  class="btn primary"  name="commit" type="submit" value="Crear" />
+           <a href="#" class="btn secondary" onclick="closeDialog ();">Cancelar</a>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+
+
+<div id="editarArchivo" class="modal hide fade">
+    <div class="modal-header">
+            <a href="#" class="close">&times;</a>
+            <h3>Please enter a new title for this window.</h3>
+    </div>
+    <div class="modal-body">
+            <div class="divDialogElements">
+                    <input class="xlarge" id="xlInput" name="xlInput" type="text" />
+                    </div>
+     </div>
+    <div class="modal-footer">
+            <a href="#" class="btn primary" onclick="okClicked ();">OK</a>
+            <a href="#" class="btn secondary" onclick="closeDialog ();">Cancel</a>
+    </div>
+</div>
+
+ <div id="editarProyecto" class="modal hide fade">
+    <% @proyecto = Proyecto.find(1) %>
+    <div class="modal-header">
+          <a href="#" class="close">&times;</a>
+          <h3>Editar información de proyecto.</h3>
+     </div>
+
+      <div class="modal-body">
+         <div class="row-fluid">
+           <%= form_for(@proyecto, :html=> {:multipart=>true}) do |f| %>
+            <% if @proyecto.errors.any? %>
+              <div id="error_explanation" class="alert alert-error">
+                <h2>Hay <%= pluralize(@proyecto.errors.count, "error") %>. No se puede crear el proyecto:</h2>
+
+                <ul>
+                <% @proyecto.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+                  <!-- Datos del proyecto
+                   ================================================== -->
+                  <div class="span2"  id="proyectos" ></div>
+                  <div class="span8"  id="proyectos" >
+
+                      <div class="field">
+                        <strong><%= f.label :nombre %></strong>
+                        <%= f.text_field :nombre %>
+                      </div>
+                      <br />
+                      <div class="field">
+                        <%= f.label :descripcion %>
+                        <%= f.text_area :descripcion, :size => "30x10" %>
+                      </div>
+
+         <input type="hidden" name="new_file[path]" value="<%= @current_url %>" />
+         <label for="new_file_data">Seleccione un ícono para el proyecto:</label>
+         <input type="file" name="new_file[file]" id="new_file_data" />
+
+
+
+                     <!-- <div class="field">
+                        <p>Seleccione un ícono para el proyecto
+                         <%= f.file_field :logo %></p>
+                      </div>-->
+
+
+
+
+                  </div>
+                  <div class="span2"  id="proyectos" ></div>
+
+</div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="actions"  align=right >
+
+           <input  class="btn primary"  name="commit" type="submit" value="Editar" />
+           <a href="#" class="btn secondary" onclick="closeDialog ();">Cancelar</a>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+
+  </div>
+ <!--
+ <script type="text/javascript">
+
+  new Draggable('proyectos', { scroll: window });
+
+
+  </script>
+
+ <script type="text/javascript">
+       new Sortable.create('accordion2');
+        new Draggable('archivos', { scroll: window });
+
+ </script>-->
+
+</div> <!--Cierra row de contenido -->
+

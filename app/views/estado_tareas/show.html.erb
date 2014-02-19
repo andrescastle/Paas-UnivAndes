@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tareas:</b>
+  <%= @estado_tarea.tareas %>
+</p>
+
+<p>
+  <b>Estado actividads:</b>
+  <%= @estado_tarea.estado_actividads %>
+</p>
+
+
+<%= link_to 'Edit', edit_estado_tarea_path(@estado_tarea) %> |
+<%= link_to 'Back', estado_tareas_path %>

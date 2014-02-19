@@ -1,0 +1,83 @@
+
+
+
+   <!--%= layout false %-->
+    <div id="layout_principal" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style=": 10px; top: 10px; right: 10px; ">
+      <div style="background-color: #F2F7FF" align="center">
+  <h1 style="text-align: center; color: #004ab3"><%= t('layouts.application.home') %> </h1>
+  <table style="width: 700px">
+   <tr>
+     <td style="text-align: justify;">
+
+       <h2>Que es David?</h2>
+       <p> DAVID es una iniciativa que surge como un apoyo a la industria de contenidos digitales en el país. Considerado un sector estratégico,
+         el gobierno busca competir con los contenidos generados a nivel internacional y para lograrlo se ha planteado dos objetivos:
+         buscar generar mas alianzas entre empresas y lograr que los asociados colaboren en el diseño e ingeniería de nuevos productos,
+         adaptando su modelos y sistemas de producción. Todo esto hace que la planificación de los proyectos sea más importante pero a la vez más compleja.
+       </p>
+       <p>
+         DAVID facilita esto, permitiendoles integrar, controlar y optimizar sus procesos de desarrollo, y asi como también
+         hacer seguimiento en la utilización de los recursos, los tiempos de desarrollo, las responsabilidades y los costos.
+         Mas información <a href="http://juegos.virtual.uniandes.edu.co/" target="_blank" style="color:#002a80"> aquí</a>
+       </p>
+        <!--h2>Demostración</h2>
+
+        <p>Escriba el login y contraseña de cualquiera de los siguientes usuarios para acceder</p>
+        <ul>
+          <li><b>usuario:</b> admin@oruga.com   </li>
+          <li><b>contraseña:</b> 12345678 </li>
+        </ul>
+       <ul>
+         <li><b>usuario:</b> admin@colombiagames.com   </li>
+         <li><b>contraseña:</b> 12345678 </li>
+       </ul>
+       <p>Todos los demas usuarios tienen contraseña: 12345678</p-->
+       <h2>David es Opensource</h2>
+       <p>Ayudenos a hacer esta inicativa cada vez mejor, visite nuestro repositorio en googlecode, donde encontrará mas información, reportar errores y recibir las ultimás noticias del proyecto. </p>
+       <a href="https://code.google.com/p/david-uniandes/" target="_blank" style="color: #003580"> code.google.com/p/david-uniandes</a>
+       <h2>Tutoriales</h2>
+       <p> Para aprender a usar la herramienta, puede hacer <a href="javascript:;">clic aquí</a> para ver el listado de videos tutoriales de la aplicación.
+       </p>
+     </td>
+     <td>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+     </td>
+       <td style="text-align: center">
+         <%= image_tag "/images/intro.jpg", :size=> "200x200" %>
+         <p style="font-size: smaller">Image courtesy of arztsamui - <a href="http://www.freedigitalphotos.net" target="_blank">FreeDigitalPhotos.net</a></p>
+
+    <%= form_for(resource, :as => resource_name, :url => user_session_url, html: {data: {ajax: false}}) do |f| %>
+  <!--%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %-->
+
+      <div><%= f.label :email, t('email') %>
+           <%= f.email_field :email, :autofocus => true %></div>
+
+      <div><%= f.label :password, t('password') %>
+        <%= f.password_field :password %></div>
+
+      <!--% if devise_mapping.rememberable? -%>
+          <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <!--% end %-->
+         <!--%= link_to "Forgot your password?", new_password_path(resource_name) %><br /-->
+         <!--%= render "devise/shared/links" %-->
+         <div><%= f.submit t('login') %></div>
+
+         <img src="/images/uniandes.png" alt=""> <br/><br/>
+         <img src="/images/logo_cg.jpg" alt="" width="146px" height="44px"><br/><br/>
+         <img src="/images/logo_or.jpg" alt="" width="146px" height="44px"><br/><br/>
+         <img src="/images/logo_qc.png" alt="" width="146px" height="44px"><br/><br/>
+         <img src="/images/logo_en.png" alt="" width="146px" height="44px"><br/><br/>
+
+         <% end %>
+
+     </td>
+    </tr>
+   </table>
+      </div>
+     </div>
+
+
+
+
+
+

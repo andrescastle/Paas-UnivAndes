@@ -1,0 +1,195 @@
+<%#
+# = Vista de edición de una actividad
+# Esta vista implementa el formulario de creación/edición de una actividad
+%>
+
+
+
+
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page" style="top:0px;" >
+
+  <div class="contents" id="ext-gen77" style="left: 0px; top: 0px;  " >
+
+    <%
+    @filtroTexto = t('.filtro')
+    @verListaTexto = t('viewList')
+    @verIconosTexto = t('viewSharp')
+
+    @nuevoBotonId = "nuevo_plantilla"
+    @nuevoBotonTexto = t('add')
+    @nuevoPath = actividads_path
+    @nuevoModal = "nuevaactividad"
+
+    @editarBotonId = "editar_actividad"
+    @editarBotonTexto = t('edit')
+    @editarPath = "#"
+    @editarModal = "editaractividad"
+
+    @eliminarBotonId = "eliminar_actividad"
+    @eliminarBotonTexto = t('delete')
+    @eliminarPath = "#"
+    @eliminarModal = "eliminaractividad"
+    @eliminarConfirm = "Está seguro de querer eliminar la actividad?"
+
+
+    @filtro = t('.filtro')
+    @limpiar= t('.limpiar')
+    @nuevo= t('.nuevo')
+    @actividadtexto = t('.actividad')
+    @actSimple= t('.actSimple')
+    @actMultiSeq= t('.actMultiSeq')
+    @actMultiPara= t('.actMultiPara')
+    @compuertatexto = t('.compuerta')
+    @compuerta_inclu= t('.compuerta_inclu')
+    @compuerta_exclu= t('.compuerta_exclu')
+    @compuerta_para= t('.compuerta_para')
+    @evento_inicio= t('.evento_inicio')
+    @evento_fin= t('.evento_fin')
+    @rename= t('.rename')
+    @remove= t('.remove')
+    @cut= t('.cut')
+    @copy= t('.copy')
+    @paste= t('.paste')
+    @editar= t('.editar')
+  %>
+    <!--%= render "shared/filtro_plantillas" %-->
+    <!--%= render "shared/menu_arbol" %-->
+    <!-- Formas de visualización en tabla o thumbnail,...-->
+    <div id="layout_principal1" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="background-color: #ffffee; left: 0px; top: 0px; ">
+
+
+      <div id="demo" class="demo"  style=" width: 100%; height: 100% "></div>
+
+      <!-- JavaScript neccessary for the tree -->
+      <script type="text/javascript" class="source below">
+        $(function () {
+              
+          $("#demo")
+          .bind("loaded.jstree", function (event, data) {
+            // you get two params - event & data - check the core docs for a detailed description
+            $(this).jstree("open_all");
+          })
+          .bind("before.jstree", function (e, data) {
+            $("#alog").append(data.func + "<br />");
+          })
+          .jstree({
+
+            // List of active plugins
+            "plugins" : [
+              "themes","html_data","ui","crrm","cookies","dnd","search","types","hotkeys"
+            ],
+
+            "html_data" : {
+                "data" : "<li id='Participantes' rel='root'>" +
+                        "   <a href='#'><%= t('participantes')%></a><ul>" +
+                        <% @tipos.each do |tipo| %>
+                        "   <li id=<%= tipo.id %> rel='tipo'>" +
+                        "    <a href='#'><%= tipo.nombre %></a>" +
+                        "   <ul>" +
+                        <% @usuarios =  Proyecto.find(@proyecto.id).usuarios.where(:tipo_recurso_id => tipo.id).all %>
+                        <% @usuarios.each do |usuario| %>
+                        "   <li idreal=<%= usuario.id %> rel='usuario'>" +
+                        "    <a id=<%= usuario.id %> href='#'><%= usuario.nombre %></a>" +
+                        "      </li>" +
+                        <% end %>
+                        "   </ul>"+
+                        "   </li>" +
+                        <% end %>
+                        "</ul></li>"
+            },
+            // Configuring the search plugin
+            "search" : {
+              "ajax" : {
+                "url" :  "/treedata.json",
+                "data" : function (str) {
+                  return {
+                    "operation" : "search",
+                    "search_str" : str
+                  };
+                }
+              }
+            },
+            "types" : {
+              "valid_children":["root"],
+              "types" : {
+                  "root" : {
+                     "icon" : {
+                     "image" : "/images/base.gif"
+                  }
+                },
+                // The default type
+                "tipo" : {
+                  "icon" : {
+                    "image" : "/images/users.png"
+                  }
+                },
+                "usuario" : {
+                  "icon" : {
+                    "image" : "/images/user.png"
+                  }
+                }
+              }
+            }
+          })
+          .bind("select_node.jstree", function (event, data) {
+            var selectedObj = data.rslt.obj;
+            if(selectedObj.attr("rel") == "usuario")
+              {
+                $("#frame_tareas").attr("src","<%= request.protocol + request.host_with_port %>/proyectos/<%= @proyecto.id %>/priorizarTareas/" + selectedObj.attr("idreal")+"?locale=<%= params[:locale]%>");
+              }
+              else
+              {
+                $("#frame_tareas").attr("src","<%= request.protocol + request.host_with_port %>/blank.html");
+              }
+          })
+          ;
+
+        });
+      </script>
+
+      <script type="text/javascript" class="source below">
+        // Code for the menu buttons
+        $(function () {
+          $("#mmenu input").click(function () {
+            switch(this.id) {
+              case "add_folder":
+                $("#demo").jstree("create", null, "last", { "attr" : { "rel" : this.value.toString().replace("add ", ""),"id" : (this.id) } });
+                break;
+              case "search":
+                $("#demo").jstree("search", document.getElementById("text").value);
+                break;
+              case "text": break;
+              default:
+                $("#demo").jstree(this.id);
+                break;
+            }
+          });
+        });
+      </script>
+
+
+      <script type="text/javascript" class="source below">
+        // Code for the menu buttons
+        $(function () {
+          $(".btn").click(function () {
+            switch(this.id) {
+              case "search":
+                $("#demo").jstree("search", document.getElementById("text").value);
+                break;
+              case "text": break;
+              default:
+                $("#demo").jstree(this.id);
+                break;
+            }
+          });
+          $(".crear").click(function () {
+            $("#demo").jstree("create", null, "last", { "attr" : { "rel" : this.id.toString().replace("add_", "") } });
+          });
+        });
+      </script>
+
+
+    </div>
+  </div>
+
+</div>

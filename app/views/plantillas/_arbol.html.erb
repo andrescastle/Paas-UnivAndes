@@ -1,0 +1,870 @@
+<%#
+# = Vista de edición de una actividad
+# Esta vista implementa el formulario de creación/edición de una actividad
+%>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $("#MySplitter1").splitter({
+            type: "v",
+            outline: true,
+            minLeft: 100, sizeLeft: 150, minRight: 100,
+            resizeToWidth: true,
+            resizeToHeight: true,
+            cookie: "vsplitter",
+            accessKey: 'H'
+        });
+    });
+
+</script>
+
+
+<div id="sgw_4_body" class="body sg_scroll_container sgw_entity_query_entity_query_page" style="top:0px;" >
+
+<div class="contents" id="ext-gen77" style="left: 0px; top: 0px;  " >
+
+<%
+   @filtroTexto = t('.filtro')
+   @verListaTexto = t('viewList')
+   @verIconosTexto = t('viewSharp')
+
+   @nuevoBotonId = "nuevo_plantilla"
+   @nuevoBotonTexto = t('add')
+   @nuevoPath = actividads_path
+   @nuevoModal = "nuevaactividad"
+
+   @editarBotonId = "editar_actividad"
+   @editarBotonTexto = t('edit')
+   @editarPath = "#"
+   @editarModal = "editaractividad"
+
+   @eliminarBotonId = "eliminar_actividad"
+   @eliminarBotonTexto = t('delete')
+   @eliminarPath = "#"
+   @eliminarModal = "eliminaractividad"
+   @eliminarConfirm = "Está seguro de querer eliminar la actividad?"
+
+
+   @filtro = t('.filtro')
+   @limpiar= t('.limpiar')
+   @nuevo= t('.nuevo')
+   @actividadtexto = t('.actividad')
+   @actSimple= t('.actSimple')
+   @actMultiSeq= t('.actMultiSeq')
+   @actMultiPara= t('.actMultiPara')
+   @compuertatexto = t('.compuerta')
+   @compuerta_inclu= t('.compuerta_inclu')
+   @compuerta_exclu= t('.compuerta_exclu')
+   @compuerta_para= t('.compuerta_para')
+   @evento_inicio= t('.evento_inicio')
+   @evento_fin= t('.evento_fin')
+   @rename= t('.rename')
+   @remove= t('.remove')
+   @cut= t('.cut')
+   @copy= t('.copy')
+   @paste= t('.paste')
+   @editar= t('.editar')
+%>
+<!--%= render "shared/filtro_plantillas" %-->
+<!--%= render "shared/menu_arbol" %-->
+<!-- Formas de visualización en tabla o thumbnail,...-->
+<div id="layout_principal1" class="sgw_new_grid sgw_entity_query_mode sg_scroll_container seltarget" style="left: 0px; top: 10px; ">
+
+
+<div id="demo" class="demo"  style=" width: 200%; height: 200% "></div>
+
+<!-- JavaScript neccessary for the tree -->
+<script type="text/javascript" class="source below">
+    $(function () {
+
+        $("#demo")
+                .bind("loaded.jstree", function (event, data) {
+                    // you get two params - event & data - check the core docs for a detailed description
+                    $(this).jstree("open_all");
+                })
+                .bind("before.jstree", function (e, data) {
+                    $("#alog").append(data.func + "<br />");
+                })
+                .jstree({
+                    // List of active plugins
+                    "plugins" : [
+                        "themes","json_data","ui","crrm","cookies","dnd","search","types","hotkeys","contextmenu"
+                    ],
+
+                    "json_data" : {
+                        "ajax" : {
+                            "url" : "/treedata.json",
+                            "data" : function (n) {
+                                return {
+                                    "operation" : "get_children",
+                                    "id" : n.attr ? n.attr("id").replace("node_","") : 1,
+                                    "real_id": n.attr ?  n.attr("realid") : 0,
+                                    "plantilla_id": n.attr ?  n.attr("plantilla_id") : <%= @plantilla.id %>
+                                };
+                            }
+                        }
+                    },
+                    // Configuring the search plugin
+                    "search" : {
+                        "ajax" : {
+                            "url" :  "/treedata.json",
+                            "data" : function (str) {
+                                return {
+                                    "operation" : "search",
+                                    "search_str" : str
+                                };
+                            }
+                        }
+                    },
+                    "types" : {
+                        "valid_children":["root"],
+                        "types" : {
+                            "root" : {
+                                "valid_children":["evento_inicio"],
+                                "icon" : {
+                                    "image" : "/images/base.gif"
+                                }
+                            },
+                            // The default type
+                            "tarea_simple" : {
+                                "valid_children":[""],
+                                "icon" : {
+                                    "image" : "/images/Tarea_simple_icono.png"
+                                }
+                            },
+                            "tarea_multi_seq" : {
+                                "valid_children":[""],
+                                "icon" : {
+                                    "image" : "/images/Tarea_multi_seq_icono1.png"
+                                }
+                            },
+                            "tarea_multi_para" : {
+                                "valid_children":[""],
+                                "icon" : {
+                                    "image" : "/images/Tarea_multi_para_icono1.png"
+                                }
+                            },
+                            // The `folder` type
+                            "compuerta_inclu" : {
+                                "valid_children":["ruta"],
+                                "icon" : {
+                                    "image" : "/images/compuerta_inclu_icono.png"
+                                }
+                            },
+                            "compuerta_exclu" : {
+                                "valid_children":["ruta"],
+                                "icon" : {
+                                    "image" : "/images/compuerta_icono.png"
+                                }
+                            },
+                            // The `drive` nodes
+                            "compuerta_para" : {
+                                "valid_children":["ruta"],
+                                "icon" : {
+                                    "image" : "/images/compuerta_para_icono.png"
+                                }
+                            },
+                            "evento_inicio" : {
+                                "valid_children":["evento_fin","evento_intermedio","compuerta_para","compuerta_exclu","compuerta_inclu","tarea_multi_para","tarea_multi_seq","tarea_simple"],
+                                "icon" : {
+                                    "image" : "/images/evento_inicio_icono.png"
+                                }
+                            },
+                            "evento_fin" : {
+                                "valid_children":[""],
+                                "icon" : {
+                                    "image" : "/images/evento_fin_icono.png"
+                                }
+                            },
+                            "evento_intermedio" : {
+                                "valid_children":["evento_fin","evento_intermedio","compuerta_para","compuerta_exclu","compuerta_inclu","tarea_multi_para","tarea_multi_seq","tarea_simple"],
+                                "icon" : {
+                                    "image" : "/images/evento_intermedio_icono.png"
+                                }
+                            }
+                            ,
+                            "ruta" : {
+                                "valid_children":["evento_fin","evento_intermedio","compuerta_para","compuerta_exclu","compuerta_inclu","tarea_multi_para","tarea_multi_seq","tarea_simple"],
+                                "icon" : {
+                                    "image" : "/images/bifurcacion_icono.png"
+                                }
+                            }
+                        }
+                    },
+                    "contextmenu" : {
+                        "items" : function customMenu(node) {
+
+                            // The default set of all items
+                            var items = {
+                                create : {
+                                    "separator_before"	: true,
+                                    "icon"                  :"/images/mail.png",
+                                    "separator_after"	: false,
+                                    "label"				: '<%= t('.nuevo')%> ',
+                                    "action"			: false,
+                                    "submenu" : {
+                                        actividad : {
+                                            "separator_before"	: false,
+                                            "separator_after"	: false,
+                                            "label"				: '<%= t('.actividad')%> ',
+                                            "action"			: false,
+                                            "submenu" : {
+                                                "simple" : {
+                                                    "separator_before"	: false,
+                                                    "separator_after"	: false,
+                                                    "icon"                :"/images/Tarea_simple_icono.png",
+                                                    "label"		: '<%= t('.actSimple')%> ',
+                                                    "action"		: function (obj) {
+                                                        this.create(obj, "last", {"attr" : {"rel" : "tarea_simple","parent_id" : node.attr("id"),"id":"NuevoNodo", "parent_type" : node.attr("rel") }}); }
+                                                },
+                                                "multi_seq" : {
+                                                    "separator_before"	: false,
+                                                    "icon"		: "/images/Tarea_multi_seq_icono1.png",
+                                                    "separator_after"	: false,
+                                                    "label"		: '<%= t('.actMultiSeq')%> ',
+                                                    "action"		: function (obj) { this.create(obj, "last", {"attr" : {"rel" : "tarea_multi_seq","parent_id" : node.attr("id"),"id":"NuevoNodo", "parent_type" : node.attr("rel") }}); }
+                                                },
+                                                "multi_para" : {
+                                                    "separator_before"	: false,
+                                                    "icon"		: "/images/Tarea_multi_para_icono1.png",
+                                                    "separator_after"	: false,
+                                                    "label"		: '<%= t('.actMultiPara')%> ',
+                                                    "action"		: function (obj) { this.create(obj, "last", {"attr" : {"rel" : "tarea_multi_para","parent_id" : node.attr("id"),"id":"NuevoNodo", "parent_type" : node.attr("rel") }}); }
+                                                }
+                                            }
+                                        },
+                                        compuerta : {
+                                            "separator_before"	: false,
+                                            "icon"			: false,
+                                            "separator_after"	: false,
+                                            "label"			: '<%= t('.compuerta')%> ',
+                                            "action"		: false,
+                                            "submenu" : {
+                                                "Inclu" : {
+                                                    "separator_before"	: false,
+                                                    "icon"                :"/images/compuerta_inclu_icono.png",
+                                                    "separator_after"	: false,
+                                                    "label"		:'<%= t('.compuerta_inclu')%> ',
+                                                    "action"		: function (obj) { this.create(obj, "last", {"attr" : {"rel" : "compuerta_inclu","id":"NuevoNodo"}}); }
+                                                },
+                                                "Exclu" : {
+                                                    "separator_before"	: false,
+                                                    "icon"		: "/images/compuerta_icono.png",
+                                                    "separator_after"	: false,
+                                                    "label"		: '<%= t('.compuerta_exclu')%> ',
+                                                    "action"		: function (obj) { this.create(obj, "last", {"attr" : {"rel" : "compuerta_exclu","id":"NuevoNodo"}}); }
+                                                },
+                                                "Para" : {
+                                                    "separator_before"	: false,
+                                                    "icon"		: "/images/compuerta_para_icono.png",
+                                                    "separator_after"	: false,
+                                                    "label"		: '<%= t('.compuerta_para')%> ',
+                                                    "action"		: function (obj) { this.create(obj, "last", {"attr" : {"rel" : "compuerta_para","id":"NuevoNodo"}}); }
+                                                }
+                                            }
+
+                                        }
+                                        ,
+                                        evento : {
+                                            "separator_before"	: false,
+                                            "separator_after"	: false,
+                                            "label"				: '<%= t('.evento')%> ',
+                                            "action"			: false,
+                                            "submenu" : {
+                                                /*  "inicio" : {
+                                                 "separator_before"	: false,
+                                                 "separator_after"	: false,
+                                                 "icon"                :"/images/evento_inicio_icono.png",
+                                                 "label"		: '<%= t('.evento_inicio')%> ',
+                                                 "action"		: function (obj) { this.create(obj, "last", {"attr" : {"rel" : "evento_inicio","parent_id" : node.attr("id"), "parent_type" : node.attr("rel") }}); }
+                                                 },*/
+                                                fin : {
+                                                    "separator_before"	: false,
+                                                    "icon"		: "/images/evento_fin_icono.png",
+                                                    "separator_after"	: false,
+                                                    "label"		: '<%= t('.evento_fin')%> ',
+                                                    "action"		: function (obj) { this.create(obj, "last", {"attr" : {"rel" : "evento_fin","parent_id" : node.attr("id"), "parent_type" : node.attr("rel"),"id":"NuevoNodo" }}); }
+                                                },
+                                                intermedio : {
+                                                    "separator_before"	: false,
+                                                    "icon"		: "/images/evento_intermedio_icono.png",
+                                                    "separator_after"	: false,
+                                                    "label"		: '<%= t('.evento_intermedio')%> ',
+                                                    "action"		: function (obj) { this.create(obj, "last", {"attr" : {"rel" : "evento_intermedio","parent_id" : node.attr("id"), "parent_type" : node.attr("rel"),"id":"NuevoNodo" }}); }
+                                                }
+                                            }
+                                        },
+                                        ruta : {
+                                            "separator_before"	: false,
+                                            "separator_after"	: false,
+                                            "icon"                  :"/images/bifurcacion_icono.png",
+                                            "label"				: '<%= t('.ruta')%> ',
+                                            "action"		: function (obj) { this.create(obj, "last", {"attr" : {"rel" : "ruta","parent_id" : node.attr("id"), "parent_type" : node.attr("rel"),"id":"NuevoNodo" }}); }
+                                        }
+                                    }
+                                },
+                                rename : {
+                                    "separator_before"	: false,
+                                    "separator_after"	: false,
+                                    "icon"                  :"/images/files_edit.png",
+                                    "label"				: '<%= t('.rename')%> ',
+                                    "action"			: function (obj) { this.rename(obj); }
+                                },
+                                remove : {
+                                    "separator_before"	: false,
+                                    "icon"			: "/images/trash.png",
+                                    "separator_after"	: false,
+                                    "label"			: '<%= t('.remove')%> ',
+                                    "action"		: function (obj) { if(this.is_selected(obj)) { this.remove(); } else { this.remove(obj); } }
+                                },
+                                ccp : {
+                                    "separator_before"	: true,
+                                    "icon"				: false,
+                                    "separator_after"	: false,
+                                    "label"				: '<%= t('.editar')%> ',
+                                    "action"			: false,
+                                    "submenu" : {
+                                        cut : {
+                                            "separator_before"	: false,
+                                            "separator_after"	: false,
+                                            "icon"                  :"/images/tijeras.png",
+                                            "label"				: '<%= t('.cut')%> ',
+                                            "action"			: function (obj) { this.cut(obj); }
+                                        },
+                                        copy : {
+                                            "separator_before"	: false,
+                                            "icon"			: "/images/copiar1.png",
+                                            "separator_after"	: false,
+                                            "label"				: '<%= t('.copy')%> ',
+                                            "action"			: function (obj) { this.copy(obj); }
+                                        },
+                                        paste : {
+                                            "separator_before"	: false,
+                                            "icon"			: "/images/pegar1.png",
+                                            "separator_after"	: false,
+                                            "label"				: '<%= t('.paste')%> ',
+                                            "action"			: function (obj) { this.paste(obj); }
+                                        }
+                                    }
+                                }
+                            };
+
+                            if ($(node).attr("rel") == "root") {
+                                // Delete the "delete" menu item
+                                // delete items.delete_item;
+                                // Disabling instead
+                                // items.shortcut._disabled = true;
+                                delete items.create
+                                delete items.ccp
+                            }
+                            else if ($(node).attr("rel") == "compuerta_para") {
+                                delete items.create.submenu.actividad;
+                                delete items.create.submenu.compuerta;
+                                delete items.create.submenu.evento;
+                            }
+                            else if ($(node).attr("rel") == "compuerta_inclu") {
+                                delete items.create.submenu.actividad;
+                                delete items.create.submenu.compuerta;
+                                delete items.create.submenu.evento;
+                            }
+                            else if ($(node).attr("rel") == "compuerta_exclu") {
+                                delete items.create.submenu.actividad;
+                                delete items.create.submenu.compuerta;
+                                delete items.create.submenu.evento;
+                            }
+                            else if ($(node).attr("rel") == "ruta") {
+                                delete items.create.submenu.ruta;
+                            }
+                            else if ($(node).attr("rel") == "evento_fin") {
+                                delete items.create
+
+                            }
+                            else if ($(node).attr("rel") == "tarea_simple"||$(node).attr("rel") == "tarea_multi_seq"||$(node).attr("rel") == "tarea_multi_para") {
+                                delete items.create
+
+                            }
+                            else if ($(node).attr("rel") == "evento_inicio"||$(node).attr("rel") == "evento_intermedio") {
+                                delete items.create.submenu.ruta;
+                            }
+
+                            return items;
+                        }
+                    }
+                })
+                .bind("select_node.jstree", function (event, data) {
+                    var selectedObj = data.rslt.obj;
+                    if(selectedObj.attr("rel") == "tarea_simple" ||
+                            selectedObj.attr("rel") == "tarea_multi_para" ||
+                            selectedObj.attr("rel") == "tarea_multi_seq")
+                    {
+                        $("#frame_actividad").attr("src","<%= request.protocol + request.host_with_port %>/actividads/" + selectedObj.attr("idreal") +  "/edit?locale=<%= params[:locale]%>");
+                    }
+                    else
+                    {
+                        $("#frame_actividad").attr("src","<%= request.protocol + request.host_with_port %>/blank.html");
+                    }
+                })
+                .bind("remove.jstree", function (e, data) {
+                    var tipo = data.rslt.obj.attr("rel");
+                    var nombre = data.rslt.new_name;
+                    var id_arbol = data.rslt.obj.attr("id");
+                    var id_comp = data.rslt.obj.attr("idreal");
+                    var controller = '';
+                    var action = 'remove';
+
+                    switch(tipo)
+                    {
+                        case 'tarea_simple':
+                            controller = 'actividads';
+                            break;
+                        case 'tarea_multi_seq':
+
+                            controller = 'actividads';
+                            break;
+                        case 'tarea_multi_para':
+
+                            controller = 'actividads';
+                            break;
+                        case 'compuerta_inclu':
+
+                            controller = 'compuertus';
+                            break;
+                        case 'compuerta_exclu':
+
+                            controller = 'compuertus';
+                            break;
+                        case 'compuerta_para':
+
+                            controller = 'compuertus';
+                            break;
+                        case 'evento_inicio':
+
+                            controller = 'eventos';
+                            break;
+                        case 'evento_fin':
+
+                            controller = 'eventos';
+                            break;
+                        case 'evento_intermedio':
+
+                            controller = 'eventos';
+                            break;
+                        case 'ruta':
+                            controller = 'ruta';
+                            break;
+                    }
+                    var formdata = null;
+
+                    switch(controller)
+                    {
+                        case 'actividads':
+                            formdata =
+                            {
+                                "nombre" : nombre,
+                                "nodo_id" : id_arbol
+                            }
+
+                            break;
+                        case 'compuertus':
+                            formdata =
+                            {
+                                "nombre" : nombre,
+                                "nodo_id" : id_arbol
+                            }
+                            break;
+                        case 'eventos':
+                            formdata =
+                            {
+                                "nombre" : nombre,
+                                "nodo_id" : id_arbol
+                            }
+                            break;
+                        case 'ruta':
+                            formdata =
+                            {
+                                "nombre" : nombre,
+                                "nodo_id" : id_arbol
+                            }
+                            break;
+                    }
+
+
+                    var url = '<%= request.protocol + request.host_with_port %>/' + controller+'/'+id_comp+'/destroy' ;
+                    $.ajax({
+                        url: url,
+                        data: formdata,
+                        cache: false,
+                        contentType: 'multipart/form-data',
+                        processData: true,
+                        type: 'POST',
+                        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                        success: function(data){
+
+                            if(data == "true"){}// alert("Nodo creado con éxito");
+                            else alert("No se pudo eliminar el nodo");
+                        }
+                    });
+                })
+                .bind("move_node.jstree", function (e, data) {
+                    data.rslt.o.each(function (i) {
+
+                        //Lo puse encima de:
+                        var tipo = data.rslt.r.attr("rel");
+                        var id = data.rslt.r.attr("id");
+                        var idParent = data.rslt.r.attr("idparent");
+                        var position =  data.rslt.r.attr("pos");
+
+                        //Datos del nodo movido
+                        var tipo1 = data.rslt.o.attr("rel");
+                        var id1 = data.rslt.o.attr("id");
+                        var idParent1 = data.rslt.o.attr("idparent");
+                        var position1 =  data.rslt.o.attr("pos");
+
+                        var parent=  data.rslt.cr.attr("id");
+                        var next=  data.rslt.or.attr("id");
+                        //var prev=  data.rslt.o.previousSibling.attr("id");
+
+                        var controller = 'my_js_trees';
+
+
+                        var formdata = null;
+
+                        formdata =
+                        {
+                            "parentID" : parent,
+                            "nodo_id" : id1,
+                            "nextID": next
+                        }
+
+                        var url = '<%= request.protocol + request.host_with_port %>/' + controller+'/'+id+'/updateParent' ;
+                        $.ajax({
+                            url: url,
+                            data: formdata,
+                            cache: false,
+                            contentType: 'multipart/form-data',
+                            processData: true,
+                            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                            type: 'POST',
+                            success: function(data){
+
+                                if(data == "true"){}// alert("Nodo creado con éxito");
+                                else alert("No se pudo actualizar el nodo");
+                            }
+
+                        });
+                    })
+                })
+                .bind("rename.jstree", function (e, data) {
+                    var tipo = data.rslt.obj.attr("rel");
+                    var nombre = data.rslt.new_name;
+                    var id_arbol = data.rslt.obj.attr("id");
+                    var id_comp = data.rslt.obj.attr("idreal");
+                    var controller = '';
+                    var action = 'update';
+
+                    switch(tipo)
+                    {
+                        case 'tarea_simple':
+                            controller = 'actividads';
+                            break;
+                        case 'tarea_multi_seq':
+
+                            controller = 'actividads';
+                            break;
+                        case 'tarea_multi_para':
+
+                            controller = 'actividads';
+                            break;
+                        case 'compuerta_inclu':
+
+                            controller = 'compuertus';
+                            break;
+                        case 'compuerta_exclu':
+
+                            controller = 'compuertus';
+                            break;
+                        case 'compuerta_para':
+
+                            controller = 'compuertus';
+                            break;
+                        case 'evento_inicio':
+
+                            controller = 'eventos';
+                            break;
+                        case 'evento_fin':
+
+                            controller = 'eventos';
+                            break;
+                        case 'evento_intermedio':
+
+                            controller = 'eventos';
+                            break;
+                        case 'ruta':
+
+                            controller = 'ruta';
+                            break;
+                    }
+                    var formdata = null;
+
+                    switch(controller)
+                    {
+                        case 'actividads':
+                            formdata =
+                            {
+                                //    "actividad[id]" : id_comp,
+                                "nombre" : nombre,
+                                "nodo_id" : id_arbol
+                            }
+
+                            break;
+                        case 'compuertus':
+                            formdata =
+                            {
+                                "nombre" : nombre,
+                                "nodo_id" : id_arbol
+                            }
+                            break;
+                        case 'eventos':
+                            formdata =
+                            {
+                                "nombre" : nombre,
+                                "nodo_id" : id_arbol
+                            }
+                            break;
+                        case 'ruta':
+                            formdata =
+                            {
+                                "nombre" : nombre,
+                                "nodo_id" : id_arbol
+                            }
+                            break;
+                    }
+
+
+                    var url = '<%= request.protocol + request.host_with_port %>/' + controller+'/'+id_comp+'/updateName' ;
+                    $.ajax({
+                        url: url,
+                        data: formdata,
+                        cache: false,
+                        contentType: 'multipart/form-data',
+                        processData: true,
+                        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                        type: 'POST',
+                        success: function(data){
+
+                            if(data == "true"){}// alert("Nodo creado con éxito");
+                            else alert("No se pudo actualizar el nodo");
+                        }
+                    });
+
+
+                })
+                .bind("create.jstree", function (e, data) {
+
+                    var parent_id=data.rslt.parent.attr('idparent');
+
+                    //if creating a root node
+                    var id = data.rslt.parent.attr('id');
+
+                    var action = 'create';
+                    var tipo = data.rslt.obj.attr("rel");
+                    var nombre = data.rslt.name;
+                    var modo_ejecucion = 0;
+                    var tipo_compuerta =  0;
+                    var tipo_evento =  0;
+                    var tipo_ruta =  0;
+                    var controller = '';
+                    var posicion = data.rslt.position;
+                    var plantilla_id=<%= @plantilla.id %>;
+
+                    //alert(tipo);
+                    switch(tipo)
+                    {
+                        case 'tarea_simple':
+                            modo_ejecucion = "1";
+                            controller = 'actividads';
+                            break;
+                        case 'tarea_multi_seq':
+                            modo_ejecucion = "2";
+                            controller = 'actividads';
+                            break;
+                        case 'tarea_multi_para':
+                            modo_ejecucion = "3";
+                            controller = 'actividads';
+                            break;
+                        case 'compuerta_inclu':
+                            tipo_compuerta = "1";
+                            controller = 'compuertus';
+                            break;
+                        case 'compuerta_exclu':
+                            tipo_compuerta = "2";
+                            controller = 'compuertus';
+                            break;
+                        case 'compuerta_para':
+                            tipo_compuerta = "3";
+                            controller = 'compuertus';
+                            break;
+                        case 'evento_inicio':
+                            tipo_evento = "1";
+                            controller = 'eventos';
+                            break;
+                        case 'evento_fin':
+                            tipo_evento = "2";
+                            controller = 'eventos';
+                            break;
+                        case 'evento_intermedio':
+                            tipo_evento = "3";
+                            controller = 'eventos';
+                            break;
+                        case 'ruta':
+                            tipo_evento = "1";
+                            controller = 'ruta';
+                            break;
+                    }
+
+                    var formdata = null;
+                    switch(controller)
+                    {
+                        case 'actividads':
+                            formdata =
+                            {
+                                "actividad[plantilla_id]" : plantilla_id,
+                                "actividad[nombre]" : nombre,
+                                "actividad[descripcion]" : "",
+                                "actividad[duracion]" : "1",
+                                "actividad[modoejecucion]" : modo_ejecucion,
+                                "nodo_padre" : id,
+                                "nodo_titulo" : nombre,
+                                "nodo_tipo" : tipo,
+                                "posicion": posicion
+                            }
+                            break;
+                        case 'compuertus':
+                            formdata =
+                            {
+                                "compuertu[plantilla_id]" :  plantilla_id,
+                                "compuertu[nombre]" : nombre,
+                                "compuertu[descripcion]" : "",
+                                "compuertu[tipo]" : tipo_compuerta,
+                                "compuertu[desicion]" :"1",
+                                "nodo_padre" : id,
+                                "nodo_titulo" : nombre,
+                                "nodo_tipo" : tipo,
+                                "posicion": posicion
+                            }
+                            break;
+                        case 'eventos':
+                            formdata =
+                            {
+                                "evento[plantilla_id]" : plantilla_id,
+                                "evento[nombre]" : nombre,
+                                "evento[descripcion]" : "",
+                                "evento[tipo]" : tipo_evento,
+                                "nodo_padre" : id,
+                                "nodo_titulo" : nombre,
+                                "nodo_tipo" : tipo,
+                                "posicion": posicion
+                            }
+                            break;
+                        case 'ruta':
+                            formdata =
+                            {
+                                "rutum[plantilla_id]" :  plantilla_id,
+                                "rutum[nombre]" : nombre,
+                                "rutum[descripcion]" : "",
+                                "rutum[tipo]" : tipo_evento,
+                                "nodo_padre" : id,
+                                "nodo_titulo" : nombre,
+                                "nodo_tipo" : tipo,
+                                "posicion": posicion
+                            }
+                            break;
+                    }
+
+                    var url = '<%= request.protocol + request.host_with_port %>/' + controller;
+                    $.ajax({
+                        url: url,
+                        data: formdata,
+                        cache: false,
+                        contentType: 'multipart/form-data',
+                        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                        processData: true,
+                        type: 'POST',
+                        error: function (xhr, status) {
+                            var e = document.getElementById("NuevoNodo");
+                            e.id = data;
+                            //   alert(status);
+                        },
+                        success: function(data){
+
+                            if(data == "false"){
+                                alert("No se pudo crear el nodo");
+
+                            }// alert("Nodo creado con éxito");
+                            else {
+                                //$("#NuevoNodo").setAttribute("id","<%= MyJsTree.last().id %>")
+                                // data.inst.refresh();
+                                var e = document.getElementById("NuevoNodo");
+                                e.id = data;//"<%= MyJsTree.last().id %>";
+                                //
+                                // data.inst.refresh();
+                            }
+                        }
+                    });
+
+                    $("#demo").jstree("refresh");
+                    /* "position" : data.rslt.position */
+
+                });
+
+    });
+</script>
+
+<script type="text/javascript" class="source below">
+    // Code for the menu buttons
+    $(function () {
+        $("#mmenu input").click(function () {
+            switch(this.id) {
+                case "add_folder":
+                    $("#demo").jstree("create", null, "last", { "attr" : { "rel" : this.value.toString().replace("add ", ""),"id" : (this.id) } });
+                    break;
+                case "search":
+                    $("#demo").jstree("search", document.getElementById("text").value);
+                    break;
+                case "text": break;
+                default:
+                    $("#demo").jstree(this.id);
+                    break;
+            }
+        });
+    });
+</script>
+
+
+<script type="text/javascript" class="source below">
+    // Code for the menu buttons
+    $(function () {
+        $(".btn").click(function () {
+            switch(this.id) {
+                case "search":
+                    $("#demo").jstree("search", document.getElementById("text").value);
+                    break;
+                case "text": break;
+                default:
+                    $("#demo").jstree(this.id);
+                    break;
+            }
+        });
+        $(".crear").click(function () {
+            $("#demo").jstree("create", null, "last", { "attr" : { "rel" : this.id.toString().replace("add_", "") } });
+        });
+    });
+</script>
+
+
+</div>
+</div>
+
+</div>

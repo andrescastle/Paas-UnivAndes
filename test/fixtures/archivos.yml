@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  tipo_archivo: 
+  fcreado: 2012-06-01
+  descripcion: MyString
+  deposito_proyecto: 
+
+two:
+  nombre: MyString
+  tipo_archivo: 
+  fcreado: 2012-06-01
+  descripcion: MyString
+  deposito_proyecto: 

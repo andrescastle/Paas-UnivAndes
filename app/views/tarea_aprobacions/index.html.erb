@@ -1,0 +1,29 @@
+<h1>Listing tarea_aprobacions</h1>
+
+<table>
+  <tr>
+    <th>Tarea</th>
+    <th>Aprobado</th>
+    <th>Comentario</th>
+    <th>Usuario</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tarea_aprobacions.each do |tarea_aprobacion| %>
+  <tr>
+    <td><%= tarea_aprobacion.tarea_id %></td>
+    <td><%= tarea_aprobacion.aprobado %></td>
+    <td><%= tarea_aprobacion.comentario %></td>
+    <td><%= tarea_aprobacion.usuario_id %></td>
+    <td><%= link_to 'Show', tarea_aprobacion %></td>
+    <td><%= link_to 'Edit', edit_tarea_aprobacion_path(tarea_aprobacion) %></td>
+    <td><%= link_to 'Destroy', tarea_aprobacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tarea aprobacion', new_tarea_aprobacion_path %>
